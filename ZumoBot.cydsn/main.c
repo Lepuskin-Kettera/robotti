@@ -241,25 +241,72 @@ int main()
             //CyDelay(50);
             
             
-                
-                if (dig.l1 == 0 && dig.r1 == 0) {
-                motor_forward(200 ,5);  
+                int decelerate;
+                int turn = 1;
+                int delay = 1;
+                int kerroin;
+            
+            
+                if (dig.l1 == 0 && dig.r1 == 0) { //forward
+                motor_forward(200 ,2);  
+                //decelerate = 100;
                 } 
                 
                 else if (dig.r1 == 1 && dig.l1 == 0) { //left
-                motor_turn(100,200,5);
+                //motor_turn(100,200,5);
+                decelerate = 200;
+                    kerroin = 1;
+                    while (turn == 1) {
+                        
+                        reflectance_read(&ref);
+                        //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print out each period of reflectance sensors
+                        reflectance_digital(&dig);      //print out 0 or 1 according to results of reflectance period
+                        //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
+                        printf("%i", decelerate);
+                        
+                        motor_turn(decelerate,200,delay);
+                        if (dig.l1 == 0 && dig.r1 == 0) {
+                             turn = 0;
+                        } else if (decelerate - kerroin < 0){
+                            decelerate = 0;
+                        } else {
+                            decelerate = decelerate - kerroin;
+                            kerroin++;
+                        }
+                    }
                 }
                 
+                
                 else if (dig.r1 == 0 && dig.l1 == 1) { //right
-                motor_turn(200,100,5);
+                //motor_turn(200,100,5);
+                decelerate = 200;
+                kerroin = 1;
+                while (turn == 1) {
+                    
+                        reflectance_read(&ref);
+                        //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print out each period of reflectance sensors
+                        reflectance_digital(&dig);      //print out 0 or 1 according to results of reflectance period
+                        //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
+                        printf("%i", decelerate);
+                        
+                        motor_turn(200,decelerate,delay);
+                        if (dig.l1 == 0 && dig.r1 == 0) {
+                             turn = 0;
+                        } else if (decelerate - kerroin < 0){
+                            decelerate = 0;
+                        } else {
+                            decelerate = decelerate - kerroin;
+                            kerroin++;
+                        }
+                    }
                 }
                 
                 /*
-                else if (dig.r3 == 0) { // right hard
+                else if (dig.r3 == 1 && dig.l3 == 0) { // right hard
                 motor_turn(200,0,5);
                 }
                 
-                else if (dig.l3 == 0) { // left hard
+                else if (dig.l3 == 1 && dig.r3 == 0) { // left hard
                 motor_turn(0,200,5);
                 }
                 */
