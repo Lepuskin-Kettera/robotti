@@ -234,16 +234,55 @@ int main()
             //motor_start();
             
             reflectance_read(&ref);
-            printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print out each period of reflectance sensors
+            //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print out each period of reflectance sensors
             reflectance_digital(&dig);      //print out 0 or 1 according to results of reflectance period
-            printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
+            //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
             
-            //CyDelay(50);
+            //CyDelay(500);
             
             
+        
+        double magicNum = 0.012624;
+            
+        double rightMotorRaw = ref.l1 * magicNum;
+        double leftMotorRaw = ref.r1 * magicNum;
+        
+            int leftMotor = (int) leftMotorRaw;
+            int rightMotor = (int) rightMotorRaw;
+            
+            
+        // motor speed can not exceed 255
+        if (leftMotor >= 255) {
+            leftMotor = 254;
+        }
+        
+        if (rightMotor >= 255) {
+            rightMotor = 254;
+        }
+        
+        
+        if (leftMotor < 25) {
+            rightMotor = 254;
+        }
+        
+        if (rightMotor < 25) {
+            leftMotor = 254;
+        }
+        
+        
+        motor_turn(leftMotor, rightMotor, 0);
+        //rightMotor = 255;
+        printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
+        
+        
+        
+        
+        
+        
+        /*
                 int decelerate;
                 int turn = 1;
-                int delay = 1;
+                int delay = 3;
                 int kerroin;
             
             
@@ -299,7 +338,7 @@ int main()
                             kerroin++;
                         }
                     }
-                }
+                }*/
                 
                 /*
                 else if (dig.r3 == 1 && dig.l3 == 0) { // right hard
