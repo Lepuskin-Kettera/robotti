@@ -248,6 +248,16 @@ int main()
         double infraR = ref.r1 - 3770;
         double infraL = ref.l1 - 3770;
         double magicNum = 0.012624;
+            
+            // TESTAUKSESSA
+            if(infraR < 10000) {
+                infraR = 0;
+            }
+            
+            // TESTAUKSESSA
+             if(infraL < 10000) {
+                infraL = 0;
+            }
         
         // Magicnumber for White/Left
         //double magicNumL = ref.r1 - 3880;
@@ -264,7 +274,6 @@ int main()
             int leftMotor;
             int rightMotor;
             
-            // USE THESE WHEN SIDE CHEKCING DOES NOT WORK!
             // criss cross
             leftMotor=rightMotorCheck;
             rightMotor=leftMotorCheck;
@@ -278,6 +287,12 @@ int main()
         
         if (rightMotor < 25) {
             leftMotor = 254;
+        }
+        
+        // TEST --- MOTORS WONT STOP... LIKE EVER.
+        if (leftMotor == rightMotor) {
+            leftMotor = 254;
+            rightMotor = 254;
         }
         
         // motor speed can not exceed 255
@@ -296,7 +311,6 @@ int main()
         if (leftMotor <= 1) {
             leftMotor = 0;
         }
-        
         
         // DRIVE
         motor_turn(leftMotor, rightMotor, 0);
