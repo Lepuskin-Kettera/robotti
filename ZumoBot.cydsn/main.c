@@ -41,6 +41,7 @@
 #include "IR.h"
 #include "Ambient.h"
 #include "Beep.h"
+#include "math.h"
 
 int rread(void);
 
@@ -240,16 +241,18 @@ int main()
             
             //CyDelay(500);
             
+            //right magicnum 0.012624
+            //left magicnum -0.012606
             
         // Magicnumber for Black/Right
-        double magicNumR = 0.012624 * (ref.l1 - 3770);
+        double magicNumR = ref.l1 - 3770;
         
         // Magicnumber for White/Left
-        double magicNumL = -0.012606 * (ref.r1 - 3880);
+        double magicNumL = ref.r1 - 3880;
         
         // Calculate motorspeeds
-        double rightMotorRaw = ref.l1 * magicNumR;
-        double leftMotorRaw = ref.r1 * magicNumL;
+        double rightMotorRaw = 0.012624 * magicNumR;
+        double leftMotorRaw = -0.012606 * magicNumL;
         
             // Convert speeds to int
             int leftMotorCheck = (int) leftMotorRaw;
