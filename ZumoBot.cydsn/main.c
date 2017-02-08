@@ -245,14 +245,16 @@ int main()
             //left magicnum -0.012606
             
         // Magicnumber for Black/Right
-        double magicNumR = ref.l1 - 3770;
+        double infraR = ref.l1 - 3770;
+        double infraL = ref.r1 - 3880;
+        double magicNum = 0.012624;
         
         // Magicnumber for White/Left
-        double magicNumL = ref.r1 - 3880;
+        //double magicNumL = ref.r1 - 3880;
         
         // Calculate motorspeeds
-        double rightMotorRaw = 0.012624 * magicNumR;
-        double leftMotorRaw = -0.012606 * magicNumL;
+        double rightMotorRaw = magicNum * infraR;
+        double leftMotorRaw = magicNum * infraL;
         
             // Convert speeds to int
             int leftMotorCheck = (int) leftMotorRaw;
