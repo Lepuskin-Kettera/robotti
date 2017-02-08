@@ -241,16 +241,34 @@ int main()
             //CyDelay(500);
             
             
+        // Magicnumber for Black/Right
+        double magicNumR = 0.012624;
         
-        double magicNum = 0.012624;
-            
-        double rightMotorRaw = ref.l1 * magicNum;
-        double leftMotorRaw = ref.r1 * magicNum;
+        // Magicnumber for White/Left
+        double magicNumL = -0.012606;
         
-            int leftMotor = (int) leftMotorRaw;
-            int rightMotor = (int) rightMotorRaw;
+        // Calculate motorspeeds
+        double rightMotorRaw = ref.l1 * magicNumR;
+        double leftMotorRaw = ref.r1 * magicNumL;
+        
+            // Convert speeds to int
+            int leftMotorCheck = (int) leftMotorRaw;
+            int rightMotorCheck = (int) rightMotorRaw;
             
+            // Final speed variables
+            int leftMotor;
+            int rightMotor;
             
+        
+        // Check side of the line
+        if(ref.l1 > ref.r1) {
+           leftMotor = rightMotorCheck;
+           rightMotor = leftMotorCheck; 
+        } else {
+            leftMotorCheck = leftMotor;
+            rightMotorCheck = rightMotor;
+        }
+        
         // motor speed can not exceed 255
         if (leftMotor >= 255) {
             leftMotor = 254;
@@ -261,6 +279,7 @@ int main()
         }
         
         
+        // Hard turn
         if (leftMotor < 25) {
             rightMotor = 254;
         }
@@ -270,8 +289,8 @@ int main()
         }
         
         
+        
         motor_turn(leftMotor, rightMotor, 0);
-        //rightMotor = 255;
         printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
         
         
