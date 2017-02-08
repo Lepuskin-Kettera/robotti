@@ -245,8 +245,8 @@ int main()
             //left magicnum -0.012606
             
         // Magicnumber for Black/Right
-        double infraR = ref.l1 - 3770;
-        double infraL = ref.r1 - 3880;
+        double infraR = ref.r1 - 3770;
+        double infraL = ref.l1 - 3770;
         double magicNum = 0.012624;
         
         // Magicnumber for White/Left
@@ -270,26 +270,7 @@ int main()
             rightMotor=leftMotorCheck;
             
         
-
         
-        // motor speed can not exceed 255
-        if (leftMotor >= 255) {
-            leftMotor = 254;
-        }
-        
-        if (rightMotor <= 1) {
-            rightMotor = 0;
-        }
-        
-        if (rightMotor >= 255) {
-            rightMotor = 254;
-        }
-        
-        if (leftMotor <= 1) {
-            leftMotor = 0;
-        }
-        
-        /*
         // Hard turn
         if (leftMotor < 25) {
             rightMotor = 254;
@@ -298,7 +279,24 @@ int main()
         if (rightMotor < 25) {
             leftMotor = 254;
         }
-        */
+        
+        // motor speed can not exceed 255
+        if (leftMotor >= 100) {
+            leftMotor = 100;
+        }
+        
+        if (rightMotor <= 1) {
+            rightMotor = 0;
+        }
+        
+        if (rightMotor >= 100) {
+            rightMotor = 100;
+        }
+        
+        if (leftMotor <= 1) {
+            leftMotor = 0;
+        }
+        
         
         // DRIVE
         motor_turn(leftMotor, rightMotor, 0);
