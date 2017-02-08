@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
   38 0004 0446     		mov	r4, r0
   18:ZumoLibrary/I2C_made.c ****     uint8 write_buf[2] = {};
   19:ZumoLibrary/I2C_made.c ****     write_buf[0] = Reg;                //register address that you want to write
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 2
 
 
   39              		.loc 1 19 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
   75              		.loc 1 37 0
   76              		.cfi_startproc
   77              		@ args = 0, pretend = 0, frame = 8
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 3
 
 
   78              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  120              	.LVL10:
   50:ZumoLibrary/I2C_made.c ****     I2C_MasterReadBuf(device_addr, read_buf, 1, I2C_MODE_COMPLETE_XFER);
  121              		.loc 1 50 0
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 4
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 4
 
 
  122 003a 2046     		mov	r0, r4
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  157              		.loc 1 69 0
  158 0000 40EA0120 		orr	r0, r0, r1, lsl #8
  159              	.LVL14:
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 5
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 5
 
 
  160 0004 7047     		bx	lr
@@ -247,8 +247,8 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  163              		.size	convert_raw, .-convert_raw
  164 0006 00BF     		.text
  165              	.Letext0:
- 166              		.file 2 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
- 167              		.file 3 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+ 166              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 167              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
  168              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
  169              		.file 5 "Generated_Source\\PSoC5/I2C.h"
  170              		.file 6 "Generated_Source\\PSoC5/CyLib.h"
@@ -262,8 +262,8 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  178 000b 01       		.uleb128 0x1
  179 000c E2000000 		.4byte	.LASF29
  180 0010 01       		.byte	0x1
- 181 0011 D2010000 		.4byte	.LASF30
- 182 0015 F8010000 		.4byte	.LASF31
+ 181 0011 0F020000 		.4byte	.LASF30
+ 182 0015 D2010000 		.4byte	.LASF31
  183 0019 00000000 		.4byte	.Ldebug_ranges0+0
  184 001d 00000000 		.4byte	0
  185 0021 00000000 		.4byte	.Ldebug_line0
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  214 0056 87000000 		.4byte	.LASF5
  215 005a 02       		.uleb128 0x2
  216 005b 08       		.byte	0x8
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 6
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 6
 
 
  217 005c 05       		.byte	0x5
@@ -321,7 +321,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  234 007c 2C       		.byte	0x2c
  235 007d 41000000 		.4byte	0x41
  236 0081 05       		.uleb128 0x5
- 237 0082 F2010000 		.4byte	.LASF11
+ 237 0082 2F020000 		.4byte	.LASF11
  238 0086 04       		.byte	0x4
  239 0087 9201     		.2byte	0x192
  240 0089 2C000000 		.4byte	0x2c
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  271 00c9 A5010000 		.4byte	.LASF18
  272 00cd 06       		.uleb128 0x6
  273 00ce 1C000000 		.4byte	.LASF32
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 7
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 7
 
 
  274 00d2 01       		.byte	0x1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  328 0141 91       		.byte	0x91
  329 0142 74       		.sleb128 -12
  330 0143 0C       		.uleb128 0xc
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 8
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 8
 
 
  331 0144 01       		.uleb128 0x1
@@ -439,7 +439,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  346 0162 01       		.byte	0x1
  347 0163 00       		.byte	0
  348 0164 0F       		.uleb128 0xf
- 349 0165 E9010000 		.4byte	.LASF23
+ 349 0165 26020000 		.4byte	.LASF23
  350 0169 01       		.byte	0x1
  351 016a 24       		.byte	0x24
  352 016b 81000000 		.4byte	0x81
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  385 01b6 68       		.sleb128 -24
  386 01b7 0A       		.uleb128 0xa
  387 01b8 14000000 		.4byte	.LVL5
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 9
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 9
 
 
  388 01bc B0020000 		.4byte	0x2b0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  442 0216 0A       		.uleb128 0xa
  443 0217 3A000000 		.4byte	.LVL10
  444 021b B0020000 		.4byte	0x2b0
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 10
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 10
 
 
  445 021f 0B       		.uleb128 0xb
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  499 0280 A5000000 		.4byte	.LLST5
  500 0284 10       		.uleb128 0x10
  501 0285 4800     		.ascii	"H\000"
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 11
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 11
 
 
  502 0287 01       		.byte	0x1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  556 0300 00       		.byte	0
  557 0301 19       		.uleb128 0x19
  558 0302 3C000000 		.4byte	.LASF28
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 12
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 12
 
 
  559 0306 05       		.byte	0x5
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  613 0027 49       		.uleb128 0x49
  614 0028 13       		.uleb128 0x13
  615 0029 00       		.byte	0
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 13
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 13
 
 
  616 002a 00       		.byte	0
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  670 0061 0E       		.uleb128 0xe
  671 0062 3A       		.uleb128 0x3a
  672 0063 0B       		.uleb128 0xb
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 14
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 14
 
 
  673 0064 3B       		.uleb128 0x3b
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  727 009e 01       		.uleb128 0x1
  728 009f 13       		.uleb128 0x13
  729 00a0 00       		.byte	0
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 15
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 15
 
 
  730 00a1 00       		.byte	0
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  784 00db 00       		.byte	0
  785 00dc 10       		.uleb128 0x10
  786 00dd 05       		.uleb128 0x5
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 16
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 16
 
 
  787 00de 00       		.byte	0
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  841 0114 00       		.byte	0
  842 0115 3F       		.uleb128 0x3f
  843 0116 19       		.uleb128 0x19
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 17
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 17
 
 
  844 0117 03       		.uleb128 0x3
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  898 014d 3F       		.uleb128 0x3f
  899 014e 19       		.uleb128 0x19
  900 014f 03       		.uleb128 0x3
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 18
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 18
 
 
  901 0150 0E       		.uleb128 0xe
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  955 002c 11000000 		.4byte	.LVL1-1
  956 0030 2C000000 		.4byte	.LFE63
  957 0034 0400     		.2byte	0x4
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 19
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 19
 
 
  958 0036 F3       		.byte	0xf3
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  1012 00b4 06000000 		.4byte	.LFE65
  1013 00b8 0400     		.2byte	0x4
  1014 00ba F3       		.byte	0xf3
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 20
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 20
 
 
  1015 00bb 01       		.uleb128 0x1
@@ -1188,8 +1188,8 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  1059 001c 00000000 		.4byte	0
  1060              		.section	.debug_line,"",%progbits
  1061              	.Ldebug_line0:
- 1062 0000 B1010000 		.section	.debug_str,"MS",%progbits,1
- 1062      02005F01 
+ 1062 0000 BD010000 		.section	.debug_str,"MS",%progbits,1
+ 1062      02006B01 
  1062      00000201 
  1062      FB0E0D00 
  1062      01010101 
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  1064      63655F61 
  1064      64647200 
  1065              	.LASF20:
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 21
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 21
 
 
  1066 000c 76616C75 		.ascii	"value\000"
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  1088      6E7400
  1089              	.LASF33:
  1090 00ac 49544D5F 		.ascii	"ITM_RxBuffer\000"
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 22
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 22
 
 
  1090      52784275 
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  1113              	.LASF18:
  1114 01a5 73697A65 		.ascii	"sizetype\000"
  1114      74797065 
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 23
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccdDXmyZ.s 			page 23
 
 
  1114      00
@@ -1336,29 +1336,29 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccEqoJVA.s 			page 1
  1120      65725374 
  1120      61747573 
  1120      00
- 1121              	.LASF30:
- 1122 01d2 5A756D6F 		.ascii	"ZumoLibrary\\I2C_made.c\000"
- 1122      4C696272 
- 1122      6172795C 
- 1122      4932435F 
- 1122      6D616465 
- 1123              	.LASF23:
- 1124 01e9 4932435F 		.ascii	"I2C_read\000"
- 1124      72656164 
- 1124      00
- 1125              	.LASF11:
- 1126 01f2 75696E74 		.ascii	"uint8\000"
- 1126      3800
- 1127              	.LASF31:
- 1128 01f8 433A5C55 		.ascii	"C:\\Users\\roba420\\Documents\\PSoC Creator\\Zumo01"
- 1128      73657273 
- 1128      5C726F62 
- 1128      61343230 
- 1128      5C446F63 
- 1129 0226 5C5A756D 		.ascii	"\\ZumoBot.cydsn\000"
- 1129      6F426F74 
- 1129      2E637964 
- 1129      736E00
+ 1121              	.LASF31:
+ 1122 01d2 433A5C55 		.ascii	"C:\\Users\\Mikael\\Documents\\PSoC Creator\\robotti"
+ 1122      73657273 
+ 1122      5C4D696B 
+ 1122      61656C5C 
+ 1122      446F6375 
+ 1123 0200 5C5A756D 		.ascii	"\\ZumoBot.cydsn\000"
+ 1123      6F426F74 
+ 1123      2E637964 
+ 1123      736E00
+ 1124              	.LASF30:
+ 1125 020f 5A756D6F 		.ascii	"ZumoLibrary\\I2C_made.c\000"
+ 1125      4C696272 
+ 1125      6172795C 
+ 1125      4932435F 
+ 1125      6D616465 
+ 1126              	.LASF23:
+ 1127 0226 4932435F 		.ascii	"I2C_read\000"
+ 1127      72656164 
+ 1127      00
+ 1128              	.LASF11:
+ 1129 022f 75696E74 		.ascii	"uint8\000"
+ 1129      3800
  1130              	.LASF4:
  1131 0235 6C6F6E67 		.ascii	"long int\000"
  1131      20696E74 

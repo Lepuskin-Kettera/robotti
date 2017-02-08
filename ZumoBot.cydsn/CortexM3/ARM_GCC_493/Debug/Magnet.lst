@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
   37 0002 FFF7FEFF 		bl	atan2
   38              	.LVL1:
   19:ZumoLibrary/Magnet.c ****     
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 2
 
 
   20:ZumoLibrary/Magnet.c ****     if(heading < 0)
@@ -77,11 +77,11 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
   46              		.size	heading, .-heading
   47 000e 00BF     		.text
   48              	.Letext0:
-  49              		.file 2 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
-  50              		.file 3 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+  49              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+  50              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
   51              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
   52              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
-  53              		.file 6 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+  53              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
   54              		.file 7 "Generated_Source\\PSoC5/CyLib.h"
   55              		.section	.debug_info,"",%progbits
   56              	.Ldebug_info0:
@@ -93,14 +93,14 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
   62 000c 66000000 		.4byte	.LASF19
   63 0010 01       		.byte	0x1
   64 0011 8B010000 		.4byte	.LASF20
-  65 0015 10010000 		.4byte	.LASF21
+  65 0015 17010000 		.4byte	.LASF21
   66 0019 00000000 		.4byte	.Ldebug_ranges0+0
   67 001d 00000000 		.4byte	0
   68 0021 00000000 		.4byte	.Ldebug_line0
   69 0025 02       		.uleb128 0x2
   70 0026 08       		.byte	0x8
   71 0027 04       		.byte	0x4
-  72 0028 4D010000 		.4byte	.LASF0
+  72 0028 10010000 		.4byte	.LASF0
   73 002c 02       		.uleb128 0x2
   74 002d 01       		.byte	0x1
   75 002e 06       		.byte	0x6
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
   87 0043 07       		.byte	0x7
   88 0044 53000000 		.4byte	.LASF4
   89 0048 03       		.uleb128 0x3
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 3
 
 
   90 0049 81010000 		.4byte	.LASF10
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  144 00b0 06       		.uleb128 0x6
  145 00b1 79010000 		.4byte	.LASF22
  146 00b5 01       		.byte	0x1
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 4
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 4
 
 
  147 00b6 0F       		.byte	0xf
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  201 0116 25       		.uleb128 0x25
  202 0117 00       		.byte	0
  203 0118 0B       		.uleb128 0xb
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 5
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 5
 
 
  204 0119 0C000000 		.4byte	.LVL2
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  258 0010 17       		.uleb128 0x17
  259 0011 00       		.byte	0
  260 0012 00       		.byte	0
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 6
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 6
 
 
  261 0013 02       		.uleb128 0x2
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  315 0049 0E       		.uleb128 0xe
  316 004a 3A       		.uleb128 0x3a
  317 004b 0B       		.uleb128 0xb
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 7
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 7
 
 
  318 004c 3B       		.uleb128 0x3b
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  372 0085 00       		.byte	0
  373 0086 0A       		.uleb128 0xa
  374 0087 8A8201   		.uleb128 0x410a
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 8
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 8
 
 
  375 008a 00       		.byte	0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  429 00c3 13       		.uleb128 0x13
  430 00c4 3C       		.uleb128 0x3c
  431 00c5 19       		.uleb128 0x19
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 9
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 9
 
 
  432 00c6 01       		.uleb128 0x1
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  486 002c 05000000 		.4byte	.LVL1-1
  487 0030 0600     		.2byte	0x6
  488 0032 52       		.byte	0x52
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 10
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 10
 
 
  489 0033 93       		.byte	0x93
@@ -577,8 +577,8 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  522 000c 00000000 		.4byte	0
  523              		.section	.debug_line,"",%progbits
  524              	.Ldebug_line0:
- 525 0000 75010000 		.section	.debug_str,"MS",%progbits,1
- 525      02005E01 
+ 525 0000 81010000 		.section	.debug_str,"MS",%progbits,1
+ 525      02006A01 
  525      00000201 
  525      FB0E0D00 
  525      01010101 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  532              	.LASF25:
  533 0022 43794465 		.ascii	"CyDelay\000"
  533      6C617900 
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 11
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 11
 
 
  534              	.LASF6:
@@ -647,22 +647,22 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 1
  549 0107 6C6F6E67 		.ascii	"long int\000"
  549      20696E74 
  549      00
- 550              	.LASF21:
- 551 0110 433A5C55 		.ascii	"C:\\Users\\roba420\\Documents\\PSoC Creator\\Zumo01"
- 551      73657273 
- 551      5C726F62 
- 551      61343230 
- 551      5C446F63 
- 552 013e 5C5A756D 		.ascii	"\\ZumoBot.cydsn\000"
- 552      6F426F74 
- 552      2E637964 
- 552      736E00
- 553              	.LASF0:
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccKvTW32.s 			page 12
+ 550              	.LASF0:
+ 551 0110 646F7562 		.ascii	"double\000"
+ 551      6C6500
+ 552              	.LASF21:
+ 553 0117 433A5C55 		.ascii	"C:\\Users\\Mikael\\Documents\\PSoC Creator\\robotti"
+ 553      73657273 
+ 553      5C4D696B 
+ 553      61656C5C 
+ 553      446F6375 
+ 554 0145 5C5A756D 		.ascii	"\\ZumoBot.cydsn\000"
+ 554      6F426F74 
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc2mHHod.s 			page 12
 
 
- 554 014d 646F7562 		.ascii	"double\000"
- 554      6C6500
+ 554      2E637964 
+ 554      736E00
  555              	.LASF23:
  556 0154 49544D5F 		.ascii	"ITM_RxBuffer\000"
  556      52784275 

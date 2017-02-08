@@ -259,15 +259,12 @@ int main()
             int leftMotor;
             int rightMotor;
             
+            // USE THESE WHEN SIDE CHEKCING DOES NOT WORK!
+            leftMotor=leftMotorCheck;
+            rightMotor=rightMotorCheck;
+            
         
-        // Check side of the line
-        if(ref.l1 > ref.r1) {
-           leftMotor = rightMotorCheck;
-           rightMotor = leftMotorCheck; 
-        } else {
-            leftMotorCheck = leftMotor;
-            rightMotorCheck = rightMotor;
-        }
+
         
         // motor speed can not exceed 255
         if (leftMotor >= 255) {
@@ -288,11 +285,21 @@ int main()
             leftMotor = 254;
         }
         
-        
-        
+        // DRIVE
         motor_turn(leftMotor, rightMotor, 0);
         printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
-        
+    
+        /*
+  // Check side of the line
+        if(ref.l1 > ref.r1) {
+            motor_turn(rightMotor, leftMotor, 0);
+            printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
+        } else {
+            motor_turn(leftMotor, rightMotor, 0);
+            printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
+        }  
+
+        */
         
         
         

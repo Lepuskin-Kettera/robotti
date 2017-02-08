@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
   38              		.cfi_def_cfa_offset 32
   39              		.cfi_offset 3, -32
   40              		.cfi_offset 4, -28
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 2
 
 
   41              		.cfi_offset 5, -24
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
   90 004c D3E90023 		ldrd	r2, [r3]
   91 0050 FFF7FEFF 		bl	__aeabi_dmul
   92              	.LVL9:
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 3
 
 
   93 0054 0646     		mov	r6, r0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  145 00b8 D3E90023 		ldrd	r2, [r3]
  146 00bc FFF7FEFF 		bl	__aeabi_dmul
  147              	.LVL18:
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 4
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 4
 
 
  148 00c0 0246     		mov	r2, r0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  199 0120 2046     		mov	r0, r4
  200 0122 2946     		mov	r1, r5
  201 0124 22A3     		adr	r3, .L27+48
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 5
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 5
 
 
  202 0126 D3E90023 		ldrd	r2, [r3]
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  250              	.LVL37:
  251              	.L28:
  252              		.align	3
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 6
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 6
 
 
  253              	.L27:
@@ -332,7 +332,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  281              		.size	getLux, .-getLux
  282 01e4 AFF30080 		.text
  283              	.Letext0:
- 284              		.file 2 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+ 284              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
  285              		.section	.debug_info,"",%progbits
  286              	.Ldebug_info0:
  287 0000 15010000 		.4byte	0x115
@@ -343,14 +343,14 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  292 000c 5E000000 		.4byte	.LASF16
  293 0010 01       		.byte	0x1
  294 0011 0F010000 		.4byte	.LASF17
- 295 0015 25010000 		.4byte	.LASF18
+ 295 0015 2C010000 		.4byte	.LASF18
  296 0019 00000000 		.4byte	.Ldebug_ranges0+0
  297 001d 00000000 		.4byte	0
  298 0021 00000000 		.4byte	.Ldebug_line0
  299 0025 02       		.uleb128 0x2
  300 0026 08       		.byte	0x8
  301 0027 04       		.byte	0x4
- 302 0028 62010000 		.4byte	.LASF0
+ 302 0028 25010000 		.4byte	.LASF0
  303 002c 03       		.uleb128 0x3
  304 002d 04       		.byte	0x4
  305 002e 05       		.byte	0x5
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  307 0033 02       		.uleb128 0x2
  308 0034 04       		.byte	0x4
  309 0035 07       		.byte	0x7
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 7
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 7
 
 
  310 0036 0E000000 		.4byte	.LASF1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  364 0099 00000000 		.4byte	.LFB0
  365 009d E4010000 		.4byte	.LFE0-.LFB0
  366 00a1 01       		.uleb128 0x1
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 8
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 8
 
 
  367 00a2 9C       		.byte	0x9c
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  421 0117 00       		.byte	0
  422 0118 00       		.byte	0
  423              		.section	.debug_abbrev,"",%progbits
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 9
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 9
 
 
  424              	.Ldebug_abbrev0:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  478 0035 19       		.uleb128 0x19
  479 0036 49       		.uleb128 0x49
  480 0037 13       		.uleb128 0x13
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 10
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 10
 
 
  481 0038 11       		.uleb128 0x11
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  535 0073 02       		.uleb128 0x2
  536 0074 18       		.uleb128 0x18
  537 0075 9142     		.uleb128 0x2111
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 11
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 11
 
 
  538 0077 18       		.uleb128 0x18
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  592 0028 00000000 		.4byte	.LVL0
  593 002c 12000000 		.4byte	.LVL3
  594 0030 0600     		.2byte	0x6
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 12
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 12
 
 
  595 0032 52       		.byte	0x52
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  649 00a3 08       		.uleb128 0x8
  650 00a4 00000000 		.4byte	0
  651 00a8 00000000 		.4byte	0
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 13
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 13
 
 
  652 00ac 1C010000 		.4byte	.LVL26
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  706 0120 00010000 		.4byte	.LVL24
  707 0124 0600     		.2byte	0x6
  708 0126 54       		.byte	0x54
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 14
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 14
 
 
  709 0127 93       		.byte	0x93
@@ -826,8 +826,8 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  751 000c 00000000 		.4byte	0
  752              		.section	.debug_line,"",%progbits
  753              	.Ldebug_line0:
- 754 0000 D9000000 		.section	.debug_str,"MS",%progbits,1
- 754      02009800 
+ 754 0000 DF000000 		.section	.debug_str,"MS",%progbits,1
+ 754      02009E00 
  754      00000201 
  754      FB0E0D00 
  754      01010101 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  756      7400
  757              	.LASF1:
  758 000e 756E7369 		.ascii	"unsigned int\000"
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 15
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 15
 
 
  758      676E6564 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  780 0106 6C6F6E67 		.ascii	"long int\000"
  780      20696E74 
  780      00
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 16
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccvkRz4B.s 			page 16
 
 
  781              	.LASF17:
@@ -907,19 +907,19 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccMiViSj.s 			page 1
  782      6172795C 
  782      416D6269 
  782      656E742E 
- 783              	.LASF18:
- 784 0125 433A5C55 		.ascii	"C:\\Users\\roba420\\Documents\\PSoC Creator\\Zumo01"
- 784      73657273 
- 784      5C726F62 
- 784      61343230 
- 784      5C446F63 
- 785 0153 5C5A756D 		.ascii	"\\ZumoBot.cydsn\000"
- 785      6F426F74 
- 785      2E637964 
- 785      736E00
- 786              	.LASF0:
- 787 0162 646F7562 		.ascii	"double\000"
- 787      6C6500
+ 783              	.LASF0:
+ 784 0125 646F7562 		.ascii	"double\000"
+ 784      6C6500
+ 785              	.LASF18:
+ 786 012c 433A5C55 		.ascii	"C:\\Users\\Mikael\\Documents\\PSoC Creator\\robotti"
+ 786      73657273 
+ 786      5C4D696B 
+ 786      61656C5C 
+ 786      446F6375 
+ 787 015a 5C5A756D 		.ascii	"\\ZumoBot.cydsn\000"
+ 787      6F426F74 
+ 787      2E637964 
+ 787      736E00
  788              	.LASF5:
  789 0169 73686F72 		.ascii	"short unsigned int\000"
  789      7420756E 
