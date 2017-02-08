@@ -242,10 +242,10 @@ int main()
             
             
         // Magicnumber for Black/Right
-        double magicNumR = 0.012624;
+        double magicNumR = 0.012624 * (ref.l1 - 3770);
         
         // Magicnumber for White/Left
-        double magicNumL = -0.012606;
+        double magicNumL = -0.012606 * (ref.r1 - 3880);
         
         // Calculate motorspeeds
         double rightMotorRaw = ref.l1 * magicNumR;
@@ -260,8 +260,9 @@ int main()
             int rightMotor;
             
             // USE THESE WHEN SIDE CHEKCING DOES NOT WORK!
-            leftMotor=leftMotorCheck;
-            rightMotor=rightMotorCheck;
+            // criss cross
+            leftMotor=rightMotorCheck;
+            rightMotor=leftMotorCheck;
             
         
 
@@ -271,11 +272,19 @@ int main()
             leftMotor = 254;
         }
         
+        if (rightMotor <= 1) {
+            rightMotor = 0;
+        }
+        
         if (rightMotor >= 255) {
             rightMotor = 254;
         }
         
+        if (leftMotor <= 1) {
+            leftMotor = 0;
+        }
         
+        /*
         // Hard turn
         if (leftMotor < 25) {
             rightMotor = 254;
@@ -284,11 +293,13 @@ int main()
         if (rightMotor < 25) {
             leftMotor = 254;
         }
+        */
         
         // DRIVE
         motor_turn(leftMotor, rightMotor, 0);
         printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
-    
+        printf("\nl1: %d r1: %d\r\n", ref.l1, ref.r1);       //print out each period of reflectance sensors
+        CyDelay(250);
         /*
   // Check side of the line
         if(ref.l1 > ref.r1) {
