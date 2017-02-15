@@ -309,7 +309,7 @@ int main()
         
         // Hard turn
         
-        if (rightMotor < 25 && leftMotor < 25) {
+        if (rightMotor < 5 && leftMotor < 5) {
             if (whichmotor == 1) {
                 leftMotor = 254;
             } else {
