@@ -216,11 +216,12 @@ int main()
 //reflectance//
 int main()
 {
-    printf("***PROGRAM START***");
+    printf("\n 1");
     struct sensors_ ref;
     struct sensors_ dig;
     CyGlobalIntEnable; 
     UART_1_Start();
+     printf("\n uart start");
   
     sensor_isr_StartEx(sensor_isr_handler);
     
@@ -229,31 +230,25 @@ int main()
     motor_start();
     
     IR_led_Write(1);
-    
-    unsigned int IR_val;
+     printf("\n next ints");
     
 
     
             // motor number 1 is LEFT
             // motor number 2 i RIGHT
-            int whichmotor;
-    
+            int whichmotor = 0;
+            printf("\n motor222");
             // stopping at lines
-            int kmkSwag = 0;
-    
+            int kmk = 0;
+     printf("\n next is for- loop \n");
     for(;;)
     {
-            // remote control    
-            IR_val = get_IR();
-            printf("%x\r\n\n",IR_val);
-            CyDelay(500);
             
             reflectance_read(&ref);
             //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print out each period of reflectance sensors
             reflectance_digital(&dig);      //print out 0 or 1 according to results of reflectance period
-            //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
-            
-            
+            printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
+  
         // Magicnumber for Black/Right
         double infraR = ref.r1 - 3770;
         double infraL = ref.l1 - 3770;
@@ -290,20 +285,28 @@ int main()
             
             
         // STOPPING AT LINES   
-        if (dig.l3 == 1 && dig.l1 && dig.r1 && dig.r3) {
+        if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
+            printf("\n KMK ACTIVATED: INT KMK = %i \n", kmk);
             
-            if(kmkSwag == 0) {
+            if(kmk == 0) {
                 motor_stop();
                 // Waits for remote
+                printf("\n Waiting for remote \n");
                 wait_going_down();
+                printf("\n Remote recived \n");
                 motor_start();
-            } else if (kmkSwag == 2) {
+                printf("\n motor start \n");
+            } else if (kmk == 2) {
                 motor_stop();
+                printf("\n Motor stop \n");
             }
-            kmkSwag++;
-            
+            kmk++;
+            CyDelay(100);
+            motor_turn(leftMotor, rightMotor, 0);
+            printf("\n KMK OUT \n"); 
         }
-            
+           
+        
         // Hard turn
         
         if (rightMotor < 25 && leftMotor < 25) {
@@ -344,8 +347,8 @@ int main()
         
         // DRIVE
         motor_turn(leftMotor, rightMotor, 0);
-        printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
-        printf("\nl1: %d r1: %d\r\n", ref.l1, ref.r1);       //print out each period of reflectance sensors
+        //printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
+        //printf("\nl1: %d r1: %d\r\n", ref.l1, ref.r1);       //print out each period of reflectance sensors
         //CyDelay(250);
         /*
   // Check side of the line
