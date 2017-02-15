@@ -229,6 +229,10 @@ int main()
     
     IR_led_Write(1);
     
+            // motor number 1 is LEFT
+            // motor number 2 i RIGHT
+            int whichmotor;
+    
     for(;;)
     {
                 
@@ -239,10 +243,6 @@ int main()
             reflectance_digital(&dig);      //print out 0 or 1 according to results of reflectance period
             //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
             
-            //CyDelay(500);
-            
-            //right magicnum 0.012624
-            //left magicnum -0.012606
             
         // Magicnumber for Black/Right
         double infraR = ref.r1 - 3770;
@@ -278,16 +278,21 @@ int main()
             leftMotor=rightMotorCheck;
             rightMotor=leftMotorCheck;
             
-        
-        
+            
         // Hard turn
-        if (leftMotor < 25) {
-            rightMotor = 254;
+        
+        if (rightMotor < 25 && leftMotor < 25) {
+            if (whichmotor == 1) {
+                leftMotor = 254;
+            } else {
+                rightMotor = 254;
+            }
+        } else if (leftMotor < 20) {
+            whichmotor = 2; // right
+        } else if (rightMotor < 20) {
+            whichmotor = 1; // left
         }
         
-        if (rightMotor < 25) {
-            leftMotor = 254;
-        }
         
         // TEST --- MOTORS WONT STOP... LIKE EVER.
         if (leftMotor == rightMotor) {
@@ -296,16 +301,16 @@ int main()
         }
         
         // motor speed can not exceed 255
-        if (leftMotor >= 100) {
-            leftMotor = 100;
+        if (leftMotor >= 255) {
+            leftMotor = 254;
         }
         
         if (rightMotor <= 1) {
             rightMotor = 0;
         }
         
-        if (rightMotor >= 100) {
-            rightMotor = 100;
+        if (rightMotor >= 255) {
+            rightMotor = 254;
         }
         
         if (leftMotor <= 1) {
@@ -316,7 +321,7 @@ int main()
         motor_turn(leftMotor, rightMotor, 0);
         printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
         printf("\nl1: %d r1: %d\r\n", ref.l1, ref.r1);       //print out each period of reflectance sensors
-        CyDelay(250);
+        //CyDelay(250);
         /*
   // Check side of the line
         if(ref.l1 > ref.r1) {
