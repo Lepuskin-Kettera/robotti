@@ -229,6 +229,8 @@ int main()
     
     IR_led_Write(1);
     
+    wait_going_down();
+    
             // motor number 1 is LEFT
             // motor number 2 i RIGHT
             int whichmotor;
