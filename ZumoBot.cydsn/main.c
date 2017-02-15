@@ -216,6 +216,7 @@ int main()
 //reflectance//
 int main()
 {
+    printf("***PROGRAM START***");
     struct sensors_ ref;
     struct sensors_ dig;
     CyGlobalIntEnable; 
@@ -229,16 +230,23 @@ int main()
     
     IR_led_Write(1);
     
-    wait_going_down();
+    unsigned int IR_val;
+    
+
     
             // motor number 1 is LEFT
             // motor number 2 i RIGHT
             int whichmotor;
     
+            // stopping at lines
+            int kmkSwag = 0;
+    
     for(;;)
     {
-                
-            //motor_start();
+            // remote control    
+            IR_val = get_IR();
+            printf("%x\r\n\n",IR_val);
+            CyDelay(500);
             
             reflectance_read(&ref);
             //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print out each period of reflectance sensors
@@ -280,6 +288,21 @@ int main()
             leftMotor=rightMotorCheck;
             rightMotor=leftMotorCheck;
             
+            
+        // STOPPING AT LINES   
+        if (dig.l3 == 1 && dig.l1 && dig.r1 && dig.r3) {
+            
+            if(kmkSwag == 0) {
+                motor_stop();
+                // Waits for remote
+                wait_going_down();
+                motor_start();
+            } else if (kmkSwag == 2) {
+                motor_stop();
+            }
+            kmkSwag++;
+            
+        }
             
         // Hard turn
         
