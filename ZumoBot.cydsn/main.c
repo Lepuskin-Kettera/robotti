@@ -216,12 +216,12 @@ int main()
 //reflectance//
 int main()
 {
-    printf("\n 1");
+   // printf("\n 1");
     struct sensors_ ref;
     struct sensors_ dig;
     CyGlobalIntEnable; 
     UART_1_Start();
-     printf("\n uart start");
+    // printf("\n uart start");
   
     sensor_isr_StartEx(sensor_isr_handler);
     
@@ -230,40 +230,42 @@ int main()
     motor_start();
     
     IR_led_Write(1);
-     printf("\n next ints");
+    // printf("\n next ints");
     
 
     
             // motor number 1 is LEFT
             // motor number 2 i RIGHT
             int whichmotor = 0;
-            printf("\n motor222");
+            //printf("\n motor222");
             // stopping at lines
             int kmk = 0;
-     printf("\n next is for- loop \n");
+     //printf("\n next is for- loop \n");
     for(;;)
     {
+        printf("loop start \n");
             
             reflectance_read(&ref);
             //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print out each period of reflectance sensors
             reflectance_digital(&dig);      //print out 0 or 1 according to results of reflectance period
-            printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
+            //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
   
         // Magicnumber for Black/Right
         double infraR = ref.r1 - 3770;
         double infraL = ref.l1 - 3770;
+        
         double magicNum = 0.012624;
-            
+          /*
             // TESTAUKSESSA
-            if(infraR < 10000) {
+            if(infraR < 3000) {
                 infraR = 0;
             }
             
             // TESTAUKSESSA
-             if(infraL < 10000) {
+             if(infraL < 3000) {
                 infraL = 0;
             }
-        
+        */
         // Magicnumber for White/Left
         //double magicNumL = ref.r1 - 3880;
         
@@ -283,10 +285,10 @@ int main()
             leftMotor=rightMotorCheck;
             rightMotor=leftMotorCheck;
             
-            
+
         // STOPPING AT LINES   
         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
-            printf("\n KMK ACTIVATED: INT KMK = %i \n", kmk);
+            //printf("\n KMK ACTIVATED: INT KMK = %i \n", kmk);
             
             if(kmk == 0) {
                 motor_stop();
@@ -306,47 +308,48 @@ int main()
             printf("\n KMK OUT \n"); 
         }
            
-        
         // Hard turn
         
-        if (rightMotor < 5 && leftMotor < 5) {
+        if (rightMotor < 100 && leftMotor < 100) {
             if (whichmotor == 1) {
-                leftMotor = 254;
+                leftMotor = 255;
             } else {
-                rightMotor = 254;
+                rightMotor = 255;
             }
-        } else if (leftMotor < 20) {
+        } else if (leftMotor < 100) {
             whichmotor = 2; // right
-        } else if (rightMotor < 20) {
+        } else if (rightMotor < 100) {
             whichmotor = 1; // left
         }
         
         
         // TEST --- MOTORS WONT STOP... LIKE EVER.
         if (leftMotor == rightMotor) {
-            leftMotor = 254;
-            rightMotor = 254;
+            leftMotor = 255;
+            rightMotor = 255;
         }
         
         // motor speed can not exceed 255
-        if (leftMotor >= 255) {
-            leftMotor = 254;
+        if (leftMotor > 200) {
+            leftMotor = 255;
         }
         
         if (rightMotor <= 1) {
-            rightMotor = 0;
+            rightMotor = 1;
         }
         
-        if (rightMotor >= 255) {
-            rightMotor = 254;
+        if (rightMotor > 200) {
+            rightMotor = 255;
         }
         
         if (leftMotor <= 1) {
-            leftMotor = 0;
+            leftMotor = 1;
         }
         
         // DRIVE
         motor_turn(leftMotor, rightMotor, 0);
+        printf("left: %i Right: %i\n", leftMotor, rightMotor);
+
         //printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
         //printf("\nl1: %d r1: %d\r\n", ref.l1, ref.r1);       //print out each period of reflectance sensors
         //CyDelay(250);
