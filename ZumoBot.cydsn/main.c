@@ -330,7 +330,7 @@ int main()
         }
         
         // motor speed can not exceed 255
-        if (leftMotor > 200) {
+        if (leftMotor > 100) {
             leftMotor = 255;
         }
         
@@ -338,7 +338,7 @@ int main()
             rightMotor = 1;
         }
         
-        if (rightMotor > 200) {
+        if (rightMotor > 100) {
             rightMotor = 255;
         }
         

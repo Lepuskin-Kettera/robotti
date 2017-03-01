@@ -56,6 +56,47 @@ void motor_turn(uint8 l_speed, uint8 r_speed, uint32 delay)
     CyDelay(delay);
 }
 
+void motor_drive(uint8 l_speed, uint8 r_speed, uint32 delay)
+{
+    if (l_speed >= 0 && r_speed >= 0) {
+        MotorDirLeft_Write(0);      // set LeftMotor forward mode
+        MotorDirRight_Write(0);     // set RightMotor forward mode
+        
+        PWM_WriteCompare1(l_speed); 
+        PWM_WriteCompare2(r_speed); 
+        CyDelay(delay);
+        
+        
+    } else if (l_speed < 0 && r_speed >= 0){
+        MotorDirLeft_Write(1);      // set LeftMotor backward mode
+        MotorDirRight_Write(0);     // set RightMotor forward mode
+        
+        l_speed = l_speed*-1;
+        PWM_WriteCompare1(l_speed); 
+        PWM_WriteCompare2(r_speed); 
+        CyDelay(delay);
+        
+        
+    } else if (l_speed >= 0 && r_speed < 0){
+        MotorDirRight_Write(1);     // set RightMotor backward mode
+        MotorDirLeft_Write(0);      // set LeftMotor forward mode
+        
+        r_speed = r_speed*-1;
+        PWM_WriteCompare1(l_speed); 
+        PWM_WriteCompare2(r_speed);
+        
+        
+    } else if (l_speed < 0 && r_speed < 0){
+        MotorDirRight_Write(1);     // set RightMotor backward mode
+        MotorDirLeft_Write(1);      // set LeftMotor backward mode
+        
+        r_speed = r_speed*-1;
+        l_speed = l_speed*-1;
+        PWM_WriteCompare1(l_speed); 
+        PWM_WriteCompare2(r_speed);
+    }
+}
+
 
 /**
 * @brief    Moving motors backward

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
   26:main.c        ****     <p>
   27:main.c        ****     <B>Communication</B><br>
   28:main.c        ****     I2C, UART, Serial<br>
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 2
 
 
   29:main.c        ****     </p>
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
   83:main.c        ****         }
   84:main.c        ****         CyDelay(500);
   85:main.c        ****         
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 3
 
 
   86:main.c        ****     }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  140:main.c        **** /*//Ambient light sensor//
  141:main.c        **** int main()
  142:main.c        **** {
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 4
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 4
 
 
  143:main.c        ****     CyGlobalIntEnable; 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  197:main.c        ****         
  198:main.c        ****         Y_L_A = I2C_read(ACCEL_MAG_ADDR, OUT_Y_L_A);
  199:main.c        ****         Y_H_A = I2C_read(ACCEL_MAG_ADDR, OUT_Y_H_A);
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 5
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 5
 
 
  200:main.c        ****         Y_AXIS_A = convert_raw(Y_L_A, Y_H_A);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  227:main.c        ****     
  228:main.c        ****     reflectance_start();
   57              		.loc 1 228 0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 6
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 6
 
 
   58 0012 FFF7FEFF 		bl	reflectance_start
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  254:main.c        ****         double infraR = ref.r1 - 3770;
   86              		.loc 1 254 0
   87 0038 BDF80C00 		ldrh	r0, [sp, #12]
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 7
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 7
 
 
   88 003c A0F6BA60 		subw	r0, r0, #3770
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  277:main.c        ****             int leftMotorCheck = (int) leftMotorRaw;
  120              		.loc 1 277 0
  121 0078 FFF7FEFF 		bl	__aeabi_d2iz
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 8
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 8
 
 
  122              	.LVL17:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  156 00b0 FFF7FEFF 		bl	wait_going_down
  157              	.LVL24:
  298:main.c        ****                 printf("\n Remote recived \n");
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 9
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 9
 
 
  158              		.loc 1 298 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  310:main.c        ****            
  311:main.c        ****         // Hard turn
  312:main.c        ****         
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 10
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 10
 
 
  313:main.c        ****         if (rightMotor < 100 && leftMotor < 100) {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  326:main.c        ****         // TEST --- MOTORS WONT STOP... LIKE EVER.
  327:main.c        ****         if (leftMotor == rightMotor) {
  240              		.loc 1 327 0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 11
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 11
 
 
  241 011a B442     		cmp	r4, r6
@@ -616,9 +616,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  330:main.c        ****         }
  331:main.c        ****         
  332:main.c        ****         // motor speed can not exceed 255
- 333:main.c        ****         if (leftMotor > 200) {
+ 333:main.c        ****         if (leftMotor > 100) {
  250              		.loc 1 333 0
- 251 0122 C82C     		cmp	r4, #200
+ 251 0122 642C     		cmp	r4, #100
  252 0124 00DD     		ble	.L8
  334:main.c        ****             leftMotor = 255;
  253              		.loc 1 334 0
@@ -638,9 +638,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  263              	.L9:
  339:main.c        ****         }
  340:main.c        ****         
- 341:main.c        ****         if (rightMotor > 200) {
+ 341:main.c        ****         if (rightMotor > 100) {
  264              		.loc 1 341 0
- 265 012e C82E     		cmp	r6, #200
+ 265 012e 642E     		cmp	r6, #100
  266 0130 00DD     		ble	.L10
  342:main.c        ****             rightMotor = 255;
  267              		.loc 1 342 0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  275 0138 0124     		movs	r4, #1
  276              	.LVL47:
  277              	.L11:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 12
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 12
 
 
  347:main.c        ****         }
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  388:main.c        ****                     while (turn == 1) {
  389:main.c        ****                         
  390:main.c        ****                         reflectance_read(&ref);
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 13
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 13
 
 
  391:main.c        ****                         //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  445:main.c        ****         
  446:main.c        ****         
  447:main.c        ****     }
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 14
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 14
 
 
  291              		.loc 1 447 0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  476:main.c        **** }
  477:main.c        **** 
  478:main.c        **** int main()
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 15
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 15
 
 
  479:main.c        **** {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  533:main.c        ****         Y_H_G = I2C_read(GYRO_ADDR, OUT_Y_AXIS_H);
  534:main.c        ****         Y_AXIS_G = convert_raw(Y_H_G, Y_L_G);
  535:main.c        ****         
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 16
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 16
 
 
  536:main.c        ****         
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  590:main.c        **** int rread(void)
  591:main.c        **** {
  592:main.c        ****     SC0_SetDriveMode(PIN_DM_STRONG);
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 17
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 17
 
 
  593:main.c        ****     SC0_Write(1);
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  617:main.c        **** 		UART_1_PutChar(*ptr++);
  347              		.loc 1 617 0 is_stmt 1 discriminator 2
  348 0016 661C     		adds	r6, r4, #1
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 18
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 18
 
 
  349              	.LVL54:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  394 0006 0026     		movs	r6, #0
  625:main.c        ****     char ch;
  626:main.c        ****  
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 19
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 19
 
 
  627:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  434 002e 1F46     		mov	r7, r3
  435              	.LVL69:
  436              	.L31:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 20
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 20
 
 
  628:main.c        ****         ch = UART_1_GetChar();
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  468 0064 6C656674 		.ascii	"left: %i Right: %i\012\000"
  468      3A202569 
  468      20526967 
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 21
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 21
 
 
  468      68743A20 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  521 0051 02       		.byte	0x2
  522 0052 3F       		.byte	0x3f
  523 0053 57000000 		.4byte	0x57
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 22
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 22
 
 
  524 0057 02       		.uleb128 0x2
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  578 00bf 08       		.byte	0x8
  579 00c0 04020000 		.4byte	.LASF17
  580 00c4 05       		.uleb128 0x5
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 23
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 23
 
 
  581 00c5 88010000 		.4byte	.LASF18
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  635 012b 71010000 		.4byte	.LASF20
  636 012f 0B       		.uleb128 0xb
  637 0130 4A000000 		.4byte	.LASF51
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 24
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 24
 
 
  638 0134 01       		.byte	0x1
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  692 01b2 01       		.byte	0x1
  693 01b3 0101     		.2byte	0x101
  694 01b5 B6000000 		.4byte	0xb6
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 25
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 25
 
 
  695 01b9 08       		.byte	0x8
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  749 0246 13       		.uleb128 0x13
  750 0247 01       		.uleb128 0x1
  751 0248 50       		.byte	0x50
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 26
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 26
 
 
  752 0249 02       		.uleb128 0x2
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  806 02bb 03       		.byte	0x3
  807 02bc 38000000 		.4byte	.LC3
  808 02c0 00       		.byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 27
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 27
 
 
  809 02c1 14       		.uleb128 0x14
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  863 0324 05       		.uleb128 0x5
  864 0325 03       		.byte	0x3
  865 0326 58000000 		.4byte	.LC5
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 28
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 28
 
 
  866 032a 00       		.byte	0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  920 0381 7C050000 		.4byte	0x57c
  921 0385 14       		.uleb128 0x14
  922 0386 1A000000 		.4byte	.LVL3
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 29
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 29
 
 
  923 038a 15050000 		.4byte	0x515
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  977 0408 00       		.byte	0
  978 0409 14       		.uleb128 0x14
  979 040a 1E000000 		.4byte	.LVL55
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 30
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 30
 
 
  980 040e 94050000 		.4byte	0x594
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1034 0497 00       		.sleb128 0
  1035 0498 00       		.byte	0
  1036 0499 15       		.uleb128 0x15
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 31
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 31
 
 
  1037 049a 22000000 		.4byte	.LVL65
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1091 050d 07       		.byte	0x7
  1092 050e 0B       		.byte	0xb
  1093 050f 15050000 		.4byte	0x515
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 32
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 32
 
 
  1094 0513 20       		.uleb128 0x20
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1148 0582 1A       		.byte	0x1a
  1149 0583 1E       		.uleb128 0x1e
  1150 0584 2B030000 		.4byte	.LASF45
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 33
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 33
 
 
  1151 0588 0B       		.byte	0xb
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1205 0020 00       		.byte	0
  1206 0021 03       		.uleb128 0x3
  1207 0022 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 34
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 34
 
 
  1208 0023 3A       		.uleb128 0x3a
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1262 0059 00       		.byte	0
  1263 005a 09       		.uleb128 0x9
  1264 005b 13       		.uleb128 0x13
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 35
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 35
 
 
  1265 005c 01       		.byte	0x1
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1319 0093 34       		.uleb128 0x34
  1320 0094 00       		.byte	0
  1321 0095 03       		.uleb128 0x3
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 36
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 36
 
 
  1322 0096 08       		.uleb128 0x8
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1376 00cc 00       		.byte	0
  1377 00cd 03       		.uleb128 0x3
  1378 00ce 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 37
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 37
 
 
  1379 00cf 3A       		.uleb128 0x3a
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1433 010c 15       		.uleb128 0x15
  1434 010d 898201   		.uleb128 0x4109
  1435 0110 01       		.byte	0x1
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 38
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 38
 
 
  1436 0111 11       		.uleb128 0x11
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1490 0148 0B       		.uleb128 0xb
  1491 0149 3B       		.uleb128 0x3b
  1492 014a 05       		.uleb128 0x5
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 39
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 39
 
 
  1493 014b 49       		.uleb128 0x49
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1547 0181 3B       		.uleb128 0x3b
  1548 0182 0B       		.uleb128 0xb
  1549 0183 6E       		.uleb128 0x6e
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 40
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 40
 
 
  1550 0184 0E       		.uleb128 0xe
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1604 01ba 20       		.uleb128 0x20
  1605 01bb 18       		.uleb128 0x18
  1606 01bc 00       		.byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 41
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 41
 
 
  1607 01bd 00       		.byte	0
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1661 01f3 13       		.uleb128 0x13
  1662 01f4 3C       		.uleb128 0x3c
  1663 01f5 19       		.uleb128 0x19
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 42
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 42
 
 
  1664 01f6 00       		.byte	0
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1718 0070 04       		.uleb128 0x4
  1719 0071 00000000 		.4byte	0
  1720 0075 00000000 		.4byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 43
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 43
 
 
  1721              	.LLST4:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1775 00fb 0100     		.2byte	0x1
  1776 00fd 54       		.byte	0x54
  1777 00fe 02010000 		.4byte	.LVL36
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 44
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 44
 
 
  1778 0102 1A010000 		.4byte	.LVL41
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1832 0191 9F       		.byte	0x9f
  1833 0192 00000000 		.4byte	0
  1834 0196 00000000 		.4byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 45
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 45
 
 
  1835              	.LLST11:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1889 0224 00000000 		.4byte	0
  1890 0228 00000000 		.4byte	0
  1891              	.LLST15:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 46
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 46
 
 
  1892 022c 00000000 		.4byte	.LVL58
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1946 02be 55       		.byte	0x55
  1947 02bf 00000000 		.4byte	0
  1948 02c3 00000000 		.4byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 47
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 47
 
 
  1949              		.section	.debug_aranges,"",%progbits
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  1987      00
  1988              	.LASF23:
  1989 003c 696E6672 		.ascii	"infraL\000"
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 48
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 48
 
 
  1989      614C00
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  2017 00c7 666C6F61 		.ascii	"float\000"
  2017      7400
  2018              	.LASF8:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 49
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 49
 
 
  2019 00cd 6C6F6E67 		.ascii	"long long int\000"
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  2041              	.LASF18:
  2042 0188 63796973 		.ascii	"cyisraddress\000"
  2042      72616464 
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 50
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 50
 
 
  2042      72657373 
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  2065      6E203232 
  2065      31323230 
  2066 026f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 51
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 51
 
 
  2066      66756E63 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 1
  2090      00
  2091              	.LASF40:
  2092 0323 43794465 		.ascii	"CyDelay\000"
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc3lSB2O.s 			page 52
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 52
 
 
  2092      6C617900 
