@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
   26:main.c        ****     <p>
   27:main.c        ****     <B>Communication</B><br>
   28:main.c        ****     I2C, UART, Serial<br>
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 2
 
 
   29:main.c        ****     </p>
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
   83:main.c        ****         }
   84:main.c        ****         CyDelay(500);
   85:main.c        ****         
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 3
 
 
   86:main.c        ****     }
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  140:main.c        **** /*//Ambient light sensor//
  141:main.c        **** int main()
  142:main.c        **** {
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 4
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 4
 
 
  143:main.c        ****     CyGlobalIntEnable; 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  197:main.c        ****         
  198:main.c        ****         Y_L_A = I2C_read(ACCEL_MAG_ADDR, OUT_Y_L_A);
  199:main.c        ****         Y_H_A = I2C_read(ACCEL_MAG_ADDR, OUT_Y_H_A);
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 5
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 5
 
 
  200:main.c        ****         Y_AXIS_A = convert_raw(Y_L_A, Y_H_A);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  227:main.c        ****     
  228:main.c        ****     reflectance_start();
   57              		.loc 1 228 0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 6
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 6
 
 
   58 0012 FFF7FEFF 		bl	reflectance_start
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  254:main.c        ****         double infraR = ref.r1 - 3770;
   86              		.loc 1 254 0
   87 0038 BDF80C00 		ldrh	r0, [sp, #12]
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 7
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 7
 
 
   88 003c A0F6BA60 		subw	r0, r0, #3770
@@ -378,23 +378,13 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  101              	.LVL12:
  256:main.c        ****         
  257:main.c        ****         double magicNum = 0.012624;
- 258:main.c        ****           /*
- 259:main.c        ****             // TESTAUKSESSA
- 260:main.c        ****             if(infraR < 3000) {
- 261:main.c        ****                 infraR = 0;
- 262:main.c        ****             }
- 263:main.c        ****             
- 264:main.c        ****             // TESTAUKSESSA
- 265:main.c        ****              if(infraL < 3000) {
- 266:main.c        ****                 infraL = 0;
- 267:main.c        ****             }
- 268:main.c        ****         */
- 269:main.c        ****         // Magicnumber for White/Left
- 270:main.c        ****         //double magicNumL = ref.r1 - 3880;
- 271:main.c        ****         
- 272:main.c        ****         // Calculate motorspeeds
- 273:main.c        ****         double rightMotorRaw = magicNum * infraR;
- 102              		.loc 1 273 0
+ 258:main.c        **** 
+ 259:main.c        ****         // Magicnumber for White/Left
+ 260:main.c        ****         //double magicNumL = ref.r1 - 3880;
+ 261:main.c        ****         
+ 262:main.c        ****         // Calculate motorspeeds
+ 263:main.c        ****         double rightMotorRaw = magicNum * infraR;
+ 102              		.loc 1 263 0
  103 0058 2046     		mov	r0, r4
  104 005a 2946     		mov	r1, r5
  105 005c 3CA3     		adr	r3, .L22
@@ -405,383 +395,392 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  110              	.LVL14:
  111 0068 0D46     		mov	r5, r1
  112              	.LVL15:
- 274:main.c        ****         double leftMotorRaw = magicNum * infraL;
- 113              		.loc 1 274 0
+ 264:main.c        ****         double leftMotorRaw = magicNum * infraL;
+ 113              		.loc 1 264 0
  114 006a 3046     		mov	r0, r6
  115 006c 3946     		mov	r1, r7
  116 006e 38A3     		adr	r3, .L22
  117 0070 D3E90023 		ldrd	r2, [r3]
  118 0074 FFF7FEFF 		bl	__aeabi_dmul
  119              	.LVL16:
- 275:main.c        ****         
- 276:main.c        ****             // Convert speeds to int
- 277:main.c        ****             int leftMotorCheck = (int) leftMotorRaw;
- 120              		.loc 1 277 0
+ 265:main.c        ****         
+ 266:main.c        ****             // Convert speeds to int
+ 267:main.c        ****             int leftMotorCheck = (int) leftMotorRaw;
+ 120              		.loc 1 267 0
  121 0078 FFF7FEFF 		bl	__aeabi_d2iz
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 8
-
-
  122              	.LVL17:
  123 007c 0646     		mov	r6, r0
  124              	.LVL18:
- 278:main.c        ****             int rightMotorCheck = (int) rightMotorRaw;
- 125              		.loc 1 278 0
+ 268:main.c        ****             int rightMotorCheck = (int) rightMotorRaw;
+ 125              		.loc 1 268 0
  126 007e 2046     		mov	r0, r4
  127              	.LVL19:
  128 0080 2946     		mov	r1, r5
  129 0082 FFF7FEFF 		bl	__aeabi_d2iz
  130              	.LVL20:
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 8
+
+
  131 0086 0446     		mov	r4, r0
  132              	.LVL21:
- 279:main.c        ****             
- 280:main.c        ****             // Final speed variables
- 281:main.c        ****             int leftMotor;
- 282:main.c        ****             int rightMotor;
- 283:main.c        ****             
- 284:main.c        ****             // criss cross
- 285:main.c        ****             leftMotor=rightMotorCheck;
- 286:main.c        ****             rightMotor=leftMotorCheck;
- 287:main.c        ****             
- 288:main.c        **** 
- 289:main.c        ****         // STOPPING AT LINES   
- 290:main.c        ****         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
- 133              		.loc 1 290 0
+ 269:main.c        ****             
+ 270:main.c        ****             // Final speed variables
+ 271:main.c        ****             int leftMotor;
+ 272:main.c        ****             int rightMotor;
+ 273:main.c        ****             
+ 274:main.c        ****             // criss cross
+ 275:main.c        ****             leftMotor=rightMotorCheck;
+ 276:main.c        ****             rightMotor=leftMotorCheck;
+ 277:main.c        ****             
+ 278:main.c        ****             /*int boolstart = 0;
+ 279:main.c        ****         
+ 280:main.c        ****             while(boolstart == 0) {
+ 281:main.c        ****                 motor_forward(50,50);
+ 282:main.c        ****                 if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
+ 283:main.c        ****                     boolstart = 1;
+ 284:main.c        ****                 }
+ 285:main.c        ****                 
+ 286:main.c        ****             }*/
+ 287:main.c        **** 
+ 288:main.c        ****         // STOPPING AT LINES   
+ 289:main.c        ****         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
+ 133              		.loc 1 289 0
  134 0088 BDF80030 		ldrh	r3, [sp]
  135 008c 83BB     		cbnz	r3, .L2
- 136              		.loc 1 290 0 is_stmt 0 discriminator 1
+ 136              		.loc 1 289 0 is_stmt 0 discriminator 1
  137 008e BDF80230 		ldrh	r3, [sp, #2]
  138 0092 6BBB     		cbnz	r3, .L2
- 139              		.loc 1 290 0 discriminator 2
+ 139              		.loc 1 289 0 discriminator 2
  140 0094 BDF80430 		ldrh	r3, [sp, #4]
  141 0098 53BB     		cbnz	r3, .L2
- 142              		.loc 1 290 0 discriminator 3
+ 142              		.loc 1 289 0 discriminator 3
  143 009a BDF80630 		ldrh	r3, [sp, #6]
  144 009e 3BBB     		cbnz	r3, .L2
- 291:main.c        ****             //printf("\n KMK ACTIVATED: INT KMK = %i \n", kmk);
- 292:main.c        ****             
- 293:main.c        ****             if(kmk == 0) {
- 145              		.loc 1 293 0 is_stmt 1
+ 290:main.c        ****             //printf("\n KMK ACTIVATED: INT KMK = %i \n", kmk);
+ 291:main.c        ****             
+ 292:main.c        ****             if(kmk == 0) {
+ 145              		.loc 1 292 0 is_stmt 1
  146 00a0 B9F1000F 		cmp	r9, #0
  147 00a4 0FD1     		bne	.L3
- 294:main.c        ****                 motor_stop();
- 148              		.loc 1 294 0
+ 293:main.c        ****                 motor_stop();
+ 148              		.loc 1 293 0
  149 00a6 FFF7FEFF 		bl	motor_stop
  150              	.LVL22:
- 295:main.c        ****                 // Waits for remote
- 296:main.c        ****                 printf("\n Waiting for remote \n");
- 151              		.loc 1 296 0
+ 294:main.c        ****                 // Waits for remote
+ 295:main.c        ****                 printf("\n Waiting for remote \n");
+ 151              		.loc 1 295 0
  152 00aa 2D48     		ldr	r0, .L22+16
  153 00ac FFF7FEFF 		bl	puts
  154              	.LVL23:
- 297:main.c        ****                 wait_going_down();
- 155              		.loc 1 297 0
+ 296:main.c        ****                 wait_going_down();
+ 155              		.loc 1 296 0
  156 00b0 FFF7FEFF 		bl	wait_going_down
  157              	.LVL24:
- 298:main.c        ****                 printf("\n Remote recived \n");
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 9
+ 297:main.c        ****                 printf("\n Remote recived \n");
+ 158              		.loc 1 297 0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 9
 
 
- 158              		.loc 1 298 0
  159 00b4 2B48     		ldr	r0, .L22+20
  160 00b6 FFF7FEFF 		bl	puts
  161              	.LVL25:
- 299:main.c        ****                 motor_start();
- 162              		.loc 1 299 0
+ 298:main.c        ****                 motor_start();
+ 162              		.loc 1 298 0
  163 00ba FFF7FEFF 		bl	motor_start
  164              	.LVL26:
- 300:main.c        ****                 printf("\n motor start \n");
- 165              		.loc 1 300 0
+ 299:main.c        ****                 printf("\n motor start \n");
+ 165              		.loc 1 299 0
  166 00be 2A48     		ldr	r0, .L22+24
  167 00c0 FFF7FEFF 		bl	puts
  168              	.LVL27:
  169 00c4 07E0     		b	.L4
  170              	.LVL28:
  171              	.L3:
- 301:main.c        ****             } else if (kmk == 2) {
- 172              		.loc 1 301 0
+ 300:main.c        ****             } else if (kmk == 2) {
+ 172              		.loc 1 300 0
  173 00c6 B9F1020F 		cmp	r9, #2
  174 00ca 04D1     		bne	.L4
- 302:main.c        ****                 motor_stop();
- 175              		.loc 1 302 0
+ 301:main.c        ****                 motor_stop();
+ 175              		.loc 1 301 0
  176 00cc FFF7FEFF 		bl	motor_stop
  177              	.LVL29:
- 303:main.c        ****                 printf("\n Motor stop \n");
- 178              		.loc 1 303 0
+ 302:main.c        ****                 printf("\n Motor stop \n");
+ 178              		.loc 1 302 0
  179 00d0 2648     		ldr	r0, .L22+28
  180 00d2 FFF7FEFF 		bl	puts
  181              	.LVL30:
  182              	.L4:
- 304:main.c        ****             }
- 305:main.c        ****             kmk++;
- 183              		.loc 1 305 0
+ 303:main.c        ****             }
+ 304:main.c        ****             kmk++;
+ 183              		.loc 1 304 0
  184 00d6 09F10109 		add	r9, r9, #1
  185              	.LVL31:
- 306:main.c        ****             CyDelay(100);
- 186              		.loc 1 306 0
+ 305:main.c        ****             CyDelay(100);
+ 186              		.loc 1 305 0
  187 00da 6420     		movs	r0, #100
  188 00dc FFF7FEFF 		bl	CyDelay
  189              	.LVL32:
- 307:main.c        ****             motor_turn(leftMotor, rightMotor, 0);
- 190              		.loc 1 307 0
+ 306:main.c        ****             motor_turn(leftMotor, rightMotor, 0);
+ 190              		.loc 1 306 0
  191 00e0 E0B2     		uxtb	r0, r4
  192 00e2 F1B2     		uxtb	r1, r6
  193 00e4 0022     		movs	r2, #0
  194 00e6 FFF7FEFF 		bl	motor_turn
  195              	.LVL33:
- 308:main.c        ****             printf("\n KMK OUT \n"); 
- 196              		.loc 1 308 0
+ 307:main.c        ****             printf("\n KMK OUT \n"); 
+ 196              		.loc 1 307 0
  197 00ea 2148     		ldr	r0, .L22+32
  198 00ec FFF7FEFF 		bl	puts
  199              	.LVL34:
  200              	.L2:
- 309:main.c        ****         }
- 310:main.c        ****            
- 311:main.c        ****         // Hard turn
- 312:main.c        ****         
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 10
+ 308:main.c        ****         }
+ 309:main.c        ****            
+ 310:main.c        ****         // Hard turn
+ 311:main.c        ****         
+ 312:main.c        ****         if (rightMotor < 80 && leftMotor < 80) {
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 10
 
 
- 313:main.c        ****         if (rightMotor < 100 && leftMotor < 100) {
- 201              		.loc 1 313 0
- 202 00f0 632E     		cmp	r6, #99
+ 201              		.loc 1 312 0
+ 202 00f0 4F2E     		cmp	r6, #79
  203 00f2 06DC     		bgt	.L5
- 204              		.loc 1 313 0 is_stmt 0 discriminator 1
- 205 00f4 632C     		cmp	r4, #99
+ 204              		.loc 1 312 0 is_stmt 0 discriminator 1
+ 205 00f4 4F2C     		cmp	r4, #79
  206 00f6 04DC     		bgt	.L5
- 314:main.c        ****             if (whichmotor == 1) {
- 207              		.loc 1 314 0 is_stmt 1
+ 313:main.c        ****             if (whichmotor == 1) {
+ 207              		.loc 1 313 0 is_stmt 1
  208 00f8 B8F1010F 		cmp	r8, #1
  209 00fc 06D1     		bne	.L13
- 315:main.c        ****                 leftMotor = 255;
- 210              		.loc 1 315 0
+ 314:main.c        ****                 leftMotor = 255;
+ 210              		.loc 1 314 0
  211 00fe FF24     		movs	r4, #255
  212              	.LVL35:
  213 0100 0BE0     		b	.L6
  214              	.LVL36:
  215              	.L5:
- 316:main.c        ****             } else {
- 317:main.c        ****                 rightMotor = 255;
- 318:main.c        ****             }
- 319:main.c        ****         } else if (leftMotor < 100) {
- 216              		.loc 1 319 0
- 217 0102 632C     		cmp	r4, #99
+ 315:main.c        ****             } else {
+ 316:main.c        ****                 rightMotor = 255;
+ 317:main.c        ****             }
+ 318:main.c        ****         } else if (leftMotor < 80) {
+ 216              		.loc 1 318 0
+ 217 0102 4F2C     		cmp	r4, #79
  218 0104 04DD     		ble	.L14
- 320:main.c        ****             whichmotor = 2; // right
- 321:main.c        ****         } else if (rightMotor < 100) {
- 219              		.loc 1 321 0
- 220 0106 632E     		cmp	r6, #99
+ 319:main.c        ****             whichmotor = 2; // right
+ 320:main.c        ****         } else if (rightMotor < 80) {
+ 219              		.loc 1 320 0
+ 220 0106 4F2E     		cmp	r6, #79
  221 0108 05DD     		ble	.L15
  222 010a 06E0     		b	.L6
  223              	.L13:
- 317:main.c        ****             }
- 224              		.loc 1 317 0
+ 316:main.c        ****             }
+ 224              		.loc 1 316 0
  225 010c FF26     		movs	r6, #255
  226              	.LVL37:
  227 010e 04E0     		b	.L6
  228              	.LVL38:
  229              	.L14:
- 320:main.c        ****             whichmotor = 2; // right
- 230              		.loc 1 320 0
+ 319:main.c        ****             whichmotor = 2; // right
+ 230              		.loc 1 319 0
  231 0110 4FF00208 		mov	r8, #2
  232              	.LVL39:
  233 0114 01E0     		b	.L6
  234              	.LVL40:
  235              	.L15:
- 322:main.c        ****             whichmotor = 1; // left
- 236              		.loc 1 322 0
+ 321:main.c        ****             whichmotor = 1; // left
+ 236              		.loc 1 321 0
  237 0116 4FF00108 		mov	r8, #1
  238              	.LVL41:
  239              	.L6:
- 323:main.c        ****         }
+ 322:main.c        ****         }
+ 323:main.c        ****         
  324:main.c        ****         
- 325:main.c        ****         
- 326:main.c        ****         // TEST --- MOTORS WONT STOP... LIKE EVER.
- 327:main.c        ****         if (leftMotor == rightMotor) {
- 240              		.loc 1 327 0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 11
-
-
+ 325:main.c        ****         // TEST --- MOTORS WONT STOP... LIKE EVER.
+ 326:main.c        ****         if (leftMotor == rightMotor) {
+ 240              		.loc 1 326 0
  241 011a B442     		cmp	r4, r6
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 11
+
+
  242 011c 01D1     		bne	.L7
- 328:main.c        ****             leftMotor = 255;
- 329:main.c        ****             rightMotor = 255;
- 243              		.loc 1 329 0
+ 327:main.c        ****             leftMotor = 255;
+ 328:main.c        ****             rightMotor = 255;
+ 243              		.loc 1 328 0
  244 011e FF26     		movs	r6, #255
  245              	.LVL42:
- 328:main.c        ****             leftMotor = 255;
- 246              		.loc 1 328 0
+ 327:main.c        ****             leftMotor = 255;
+ 246              		.loc 1 327 0
  247 0120 3446     		mov	r4, r6
  248              	.LVL43:
  249              	.L7:
- 330:main.c        ****         }
- 331:main.c        ****         
- 332:main.c        ****         // motor speed can not exceed 255
- 333:main.c        ****         if (leftMotor > 100) {
- 250              		.loc 1 333 0
+ 329:main.c        ****         }
+ 330:main.c        ****         
+ 331:main.c        ****         // motor speed can not exceed 255
+ 332:main.c        ****         if (leftMotor > 100) {
+ 250              		.loc 1 332 0
  251 0122 642C     		cmp	r4, #100
  252 0124 00DD     		ble	.L8
- 334:main.c        ****             leftMotor = 255;
- 253              		.loc 1 334 0
+ 333:main.c        ****             leftMotor = 255;
+ 253              		.loc 1 333 0
  254 0126 FF24     		movs	r4, #255
  255              	.LVL44:
  256              	.L8:
- 335:main.c        ****         }
- 336:main.c        ****         
- 337:main.c        ****         if (rightMotor <= 1) {
- 257              		.loc 1 337 0
+ 334:main.c        ****         }
+ 335:main.c        ****         
+ 336:main.c        ****         if (rightMotor <= 1) {
+ 257              		.loc 1 336 0
  258 0128 012E     		cmp	r6, #1
  259 012a 00DC     		bgt	.L9
- 338:main.c        ****             rightMotor = 1;
- 260              		.loc 1 338 0
+ 337:main.c        ****             rightMotor = 1;
+ 260              		.loc 1 337 0
  261 012c 0126     		movs	r6, #1
  262              	.LVL45:
  263              	.L9:
- 339:main.c        ****         }
- 340:main.c        ****         
- 341:main.c        ****         if (rightMotor > 100) {
- 264              		.loc 1 341 0
+ 338:main.c        ****         }
+ 339:main.c        ****         
+ 340:main.c        ****         if (rightMotor > 100) {
+ 264              		.loc 1 340 0
  265 012e 642E     		cmp	r6, #100
  266 0130 00DD     		ble	.L10
- 342:main.c        ****             rightMotor = 255;
- 267              		.loc 1 342 0
+ 341:main.c        ****             rightMotor = 255;
+ 267              		.loc 1 341 0
  268 0132 FF26     		movs	r6, #255
  269              	.LVL46:
  270              	.L10:
- 343:main.c        ****         }
- 344:main.c        ****         
- 345:main.c        ****         if (leftMotor <= 1) {
- 271              		.loc 1 345 0
+ 342:main.c        ****         }
+ 343:main.c        ****         
+ 344:main.c        ****         if (leftMotor <= 1) {
+ 271              		.loc 1 344 0
  272 0134 012C     		cmp	r4, #1
  273 0136 00DC     		bgt	.L11
- 346:main.c        ****             leftMotor = 1;
- 274              		.loc 1 346 0
+ 345:main.c        ****             leftMotor = 1;
+ 274              		.loc 1 345 0
  275 0138 0124     		movs	r4, #1
  276              	.LVL47:
  277              	.L11:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 12
+ 346:main.c        ****         }
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 12
 
 
- 347:main.c        ****         }
- 348:main.c        ****         
- 349:main.c        ****         // DRIVE
- 350:main.c        ****         motor_turn(leftMotor, rightMotor, 0);
- 278              		.loc 1 350 0
+ 347:main.c        ****         
+ 348:main.c        ****         // DRIVE
+ 349:main.c        ****         motor_turn(leftMotor, rightMotor, 0);
+ 278              		.loc 1 349 0
  279 013a E0B2     		uxtb	r0, r4
  280 013c F1B2     		uxtb	r1, r6
  281 013e 0022     		movs	r2, #0
  282 0140 FFF7FEFF 		bl	motor_turn
  283              	.LVL48:
- 351:main.c        ****         printf("left: %i Right: %i\n", leftMotor, rightMotor);
- 284              		.loc 1 351 0
+ 350:main.c        ****         printf("left: %i Right: %i\n", leftMotor, rightMotor);
+ 284              		.loc 1 350 0
  285 0144 0B48     		ldr	r0, .L22+36
  286 0146 2146     		mov	r1, r4
  287 0148 3246     		mov	r2, r6
  288 014a FFF7FEFF 		bl	printf
  289              	.LVL49:
  290              	.LBE2:
- 352:main.c        **** 
- 353:main.c        ****         //printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
- 354:main.c        ****         //printf("\nl1: %d r1: %d\r\n", ref.l1, ref.r1);       //print out each period of reflectan
- 355:main.c        ****         //CyDelay(250);
- 356:main.c        ****         /*
- 357:main.c        ****   // Check side of the line
- 358:main.c        ****         if(ref.l1 > ref.r1) {
- 359:main.c        ****             motor_turn(rightMotor, leftMotor, 0);
- 360:main.c        ****             printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
- 361:main.c        ****         } else {
- 362:main.c        ****             motor_turn(leftMotor, rightMotor, 0);
- 363:main.c        ****             printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
- 364:main.c        ****         }  
- 365:main.c        **** 
- 366:main.c        ****         */
+ 351:main.c        **** 
+ 352:main.c        ****         //printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
+ 353:main.c        ****         //printf("\nl1: %d r1: %d\r\n", ref.l1, ref.r1);       //print out each period of reflectan
+ 354:main.c        ****         //CyDelay(250);
+ 355:main.c        ****         /*
+ 356:main.c        ****   // Check side of the line
+ 357:main.c        ****         if(ref.l1 > ref.r1) {
+ 358:main.c        ****             motor_turn(rightMotor, leftMotor, 0);
+ 359:main.c        ****             printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
+ 360:main.c        ****         } else {
+ 361:main.c        ****             motor_turn(leftMotor, rightMotor, 0);
+ 362:main.c        ****             printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
+ 363:main.c        ****         }  
+ 364:main.c        **** 
+ 365:main.c        ****         */
+ 366:main.c        ****         
  367:main.c        ****         
  368:main.c        ****         
  369:main.c        ****         
  370:main.c        ****         
- 371:main.c        ****         
- 372:main.c        ****         /*
- 373:main.c        ****                 int decelerate;
- 374:main.c        ****                 int turn = 1;
- 375:main.c        ****                 int delay = 3;
- 376:main.c        ****                 int kerroin;
+ 371:main.c        ****         /*
+ 372:main.c        ****                 int decelerate;
+ 373:main.c        ****                 int turn = 1;
+ 374:main.c        ****                 int delay = 3;
+ 375:main.c        ****                 int kerroin;
+ 376:main.c        ****             
  377:main.c        ****             
- 378:main.c        ****             
- 379:main.c        ****                 if (dig.l1 == 0 && dig.r1 == 0) { //forward
- 380:main.c        ****                 motor_forward(200 ,2);  
- 381:main.c        ****                 //decelerate = 100;
- 382:main.c        ****                 } 
- 383:main.c        ****                 
- 384:main.c        ****                 else if (dig.r1 == 1 && dig.l1 == 0) { //left
- 385:main.c        ****                 //motor_turn(100,200,5);
- 386:main.c        ****                 decelerate = 200;
- 387:main.c        ****                     kerroin = 1;
- 388:main.c        ****                     while (turn == 1) {
- 389:main.c        ****                         
- 390:main.c        ****                         reflectance_read(&ref);
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 13
+ 378:main.c        ****                 if (dig.l1 == 0 && dig.r1 == 0) { //forward
+ 379:main.c        ****                 motor_forward(200 ,2);  
+ 380:main.c        ****                 //decelerate = 100;
+ 381:main.c        ****                 } 
+ 382:main.c        ****                 
+ 383:main.c        ****                 else if (dig.r1 == 1 && dig.l1 == 0) { //left
+ 384:main.c        ****                 //motor_turn(100,200,5);
+ 385:main.c        ****                 decelerate = 200;
+ 386:main.c        ****                     kerroin = 1;
+ 387:main.c        ****                     while (turn == 1) {
+ 388:main.c        ****                         
+ 389:main.c        ****                         reflectance_read(&ref);
+ 390:main.c        ****                         //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 13
 
 
- 391:main.c        ****                         //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print
- 392:main.c        ****                         reflectance_digital(&dig);      //print out 0 or 1 according to results of 
- 393:main.c        ****                         //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3
- 394:main.c        ****                         printf("%i", decelerate);
- 395:main.c        ****                         
- 396:main.c        ****                         motor_turn(decelerate,200,delay);
- 397:main.c        ****                         if (dig.l1 == 0 && dig.r1 == 0) {
- 398:main.c        ****                              turn = 0;
- 399:main.c        ****                         } else if (decelerate - kerroin < 0){
- 400:main.c        ****                             decelerate = 0;
- 401:main.c        ****                         } else {
- 402:main.c        ****                             decelerate = decelerate - kerroin;
- 403:main.c        ****                             kerroin++;
- 404:main.c        ****                         }
- 405:main.c        ****                     }
- 406:main.c        ****                 }
+ 391:main.c        ****                         reflectance_digital(&dig);      //print out 0 or 1 according to results of 
+ 392:main.c        ****                         //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3
+ 393:main.c        ****                         printf("%i", decelerate);
+ 394:main.c        ****                         
+ 395:main.c        ****                         motor_turn(decelerate,200,delay);
+ 396:main.c        ****                         if (dig.l1 == 0 && dig.r1 == 0) {
+ 397:main.c        ****                              turn = 0;
+ 398:main.c        ****                         } else if (decelerate - kerroin < 0){
+ 399:main.c        ****                             decelerate = 0;
+ 400:main.c        ****                         } else {
+ 401:main.c        ****                             decelerate = decelerate - kerroin;
+ 402:main.c        ****                             kerroin++;
+ 403:main.c        ****                         }
+ 404:main.c        ****                     }
+ 405:main.c        ****                 }
+ 406:main.c        ****                 
  407:main.c        ****                 
- 408:main.c        ****                 
- 409:main.c        ****                 else if (dig.r1 == 0 && dig.l1 == 1) { //right
- 410:main.c        ****                 //motor_turn(200,100,5);
- 411:main.c        ****                 decelerate = 200;
- 412:main.c        ****                 kerroin = 1;
- 413:main.c        ****                 while (turn == 1) {
- 414:main.c        ****                     
- 415:main.c        ****                         reflectance_read(&ref);
- 416:main.c        ****                         //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print
- 417:main.c        ****                         reflectance_digital(&dig);      //print out 0 or 1 according to results of 
- 418:main.c        ****                         //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3
- 419:main.c        ****                         printf("%i", decelerate);
- 420:main.c        ****                         
- 421:main.c        ****                         motor_turn(200,decelerate,delay);
- 422:main.c        ****                         if (dig.l1 == 0 && dig.r1 == 0) {
- 423:main.c        ****                              turn = 0;
- 424:main.c        ****                         } else if (decelerate - kerroin < 0){
- 425:main.c        ****                             decelerate = 0;
- 426:main.c        ****                         } else {
- 427:main.c        ****                             decelerate = decelerate - kerroin;
- 428:main.c        ****                             kerroin++;
- 429:main.c        ****                         }
- 430:main.c        ****                     }
- 431:main.c        ****                 }*/
- 432:main.c        ****                 
- 433:main.c        ****                 /*
- 434:main.c        ****                 else if (dig.r3 == 1 && dig.l3 == 0) { // right hard
- 435:main.c        ****                 motor_turn(200,0,5);
- 436:main.c        ****                 }
- 437:main.c        ****                 
- 438:main.c        ****                 else if (dig.l3 == 1 && dig.r3 == 0) { // left hard
- 439:main.c        ****                 motor_turn(0,200,5);
- 440:main.c        ****                 }
- 441:main.c        ****                 */
- 442:main.c        ****                 
- 443:main.c        ****        
+ 408:main.c        ****                 else if (dig.r1 == 0 && dig.l1 == 1) { //right
+ 409:main.c        ****                 //motor_turn(200,100,5);
+ 410:main.c        ****                 decelerate = 200;
+ 411:main.c        ****                 kerroin = 1;
+ 412:main.c        ****                 while (turn == 1) {
+ 413:main.c        ****                     
+ 414:main.c        ****                         reflectance_read(&ref);
+ 415:main.c        ****                         //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print
+ 416:main.c        ****                         reflectance_digital(&dig);      //print out 0 or 1 according to results of 
+ 417:main.c        ****                         //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3
+ 418:main.c        ****                         printf("%i", decelerate);
+ 419:main.c        ****                         
+ 420:main.c        ****                         motor_turn(200,decelerate,delay);
+ 421:main.c        ****                         if (dig.l1 == 0 && dig.r1 == 0) {
+ 422:main.c        ****                              turn = 0;
+ 423:main.c        ****                         } else if (decelerate - kerroin < 0){
+ 424:main.c        ****                             decelerate = 0;
+ 425:main.c        ****                         } else {
+ 426:main.c        ****                             decelerate = decelerate - kerroin;
+ 427:main.c        ****                             kerroin++;
+ 428:main.c        ****                         }
+ 429:main.c        ****                     }
+ 430:main.c        ****                 }*/
+ 431:main.c        ****                 
+ 432:main.c        ****                 /*
+ 433:main.c        ****                 else if (dig.r3 == 1 && dig.l3 == 0) { // right hard
+ 434:main.c        ****                 motor_turn(200,0,5);
+ 435:main.c        ****                 }
+ 436:main.c        ****                 
+ 437:main.c        ****                 else if (dig.l3 == 1 && dig.r3 == 0) { // left hard
+ 438:main.c        ****                 motor_turn(0,200,5);
+ 439:main.c        ****                 }
+ 440:main.c        ****                 */
+ 441:main.c        ****                 
+ 442:main.c        ****        
+ 443:main.c        ****         
  444:main.c        ****         
  445:main.c        ****         
- 446:main.c        ****         
- 447:main.c        ****     }
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 14
+ 446:main.c        ****     }
+ 291              		.loc 1 446 0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 14
 
 
- 291              		.loc 1 447 0
  292 014e 6AE7     		b	.L12
  293              	.L23:
  294              		.align	3
@@ -807,181 +806,181 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  314              		.type	_write, %function
  315              	_write:
  316              	.LFB64:
- 448:main.c        **** }   
- 449:main.c        **** //
- 450:main.c        **** 
- 451:main.c        ****  /*//motor//
- 452:main.c        **** 
- 453:main.c        **** // you go forward fast !
- 454:main.c        **** void forward_fast(uint32 time){ // time in milliseconds
- 455:main.c        ****     motor_forward(200 ,time);
- 456:main.c        **** }
- 457:main.c        **** 
- 458:main.c        **** // you turn to left 90 degrees
- 459:main.c        **** void left90(){
- 460:main.c        ****     motor_turn(0,200,370);
- 461:main.c        **** }
- 462:main.c        **** 
- 463:main.c        **** // you turn to left 45 degrees
- 464:main.c        **** void left45(){
- 465:main.c        ****     motor_turn(0,200,185);
- 466:main.c        **** }
- 467:main.c        **** 
- 468:main.c        **** // you turn to right 90 degrees
- 469:main.c        **** void right90(){
- 470:main.c        ****     motor_turn(200,0,370);
- 471:main.c        **** }
- 472:main.c        **** 
- 473:main.c        **** // you turn to right 45 degrees
- 474:main.c        **** void right45(){
- 475:main.c        ****     motor_turn(200,0,185);
- 476:main.c        **** }
- 477:main.c        **** 
- 478:main.c        **** int main()
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 15
+ 447:main.c        **** }   
+ 448:main.c        **** //
+ 449:main.c        **** 
+ 450:main.c        ****  /*//motor//
+ 451:main.c        **** 
+ 452:main.c        **** // you go forward fast !
+ 453:main.c        **** void forward_fast(uint32 time){ // time in milliseconds
+ 454:main.c        ****     motor_forward(200 ,time);
+ 455:main.c        **** }
+ 456:main.c        **** 
+ 457:main.c        **** // you turn to left 90 degrees
+ 458:main.c        **** void left90(){
+ 459:main.c        ****     motor_turn(0,200,370);
+ 460:main.c        **** }
+ 461:main.c        **** 
+ 462:main.c        **** // you turn to left 45 degrees
+ 463:main.c        **** void left45(){
+ 464:main.c        ****     motor_turn(0,200,185);
+ 465:main.c        **** }
+ 466:main.c        **** 
+ 467:main.c        **** // you turn to right 90 degrees
+ 468:main.c        **** void right90(){
+ 469:main.c        ****     motor_turn(200,0,370);
+ 470:main.c        **** }
+ 471:main.c        **** 
+ 472:main.c        **** // you turn to right 45 degrees
+ 473:main.c        **** void right45(){
+ 474:main.c        ****     motor_turn(200,0,185);
+ 475:main.c        **** }
+ 476:main.c        **** 
+ 477:main.c        **** int main()
+ 478:main.c        **** {
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 15
 
 
- 479:main.c        **** {
- 480:main.c        ****     
- 481:main.c        ****     CyGlobalIntEnable; 
- 482:main.c        ****     UART_1_Start();
- 483:main.c        **** 
- 484:main.c        ****     motor_start();              // motor start
- 485:main.c        ****    
- 486:main.c        ****     forward_fast(1700);
- 487:main.c        ****     right90();
- 488:main.c        ****     forward_fast(1700);
- 489:main.c        ****     right90();
- 490:main.c        ****     forward_fast(1400);
- 491:main.c        ****     right90();
- 492:main.c        ****     right45();
- 493:main.c        ****     forward_fast(460);
- 494:main.c        ****     motor_turn(150,200,1400);
- 495:main.c        ****     //motor_forward(100,2000);     // moving forward
- 496:main.c        ****     //motor_turn(200,50,4000);     // turn
- 497:main.c        ****     //motor_turn(50,200,4000);     // turn
- 498:main.c        ****     //motor_backward(100,2000);    // movinb backward
- 499:main.c        ****        
- 500:main.c        ****     motor_stop();               // motor stop
- 501:main.c        ****     
- 502:main.c        ****     for(;;)
- 503:main.c        ****     {
- 504:main.c        **** 
- 505:main.c        ****     }
- 506:main.c        **** } */
- 507:main.c        **** //
- 508:main.c        ****     
- 509:main.c        **** 
- 510:main.c        **** /*//gyroscope//
- 511:main.c        **** int main()
- 512:main.c        **** {
- 513:main.c        ****     CyGlobalIntEnable; 
- 514:main.c        ****     UART_1_Start();
- 515:main.c        ****   
- 516:main.c        ****     I2C_Start();
- 517:main.c        ****   
- 518:main.c        ****     uint8 X_L_G, X_H_G, Y_L_G, Y_H_G, Z_L_G, Z_H_G;
- 519:main.c        ****     int16 X_AXIS_G, Y_AXIS_G, Z_AXIS_G;
- 520:main.c        ****     
- 521:main.c        ****     I2C_write(GYRO_ADDR, GYRO_CTRL1_REG, 0x0F);             // set gyroscope into active mode
- 522:main.c        ****     I2C_write(GYRO_ADDR, GYRO_CTRL4_REG, 0x30);             // set full scale selection to 2000dps 
- 523:main.c        ****     
- 524:main.c        ****     for(;;)
- 525:main.c        ****     {
- 526:main.c        ****         //print out gyroscope output
- 527:main.c        ****         X_L_G = I2C_read(GYRO_ADDR, OUT_X_AXIS_L);
- 528:main.c        ****         X_H_G = I2C_read(GYRO_ADDR, OUT_X_AXIS_H);
- 529:main.c        ****         X_AXIS_G = convert_raw(X_H_G, X_L_G);
+ 479:main.c        ****     
+ 480:main.c        ****     CyGlobalIntEnable; 
+ 481:main.c        ****     UART_1_Start();
+ 482:main.c        **** 
+ 483:main.c        ****     motor_start();              // motor start
+ 484:main.c        ****    
+ 485:main.c        ****     forward_fast(1700);
+ 486:main.c        ****     right90();
+ 487:main.c        ****     forward_fast(1700);
+ 488:main.c        ****     right90();
+ 489:main.c        ****     forward_fast(1400);
+ 490:main.c        ****     right90();
+ 491:main.c        ****     right45();
+ 492:main.c        ****     forward_fast(460);
+ 493:main.c        ****     motor_turn(150,200,1400);
+ 494:main.c        ****     //motor_forward(100,2000);     // moving forward
+ 495:main.c        ****     //motor_turn(200,50,4000);     // turn
+ 496:main.c        ****     //motor_turn(50,200,4000);     // turn
+ 497:main.c        ****     //motor_backward(100,2000);    // movinb backward
+ 498:main.c        ****        
+ 499:main.c        ****     motor_stop();               // motor stop
+ 500:main.c        ****     
+ 501:main.c        ****     for(;;)
+ 502:main.c        ****     {
+ 503:main.c        **** 
+ 504:main.c        ****     }
+ 505:main.c        **** } */
+ 506:main.c        **** //
+ 507:main.c        ****     
+ 508:main.c        **** 
+ 509:main.c        **** /*//gyroscope//
+ 510:main.c        **** int main()
+ 511:main.c        **** {
+ 512:main.c        ****     CyGlobalIntEnable; 
+ 513:main.c        ****     UART_1_Start();
+ 514:main.c        ****   
+ 515:main.c        ****     I2C_Start();
+ 516:main.c        ****   
+ 517:main.c        ****     uint8 X_L_G, X_H_G, Y_L_G, Y_H_G, Z_L_G, Z_H_G;
+ 518:main.c        ****     int16 X_AXIS_G, Y_AXIS_G, Z_AXIS_G;
+ 519:main.c        ****     
+ 520:main.c        ****     I2C_write(GYRO_ADDR, GYRO_CTRL1_REG, 0x0F);             // set gyroscope into active mode
+ 521:main.c        ****     I2C_write(GYRO_ADDR, GYRO_CTRL4_REG, 0x30);             // set full scale selection to 2000dps 
+ 522:main.c        ****     
+ 523:main.c        ****     for(;;)
+ 524:main.c        ****     {
+ 525:main.c        ****         //print out gyroscope output
+ 526:main.c        ****         X_L_G = I2C_read(GYRO_ADDR, OUT_X_AXIS_L);
+ 527:main.c        ****         X_H_G = I2C_read(GYRO_ADDR, OUT_X_AXIS_H);
+ 528:main.c        ****         X_AXIS_G = convert_raw(X_H_G, X_L_G);
+ 529:main.c        ****         
  530:main.c        ****         
- 531:main.c        ****         
- 532:main.c        ****         Y_L_G = I2C_read(GYRO_ADDR, OUT_Y_AXIS_L);
- 533:main.c        ****         Y_H_G = I2C_read(GYRO_ADDR, OUT_Y_AXIS_H);
- 534:main.c        ****         Y_AXIS_G = convert_raw(Y_H_G, Y_L_G);
+ 531:main.c        ****         Y_L_G = I2C_read(GYRO_ADDR, OUT_Y_AXIS_L);
+ 532:main.c        ****         Y_H_G = I2C_read(GYRO_ADDR, OUT_Y_AXIS_H);
+ 533:main.c        ****         Y_AXIS_G = convert_raw(Y_H_G, Y_L_G);
+ 534:main.c        ****         
  535:main.c        ****         
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 16
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 16
 
 
- 536:main.c        ****         
- 537:main.c        ****         Z_L_G = I2C_read(GYRO_ADDR, OUT_Z_AXIS_L);
- 538:main.c        ****         Z_H_G = I2C_read(GYRO_ADDR, OUT_Z_AXIS_H);
- 539:main.c        ****         Z_AXIS_G = convert_raw(Z_H_G, Z_L_G);
- 540:main.c        ****      
- 541:main.c        ****         // If you want to print value
- 542:main.c        ****         printf("%d %d %d \r\n", X_AXIS_G, Y_AXIS_G, Z_AXIS_G);
- 543:main.c        ****         CyDelay(50);
- 544:main.c        ****     }
- 545:main.c        **** }   
- 546:main.c        **** //*/
+ 536:main.c        ****         Z_L_G = I2C_read(GYRO_ADDR, OUT_Z_AXIS_L);
+ 537:main.c        ****         Z_H_G = I2C_read(GYRO_ADDR, OUT_Z_AXIS_H);
+ 538:main.c        ****         Z_AXIS_G = convert_raw(Z_H_G, Z_L_G);
+ 539:main.c        ****      
+ 540:main.c        ****         // If you want to print value
+ 541:main.c        ****         printf("%d %d %d \r\n", X_AXIS_G, Y_AXIS_G, Z_AXIS_G);
+ 542:main.c        ****         CyDelay(50);
+ 543:main.c        ****     }
+ 544:main.c        **** }   
+ 545:main.c        **** //*/
+ 546:main.c        **** 
  547:main.c        **** 
- 548:main.c        **** 
- 549:main.c        **** /*//magnetometer//
- 550:main.c        **** int main()
- 551:main.c        **** {
- 552:main.c        ****     CyGlobalIntEnable; 
- 553:main.c        ****     UART_1_Start();
- 554:main.c        ****   
- 555:main.c        ****     I2C_Start();
- 556:main.c        ****    
- 557:main.c        ****     uint8 X_L_M, X_H_M, Y_L_M, Y_H_M, Z_L_M, Z_H_M;
- 558:main.c        ****     int16 X_AXIS, Y_AXIS, Z_AXIS;
- 559:main.c        ****     
- 560:main.c        ****     I2C_write(GYRO_ADDR, GYRO_CTRL1_REG, 0x0F);             // set gyroscope into active mode
- 561:main.c        ****     I2C_write(GYRO_ADDR, GYRO_CTRL4_REG, 0x30);             // set full scale selection to 2000dps
- 562:main.c        ****     I2C_write(ACCEL_MAG_ADDR, ACCEL_CTRL1_REG, 0x37);           // set accelerometer & magnetometer
- 563:main.c        ****     I2C_write(ACCEL_MAG_ADDR, ACCEL_CTRL7_REG, 0x22);
+ 548:main.c        **** /*//magnetometer//
+ 549:main.c        **** int main()
+ 550:main.c        **** {
+ 551:main.c        ****     CyGlobalIntEnable; 
+ 552:main.c        ****     UART_1_Start();
+ 553:main.c        ****   
+ 554:main.c        ****     I2C_Start();
+ 555:main.c        ****    
+ 556:main.c        ****     uint8 X_L_M, X_H_M, Y_L_M, Y_H_M, Z_L_M, Z_H_M;
+ 557:main.c        ****     int16 X_AXIS, Y_AXIS, Z_AXIS;
+ 558:main.c        ****     
+ 559:main.c        ****     I2C_write(GYRO_ADDR, GYRO_CTRL1_REG, 0x0F);             // set gyroscope into active mode
+ 560:main.c        ****     I2C_write(GYRO_ADDR, GYRO_CTRL4_REG, 0x30);             // set full scale selection to 2000dps
+ 561:main.c        ****     I2C_write(ACCEL_MAG_ADDR, ACCEL_CTRL1_REG, 0x37);           // set accelerometer & magnetometer
+ 562:main.c        ****     I2C_write(ACCEL_MAG_ADDR, ACCEL_CTRL7_REG, 0x22);
+ 563:main.c        ****     
  564:main.c        ****     
- 565:main.c        ****     
- 566:main.c        ****     for(;;)
- 567:main.c        ****     {
- 568:main.c        ****         X_L_M = I2C_read(ACCEL_MAG_ADDR, OUT_X_L_M);
- 569:main.c        ****         X_H_M = I2C_read(ACCEL_MAG_ADDR, OUT_X_H_M);
- 570:main.c        ****         X_AXIS = convert_raw(X_L_M, X_H_M);
- 571:main.c        ****         
- 572:main.c        ****         Y_L_M = I2C_read(ACCEL_MAG_ADDR, OUT_Y_L_M);
- 573:main.c        ****         Y_H_M = I2C_read(ACCEL_MAG_ADDR, OUT_Y_H_M);
- 574:main.c        ****         Y_AXIS = convert_raw(Y_L_M, Y_H_M);
- 575:main.c        ****         
- 576:main.c        ****         Z_L_M = I2C_read(ACCEL_MAG_ADDR, OUT_Z_L_M);
- 577:main.c        ****         Z_H_M = I2C_read(ACCEL_MAG_ADDR, OUT_Z_H_M);
- 578:main.c        ****         Z_AXIS = convert_raw(Z_L_M, Z_H_M);
- 579:main.c        ****         
- 580:main.c        ****         heading(X_AXIS, Y_AXIS);
- 581:main.c        ****         printf("MAGNET: %d %d %d %d %d %d \r\n", X_L_M, X_H_M, Y_L_M, Y_H_M, Z_L_M, Z_H_M);
- 582:main.c        ****         printf("%d %d %d \r\n", X_AXIS,Y_AXIS, Z_AXIS);
- 583:main.c        ****         CyDelay(50);      
- 584:main.c        ****     }
- 585:main.c        **** }   
- 586:main.c        **** //*/
+ 565:main.c        ****     for(;;)
+ 566:main.c        ****     {
+ 567:main.c        ****         X_L_M = I2C_read(ACCEL_MAG_ADDR, OUT_X_L_M);
+ 568:main.c        ****         X_H_M = I2C_read(ACCEL_MAG_ADDR, OUT_X_H_M);
+ 569:main.c        ****         X_AXIS = convert_raw(X_L_M, X_H_M);
+ 570:main.c        ****         
+ 571:main.c        ****         Y_L_M = I2C_read(ACCEL_MAG_ADDR, OUT_Y_L_M);
+ 572:main.c        ****         Y_H_M = I2C_read(ACCEL_MAG_ADDR, OUT_Y_H_M);
+ 573:main.c        ****         Y_AXIS = convert_raw(Y_L_M, Y_H_M);
+ 574:main.c        ****         
+ 575:main.c        ****         Z_L_M = I2C_read(ACCEL_MAG_ADDR, OUT_Z_L_M);
+ 576:main.c        ****         Z_H_M = I2C_read(ACCEL_MAG_ADDR, OUT_Z_H_M);
+ 577:main.c        ****         Z_AXIS = convert_raw(Z_L_M, Z_H_M);
+ 578:main.c        ****         
+ 579:main.c        ****         heading(X_AXIS, Y_AXIS);
+ 580:main.c        ****         printf("MAGNET: %d %d %d %d %d %d \r\n", X_L_M, X_H_M, Y_L_M, Y_H_M, Z_L_M, Z_H_M);
+ 581:main.c        ****         printf("%d %d %d \r\n", X_AXIS,Y_AXIS, Z_AXIS);
+ 582:main.c        ****         CyDelay(50);      
+ 583:main.c        ****     }
+ 584:main.c        **** }   
+ 585:main.c        **** //*/
+ 586:main.c        **** 
  587:main.c        **** 
- 588:main.c        **** 
- 589:main.c        **** #if 0
- 590:main.c        **** int rread(void)
- 591:main.c        **** {
- 592:main.c        ****     SC0_SetDriveMode(PIN_DM_STRONG);
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 17
+ 588:main.c        **** #if 0
+ 589:main.c        **** int rread(void)
+ 590:main.c        **** {
+ 591:main.c        ****     SC0_SetDriveMode(PIN_DM_STRONG);
+ 592:main.c        ****     SC0_Write(1);
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 17
 
 
- 593:main.c        ****     SC0_Write(1);
- 594:main.c        ****     CyDelayUs(10);
- 595:main.c        ****     SC0_SetDriveMode(PIN_DM_DIG_HIZ);
- 596:main.c        ****     Timer_1_Start();
- 597:main.c        ****     uint16_t start = Timer_1_ReadCounter();
- 598:main.c        ****     uint16_t end = 0;
- 599:main.c        ****     while(!(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC)) {
- 600:main.c        ****         if(SC0_Read() == 0 && end == 0) {
- 601:main.c        ****             end = Timer_1_ReadCounter();
- 602:main.c        ****         }
- 603:main.c        ****     }
- 604:main.c        ****     Timer_1_Stop();
- 605:main.c        ****     
- 606:main.c        ****     return (start - end);
- 607:main.c        **** }
- 608:main.c        **** #endif
- 609:main.c        **** 
- 610:main.c        **** /* Don't remove the functions below */
- 611:main.c        **** int _write(int file, char *ptr, int len)
- 612:main.c        **** {
- 317              		.loc 1 612 0
+ 593:main.c        ****     CyDelayUs(10);
+ 594:main.c        ****     SC0_SetDriveMode(PIN_DM_DIG_HIZ);
+ 595:main.c        ****     Timer_1_Start();
+ 596:main.c        ****     uint16_t start = Timer_1_ReadCounter();
+ 597:main.c        ****     uint16_t end = 0;
+ 598:main.c        ****     while(!(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC)) {
+ 599:main.c        ****         if(SC0_Read() == 0 && end == 0) {
+ 600:main.c        ****             end = Timer_1_ReadCounter();
+ 601:main.c        ****         }
+ 602:main.c        ****     }
+ 603:main.c        ****     Timer_1_Stop();
+ 604:main.c        ****     
+ 605:main.c        ****     return (start - end);
+ 606:main.c        **** }
+ 607:main.c        **** #endif
+ 608:main.c        **** 
+ 609:main.c        **** /* Don't remove the functions below */
+ 610:main.c        **** int _write(int file, char *ptr, int len)
+ 611:main.c        **** {
+ 317              		.loc 1 611 0
  318              		.cfi_startproc
  319              		@ args = 0, pretend = 0, frame = 0
  320              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -997,50 +996,50 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  330 0002 0C46     		mov	r4, r1
  331 0004 1746     		mov	r7, r2
  332              	.LVL51:
- 613:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
- 614:main.c        **** 	int n;
- 615:main.c        **** 	for(n = 0; n < len; n++) {
- 333              		.loc 1 615 0
+ 612:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+ 613:main.c        **** 	int n;
+ 614:main.c        **** 	for(n = 0; n < len; n++) {
+ 333              		.loc 1 614 0
  334 0006 0025     		movs	r5, #0
  335 0008 0BE0     		b	.L25
  336              	.LVL52:
  337              	.L27:
- 616:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
- 338              		.loc 1 616 0
+ 615:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 338              		.loc 1 615 0
  339 000a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  340 000c 0A2B     		cmp	r3, #10
  341 000e 02D1     		bne	.L26
- 342              		.loc 1 616 0 is_stmt 0 discriminator 1
+ 342              		.loc 1 615 0 is_stmt 0 discriminator 1
  343 0010 0D20     		movs	r0, #13
  344 0012 FFF7FEFF 		bl	UART_1_PutChar
  345              	.LVL53:
  346              	.L26:
- 617:main.c        **** 		UART_1_PutChar(*ptr++);
- 347              		.loc 1 617 0 is_stmt 1 discriminator 2
+ 616:main.c        **** 		UART_1_PutChar(*ptr++);
+ 347              		.loc 1 616 0 is_stmt 1 discriminator 2
  348 0016 661C     		adds	r6, r4, #1
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 18
-
-
  349              	.LVL54:
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 18
+
+
  350 0018 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
  351 001a FFF7FEFF 		bl	UART_1_PutChar
  352              	.LVL55:
- 615:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
- 353              		.loc 1 615 0 discriminator 2
+ 614:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 353              		.loc 1 614 0 discriminator 2
  354 001e 0135     		adds	r5, r5, #1
  355              	.LVL56:
- 356              		.loc 1 617 0 discriminator 2
+ 356              		.loc 1 616 0 discriminator 2
  357 0020 3446     		mov	r4, r6
  358              	.LVL57:
  359              	.L25:
- 615:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
- 360              		.loc 1 615 0 discriminator 1
+ 614:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 360              		.loc 1 614 0 discriminator 1
  361 0022 BD42     		cmp	r5, r7
  362 0024 F1DB     		blt	.L27
- 618:main.c        **** 	}
- 619:main.c        **** 	return len;
- 620:main.c        **** }
- 363              		.loc 1 620 0
+ 617:main.c        **** 	}
+ 618:main.c        **** 	return len;
+ 619:main.c        **** }
+ 363              		.loc 1 619 0
  364 0026 3846     		mov	r0, r7
  365 0028 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  366              		.cfi_endproc
@@ -1054,10 +1053,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  374              		.type	_read, %function
  375              	_read:
  376              	.LFB65:
- 621:main.c        **** 
- 622:main.c        **** int _read (int file, char *ptr, int count)
- 623:main.c        **** {
- 377              		.loc 1 623 0
+ 620:main.c        **** 
+ 621:main.c        **** int _read (int file, char *ptr, int count)
+ 622:main.c        **** {
+ 377              		.loc 1 622 0
  378              		.cfi_startproc
  379              		@ args = 0, pretend = 0, frame = 0
  380              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1073,85 +1072,85 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  390 0002 0F46     		mov	r7, r1
  391 0004 1446     		mov	r4, r2
  392              	.LVL59:
- 624:main.c        ****     int chs = 0;
- 393              		.loc 1 624 0
+ 623:main.c        ****     int chs = 0;
+ 393              		.loc 1 623 0
  394 0006 0026     		movs	r6, #0
- 625:main.c        ****     char ch;
- 626:main.c        ****  
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 19
+ 624:main.c        ****     char ch;
+ 625:main.c        ****  
+ 626:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 19
 
 
- 627:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
- 628:main.c        ****     while(count > 0) {
- 395              		.loc 1 628 0
+ 627:main.c        ****     while(count > 0) {
+ 395              		.loc 1 627 0
  396 0008 12E0     		b	.L31
  397              	.LVL60:
  398              	.L34:
- 629:main.c        ****         ch = UART_1_GetChar();
- 399              		.loc 1 629 0
+ 628:main.c        ****         ch = UART_1_GetChar();
+ 399              		.loc 1 628 0
  400 000a FFF7FEFF 		bl	UART_1_GetChar
  401              	.LVL61:
- 630:main.c        ****         if(ch != 0) {
- 402              		.loc 1 630 0
+ 629:main.c        ****         if(ch != 0) {
+ 402              		.loc 1 629 0
  403 000e 0546     		mov	r5, r0
  404 0010 70B1     		cbz	r0, .L31
- 631:main.c        ****             UART_1_PutChar(ch);
- 405              		.loc 1 631 0
+ 630:main.c        ****             UART_1_PutChar(ch);
+ 405              		.loc 1 630 0
  406 0012 FFF7FEFF 		bl	UART_1_PutChar
  407              	.LVL62:
- 632:main.c        ****             chs++;
- 408              		.loc 1 632 0
+ 631:main.c        ****             chs++;
+ 408              		.loc 1 631 0
  409 0016 0136     		adds	r6, r6, #1
  410              	.LVL63:
- 633:main.c        ****             if(ch == '\r') {
- 411              		.loc 1 633 0
+ 632:main.c        ****             if(ch == '\r') {
+ 411              		.loc 1 632 0
  412 0018 0D2D     		cmp	r5, #13
  413 001a 03D1     		bne	.L32
  414              	.LVL64:
- 634:main.c        ****                 ch = '\n';
- 635:main.c        ****                 UART_1_PutChar(ch);
- 415              		.loc 1 635 0
+ 633:main.c        ****                 ch = '\n';
+ 634:main.c        ****                 UART_1_PutChar(ch);
+ 415              		.loc 1 634 0
  416 001c 0A20     		movs	r0, #10
  417 001e FFF7FEFF 		bl	UART_1_PutChar
  418              	.LVL65:
- 634:main.c        ****                 ch = '\n';
- 419              		.loc 1 634 0
+ 633:main.c        ****                 ch = '\n';
+ 419              		.loc 1 633 0
  420 0022 0A25     		movs	r5, #10
  421              	.LVL66:
  422              	.L32:
- 636:main.c        ****             }
- 637:main.c        ****             *ptr++ = ch;
- 423              		.loc 1 637 0
+ 635:main.c        ****             }
+ 636:main.c        ****             *ptr++ = ch;
+ 423              		.loc 1 636 0
  424 0024 7B1C     		adds	r3, r7, #1
  425              	.LVL67:
  426 0026 3D70     		strb	r5, [r7]
- 638:main.c        ****             count--;
- 427              		.loc 1 638 0
+ 637:main.c        ****             count--;
+ 427              		.loc 1 637 0
  428 0028 013C     		subs	r4, r4, #1
  429              	.LVL68:
- 639:main.c        ****             if(ch == '\n') break;
- 430              		.loc 1 639 0
+ 638:main.c        ****             if(ch == '\n') break;
+ 430              		.loc 1 638 0
  431 002a 0A2D     		cmp	r5, #10
  432 002c 02D0     		beq	.L33
- 637:main.c        ****             count--;
- 433              		.loc 1 637 0
+ 636:main.c        ****             count--;
+ 433              		.loc 1 636 0
  434 002e 1F46     		mov	r7, r3
  435              	.LVL69:
  436              	.L31:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 20
+ 627:main.c        ****         ch = UART_1_GetChar();
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 20
 
 
- 628:main.c        ****         ch = UART_1_GetChar();
- 437              		.loc 1 628 0
+ 437              		.loc 1 627 0
  438 0030 002C     		cmp	r4, #0
  439 0032 EADC     		bgt	.L34
  440              	.LVL70:
  441              	.L33:
- 640:main.c        ****         }
- 641:main.c        ****     }
- 642:main.c        ****     return chs;
- 643:main.c        **** }
- 442              		.loc 1 643 0
+ 639:main.c        ****         }
+ 640:main.c        ****     }
+ 641:main.c        ****     return chs;
+ 642:main.c        **** }
+ 442              		.loc 1 642 0
  443 0034 3046     		mov	r0, r6
  444 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  445              		.cfi_endproc
@@ -1198,10 +1197,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  468 0064 6C656674 		.ascii	"left: %i Right: %i\012\000"
  468      3A202569 
  468      20526967 
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 21
-
-
  468      68743A20 
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 21
+
+
  468      25690A00 
  469              		.text
  470              	.Letext0:
@@ -1258,10 +1257,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  521 0051 02       		.byte	0x2
  522 0052 3F       		.byte	0x3f
  523 0053 57000000 		.4byte	0x57
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 22
-
-
  524 0057 02       		.uleb128 0x2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 22
+
+
  525 0058 04       		.byte	0x4
  526 0059 05       		.byte	0x5
  527 005a 3A010000 		.4byte	.LASF6
@@ -1318,10 +1317,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  578 00bf 08       		.byte	0x8
  579 00c0 04020000 		.4byte	.LASF17
  580 00c4 05       		.uleb128 0x5
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 23
-
-
  581 00c5 88010000 		.4byte	.LASF18
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 23
+
+
  582 00c9 04       		.byte	0x4
  583 00ca 4E02     		.2byte	0x24e
  584 00cc D0000000 		.4byte	0xd0
@@ -1378,10 +1377,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  635 012b 71010000 		.4byte	.LASF20
  636 012f 0B       		.uleb128 0xb
  637 0130 4A000000 		.4byte	.LASF51
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 24
-
-
  638 0134 01       		.byte	0x1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 24
+
+
  639 0135 D9       		.byte	0xd9
  640 0136 73000000 		.4byte	0x73
  641 013a 00000000 		.4byte	.LFB63
@@ -1438,46 +1437,46 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  692 01b2 01       		.byte	0x1
  693 01b3 0101     		.2byte	0x101
  694 01b5 B6000000 		.4byte	0xb6
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 25
-
-
  695 01b9 08       		.byte	0x8
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 25
+
+
  696 01ba 925A2899 		.4byte	0x99285a92
  697 01be 9CDA893F 		.4byte	0x3f89da9c
  698 01c2 11       		.uleb128 0x11
  699 01c3 2C010000 		.4byte	.LASF25
  700 01c7 01       		.byte	0x1
- 701 01c8 1101     		.2byte	0x111
+ 701 01c8 0701     		.2byte	0x107
  702 01ca B6000000 		.4byte	0xb6
  703 01ce 79000000 		.4byte	.LLST4
  704 01d2 11       		.uleb128 0x11
  705 01d3 E4010000 		.4byte	.LASF26
  706 01d7 01       		.byte	0x1
- 707 01d8 1201     		.2byte	0x112
+ 707 01d8 0801     		.2byte	0x108
  708 01da B6000000 		.4byte	0xb6
  709 01de 91000000 		.4byte	.LLST5
  710 01e2 11       		.uleb128 0x11
  711 01e3 54010000 		.4byte	.LASF27
  712 01e7 01       		.byte	0x1
- 713 01e8 1501     		.2byte	0x115
+ 713 01e8 0B01     		.2byte	0x10b
  714 01ea 73000000 		.4byte	0x73
  715 01ee A9000000 		.4byte	.LLST6
  716 01f2 11       		.uleb128 0x11
  717 01f3 78000000 		.4byte	.LASF28
  718 01f7 01       		.byte	0x1
- 719 01f8 1601     		.2byte	0x116
+ 719 01f8 0C01     		.2byte	0x10c
  720 01fa 73000000 		.4byte	0x73
  721 01fe D2000000 		.4byte	.LLST7
  722 0202 11       		.uleb128 0x11
  723 0203 4A010000 		.4byte	.LASF29
  724 0207 01       		.byte	0x1
- 725 0208 1901     		.2byte	0x119
+ 725 0208 0F01     		.2byte	0x10f
  726 020a 73000000 		.4byte	0x73
  727 020e 11010000 		.4byte	.LLST8
  728 0212 11       		.uleb128 0x11
  729 0213 88000000 		.4byte	.LASF30
  730 0217 01       		.byte	0x1
- 731 0218 1A01     		.2byte	0x11a
+ 731 0218 1001     		.2byte	0x110
  732 021a 73000000 		.4byte	0x73
  733 021e 50010000 		.4byte	.LLST9
  734 0222 12       		.uleb128 0x12
@@ -1498,10 +1497,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  749 0246 13       		.uleb128 0x13
  750 0247 01       		.uleb128 0x1
  751 0248 50       		.byte	0x50
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 26
-
-
  752 0249 02       		.uleb128 0x2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 26
+
+
  753 024a 91       		.byte	0x91
  754 024b 58       		.sleb128 -40
  755 024c 00       		.byte	0
@@ -1558,10 +1557,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  806 02bb 03       		.byte	0x3
  807 02bc 38000000 		.4byte	.LC3
  808 02c0 00       		.byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 27
-
-
  809 02c1 14       		.uleb128 0x14
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 27
+
+
  810 02c2 D0000000 		.4byte	.LVL29
  811 02c6 FB040000 		.4byte	0x4fb
  812 02ca 12       		.uleb128 0x12
@@ -1618,10 +1617,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  863 0324 05       		.uleb128 0x5
  864 0325 03       		.byte	0x3
  865 0326 58000000 		.4byte	.LC5
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 28
-
-
  866 032a 00       		.byte	0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 28
+
+
  867 032b 12       		.uleb128 0x12
  868 032c 44010000 		.4byte	.LVL48
  869 0330 33050000 		.4byte	0x533
@@ -1678,10 +1677,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  920 0381 7C050000 		.4byte	0x57c
  921 0385 14       		.uleb128 0x14
  922 0386 1A000000 		.4byte	.LVL3
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 29
-
-
  923 038a 15050000 		.4byte	0x515
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 29
+
+
  924 038e 15       		.uleb128 0x15
  925 038f 20000000 		.4byte	.LVL4
  926 0393 83050000 		.4byte	0x583
@@ -1695,7 +1694,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  934 039e 16       		.uleb128 0x16
  935 039f 4F000000 		.4byte	.LASF32
  936 03a3 01       		.byte	0x1
- 937 03a4 6302     		.2byte	0x263
+ 937 03a4 6202     		.2byte	0x262
  938 03a6 73000000 		.4byte	0x73
  939 03aa 00000000 		.4byte	.LFB64
  940 03ae 2A000000 		.4byte	.LFE64-.LFB64
@@ -1705,25 +1704,25 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  944 03b8 17       		.uleb128 0x17
  945 03b9 6A000000 		.4byte	.LASF31
  946 03bd 01       		.byte	0x1
- 947 03be 6302     		.2byte	0x263
+ 947 03be 6202     		.2byte	0x262
  948 03c0 73000000 		.4byte	0x73
  949 03c4 79010000 		.4byte	.LLST10
  950 03c8 18       		.uleb128 0x18
  951 03c9 70747200 		.ascii	"ptr\000"
  952 03cd 01       		.byte	0x1
- 953 03ce 6302     		.2byte	0x263
+ 953 03ce 6202     		.2byte	0x262
  954 03d0 DE000000 		.4byte	0xde
  955 03d4 9A010000 		.4byte	.LLST11
  956 03d8 18       		.uleb128 0x18
  957 03d9 6C656E00 		.ascii	"len\000"
  958 03dd 01       		.byte	0x1
- 959 03de 6302     		.2byte	0x263
+ 959 03de 6202     		.2byte	0x262
  960 03e0 73000000 		.4byte	0x73
  961 03e4 CE010000 		.4byte	.LLST12
  962 03e8 19       		.uleb128 0x19
  963 03e9 6E00     		.ascii	"n\000"
  964 03eb 01       		.byte	0x1
- 965 03ec 6602     		.2byte	0x266
+ 965 03ec 6502     		.2byte	0x265
  966 03ee 73000000 		.4byte	0x73
  967 03f2 EC010000 		.4byte	.LLST13
  968 03f6 12       		.uleb128 0x12
@@ -1738,15 +1737,15 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  977 0408 00       		.byte	0
  978 0409 14       		.uleb128 0x14
  979 040a 1E000000 		.4byte	.LVL55
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 30
-
-
  980 040e 94050000 		.4byte	0x594
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 30
+
+
  981 0412 00       		.byte	0
  982 0413 16       		.uleb128 0x16
  983 0414 A0010000 		.4byte	.LASF33
  984 0418 01       		.byte	0x1
- 985 0419 6E02     		.2byte	0x26e
+ 985 0419 6D02     		.2byte	0x26d
  986 041b 73000000 		.4byte	0x73
  987 041f 00000000 		.4byte	.LFB65
  988 0423 38000000 		.4byte	.LFE65-.LFB65
@@ -1756,31 +1755,31 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  992 042d 17       		.uleb128 0x17
  993 042e 6A000000 		.4byte	.LASF31
  994 0432 01       		.byte	0x1
- 995 0433 6E02     		.2byte	0x26e
+ 995 0433 6D02     		.2byte	0x26d
  996 0435 73000000 		.4byte	0x73
  997 0439 0B020000 		.4byte	.LLST14
  998 043d 18       		.uleb128 0x18
  999 043e 70747200 		.ascii	"ptr\000"
  1000 0442 01       		.byte	0x1
- 1001 0443 6E02     		.2byte	0x26e
+ 1001 0443 6D02     		.2byte	0x26d
  1002 0445 DE000000 		.4byte	0xde
  1003 0449 2C020000 		.4byte	.LLST15
  1004 044d 17       		.uleb128 0x17
  1005 044e EE020000 		.4byte	.LASF34
  1006 0452 01       		.byte	0x1
- 1007 0453 6E02     		.2byte	0x26e
+ 1007 0453 6D02     		.2byte	0x26d
  1008 0455 73000000 		.4byte	0x73
  1009 0459 60020000 		.4byte	.LLST16
  1010 045d 19       		.uleb128 0x19
  1011 045e 63687300 		.ascii	"chs\000"
  1012 0462 01       		.byte	0x1
- 1013 0463 7002     		.2byte	0x270
+ 1013 0463 6F02     		.2byte	0x26f
  1014 0465 73000000 		.4byte	0x73
  1015 0469 7E020000 		.4byte	.LLST17
  1016 046d 19       		.uleb128 0x19
  1017 046e 636800   		.ascii	"ch\000"
  1018 0471 01       		.byte	0x1
- 1019 0472 7102     		.2byte	0x271
+ 1019 0472 7002     		.2byte	0x270
  1020 0474 BD000000 		.4byte	0xbd
  1021 0478 9D020000 		.4byte	.LLST18
  1022 047c 14       		.uleb128 0x14
@@ -1798,10 +1797,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1034 0497 00       		.sleb128 0
  1035 0498 00       		.byte	0
  1036 0499 15       		.uleb128 0x15
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 31
-
-
  1037 049a 22000000 		.4byte	.LVL65
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 31
+
+
  1038 049e 94050000 		.4byte	0x594
  1039 04a2 13       		.uleb128 0x13
  1040 04a3 01       		.uleb128 0x1
@@ -1858,10 +1857,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1091 050d 07       		.byte	0x7
  1092 050e 0B       		.byte	0xb
  1093 050f 15050000 		.4byte	0x515
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 32
-
-
  1094 0513 20       		.uleb128 0x20
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 32
+
+
  1095 0514 00       		.byte	0
  1096 0515 1F       		.uleb128 0x1f
  1097 0516 D2020000 		.4byte	.LASF39
@@ -1918,10 +1917,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1148 0582 1A       		.byte	0x1a
  1149 0583 1E       		.uleb128 0x1e
  1150 0584 2B030000 		.4byte	.LASF45
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 33
-
-
  1151 0588 0B       		.byte	0xb
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 33
+
+
  1152 0589 26       		.byte	0x26
  1153 058a 94050000 		.4byte	0x594
  1154 058e 1D       		.uleb128 0x1d
@@ -1978,10 +1977,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1205 0020 00       		.byte	0
  1206 0021 03       		.uleb128 0x3
  1207 0022 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 34
-
-
  1208 0023 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 34
+
+
  1209 0024 0B       		.uleb128 0xb
  1210 0025 3B       		.uleb128 0x3b
  1211 0026 0B       		.uleb128 0xb
@@ -2038,10 +2037,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1262 0059 00       		.byte	0
  1263 005a 09       		.uleb128 0x9
  1264 005b 13       		.uleb128 0x13
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 35
-
-
  1265 005c 01       		.byte	0x1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 35
+
+
  1266 005d 03       		.uleb128 0x3
  1267 005e 0E       		.uleb128 0xe
  1268 005f 0B       		.uleb128 0xb
@@ -2098,10 +2097,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1319 0093 34       		.uleb128 0x34
  1320 0094 00       		.byte	0
  1321 0095 03       		.uleb128 0x3
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 36
-
-
  1322 0096 08       		.uleb128 0x8
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 36
+
+
  1323 0097 3A       		.uleb128 0x3a
  1324 0098 0B       		.uleb128 0xb
  1325 0099 3B       		.uleb128 0x3b
@@ -2158,10 +2157,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1376 00cc 00       		.byte	0
  1377 00cd 03       		.uleb128 0x3
  1378 00ce 0E       		.uleb128 0xe
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 37
-
-
  1379 00cf 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 37
+
+
  1380 00d0 0B       		.uleb128 0xb
  1381 00d1 3B       		.uleb128 0x3b
  1382 00d2 05       		.uleb128 0x5
@@ -2218,10 +2217,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1433 010c 15       		.uleb128 0x15
  1434 010d 898201   		.uleb128 0x4109
  1435 0110 01       		.byte	0x1
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 38
-
-
  1436 0111 11       		.uleb128 0x11
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 38
+
+
  1437 0112 01       		.uleb128 0x1
  1438 0113 31       		.uleb128 0x31
  1439 0114 13       		.uleb128 0x13
@@ -2278,10 +2277,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1490 0148 0B       		.uleb128 0xb
  1491 0149 3B       		.uleb128 0x3b
  1492 014a 05       		.uleb128 0x5
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 39
-
-
  1493 014b 49       		.uleb128 0x49
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 39
+
+
  1494 014c 13       		.uleb128 0x13
  1495 014d 02       		.uleb128 0x2
  1496 014e 17       		.uleb128 0x17
@@ -2338,10 +2337,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1547 0181 3B       		.uleb128 0x3b
  1548 0182 0B       		.uleb128 0xb
  1549 0183 6E       		.uleb128 0x6e
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 40
-
-
  1550 0184 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 40
+
+
  1551 0185 27       		.uleb128 0x27
  1552 0186 19       		.uleb128 0x19
  1553 0187 49       		.uleb128 0x49
@@ -2398,10 +2397,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1604 01ba 20       		.uleb128 0x20
  1605 01bb 18       		.uleb128 0x18
  1606 01bc 00       		.byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 41
-
-
  1607 01bd 00       		.byte	0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 41
+
+
  1608 01be 00       		.byte	0
  1609 01bf 21       		.uleb128 0x21
  1610 01c0 2E       		.uleb128 0x2e
@@ -2458,10 +2457,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1661 01f3 13       		.uleb128 0x13
  1662 01f4 3C       		.uleb128 0x3c
  1663 01f5 19       		.uleb128 0x19
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 42
-
-
  1664 01f6 00       		.byte	0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 42
+
+
  1665 01f7 00       		.byte	0
  1666 01f8 00       		.byte	0
  1667              		.section	.debug_loc,"",%progbits
@@ -2518,10 +2517,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1718 0070 04       		.uleb128 0x4
  1719 0071 00000000 		.4byte	0
  1720 0075 00000000 		.4byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 43
-
-
  1721              	.LLST4:
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 43
+
+
  1722 0079 6A000000 		.4byte	.LVL15
  1723 007d 88000000 		.4byte	.LVL21
  1724 0081 0600     		.2byte	0x6
@@ -2578,10 +2577,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1775 00fb 0100     		.2byte	0x1
  1776 00fd 54       		.byte	0x54
  1777 00fe 02010000 		.4byte	.LVL36
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 44
-
-
  1778 0102 1A010000 		.4byte	.LVL41
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 44
+
+
  1779 0106 0100     		.2byte	0x1
  1780 0108 54       		.byte	0x54
  1781 0109 00000000 		.4byte	0
@@ -2638,10 +2637,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1832 0191 9F       		.byte	0x9f
  1833 0192 00000000 		.4byte	0
  1834 0196 00000000 		.4byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 45
-
-
  1835              	.LLST11:
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 45
+
+
  1836 019a 00000000 		.4byte	.LVL50
  1837 019e 0A000000 		.4byte	.LVL52
  1838 01a2 0100     		.2byte	0x1
@@ -2698,10 +2697,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1889 0224 00000000 		.4byte	0
  1890 0228 00000000 		.4byte	0
  1891              	.LLST15:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 46
-
-
  1892 022c 00000000 		.4byte	.LVL58
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 46
+
+
  1893 0230 0A000000 		.4byte	.LVL60
  1894 0234 0100     		.2byte	0x1
  1895 0236 51       		.byte	0x51
@@ -2758,10 +2757,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1946 02be 55       		.byte	0x55
  1947 02bf 00000000 		.4byte	0
  1948 02c3 00000000 		.4byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 47
-
-
  1949              		.section	.debug_aranges,"",%progbits
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 47
+
+
  1950 0000 2C000000 		.4byte	0x2c
  1951 0004 0200     		.2byte	0x2
  1952 0006 00000000 		.4byte	.Ldebug_info0
@@ -2789,7 +2788,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1974 001c 00000000 		.4byte	0
  1975              		.section	.debug_line,"",%progbits
  1976              	.Ldebug_line0:
- 1977 0000 83020000 		.section	.debug_str,"MS",%progbits,1
+ 1977 0000 81020000 		.section	.debug_str,"MS",%progbits,1
  1977      0200C501 
  1977      00000201 
  1977      FB0E0D00 
@@ -2818,10 +2817,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  1987      00
  1988              	.LASF23:
  1989 003c 696E6672 		.ascii	"infraL\000"
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 48
-
-
  1989      614C00
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 48
+
+
  1990              	.LASF22:
  1991 0043 696E6672 		.ascii	"infraR\000"
  1991      615200
@@ -2878,10 +2877,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  2017 00c7 666C6F61 		.ascii	"float\000"
  2017      7400
  2018              	.LASF8:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 49
-
-
  2019 00cd 6C6F6E67 		.ascii	"long long int\000"
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 49
+
+
  2019      206C6F6E 
  2019      6720696E 
  2019      7400
@@ -2938,10 +2937,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  2041              	.LASF18:
  2042 0188 63796973 		.ascii	"cyisraddress\000"
  2042      72616464 
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 50
-
-
  2042      72657373 
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 50
+
+
  2042      00
  2043              	.LASF21:
  2044 0195 77686963 		.ascii	"whichmotor\000"
@@ -2998,10 +2997,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  2065      6E203232 
  2065      31323230 
  2066 026f 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 51
-
-
  2066      66756E63 
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 51
+
+
  2066      74696F6E 
  2066      2D736563 
  2066      74696F6E 
@@ -3058,10 +3057,10 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 1
  2090      00
  2091              	.LASF40:
  2092 0323 43794465 		.ascii	"CyDelay\000"
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\cc4zZOac.s 			page 52
-
-
  2092      6C617900 
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccBUFb0k.s 			page 52
+
+
  2093              	.LASF45:
  2094 032b 49525F6C 		.ascii	"IR_led_Write\000"
  2094      65645F57 

@@ -254,21 +254,9 @@ int main()
         double infraR = ref.r1 - 3770;
         double infraL = ref.l1 - 3770;
         
+        // MAXSPEED /(infraMax 23999 -infraMin 3770)
         double magicNum = 0.012624;
-          /*
-            // TESTAUKSESSA
-            if(infraR < 3000) {
-                infraR = 0;
-            }
-            
-            // TESTAUKSESSA
-             if(infraL < 3000) {
-                infraL = 0;
-            }
-        */
-        // Magicnumber for White/Left
-        //double magicNumL = ref.r1 - 3880;
-        
+
         // Calculate motorspeeds
         double rightMotorRaw = magicNum * infraR;
         double leftMotorRaw = magicNum * infraL;
@@ -285,6 +273,15 @@ int main()
             leftMotor=rightMotorCheck;
             rightMotor=leftMotorCheck;
             
+            /*int boolstart = 0;
+        
+            while(boolstart == 0) {
+                motor_forward(50,50);
+                if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
+                    boolstart = 1;
+                }
+                
+            }*/
 
         // STOPPING AT LINES   
         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
@@ -310,15 +307,15 @@ int main()
            
         // Hard turn
         
-        if (rightMotor < 100 && leftMotor < 100) {
+        if (rightMotor < 80 && leftMotor < 80) {
             if (whichmotor == 1) {
                 leftMotor = 255;
             } else {
                 rightMotor = 255;
             }
-        } else if (leftMotor < 100) {
+        } else if (leftMotor < 80) {
             whichmotor = 2; // right
-        } else if (rightMotor < 100) {
+        } else if (rightMotor < 80) {
             whichmotor = 1; // left
         }
         
