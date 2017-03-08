@@ -1,0 +1,1856 @@
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Motor.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.motor_start,"ax",%progbits
+  19              		.align	2
+  20              		.global	motor_start
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	motor_start, %function
+  24              	motor_start:
+  25              	.LFB63:
+  26              		.file 1 "ZumoLibrary\\Motor.c"
+   1:ZumoLibrary/Motor.c **** /**
+   2:ZumoLibrary/Motor.c ****  * @file    Motor.c
+   3:ZumoLibrary/Motor.c ****  * @brief   Basic methods for operating motor sensor. For more details, please refer to Motor.h fil
+   4:ZumoLibrary/Motor.c ****  * @details included in Zumo shield
+   5:ZumoLibrary/Motor.c **** */
+   6:ZumoLibrary/Motor.c **** #include "Motor.h"
+   7:ZumoLibrary/Motor.c **** 
+   8:ZumoLibrary/Motor.c **** 
+   9:ZumoLibrary/Motor.c **** /**
+  10:ZumoLibrary/Motor.c **** * @brief    Starting motor sensors
+  11:ZumoLibrary/Motor.c **** * @details  
+  12:ZumoLibrary/Motor.c **** */
+  13:ZumoLibrary/Motor.c **** void motor_start()
+  14:ZumoLibrary/Motor.c **** {
+  27              		.loc 1 14 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  15:ZumoLibrary/Motor.c ****     PWM_Start();
+  35              		.loc 1 15 0
+  36 0002 FFF7FEFF 		bl	PWM_Start
+  37              	.LVL0:
+  38 0006 08BD     		pop	{r3, pc}
+  39              		.cfi_endproc
+  40              	.LFE63:
+  41              		.size	motor_start, .-motor_start
+  42              		.section	.text.motor_stop,"ax",%progbits
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 2
+
+
+  43              		.align	2
+  44              		.global	motor_stop
+  45              		.thumb
+  46              		.thumb_func
+  47              		.type	motor_stop, %function
+  48              	motor_stop:
+  49              	.LFB64:
+  16:ZumoLibrary/Motor.c **** }
+  17:ZumoLibrary/Motor.c **** 
+  18:ZumoLibrary/Motor.c **** 
+  19:ZumoLibrary/Motor.c **** /**
+  20:ZumoLibrary/Motor.c **** * @brief    Stopping motor sensors
+  21:ZumoLibrary/Motor.c **** * @details
+  22:ZumoLibrary/Motor.c **** */
+  23:ZumoLibrary/Motor.c **** void motor_stop()
+  24:ZumoLibrary/Motor.c **** {
+  50              		.loc 1 24 0
+  51              		.cfi_startproc
+  52              		@ args = 0, pretend = 0, frame = 0
+  53              		@ frame_needed = 0, uses_anonymous_args = 0
+  54 0000 08B5     		push	{r3, lr}
+  55              		.cfi_def_cfa_offset 8
+  56              		.cfi_offset 3, -8
+  57              		.cfi_offset 14, -4
+  25:ZumoLibrary/Motor.c ****     PWM_Stop();
+  58              		.loc 1 25 0
+  59 0002 FFF7FEFF 		bl	PWM_Stop
+  60              	.LVL1:
+  61 0006 08BD     		pop	{r3, pc}
+  62              		.cfi_endproc
+  63              	.LFE64:
+  64              		.size	motor_stop, .-motor_stop
+  65              		.section	.text.motor_forward,"ax",%progbits
+  66              		.align	2
+  67              		.global	motor_forward
+  68              		.thumb
+  69              		.thumb_func
+  70              		.type	motor_forward, %function
+  71              	motor_forward:
+  72              	.LFB65:
+  26:ZumoLibrary/Motor.c **** }
+  27:ZumoLibrary/Motor.c **** 
+  28:ZumoLibrary/Motor.c **** 
+  29:ZumoLibrary/Motor.c **** /**
+  30:ZumoLibrary/Motor.c **** * @brief    Moving motors forward
+  31:ZumoLibrary/Motor.c **** * @details  giveing same speed to each side of PWM to make motors go forward
+  32:ZumoLibrary/Motor.c **** * @param    uint8 speed : speed value
+  33:ZumoLibrary/Motor.c **** * @param    uint32 delay : delay time
+  34:ZumoLibrary/Motor.c **** */
+  35:ZumoLibrary/Motor.c **** void motor_forward(uint8 speed,uint32 delay)
+  36:ZumoLibrary/Motor.c **** {
+  73              		.loc 1 36 0
+  74              		.cfi_startproc
+  75              		@ args = 0, pretend = 0, frame = 0
+  76              		@ frame_needed = 0, uses_anonymous_args = 0
+  77              	.LVL2:
+  78 0000 38B5     		push	{r3, r4, r5, lr}
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 3
+
+
+  79              		.cfi_def_cfa_offset 16
+  80              		.cfi_offset 3, -16
+  81              		.cfi_offset 4, -12
+  82              		.cfi_offset 5, -8
+  83              		.cfi_offset 14, -4
+  84 0002 0446     		mov	r4, r0
+  85 0004 0D46     		mov	r5, r1
+  37:ZumoLibrary/Motor.c ****     MotorDirLeft_Write(0);      // set LeftMotor forward mode
+  86              		.loc 1 37 0
+  87 0006 0020     		movs	r0, #0
+  88              	.LVL3:
+  89 0008 FFF7FEFF 		bl	MotorDirLeft_Write
+  90              	.LVL4:
+  38:ZumoLibrary/Motor.c ****     MotorDirRight_Write(0);     // set RightMotor forward mode
+  91              		.loc 1 38 0
+  92 000c 0020     		movs	r0, #0
+  93 000e FFF7FEFF 		bl	MotorDirRight_Write
+  94              	.LVL5:
+  39:ZumoLibrary/Motor.c ****     PWM_WriteCompare1(speed); 
+  95              		.loc 1 39 0
+  96 0012 2046     		mov	r0, r4
+  97 0014 FFF7FEFF 		bl	PWM_WriteCompare1
+  98              	.LVL6:
+  40:ZumoLibrary/Motor.c ****     PWM_WriteCompare2(speed); 
+  99              		.loc 1 40 0
+ 100 0018 2046     		mov	r0, r4
+ 101 001a FFF7FEFF 		bl	PWM_WriteCompare2
+ 102              	.LVL7:
+  41:ZumoLibrary/Motor.c ****     CyDelay(delay);
+ 103              		.loc 1 41 0
+ 104 001e 2846     		mov	r0, r5
+ 105 0020 FFF7FEFF 		bl	CyDelay
+ 106              	.LVL8:
+ 107 0024 38BD     		pop	{r3, r4, r5, pc}
+ 108              		.cfi_endproc
+ 109              	.LFE65:
+ 110              		.size	motor_forward, .-motor_forward
+ 111 0026 00BF     		.section	.text.motor_turn,"ax",%progbits
+ 112              		.align	2
+ 113              		.global	motor_turn
+ 114              		.thumb
+ 115              		.thumb_func
+ 116              		.type	motor_turn, %function
+ 117              	motor_turn:
+ 118              	.LFB66:
+  42:ZumoLibrary/Motor.c **** }
+  43:ZumoLibrary/Motor.c **** 
+  44:ZumoLibrary/Motor.c **** 
+  45:ZumoLibrary/Motor.c **** /**
+  46:ZumoLibrary/Motor.c **** * @brief    Moving motors to make a turn 
+  47:ZumoLibrary/Motor.c **** * @details  moving left when l_speed < r_speed or moving right when l_speed > r_speed
+  48:ZumoLibrary/Motor.c **** * @param    uint8 l_speed : left motor speed value
+  49:ZumoLibrary/Motor.c **** * @param    uint8 r_speed : right motor speed value
+  50:ZumoLibrary/Motor.c **** * @param    uint32 delay : delay time
+  51:ZumoLibrary/Motor.c **** */
+  52:ZumoLibrary/Motor.c **** void motor_turn(uint8 l_speed, uint8 r_speed, uint32 delay)
+  53:ZumoLibrary/Motor.c **** {
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 4
+
+
+ 119              		.loc 1 53 0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              	.LVL9:
+ 124 0000 38B5     		push	{r3, r4, r5, lr}
+ 125              		.cfi_def_cfa_offset 16
+ 126              		.cfi_offset 3, -16
+ 127              		.cfi_offset 4, -12
+ 128              		.cfi_offset 5, -8
+ 129              		.cfi_offset 14, -4
+ 130 0002 0D46     		mov	r5, r1
+ 131 0004 1446     		mov	r4, r2
+  54:ZumoLibrary/Motor.c ****     PWM_WriteCompare1(l_speed); 
+ 132              		.loc 1 54 0
+ 133 0006 FFF7FEFF 		bl	PWM_WriteCompare1
+ 134              	.LVL10:
+  55:ZumoLibrary/Motor.c ****     PWM_WriteCompare2(r_speed); 
+ 135              		.loc 1 55 0
+ 136 000a 2846     		mov	r0, r5
+ 137 000c FFF7FEFF 		bl	PWM_WriteCompare2
+ 138              	.LVL11:
+  56:ZumoLibrary/Motor.c ****     CyDelay(delay);
+ 139              		.loc 1 56 0
+ 140 0010 2046     		mov	r0, r4
+ 141 0012 FFF7FEFF 		bl	CyDelay
+ 142              	.LVL12:
+ 143 0016 38BD     		pop	{r3, r4, r5, pc}
+ 144              		.cfi_endproc
+ 145              	.LFE66:
+ 146              		.size	motor_turn, .-motor_turn
+ 147              		.section	.text.motor_drive,"ax",%progbits
+ 148              		.align	2
+ 149              		.global	motor_drive
+ 150              		.thumb
+ 151              		.thumb_func
+ 152              		.type	motor_drive, %function
+ 153              	motor_drive:
+ 154              	.LFB67:
+  57:ZumoLibrary/Motor.c **** }
+  58:ZumoLibrary/Motor.c **** 
+  59:ZumoLibrary/Motor.c **** void motor_drive(int l_speed, int r_speed, int32 delay)
+  60:ZumoLibrary/Motor.c **** {
+ 155              		.loc 1 60 0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+ 159              	.LVL13:
+ 160 0000 70B5     		push	{r4, r5, r6, lr}
+ 161              		.cfi_def_cfa_offset 16
+ 162              		.cfi_offset 4, -16
+ 163              		.cfi_offset 5, -12
+ 164              		.cfi_offset 6, -8
+ 165              		.cfi_offset 14, -4
+ 166 0002 0D46     		mov	r5, r1
+ 167 0004 1646     		mov	r6, r2
+  61:ZumoLibrary/Motor.c ****     if (l_speed >= 0 && r_speed >= 0) {
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 5
+
+
+ 168              		.loc 1 61 0
+ 169 0006 041E     		subs	r4, r0, #0
+ 170 0008 11DB     		blt	.L10
+ 171              		.loc 1 61 0 is_stmt 0 discriminator 1
+ 172 000a 0029     		cmp	r1, #0
+ 173 000c 0FDB     		blt	.L10
+  62:ZumoLibrary/Motor.c ****         MotorDirLeft_Write(0);      // set LeftMotor forward mode
+ 174              		.loc 1 62 0 is_stmt 1
+ 175 000e 0020     		movs	r0, #0
+ 176              	.LVL14:
+ 177 0010 FFF7FEFF 		bl	MotorDirLeft_Write
+ 178              	.LVL15:
+  63:ZumoLibrary/Motor.c ****         MotorDirRight_Write(0);     // set RightMotor forward mode
+ 179              		.loc 1 63 0
+ 180 0014 0020     		movs	r0, #0
+ 181 0016 FFF7FEFF 		bl	MotorDirRight_Write
+ 182              	.LVL16:
+  64:ZumoLibrary/Motor.c ****         
+  65:ZumoLibrary/Motor.c ****         PWM_WriteCompare1(l_speed); 
+ 183              		.loc 1 65 0
+ 184 001a E0B2     		uxtb	r0, r4
+ 185 001c FFF7FEFF 		bl	PWM_WriteCompare1
+ 186              	.LVL17:
+  66:ZumoLibrary/Motor.c ****         PWM_WriteCompare2(r_speed); 
+ 187              		.loc 1 66 0
+ 188 0020 E8B2     		uxtb	r0, r5
+ 189 0022 FFF7FEFF 		bl	PWM_WriteCompare2
+ 190              	.LVL18:
+  67:ZumoLibrary/Motor.c ****         CyDelay(delay);
+ 191              		.loc 1 67 0
+ 192 0026 3046     		mov	r0, r6
+ 193 0028 FFF7FEFF 		bl	CyDelay
+ 194              	.LVL19:
+ 195 002c 70BD     		pop	{r4, r5, r6, pc}
+ 196              	.LVL20:
+ 197              	.L10:
+  68:ZumoLibrary/Motor.c ****         
+  69:ZumoLibrary/Motor.c ****         
+  70:ZumoLibrary/Motor.c ****     } else if (l_speed < 0 && r_speed >= 0){
+ 198              		.loc 1 70 0
+ 199 002e 002C     		cmp	r4, #0
+ 200 0030 12DA     		bge	.L12
+ 201              		.loc 1 70 0 is_stmt 0 discriminator 1
+ 202 0032 002D     		cmp	r5, #0
+ 203 0034 10DB     		blt	.L12
+  71:ZumoLibrary/Motor.c ****         MotorDirLeft_Write(1);      // set LeftMotor backward mode
+ 204              		.loc 1 71 0 is_stmt 1
+ 205 0036 0120     		movs	r0, #1
+ 206              	.LVL21:
+ 207 0038 FFF7FEFF 		bl	MotorDirLeft_Write
+ 208              	.LVL22:
+  72:ZumoLibrary/Motor.c ****         MotorDirRight_Write(0);     // set RightMotor forward mode
+ 209              		.loc 1 72 0
+ 210 003c 0020     		movs	r0, #0
+ 211 003e FFF7FEFF 		bl	MotorDirRight_Write
+ 212              	.LVL23:
+  73:ZumoLibrary/Motor.c ****         
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 6
+
+
+  74:ZumoLibrary/Motor.c ****         l_speed = l_speed*-1;
+ 213              		.loc 1 74 0
+ 214 0042 6042     		negs	r0, r4
+ 215              	.LVL24:
+  75:ZumoLibrary/Motor.c ****         PWM_WriteCompare1(l_speed); 
+ 216              		.loc 1 75 0
+ 217 0044 C0B2     		uxtb	r0, r0
+ 218              	.LVL25:
+ 219 0046 FFF7FEFF 		bl	PWM_WriteCompare1
+ 220              	.LVL26:
+  76:ZumoLibrary/Motor.c ****         PWM_WriteCompare2(r_speed); 
+ 221              		.loc 1 76 0
+ 222 004a E8B2     		uxtb	r0, r5
+ 223 004c FFF7FEFF 		bl	PWM_WriteCompare2
+ 224              	.LVL27:
+  77:ZumoLibrary/Motor.c ****         CyDelay(delay);
+ 225              		.loc 1 77 0
+ 226 0050 3046     		mov	r0, r6
+ 227 0052 FFF7FEFF 		bl	CyDelay
+ 228              	.LVL28:
+ 229 0056 70BD     		pop	{r4, r5, r6, pc}
+ 230              	.LVL29:
+ 231              	.L12:
+  78:ZumoLibrary/Motor.c ****         
+  79:ZumoLibrary/Motor.c ****         
+  80:ZumoLibrary/Motor.c ****     } else if (l_speed >= 0 && r_speed < 0){
+ 232              		.loc 1 80 0
+ 233 0058 002C     		cmp	r4, #0
+ 234 005a 0FDB     		blt	.L13
+ 235              		.loc 1 80 0 is_stmt 0 discriminator 1
+ 236 005c 002D     		cmp	r5, #0
+ 237 005e 0DDA     		bge	.L13
+  81:ZumoLibrary/Motor.c ****         MotorDirRight_Write(1);     // set RightMotor backward mode
+ 238              		.loc 1 81 0 is_stmt 1
+ 239 0060 0120     		movs	r0, #1
+ 240              	.LVL30:
+ 241 0062 FFF7FEFF 		bl	MotorDirRight_Write
+ 242              	.LVL31:
+  82:ZumoLibrary/Motor.c ****         MotorDirLeft_Write(0);      // set LeftMotor forward mode
+ 243              		.loc 1 82 0
+ 244 0066 0020     		movs	r0, #0
+ 245 0068 FFF7FEFF 		bl	MotorDirLeft_Write
+ 246              	.LVL32:
+  83:ZumoLibrary/Motor.c ****         
+  84:ZumoLibrary/Motor.c ****         r_speed = r_speed*-1;
+ 247              		.loc 1 84 0
+ 248 006c 6D42     		negs	r5, r5
+ 249              	.LVL33:
+  85:ZumoLibrary/Motor.c ****         PWM_WriteCompare1(l_speed); 
+ 250              		.loc 1 85 0
+ 251 006e E0B2     		uxtb	r0, r4
+ 252 0070 FFF7FEFF 		bl	PWM_WriteCompare1
+ 253              	.LVL34:
+  86:ZumoLibrary/Motor.c ****         PWM_WriteCompare2(r_speed);
+ 254              		.loc 1 86 0
+ 255 0074 E8B2     		uxtb	r0, r5
+ 256 0076 FFF7FEFF 		bl	PWM_WriteCompare2
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 7
+
+
+ 257              	.LVL35:
+ 258 007a 70BD     		pop	{r4, r5, r6, pc}
+ 259              	.LVL36:
+ 260              	.L13:
+  87:ZumoLibrary/Motor.c ****         
+  88:ZumoLibrary/Motor.c ****         
+  89:ZumoLibrary/Motor.c ****     } else if (l_speed < 0 && r_speed < 0){
+ 261              		.loc 1 89 0
+ 262 007c 002C     		cmp	r4, #0
+ 263 007e 0FDA     		bge	.L9
+ 264              		.loc 1 89 0 is_stmt 0 discriminator 1
+ 265 0080 002D     		cmp	r5, #0
+ 266 0082 0DDA     		bge	.L9
+  90:ZumoLibrary/Motor.c ****         MotorDirRight_Write(1);     // set RightMotor backward mode
+ 267              		.loc 1 90 0 is_stmt 1
+ 268 0084 0120     		movs	r0, #1
+ 269              	.LVL37:
+ 270 0086 FFF7FEFF 		bl	MotorDirRight_Write
+ 271              	.LVL38:
+  91:ZumoLibrary/Motor.c ****         MotorDirLeft_Write(1);      // set LeftMotor backward mode
+ 272              		.loc 1 91 0
+ 273 008a 0120     		movs	r0, #1
+ 274 008c FFF7FEFF 		bl	MotorDirLeft_Write
+ 275              	.LVL39:
+  92:ZumoLibrary/Motor.c ****         
+  93:ZumoLibrary/Motor.c ****         r_speed = r_speed*-1;
+ 276              		.loc 1 93 0
+ 277 0090 6D42     		negs	r5, r5
+ 278              	.LVL40:
+  94:ZumoLibrary/Motor.c ****         l_speed = l_speed*-1;
+ 279              		.loc 1 94 0
+ 280 0092 6042     		negs	r0, r4
+ 281              	.LVL41:
+  95:ZumoLibrary/Motor.c ****         PWM_WriteCompare1(l_speed); 
+ 282              		.loc 1 95 0
+ 283 0094 C0B2     		uxtb	r0, r0
+ 284              	.LVL42:
+ 285 0096 FFF7FEFF 		bl	PWM_WriteCompare1
+ 286              	.LVL43:
+  96:ZumoLibrary/Motor.c ****         PWM_WriteCompare2(r_speed);
+ 287              		.loc 1 96 0
+ 288 009a E8B2     		uxtb	r0, r5
+ 289 009c FFF7FEFF 		bl	PWM_WriteCompare2
+ 290              	.LVL44:
+ 291              	.L9:
+ 292 00a0 70BD     		pop	{r4, r5, r6, pc}
+ 293              		.cfi_endproc
+ 294              	.LFE67:
+ 295              		.size	motor_drive, .-motor_drive
+ 296 00a2 00BF     		.section	.text.motor_backward,"ax",%progbits
+ 297              		.align	2
+ 298              		.global	motor_backward
+ 299              		.thumb
+ 300              		.thumb_func
+ 301              		.type	motor_backward, %function
+ 302              	motor_backward:
+ 303              	.LFB68:
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 8
+
+
+  97:ZumoLibrary/Motor.c ****     }
+  98:ZumoLibrary/Motor.c **** }
+  99:ZumoLibrary/Motor.c **** 
+ 100:ZumoLibrary/Motor.c **** 
+ 101:ZumoLibrary/Motor.c **** /**
+ 102:ZumoLibrary/Motor.c **** * @brief    Moving motors backward
+ 103:ZumoLibrary/Motor.c **** * @details  setting backward mode to each motors and gives same speed to each side of PWM
+ 104:ZumoLibrary/Motor.c **** * @param    uint8 speed : speed value
+ 105:ZumoLibrary/Motor.c **** * @param    uint32 delay : delay time
+ 106:ZumoLibrary/Motor.c **** */
+ 107:ZumoLibrary/Motor.c **** void motor_backward(uint8 speed,uint32 delay)
+ 108:ZumoLibrary/Motor.c **** {
+ 304              		.loc 1 108 0
+ 305              		.cfi_startproc
+ 306              		@ args = 0, pretend = 0, frame = 0
+ 307              		@ frame_needed = 0, uses_anonymous_args = 0
+ 308              	.LVL45:
+ 309 0000 38B5     		push	{r3, r4, r5, lr}
+ 310              		.cfi_def_cfa_offset 16
+ 311              		.cfi_offset 3, -16
+ 312              		.cfi_offset 4, -12
+ 313              		.cfi_offset 5, -8
+ 314              		.cfi_offset 14, -4
+ 315 0002 0446     		mov	r4, r0
+ 316 0004 0D46     		mov	r5, r1
+ 109:ZumoLibrary/Motor.c ****     MotorDirLeft_Write(1);      // set LeftMotor backward mode
+ 317              		.loc 1 109 0
+ 318 0006 0120     		movs	r0, #1
+ 319              	.LVL46:
+ 320 0008 FFF7FEFF 		bl	MotorDirLeft_Write
+ 321              	.LVL47:
+ 110:ZumoLibrary/Motor.c ****     MotorDirRight_Write(1);     // set RightMotor backward mode
+ 322              		.loc 1 110 0
+ 323 000c 0120     		movs	r0, #1
+ 324 000e FFF7FEFF 		bl	MotorDirRight_Write
+ 325              	.LVL48:
+ 111:ZumoLibrary/Motor.c ****     PWM_WriteCompare1(speed); 
+ 326              		.loc 1 111 0
+ 327 0012 2046     		mov	r0, r4
+ 328 0014 FFF7FEFF 		bl	PWM_WriteCompare1
+ 329              	.LVL49:
+ 112:ZumoLibrary/Motor.c ****     PWM_WriteCompare2(speed); 
+ 330              		.loc 1 112 0
+ 331 0018 2046     		mov	r0, r4
+ 332 001a FFF7FEFF 		bl	PWM_WriteCompare2
+ 333              	.LVL50:
+ 113:ZumoLibrary/Motor.c ****     CyDelay(delay);
+ 334              		.loc 1 113 0
+ 335 001e 2846     		mov	r0, r5
+ 336 0020 FFF7FEFF 		bl	CyDelay
+ 337              	.LVL51:
+ 338 0024 38BD     		pop	{r3, r4, r5, pc}
+ 339              		.cfi_endproc
+ 340              	.LFE68:
+ 341              		.size	motor_backward, .-motor_backward
+ 342 0026 00BF     		.text
+ 343              	.Letext0:
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 9
+
+
+ 344              		.file 2 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+ 345              		.file 3 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+ 346              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 347              		.file 5 "Generated_Source\\PSoC5/PWM.h"
+ 348              		.file 6 "Generated_Source\\PSoC5/MotorDirLeft.h"
+ 349              		.file 7 "Generated_Source\\PSoC5/MotorDirRight.h"
+ 350              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+ 351              		.file 9 "Generated_Source\\PSoC5/CyLib.h"
+ 352              		.section	.debug_info,"",%progbits
+ 353              	.Ldebug_info0:
+ 354 0000 A1040000 		.4byte	0x4a1
+ 355 0004 0400     		.2byte	0x4
+ 356 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 357 000a 04       		.byte	0x4
+ 358 000b 01       		.uleb128 0x1
+ 359 000c 20010000 		.4byte	.LASF34
+ 360 0010 01       		.byte	0x1
+ 361 0011 05010000 		.4byte	.LASF35
+ 362 0015 00000000 		.4byte	.LASF36
+ 363 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 364 001d 00000000 		.4byte	0
+ 365 0021 00000000 		.4byte	.Ldebug_line0
+ 366 0025 02       		.uleb128 0x2
+ 367 0026 01       		.byte	0x1
+ 368 0027 06       		.byte	0x6
+ 369 0028 0A020000 		.4byte	.LASF0
+ 370 002c 02       		.uleb128 0x2
+ 371 002d 01       		.byte	0x1
+ 372 002e 08       		.byte	0x8
+ 373 002f B2000000 		.4byte	.LASF1
+ 374 0033 02       		.uleb128 0x2
+ 375 0034 02       		.byte	0x2
+ 376 0035 05       		.byte	0x5
+ 377 0036 38020000 		.4byte	.LASF2
+ 378 003a 02       		.uleb128 0x2
+ 379 003b 02       		.byte	0x2
+ 380 003c 07       		.byte	0x7
+ 381 003d 69020000 		.4byte	.LASF3
+ 382 0041 03       		.uleb128 0x3
+ 383 0042 57000000 		.4byte	.LASF9
+ 384 0046 02       		.byte	0x2
+ 385 0047 3F       		.byte	0x3f
+ 386 0048 4C000000 		.4byte	0x4c
+ 387 004c 02       		.uleb128 0x2
+ 388 004d 04       		.byte	0x4
+ 389 004e 05       		.byte	0x5
+ 390 004f 55020000 		.4byte	.LASF4
+ 391 0053 02       		.uleb128 0x2
+ 392 0054 04       		.byte	0x4
+ 393 0055 07       		.byte	0x7
+ 394 0056 C0000000 		.4byte	.LASF5
+ 395 005a 02       		.uleb128 0x2
+ 396 005b 08       		.byte	0x8
+ 397 005c 05       		.byte	0x5
+ 398 005d 25020000 		.4byte	.LASF6
+ 399 0061 02       		.uleb128 0x2
+ 400 0062 08       		.byte	0x8
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 10
+
+
+ 401 0063 07       		.byte	0x7
+ 402 0064 C3010000 		.4byte	.LASF7
+ 403 0068 04       		.uleb128 0x4
+ 404 0069 04       		.byte	0x4
+ 405 006a 05       		.byte	0x5
+ 406 006b 696E7400 		.ascii	"int\000"
+ 407 006f 02       		.uleb128 0x2
+ 408 0070 04       		.byte	0x4
+ 409 0071 07       		.byte	0x7
+ 410 0072 AE010000 		.4byte	.LASF8
+ 411 0076 03       		.uleb128 0x3
+ 412 0077 92000000 		.4byte	.LASF10
+ 413 007b 03       		.byte	0x3
+ 414 007c 2C       		.byte	0x2c
+ 415 007d 41000000 		.4byte	0x41
+ 416 0081 05       		.uleb128 0x5
+ 417 0082 8C000000 		.4byte	.LASF11
+ 418 0086 04       		.byte	0x4
+ 419 0087 9201     		.2byte	0x192
+ 420 0089 2C000000 		.4byte	0x2c
+ 421 008d 05       		.uleb128 0x5
+ 422 008e 19010000 		.4byte	.LASF12
+ 423 0092 04       		.byte	0x4
+ 424 0093 9401     		.2byte	0x194
+ 425 0095 53000000 		.4byte	0x53
+ 426 0099 05       		.uleb128 0x5
+ 427 009a D2000000 		.4byte	.LASF13
+ 428 009e 04       		.byte	0x4
+ 429 009f 9701     		.2byte	0x197
+ 430 00a1 4C000000 		.4byte	0x4c
+ 431 00a5 02       		.uleb128 0x2
+ 432 00a6 04       		.byte	0x4
+ 433 00a7 04       		.byte	0x4
+ 434 00a8 9A000000 		.4byte	.LASF14
+ 435 00ac 02       		.uleb128 0x2
+ 436 00ad 08       		.byte	0x8
+ 437 00ae 04       		.byte	0x4
+ 438 00af F3000000 		.4byte	.LASF15
+ 439 00b3 02       		.uleb128 0x2
+ 440 00b4 01       		.byte	0x1
+ 441 00b5 08       		.byte	0x8
+ 442 00b6 33020000 		.4byte	.LASF16
+ 443 00ba 02       		.uleb128 0x2
+ 444 00bb 04       		.byte	0x4
+ 445 00bc 07       		.byte	0x7
+ 446 00bd 1C020000 		.4byte	.LASF17
+ 447 00c1 06       		.uleb128 0x6
+ 448 00c2 DA010000 		.4byte	.LASF18
+ 449 00c6 01       		.byte	0x1
+ 450 00c7 0D       		.byte	0xd
+ 451 00c8 00000000 		.4byte	.LFB63
+ 452 00cc 08000000 		.4byte	.LFE63-.LFB63
+ 453 00d0 01       		.uleb128 0x1
+ 454 00d1 9C       		.byte	0x9c
+ 455 00d2 E0000000 		.4byte	0xe0
+ 456 00d6 07       		.uleb128 0x7
+ 457 00d7 06000000 		.4byte	.LVL0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 11
+
+
+ 458 00db 45040000 		.4byte	0x445
+ 459 00df 00       		.byte	0
+ 460 00e0 06       		.uleb128 0x6
+ 461 00e1 FA000000 		.4byte	.LASF19
+ 462 00e5 01       		.byte	0x1
+ 463 00e6 17       		.byte	0x17
+ 464 00e7 00000000 		.4byte	.LFB64
+ 465 00eb 08000000 		.4byte	.LFE64-.LFB64
+ 466 00ef 01       		.uleb128 0x1
+ 467 00f0 9C       		.byte	0x9c
+ 468 00f1 FF000000 		.4byte	0xff
+ 469 00f5 07       		.uleb128 0x7
+ 470 00f6 06000000 		.4byte	.LVL1
+ 471 00fa 4C040000 		.4byte	0x44c
+ 472 00fe 00       		.byte	0
+ 473 00ff 08       		.uleb128 0x8
+ 474 0100 E5000000 		.4byte	.LASF22
+ 475 0104 01       		.byte	0x1
+ 476 0105 23       		.byte	0x23
+ 477 0106 00000000 		.4byte	.LFB65
+ 478 010a 26000000 		.4byte	.LFE65-.LFB65
+ 479 010e 01       		.uleb128 0x1
+ 480 010f 9C       		.byte	0x9c
+ 481 0110 91010000 		.4byte	0x191
+ 482 0114 09       		.uleb128 0x9
+ 483 0115 16020000 		.4byte	.LASF20
+ 484 0119 01       		.byte	0x1
+ 485 011a 23       		.byte	0x23
+ 486 011b 81000000 		.4byte	0x81
+ 487 011f 00000000 		.4byte	.LLST0
+ 488 0123 09       		.uleb128 0x9
+ 489 0124 AC000000 		.4byte	.LASF21
+ 490 0128 01       		.byte	0x1
+ 491 0129 23       		.byte	0x23
+ 492 012a 8D000000 		.4byte	0x8d
+ 493 012e 21000000 		.4byte	.LLST1
+ 494 0132 0A       		.uleb128 0xa
+ 495 0133 0C000000 		.4byte	.LVL4
+ 496 0137 53040000 		.4byte	0x453
+ 497 013b 45010000 		.4byte	0x145
+ 498 013f 0B       		.uleb128 0xb
+ 499 0140 01       		.uleb128 0x1
+ 500 0141 50       		.byte	0x50
+ 501 0142 01       		.uleb128 0x1
+ 502 0143 30       		.byte	0x30
+ 503 0144 00       		.byte	0
+ 504 0145 0A       		.uleb128 0xa
+ 505 0146 12000000 		.4byte	.LVL5
+ 506 014a 64040000 		.4byte	0x464
+ 507 014e 58010000 		.4byte	0x158
+ 508 0152 0B       		.uleb128 0xb
+ 509 0153 01       		.uleb128 0x1
+ 510 0154 50       		.byte	0x50
+ 511 0155 01       		.uleb128 0x1
+ 512 0156 30       		.byte	0x30
+ 513 0157 00       		.byte	0
+ 514 0158 0A       		.uleb128 0xa
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 12
+
+
+ 515 0159 18000000 		.4byte	.LVL6
+ 516 015d 75040000 		.4byte	0x475
+ 517 0161 6C010000 		.4byte	0x16c
+ 518 0165 0B       		.uleb128 0xb
+ 519 0166 01       		.uleb128 0x1
+ 520 0167 50       		.byte	0x50
+ 521 0168 02       		.uleb128 0x2
+ 522 0169 74       		.byte	0x74
+ 523 016a 00       		.sleb128 0
+ 524 016b 00       		.byte	0
+ 525 016c 0A       		.uleb128 0xa
+ 526 016d 1E000000 		.4byte	.LVL7
+ 527 0171 86040000 		.4byte	0x486
+ 528 0175 80010000 		.4byte	0x180
+ 529 0179 0B       		.uleb128 0xb
+ 530 017a 01       		.uleb128 0x1
+ 531 017b 50       		.byte	0x50
+ 532 017c 02       		.uleb128 0x2
+ 533 017d 74       		.byte	0x74
+ 534 017e 00       		.sleb128 0
+ 535 017f 00       		.byte	0
+ 536 0180 0C       		.uleb128 0xc
+ 537 0181 24000000 		.4byte	.LVL8
+ 538 0185 97040000 		.4byte	0x497
+ 539 0189 0B       		.uleb128 0xb
+ 540 018a 01       		.uleb128 0x1
+ 541 018b 50       		.byte	0x50
+ 542 018c 02       		.uleb128 0x2
+ 543 018d 75       		.byte	0x75
+ 544 018e 00       		.sleb128 0
+ 545 018f 00       		.byte	0
+ 546 0190 00       		.byte	0
+ 547 0191 08       		.uleb128 0x8
+ 548 0192 5E020000 		.4byte	.LASF23
+ 549 0196 01       		.byte	0x1
+ 550 0197 34       		.byte	0x34
+ 551 0198 00000000 		.4byte	.LFB66
+ 552 019c 18000000 		.4byte	.LFE66-.LFB66
+ 553 01a0 01       		.uleb128 0x1
+ 554 01a1 9C       		.byte	0x9c
+ 555 01a2 01020000 		.4byte	0x201
+ 556 01a6 09       		.uleb128 0x9
+ 557 01a7 BB010000 		.4byte	.LASF24
+ 558 01ab 01       		.byte	0x1
+ 559 01ac 34       		.byte	0x34
+ 560 01ad 81000000 		.4byte	0x81
+ 561 01b1 3F000000 		.4byte	.LLST2
+ 562 01b5 09       		.uleb128 0x9
+ 563 01b6 70000000 		.4byte	.LASF25
+ 564 01ba 01       		.byte	0x1
+ 565 01bb 34       		.byte	0x34
+ 566 01bc 81000000 		.4byte	0x81
+ 567 01c0 60000000 		.4byte	.LLST3
+ 568 01c4 09       		.uleb128 0x9
+ 569 01c5 AC000000 		.4byte	.LASF21
+ 570 01c9 01       		.byte	0x1
+ 571 01ca 34       		.byte	0x34
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 13
+
+
+ 572 01cb 8D000000 		.4byte	0x8d
+ 573 01cf 81000000 		.4byte	.LLST4
+ 574 01d3 07       		.uleb128 0x7
+ 575 01d4 0A000000 		.4byte	.LVL10
+ 576 01d8 75040000 		.4byte	0x475
+ 577 01dc 0A       		.uleb128 0xa
+ 578 01dd 10000000 		.4byte	.LVL11
+ 579 01e1 86040000 		.4byte	0x486
+ 580 01e5 F0010000 		.4byte	0x1f0
+ 581 01e9 0B       		.uleb128 0xb
+ 582 01ea 01       		.uleb128 0x1
+ 583 01eb 50       		.byte	0x50
+ 584 01ec 02       		.uleb128 0x2
+ 585 01ed 75       		.byte	0x75
+ 586 01ee 00       		.sleb128 0
+ 587 01ef 00       		.byte	0
+ 588 01f0 0C       		.uleb128 0xc
+ 589 01f1 16000000 		.4byte	.LVL12
+ 590 01f5 97040000 		.4byte	0x497
+ 591 01f9 0B       		.uleb128 0xb
+ 592 01fa 01       		.uleb128 0x1
+ 593 01fb 50       		.byte	0x50
+ 594 01fc 02       		.uleb128 0x2
+ 595 01fd 74       		.byte	0x74
+ 596 01fe 00       		.sleb128 0
+ 597 01ff 00       		.byte	0
+ 598 0200 00       		.byte	0
+ 599 0201 08       		.uleb128 0x8
+ 600 0202 A0000000 		.4byte	.LASF26
+ 601 0206 01       		.byte	0x1
+ 602 0207 3B       		.byte	0x3b
+ 603 0208 00000000 		.4byte	.LFB67
+ 604 020c A2000000 		.4byte	.LFE67-.LFB67
+ 605 0210 01       		.uleb128 0x1
+ 606 0211 9C       		.byte	0x9c
+ 607 0212 A2030000 		.4byte	0x3a2
+ 608 0216 09       		.uleb128 0x9
+ 609 0217 BB010000 		.4byte	.LASF24
+ 610 021b 01       		.byte	0x1
+ 611 021c 3B       		.byte	0x3b
+ 612 021d 68000000 		.4byte	0x68
+ 613 0221 9F000000 		.4byte	.LLST5
+ 614 0225 09       		.uleb128 0x9
+ 615 0226 70000000 		.4byte	.LASF25
+ 616 022a 01       		.byte	0x1
+ 617 022b 3B       		.byte	0x3b
+ 618 022c 68000000 		.4byte	0x68
+ 619 0230 31010000 		.4byte	.LLST6
+ 620 0234 09       		.uleb128 0x9
+ 621 0235 AC000000 		.4byte	.LASF21
+ 622 0239 01       		.byte	0x1
+ 623 023a 3B       		.byte	0x3b
+ 624 023b 99000000 		.4byte	0x99
+ 625 023f 91010000 		.4byte	.LLST7
+ 626 0243 0A       		.uleb128 0xa
+ 627 0244 14000000 		.4byte	.LVL15
+ 628 0248 53040000 		.4byte	0x453
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 14
+
+
+ 629 024c 56020000 		.4byte	0x256
+ 630 0250 0B       		.uleb128 0xb
+ 631 0251 01       		.uleb128 0x1
+ 632 0252 50       		.byte	0x50
+ 633 0253 01       		.uleb128 0x1
+ 634 0254 30       		.byte	0x30
+ 635 0255 00       		.byte	0
+ 636 0256 0A       		.uleb128 0xa
+ 637 0257 1A000000 		.4byte	.LVL16
+ 638 025b 64040000 		.4byte	0x464
+ 639 025f 69020000 		.4byte	0x269
+ 640 0263 0B       		.uleb128 0xb
+ 641 0264 01       		.uleb128 0x1
+ 642 0265 50       		.byte	0x50
+ 643 0266 01       		.uleb128 0x1
+ 644 0267 30       		.byte	0x30
+ 645 0268 00       		.byte	0
+ 646 0269 0A       		.uleb128 0xa
+ 647 026a 20000000 		.4byte	.LVL17
+ 648 026e 75040000 		.4byte	0x475
+ 649 0272 7D020000 		.4byte	0x27d
+ 650 0276 0B       		.uleb128 0xb
+ 651 0277 01       		.uleb128 0x1
+ 652 0278 50       		.byte	0x50
+ 653 0279 02       		.uleb128 0x2
+ 654 027a 74       		.byte	0x74
+ 655 027b 00       		.sleb128 0
+ 656 027c 00       		.byte	0
+ 657 027d 0A       		.uleb128 0xa
+ 658 027e 26000000 		.4byte	.LVL18
+ 659 0282 86040000 		.4byte	0x486
+ 660 0286 91020000 		.4byte	0x291
+ 661 028a 0B       		.uleb128 0xb
+ 662 028b 01       		.uleb128 0x1
+ 663 028c 50       		.byte	0x50
+ 664 028d 02       		.uleb128 0x2
+ 665 028e 75       		.byte	0x75
+ 666 028f 00       		.sleb128 0
+ 667 0290 00       		.byte	0
+ 668 0291 0A       		.uleb128 0xa
+ 669 0292 2C000000 		.4byte	.LVL19
+ 670 0296 97040000 		.4byte	0x497
+ 671 029a A5020000 		.4byte	0x2a5
+ 672 029e 0B       		.uleb128 0xb
+ 673 029f 01       		.uleb128 0x1
+ 674 02a0 50       		.byte	0x50
+ 675 02a1 02       		.uleb128 0x2
+ 676 02a2 76       		.byte	0x76
+ 677 02a3 00       		.sleb128 0
+ 678 02a4 00       		.byte	0
+ 679 02a5 0A       		.uleb128 0xa
+ 680 02a6 3C000000 		.4byte	.LVL22
+ 681 02aa 53040000 		.4byte	0x453
+ 682 02ae B8020000 		.4byte	0x2b8
+ 683 02b2 0B       		.uleb128 0xb
+ 684 02b3 01       		.uleb128 0x1
+ 685 02b4 50       		.byte	0x50
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 15
+
+
+ 686 02b5 01       		.uleb128 0x1
+ 687 02b6 31       		.byte	0x31
+ 688 02b7 00       		.byte	0
+ 689 02b8 0A       		.uleb128 0xa
+ 690 02b9 42000000 		.4byte	.LVL23
+ 691 02bd 64040000 		.4byte	0x464
+ 692 02c1 CB020000 		.4byte	0x2cb
+ 693 02c5 0B       		.uleb128 0xb
+ 694 02c6 01       		.uleb128 0x1
+ 695 02c7 50       		.byte	0x50
+ 696 02c8 01       		.uleb128 0x1
+ 697 02c9 30       		.byte	0x30
+ 698 02ca 00       		.byte	0
+ 699 02cb 0A       		.uleb128 0xa
+ 700 02cc 4A000000 		.4byte	.LVL26
+ 701 02d0 75040000 		.4byte	0x475
+ 702 02d4 E0020000 		.4byte	0x2e0
+ 703 02d8 0B       		.uleb128 0xb
+ 704 02d9 01       		.uleb128 0x1
+ 705 02da 50       		.byte	0x50
+ 706 02db 03       		.uleb128 0x3
+ 707 02dc 74       		.byte	0x74
+ 708 02dd 00       		.sleb128 0
+ 709 02de 1F       		.byte	0x1f
+ 710 02df 00       		.byte	0
+ 711 02e0 0A       		.uleb128 0xa
+ 712 02e1 50000000 		.4byte	.LVL27
+ 713 02e5 86040000 		.4byte	0x486
+ 714 02e9 F4020000 		.4byte	0x2f4
+ 715 02ed 0B       		.uleb128 0xb
+ 716 02ee 01       		.uleb128 0x1
+ 717 02ef 50       		.byte	0x50
+ 718 02f0 02       		.uleb128 0x2
+ 719 02f1 75       		.byte	0x75
+ 720 02f2 00       		.sleb128 0
+ 721 02f3 00       		.byte	0
+ 722 02f4 0A       		.uleb128 0xa
+ 723 02f5 56000000 		.4byte	.LVL28
+ 724 02f9 97040000 		.4byte	0x497
+ 725 02fd 08030000 		.4byte	0x308
+ 726 0301 0B       		.uleb128 0xb
+ 727 0302 01       		.uleb128 0x1
+ 728 0303 50       		.byte	0x50
+ 729 0304 02       		.uleb128 0x2
+ 730 0305 76       		.byte	0x76
+ 731 0306 00       		.sleb128 0
+ 732 0307 00       		.byte	0
+ 733 0308 0A       		.uleb128 0xa
+ 734 0309 66000000 		.4byte	.LVL31
+ 735 030d 64040000 		.4byte	0x464
+ 736 0311 1B030000 		.4byte	0x31b
+ 737 0315 0B       		.uleb128 0xb
+ 738 0316 01       		.uleb128 0x1
+ 739 0317 50       		.byte	0x50
+ 740 0318 01       		.uleb128 0x1
+ 741 0319 31       		.byte	0x31
+ 742 031a 00       		.byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 16
+
+
+ 743 031b 0A       		.uleb128 0xa
+ 744 031c 6C000000 		.4byte	.LVL32
+ 745 0320 53040000 		.4byte	0x453
+ 746 0324 2E030000 		.4byte	0x32e
+ 747 0328 0B       		.uleb128 0xb
+ 748 0329 01       		.uleb128 0x1
+ 749 032a 50       		.byte	0x50
+ 750 032b 01       		.uleb128 0x1
+ 751 032c 30       		.byte	0x30
+ 752 032d 00       		.byte	0
+ 753 032e 0A       		.uleb128 0xa
+ 754 032f 74000000 		.4byte	.LVL34
+ 755 0333 75040000 		.4byte	0x475
+ 756 0337 42030000 		.4byte	0x342
+ 757 033b 0B       		.uleb128 0xb
+ 758 033c 01       		.uleb128 0x1
+ 759 033d 50       		.byte	0x50
+ 760 033e 02       		.uleb128 0x2
+ 761 033f 74       		.byte	0x74
+ 762 0340 00       		.sleb128 0
+ 763 0341 00       		.byte	0
+ 764 0342 0A       		.uleb128 0xa
+ 765 0343 7A000000 		.4byte	.LVL35
+ 766 0347 86040000 		.4byte	0x486
+ 767 034b 56030000 		.4byte	0x356
+ 768 034f 0B       		.uleb128 0xb
+ 769 0350 01       		.uleb128 0x1
+ 770 0351 50       		.byte	0x50
+ 771 0352 02       		.uleb128 0x2
+ 772 0353 75       		.byte	0x75
+ 773 0354 00       		.sleb128 0
+ 774 0355 00       		.byte	0
+ 775 0356 0A       		.uleb128 0xa
+ 776 0357 8A000000 		.4byte	.LVL38
+ 777 035b 64040000 		.4byte	0x464
+ 778 035f 69030000 		.4byte	0x369
+ 779 0363 0B       		.uleb128 0xb
+ 780 0364 01       		.uleb128 0x1
+ 781 0365 50       		.byte	0x50
+ 782 0366 01       		.uleb128 0x1
+ 783 0367 31       		.byte	0x31
+ 784 0368 00       		.byte	0
+ 785 0369 0A       		.uleb128 0xa
+ 786 036a 90000000 		.4byte	.LVL39
+ 787 036e 53040000 		.4byte	0x453
+ 788 0372 7C030000 		.4byte	0x37c
+ 789 0376 0B       		.uleb128 0xb
+ 790 0377 01       		.uleb128 0x1
+ 791 0378 50       		.byte	0x50
+ 792 0379 01       		.uleb128 0x1
+ 793 037a 31       		.byte	0x31
+ 794 037b 00       		.byte	0
+ 795 037c 0A       		.uleb128 0xa
+ 796 037d 9A000000 		.4byte	.LVL43
+ 797 0381 75040000 		.4byte	0x475
+ 798 0385 91030000 		.4byte	0x391
+ 799 0389 0B       		.uleb128 0xb
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 17
+
+
+ 800 038a 01       		.uleb128 0x1
+ 801 038b 50       		.byte	0x50
+ 802 038c 03       		.uleb128 0x3
+ 803 038d 74       		.byte	0x74
+ 804 038e 00       		.sleb128 0
+ 805 038f 1F       		.byte	0x1f
+ 806 0390 00       		.byte	0
+ 807 0391 0C       		.uleb128 0xc
+ 808 0392 A0000000 		.4byte	.LVL44
+ 809 0396 86040000 		.4byte	0x486
+ 810 039a 0B       		.uleb128 0xb
+ 811 039b 01       		.uleb128 0x1
+ 812 039c 50       		.byte	0x50
+ 813 039d 02       		.uleb128 0x2
+ 814 039e 75       		.byte	0x75
+ 815 039f 00       		.sleb128 0
+ 816 03a0 00       		.byte	0
+ 817 03a1 00       		.byte	0
+ 818 03a2 08       		.uleb128 0x8
+ 819 03a3 61000000 		.4byte	.LASF27
+ 820 03a7 01       		.byte	0x1
+ 821 03a8 6B       		.byte	0x6b
+ 822 03a9 00000000 		.4byte	.LFB68
+ 823 03ad 26000000 		.4byte	.LFE68-.LFB68
+ 824 03b1 01       		.uleb128 0x1
+ 825 03b2 9C       		.byte	0x9c
+ 826 03b3 34040000 		.4byte	0x434
+ 827 03b7 09       		.uleb128 0x9
+ 828 03b8 16020000 		.4byte	.LASF20
+ 829 03bc 01       		.byte	0x1
+ 830 03bd 6B       		.byte	0x6b
+ 831 03be 81000000 		.4byte	0x81
+ 832 03c2 F1010000 		.4byte	.LLST8
+ 833 03c6 09       		.uleb128 0x9
+ 834 03c7 AC000000 		.4byte	.LASF21
+ 835 03cb 01       		.byte	0x1
+ 836 03cc 6B       		.byte	0x6b
+ 837 03cd 8D000000 		.4byte	0x8d
+ 838 03d1 12020000 		.4byte	.LLST9
+ 839 03d5 0A       		.uleb128 0xa
+ 840 03d6 0C000000 		.4byte	.LVL47
+ 841 03da 53040000 		.4byte	0x453
+ 842 03de E8030000 		.4byte	0x3e8
+ 843 03e2 0B       		.uleb128 0xb
+ 844 03e3 01       		.uleb128 0x1
+ 845 03e4 50       		.byte	0x50
+ 846 03e5 01       		.uleb128 0x1
+ 847 03e6 31       		.byte	0x31
+ 848 03e7 00       		.byte	0
+ 849 03e8 0A       		.uleb128 0xa
+ 850 03e9 12000000 		.4byte	.LVL48
+ 851 03ed 64040000 		.4byte	0x464
+ 852 03f1 FB030000 		.4byte	0x3fb
+ 853 03f5 0B       		.uleb128 0xb
+ 854 03f6 01       		.uleb128 0x1
+ 855 03f7 50       		.byte	0x50
+ 856 03f8 01       		.uleb128 0x1
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 18
+
+
+ 857 03f9 31       		.byte	0x31
+ 858 03fa 00       		.byte	0
+ 859 03fb 0A       		.uleb128 0xa
+ 860 03fc 18000000 		.4byte	.LVL49
+ 861 0400 75040000 		.4byte	0x475
+ 862 0404 0F040000 		.4byte	0x40f
+ 863 0408 0B       		.uleb128 0xb
+ 864 0409 01       		.uleb128 0x1
+ 865 040a 50       		.byte	0x50
+ 866 040b 02       		.uleb128 0x2
+ 867 040c 74       		.byte	0x74
+ 868 040d 00       		.sleb128 0
+ 869 040e 00       		.byte	0
+ 870 040f 0A       		.uleb128 0xa
+ 871 0410 1E000000 		.4byte	.LVL50
+ 872 0414 86040000 		.4byte	0x486
+ 873 0418 23040000 		.4byte	0x423
+ 874 041c 0B       		.uleb128 0xb
+ 875 041d 01       		.uleb128 0x1
+ 876 041e 50       		.byte	0x50
+ 877 041f 02       		.uleb128 0x2
+ 878 0420 74       		.byte	0x74
+ 879 0421 00       		.sleb128 0
+ 880 0422 00       		.byte	0
+ 881 0423 0C       		.uleb128 0xc
+ 882 0424 24000000 		.4byte	.LVL51
+ 883 0428 97040000 		.4byte	0x497
+ 884 042c 0B       		.uleb128 0xb
+ 885 042d 01       		.uleb128 0x1
+ 886 042e 50       		.byte	0x50
+ 887 042f 02       		.uleb128 0x2
+ 888 0430 75       		.byte	0x75
+ 889 0431 00       		.sleb128 0
+ 890 0432 00       		.byte	0
+ 891 0433 00       		.byte	0
+ 892 0434 0D       		.uleb128 0xd
+ 893 0435 D8000000 		.4byte	.LASF37
+ 894 0439 08       		.byte	0x8
+ 895 043a 9606     		.2byte	0x696
+ 896 043c 40040000 		.4byte	0x440
+ 897 0440 0E       		.uleb128 0xe
+ 898 0441 76000000 		.4byte	0x76
+ 899 0445 0F       		.uleb128 0xf
+ 900 0446 42020000 		.4byte	.LASF28
+ 901 044a 05       		.byte	0x5
+ 902 044b 92       		.byte	0x92
+ 903 044c 0F       		.uleb128 0xf
+ 904 044d 4C020000 		.4byte	.LASF29
+ 905 0451 05       		.byte	0x5
+ 906 0452 93       		.byte	0x93
+ 907 0453 10       		.uleb128 0x10
+ 908 0454 44000000 		.4byte	.LASF30
+ 909 0458 06       		.byte	0x6
+ 910 0459 26       		.byte	0x26
+ 911 045a 64040000 		.4byte	0x464
+ 912 045e 11       		.uleb128 0x11
+ 913 045f 81000000 		.4byte	0x81
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 19
+
+
+ 914 0463 00       		.byte	0
+ 915 0464 10       		.uleb128 0x10
+ 916 0465 78000000 		.4byte	.LASF31
+ 917 0469 07       		.byte	0x7
+ 918 046a 26       		.byte	0x26
+ 919 046b 75040000 		.4byte	0x475
+ 920 046f 11       		.uleb128 0x11
+ 921 0470 81000000 		.4byte	0x81
+ 922 0474 00       		.byte	0
+ 923 0475 10       		.uleb128 0x10
+ 924 0476 E6010000 		.4byte	.LASF32
+ 925 047a 05       		.byte	0x5
+ 926 047b C7       		.byte	0xc7
+ 927 047c 86040000 		.4byte	0x486
+ 928 0480 11       		.uleb128 0x11
+ 929 0481 81000000 		.4byte	0x81
+ 930 0485 00       		.byte	0
+ 931 0486 10       		.uleb128 0x10
+ 932 0487 F8010000 		.4byte	.LASF33
+ 933 048b 05       		.byte	0x5
+ 934 048c CA       		.byte	0xca
+ 935 048d 97040000 		.4byte	0x497
+ 936 0491 11       		.uleb128 0x11
+ 937 0492 81000000 		.4byte	0x81
+ 938 0496 00       		.byte	0
+ 939 0497 12       		.uleb128 0x12
+ 940 0498 7C020000 		.4byte	.LASF38
+ 941 049c 09       		.byte	0x9
+ 942 049d 76       		.byte	0x76
+ 943 049e 11       		.uleb128 0x11
+ 944 049f 8D000000 		.4byte	0x8d
+ 945 04a3 00       		.byte	0
+ 946 04a4 00       		.byte	0
+ 947              		.section	.debug_abbrev,"",%progbits
+ 948              	.Ldebug_abbrev0:
+ 949 0000 01       		.uleb128 0x1
+ 950 0001 11       		.uleb128 0x11
+ 951 0002 01       		.byte	0x1
+ 952 0003 25       		.uleb128 0x25
+ 953 0004 0E       		.uleb128 0xe
+ 954 0005 13       		.uleb128 0x13
+ 955 0006 0B       		.uleb128 0xb
+ 956 0007 03       		.uleb128 0x3
+ 957 0008 0E       		.uleb128 0xe
+ 958 0009 1B       		.uleb128 0x1b
+ 959 000a 0E       		.uleb128 0xe
+ 960 000b 55       		.uleb128 0x55
+ 961 000c 17       		.uleb128 0x17
+ 962 000d 11       		.uleb128 0x11
+ 963 000e 01       		.uleb128 0x1
+ 964 000f 10       		.uleb128 0x10
+ 965 0010 17       		.uleb128 0x17
+ 966 0011 00       		.byte	0
+ 967 0012 00       		.byte	0
+ 968 0013 02       		.uleb128 0x2
+ 969 0014 24       		.uleb128 0x24
+ 970 0015 00       		.byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 20
+
+
+ 971 0016 0B       		.uleb128 0xb
+ 972 0017 0B       		.uleb128 0xb
+ 973 0018 3E       		.uleb128 0x3e
+ 974 0019 0B       		.uleb128 0xb
+ 975 001a 03       		.uleb128 0x3
+ 976 001b 0E       		.uleb128 0xe
+ 977 001c 00       		.byte	0
+ 978 001d 00       		.byte	0
+ 979 001e 03       		.uleb128 0x3
+ 980 001f 16       		.uleb128 0x16
+ 981 0020 00       		.byte	0
+ 982 0021 03       		.uleb128 0x3
+ 983 0022 0E       		.uleb128 0xe
+ 984 0023 3A       		.uleb128 0x3a
+ 985 0024 0B       		.uleb128 0xb
+ 986 0025 3B       		.uleb128 0x3b
+ 987 0026 0B       		.uleb128 0xb
+ 988 0027 49       		.uleb128 0x49
+ 989 0028 13       		.uleb128 0x13
+ 990 0029 00       		.byte	0
+ 991 002a 00       		.byte	0
+ 992 002b 04       		.uleb128 0x4
+ 993 002c 24       		.uleb128 0x24
+ 994 002d 00       		.byte	0
+ 995 002e 0B       		.uleb128 0xb
+ 996 002f 0B       		.uleb128 0xb
+ 997 0030 3E       		.uleb128 0x3e
+ 998 0031 0B       		.uleb128 0xb
+ 999 0032 03       		.uleb128 0x3
+ 1000 0033 08       		.uleb128 0x8
+ 1001 0034 00       		.byte	0
+ 1002 0035 00       		.byte	0
+ 1003 0036 05       		.uleb128 0x5
+ 1004 0037 16       		.uleb128 0x16
+ 1005 0038 00       		.byte	0
+ 1006 0039 03       		.uleb128 0x3
+ 1007 003a 0E       		.uleb128 0xe
+ 1008 003b 3A       		.uleb128 0x3a
+ 1009 003c 0B       		.uleb128 0xb
+ 1010 003d 3B       		.uleb128 0x3b
+ 1011 003e 05       		.uleb128 0x5
+ 1012 003f 49       		.uleb128 0x49
+ 1013 0040 13       		.uleb128 0x13
+ 1014 0041 00       		.byte	0
+ 1015 0042 00       		.byte	0
+ 1016 0043 06       		.uleb128 0x6
+ 1017 0044 2E       		.uleb128 0x2e
+ 1018 0045 01       		.byte	0x1
+ 1019 0046 3F       		.uleb128 0x3f
+ 1020 0047 19       		.uleb128 0x19
+ 1021 0048 03       		.uleb128 0x3
+ 1022 0049 0E       		.uleb128 0xe
+ 1023 004a 3A       		.uleb128 0x3a
+ 1024 004b 0B       		.uleb128 0xb
+ 1025 004c 3B       		.uleb128 0x3b
+ 1026 004d 0B       		.uleb128 0xb
+ 1027 004e 11       		.uleb128 0x11
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 21
+
+
+ 1028 004f 01       		.uleb128 0x1
+ 1029 0050 12       		.uleb128 0x12
+ 1030 0051 06       		.uleb128 0x6
+ 1031 0052 40       		.uleb128 0x40
+ 1032 0053 18       		.uleb128 0x18
+ 1033 0054 9742     		.uleb128 0x2117
+ 1034 0056 19       		.uleb128 0x19
+ 1035 0057 01       		.uleb128 0x1
+ 1036 0058 13       		.uleb128 0x13
+ 1037 0059 00       		.byte	0
+ 1038 005a 00       		.byte	0
+ 1039 005b 07       		.uleb128 0x7
+ 1040 005c 898201   		.uleb128 0x4109
+ 1041 005f 00       		.byte	0
+ 1042 0060 11       		.uleb128 0x11
+ 1043 0061 01       		.uleb128 0x1
+ 1044 0062 31       		.uleb128 0x31
+ 1045 0063 13       		.uleb128 0x13
+ 1046 0064 00       		.byte	0
+ 1047 0065 00       		.byte	0
+ 1048 0066 08       		.uleb128 0x8
+ 1049 0067 2E       		.uleb128 0x2e
+ 1050 0068 01       		.byte	0x1
+ 1051 0069 3F       		.uleb128 0x3f
+ 1052 006a 19       		.uleb128 0x19
+ 1053 006b 03       		.uleb128 0x3
+ 1054 006c 0E       		.uleb128 0xe
+ 1055 006d 3A       		.uleb128 0x3a
+ 1056 006e 0B       		.uleb128 0xb
+ 1057 006f 3B       		.uleb128 0x3b
+ 1058 0070 0B       		.uleb128 0xb
+ 1059 0071 27       		.uleb128 0x27
+ 1060 0072 19       		.uleb128 0x19
+ 1061 0073 11       		.uleb128 0x11
+ 1062 0074 01       		.uleb128 0x1
+ 1063 0075 12       		.uleb128 0x12
+ 1064 0076 06       		.uleb128 0x6
+ 1065 0077 40       		.uleb128 0x40
+ 1066 0078 18       		.uleb128 0x18
+ 1067 0079 9742     		.uleb128 0x2117
+ 1068 007b 19       		.uleb128 0x19
+ 1069 007c 01       		.uleb128 0x1
+ 1070 007d 13       		.uleb128 0x13
+ 1071 007e 00       		.byte	0
+ 1072 007f 00       		.byte	0
+ 1073 0080 09       		.uleb128 0x9
+ 1074 0081 05       		.uleb128 0x5
+ 1075 0082 00       		.byte	0
+ 1076 0083 03       		.uleb128 0x3
+ 1077 0084 0E       		.uleb128 0xe
+ 1078 0085 3A       		.uleb128 0x3a
+ 1079 0086 0B       		.uleb128 0xb
+ 1080 0087 3B       		.uleb128 0x3b
+ 1081 0088 0B       		.uleb128 0xb
+ 1082 0089 49       		.uleb128 0x49
+ 1083 008a 13       		.uleb128 0x13
+ 1084 008b 02       		.uleb128 0x2
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 22
+
+
+ 1085 008c 17       		.uleb128 0x17
+ 1086 008d 00       		.byte	0
+ 1087 008e 00       		.byte	0
+ 1088 008f 0A       		.uleb128 0xa
+ 1089 0090 898201   		.uleb128 0x4109
+ 1090 0093 01       		.byte	0x1
+ 1091 0094 11       		.uleb128 0x11
+ 1092 0095 01       		.uleb128 0x1
+ 1093 0096 31       		.uleb128 0x31
+ 1094 0097 13       		.uleb128 0x13
+ 1095 0098 01       		.uleb128 0x1
+ 1096 0099 13       		.uleb128 0x13
+ 1097 009a 00       		.byte	0
+ 1098 009b 00       		.byte	0
+ 1099 009c 0B       		.uleb128 0xb
+ 1100 009d 8A8201   		.uleb128 0x410a
+ 1101 00a0 00       		.byte	0
+ 1102 00a1 02       		.uleb128 0x2
+ 1103 00a2 18       		.uleb128 0x18
+ 1104 00a3 9142     		.uleb128 0x2111
+ 1105 00a5 18       		.uleb128 0x18
+ 1106 00a6 00       		.byte	0
+ 1107 00a7 00       		.byte	0
+ 1108 00a8 0C       		.uleb128 0xc
+ 1109 00a9 898201   		.uleb128 0x4109
+ 1110 00ac 01       		.byte	0x1
+ 1111 00ad 11       		.uleb128 0x11
+ 1112 00ae 01       		.uleb128 0x1
+ 1113 00af 31       		.uleb128 0x31
+ 1114 00b0 13       		.uleb128 0x13
+ 1115 00b1 00       		.byte	0
+ 1116 00b2 00       		.byte	0
+ 1117 00b3 0D       		.uleb128 0xd
+ 1118 00b4 34       		.uleb128 0x34
+ 1119 00b5 00       		.byte	0
+ 1120 00b6 03       		.uleb128 0x3
+ 1121 00b7 0E       		.uleb128 0xe
+ 1122 00b8 3A       		.uleb128 0x3a
+ 1123 00b9 0B       		.uleb128 0xb
+ 1124 00ba 3B       		.uleb128 0x3b
+ 1125 00bb 05       		.uleb128 0x5
+ 1126 00bc 49       		.uleb128 0x49
+ 1127 00bd 13       		.uleb128 0x13
+ 1128 00be 3F       		.uleb128 0x3f
+ 1129 00bf 19       		.uleb128 0x19
+ 1130 00c0 3C       		.uleb128 0x3c
+ 1131 00c1 19       		.uleb128 0x19
+ 1132 00c2 00       		.byte	0
+ 1133 00c3 00       		.byte	0
+ 1134 00c4 0E       		.uleb128 0xe
+ 1135 00c5 35       		.uleb128 0x35
+ 1136 00c6 00       		.byte	0
+ 1137 00c7 49       		.uleb128 0x49
+ 1138 00c8 13       		.uleb128 0x13
+ 1139 00c9 00       		.byte	0
+ 1140 00ca 00       		.byte	0
+ 1141 00cb 0F       		.uleb128 0xf
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 23
+
+
+ 1142 00cc 2E       		.uleb128 0x2e
+ 1143 00cd 00       		.byte	0
+ 1144 00ce 3F       		.uleb128 0x3f
+ 1145 00cf 19       		.uleb128 0x19
+ 1146 00d0 03       		.uleb128 0x3
+ 1147 00d1 0E       		.uleb128 0xe
+ 1148 00d2 3A       		.uleb128 0x3a
+ 1149 00d3 0B       		.uleb128 0xb
+ 1150 00d4 3B       		.uleb128 0x3b
+ 1151 00d5 0B       		.uleb128 0xb
+ 1152 00d6 27       		.uleb128 0x27
+ 1153 00d7 19       		.uleb128 0x19
+ 1154 00d8 3C       		.uleb128 0x3c
+ 1155 00d9 19       		.uleb128 0x19
+ 1156 00da 00       		.byte	0
+ 1157 00db 00       		.byte	0
+ 1158 00dc 10       		.uleb128 0x10
+ 1159 00dd 2E       		.uleb128 0x2e
+ 1160 00de 01       		.byte	0x1
+ 1161 00df 3F       		.uleb128 0x3f
+ 1162 00e0 19       		.uleb128 0x19
+ 1163 00e1 03       		.uleb128 0x3
+ 1164 00e2 0E       		.uleb128 0xe
+ 1165 00e3 3A       		.uleb128 0x3a
+ 1166 00e4 0B       		.uleb128 0xb
+ 1167 00e5 3B       		.uleb128 0x3b
+ 1168 00e6 0B       		.uleb128 0xb
+ 1169 00e7 27       		.uleb128 0x27
+ 1170 00e8 19       		.uleb128 0x19
+ 1171 00e9 3C       		.uleb128 0x3c
+ 1172 00ea 19       		.uleb128 0x19
+ 1173 00eb 01       		.uleb128 0x1
+ 1174 00ec 13       		.uleb128 0x13
+ 1175 00ed 00       		.byte	0
+ 1176 00ee 00       		.byte	0
+ 1177 00ef 11       		.uleb128 0x11
+ 1178 00f0 05       		.uleb128 0x5
+ 1179 00f1 00       		.byte	0
+ 1180 00f2 49       		.uleb128 0x49
+ 1181 00f3 13       		.uleb128 0x13
+ 1182 00f4 00       		.byte	0
+ 1183 00f5 00       		.byte	0
+ 1184 00f6 12       		.uleb128 0x12
+ 1185 00f7 2E       		.uleb128 0x2e
+ 1186 00f8 01       		.byte	0x1
+ 1187 00f9 3F       		.uleb128 0x3f
+ 1188 00fa 19       		.uleb128 0x19
+ 1189 00fb 03       		.uleb128 0x3
+ 1190 00fc 0E       		.uleb128 0xe
+ 1191 00fd 3A       		.uleb128 0x3a
+ 1192 00fe 0B       		.uleb128 0xb
+ 1193 00ff 3B       		.uleb128 0x3b
+ 1194 0100 0B       		.uleb128 0xb
+ 1195 0101 27       		.uleb128 0x27
+ 1196 0102 19       		.uleb128 0x19
+ 1197 0103 3C       		.uleb128 0x3c
+ 1198 0104 19       		.uleb128 0x19
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 24
+
+
+ 1199 0105 00       		.byte	0
+ 1200 0106 00       		.byte	0
+ 1201 0107 00       		.byte	0
+ 1202              		.section	.debug_loc,"",%progbits
+ 1203              	.Ldebug_loc0:
+ 1204              	.LLST0:
+ 1205 0000 00000000 		.4byte	.LVL2
+ 1206 0004 08000000 		.4byte	.LVL3
+ 1207 0008 0100     		.2byte	0x1
+ 1208 000a 50       		.byte	0x50
+ 1209 000b 08000000 		.4byte	.LVL3
+ 1210 000f 26000000 		.4byte	.LFE65
+ 1211 0013 0400     		.2byte	0x4
+ 1212 0015 F3       		.byte	0xf3
+ 1213 0016 01       		.uleb128 0x1
+ 1214 0017 50       		.byte	0x50
+ 1215 0018 9F       		.byte	0x9f
+ 1216 0019 00000000 		.4byte	0
+ 1217 001d 00000000 		.4byte	0
+ 1218              	.LLST1:
+ 1219 0021 00000000 		.4byte	.LVL2
+ 1220 0025 0B000000 		.4byte	.LVL4-1
+ 1221 0029 0100     		.2byte	0x1
+ 1222 002b 51       		.byte	0x51
+ 1223 002c 0B000000 		.4byte	.LVL4-1
+ 1224 0030 26000000 		.4byte	.LFE65
+ 1225 0034 0100     		.2byte	0x1
+ 1226 0036 55       		.byte	0x55
+ 1227 0037 00000000 		.4byte	0
+ 1228 003b 00000000 		.4byte	0
+ 1229              	.LLST2:
+ 1230 003f 00000000 		.4byte	.LVL9
+ 1231 0043 09000000 		.4byte	.LVL10-1
+ 1232 0047 0100     		.2byte	0x1
+ 1233 0049 50       		.byte	0x50
+ 1234 004a 09000000 		.4byte	.LVL10-1
+ 1235 004e 18000000 		.4byte	.LFE66
+ 1236 0052 0400     		.2byte	0x4
+ 1237 0054 F3       		.byte	0xf3
+ 1238 0055 01       		.uleb128 0x1
+ 1239 0056 50       		.byte	0x50
+ 1240 0057 9F       		.byte	0x9f
+ 1241 0058 00000000 		.4byte	0
+ 1242 005c 00000000 		.4byte	0
+ 1243              	.LLST3:
+ 1244 0060 00000000 		.4byte	.LVL9
+ 1245 0064 09000000 		.4byte	.LVL10-1
+ 1246 0068 0100     		.2byte	0x1
+ 1247 006a 51       		.byte	0x51
+ 1248 006b 09000000 		.4byte	.LVL10-1
+ 1249 006f 18000000 		.4byte	.LFE66
+ 1250 0073 0400     		.2byte	0x4
+ 1251 0075 F3       		.byte	0xf3
+ 1252 0076 01       		.uleb128 0x1
+ 1253 0077 51       		.byte	0x51
+ 1254 0078 9F       		.byte	0x9f
+ 1255 0079 00000000 		.4byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 25
+
+
+ 1256 007d 00000000 		.4byte	0
+ 1257              	.LLST4:
+ 1258 0081 00000000 		.4byte	.LVL9
+ 1259 0085 09000000 		.4byte	.LVL10-1
+ 1260 0089 0100     		.2byte	0x1
+ 1261 008b 52       		.byte	0x52
+ 1262 008c 09000000 		.4byte	.LVL10-1
+ 1263 0090 18000000 		.4byte	.LFE66
+ 1264 0094 0100     		.2byte	0x1
+ 1265 0096 54       		.byte	0x54
+ 1266 0097 00000000 		.4byte	0
+ 1267 009b 00000000 		.4byte	0
+ 1268              	.LLST5:
+ 1269 009f 00000000 		.4byte	.LVL13
+ 1270 00a3 10000000 		.4byte	.LVL14
+ 1271 00a7 0100     		.2byte	0x1
+ 1272 00a9 50       		.byte	0x50
+ 1273 00aa 10000000 		.4byte	.LVL14
+ 1274 00ae 2E000000 		.4byte	.LVL20
+ 1275 00b2 0100     		.2byte	0x1
+ 1276 00b4 54       		.byte	0x54
+ 1277 00b5 2E000000 		.4byte	.LVL20
+ 1278 00b9 38000000 		.4byte	.LVL21
+ 1279 00bd 0100     		.2byte	0x1
+ 1280 00bf 50       		.byte	0x50
+ 1281 00c0 38000000 		.4byte	.LVL21
+ 1282 00c4 44000000 		.4byte	.LVL24
+ 1283 00c8 0100     		.2byte	0x1
+ 1284 00ca 54       		.byte	0x54
+ 1285 00cb 44000000 		.4byte	.LVL24
+ 1286 00cf 46000000 		.4byte	.LVL25
+ 1287 00d3 0100     		.2byte	0x1
+ 1288 00d5 50       		.byte	0x50
+ 1289 00d6 46000000 		.4byte	.LVL25
+ 1290 00da 58000000 		.4byte	.LVL29
+ 1291 00de 0400     		.2byte	0x4
+ 1292 00e0 74       		.byte	0x74
+ 1293 00e1 00       		.sleb128 0
+ 1294 00e2 1F       		.byte	0x1f
+ 1295 00e3 9F       		.byte	0x9f
+ 1296 00e4 58000000 		.4byte	.LVL29
+ 1297 00e8 62000000 		.4byte	.LVL30
+ 1298 00ec 0100     		.2byte	0x1
+ 1299 00ee 50       		.byte	0x50
+ 1300 00ef 62000000 		.4byte	.LVL30
+ 1301 00f3 7C000000 		.4byte	.LVL36
+ 1302 00f7 0100     		.2byte	0x1
+ 1303 00f9 54       		.byte	0x54
+ 1304 00fa 7C000000 		.4byte	.LVL36
+ 1305 00fe 86000000 		.4byte	.LVL37
+ 1306 0102 0100     		.2byte	0x1
+ 1307 0104 50       		.byte	0x50
+ 1308 0105 86000000 		.4byte	.LVL37
+ 1309 0109 94000000 		.4byte	.LVL41
+ 1310 010d 0100     		.2byte	0x1
+ 1311 010f 54       		.byte	0x54
+ 1312 0110 94000000 		.4byte	.LVL41
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 26
+
+
+ 1313 0114 96000000 		.4byte	.LVL42
+ 1314 0118 0100     		.2byte	0x1
+ 1315 011a 50       		.byte	0x50
+ 1316 011b 96000000 		.4byte	.LVL42
+ 1317 011f A0000000 		.4byte	.LVL44
+ 1318 0123 0400     		.2byte	0x4
+ 1319 0125 74       		.byte	0x74
+ 1320 0126 00       		.sleb128 0
+ 1321 0127 1F       		.byte	0x1f
+ 1322 0128 9F       		.byte	0x9f
+ 1323 0129 00000000 		.4byte	0
+ 1324 012d 00000000 		.4byte	0
+ 1325              	.LLST6:
+ 1326 0131 00000000 		.4byte	.LVL13
+ 1327 0135 13000000 		.4byte	.LVL15-1
+ 1328 0139 0100     		.2byte	0x1
+ 1329 013b 51       		.byte	0x51
+ 1330 013c 13000000 		.4byte	.LVL15-1
+ 1331 0140 2E000000 		.4byte	.LVL20
+ 1332 0144 0100     		.2byte	0x1
+ 1333 0146 55       		.byte	0x55
+ 1334 0147 2E000000 		.4byte	.LVL20
+ 1335 014b 3B000000 		.4byte	.LVL22-1
+ 1336 014f 0100     		.2byte	0x1
+ 1337 0151 51       		.byte	0x51
+ 1338 0152 3B000000 		.4byte	.LVL22-1
+ 1339 0156 58000000 		.4byte	.LVL29
+ 1340 015a 0100     		.2byte	0x1
+ 1341 015c 55       		.byte	0x55
+ 1342 015d 58000000 		.4byte	.LVL29
+ 1343 0161 65000000 		.4byte	.LVL31-1
+ 1344 0165 0100     		.2byte	0x1
+ 1345 0167 51       		.byte	0x51
+ 1346 0168 65000000 		.4byte	.LVL31-1
+ 1347 016c 7C000000 		.4byte	.LVL36
+ 1348 0170 0100     		.2byte	0x1
+ 1349 0172 55       		.byte	0x55
+ 1350 0173 7C000000 		.4byte	.LVL36
+ 1351 0177 89000000 		.4byte	.LVL38-1
+ 1352 017b 0100     		.2byte	0x1
+ 1353 017d 51       		.byte	0x51
+ 1354 017e 89000000 		.4byte	.LVL38-1
+ 1355 0182 A2000000 		.4byte	.LFE67
+ 1356 0186 0100     		.2byte	0x1
+ 1357 0188 55       		.byte	0x55
+ 1358 0189 00000000 		.4byte	0
+ 1359 018d 00000000 		.4byte	0
+ 1360              	.LLST7:
+ 1361 0191 00000000 		.4byte	.LVL13
+ 1362 0195 13000000 		.4byte	.LVL15-1
+ 1363 0199 0100     		.2byte	0x1
+ 1364 019b 52       		.byte	0x52
+ 1365 019c 13000000 		.4byte	.LVL15-1
+ 1366 01a0 2E000000 		.4byte	.LVL20
+ 1367 01a4 0100     		.2byte	0x1
+ 1368 01a6 56       		.byte	0x56
+ 1369 01a7 2E000000 		.4byte	.LVL20
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 27
+
+
+ 1370 01ab 3B000000 		.4byte	.LVL22-1
+ 1371 01af 0100     		.2byte	0x1
+ 1372 01b1 52       		.byte	0x52
+ 1373 01b2 3B000000 		.4byte	.LVL22-1
+ 1374 01b6 58000000 		.4byte	.LVL29
+ 1375 01ba 0100     		.2byte	0x1
+ 1376 01bc 56       		.byte	0x56
+ 1377 01bd 58000000 		.4byte	.LVL29
+ 1378 01c1 65000000 		.4byte	.LVL31-1
+ 1379 01c5 0100     		.2byte	0x1
+ 1380 01c7 52       		.byte	0x52
+ 1381 01c8 65000000 		.4byte	.LVL31-1
+ 1382 01cc 7C000000 		.4byte	.LVL36
+ 1383 01d0 0100     		.2byte	0x1
+ 1384 01d2 56       		.byte	0x56
+ 1385 01d3 7C000000 		.4byte	.LVL36
+ 1386 01d7 89000000 		.4byte	.LVL38-1
+ 1387 01db 0100     		.2byte	0x1
+ 1388 01dd 52       		.byte	0x52
+ 1389 01de 89000000 		.4byte	.LVL38-1
+ 1390 01e2 A2000000 		.4byte	.LFE67
+ 1391 01e6 0100     		.2byte	0x1
+ 1392 01e8 56       		.byte	0x56
+ 1393 01e9 00000000 		.4byte	0
+ 1394 01ed 00000000 		.4byte	0
+ 1395              	.LLST8:
+ 1396 01f1 00000000 		.4byte	.LVL45
+ 1397 01f5 08000000 		.4byte	.LVL46
+ 1398 01f9 0100     		.2byte	0x1
+ 1399 01fb 50       		.byte	0x50
+ 1400 01fc 08000000 		.4byte	.LVL46
+ 1401 0200 26000000 		.4byte	.LFE68
+ 1402 0204 0400     		.2byte	0x4
+ 1403 0206 F3       		.byte	0xf3
+ 1404 0207 01       		.uleb128 0x1
+ 1405 0208 50       		.byte	0x50
+ 1406 0209 9F       		.byte	0x9f
+ 1407 020a 00000000 		.4byte	0
+ 1408 020e 00000000 		.4byte	0
+ 1409              	.LLST9:
+ 1410 0212 00000000 		.4byte	.LVL45
+ 1411 0216 0B000000 		.4byte	.LVL47-1
+ 1412 021a 0100     		.2byte	0x1
+ 1413 021c 51       		.byte	0x51
+ 1414 021d 0B000000 		.4byte	.LVL47-1
+ 1415 0221 26000000 		.4byte	.LFE68
+ 1416 0225 0100     		.2byte	0x1
+ 1417 0227 55       		.byte	0x55
+ 1418 0228 00000000 		.4byte	0
+ 1419 022c 00000000 		.4byte	0
+ 1420              		.section	.debug_aranges,"",%progbits
+ 1421 0000 44000000 		.4byte	0x44
+ 1422 0004 0200     		.2byte	0x2
+ 1423 0006 00000000 		.4byte	.Ldebug_info0
+ 1424 000a 04       		.byte	0x4
+ 1425 000b 00       		.byte	0
+ 1426 000c 0000     		.2byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 28
+
+
+ 1427 000e 0000     		.2byte	0
+ 1428 0010 00000000 		.4byte	.LFB63
+ 1429 0014 08000000 		.4byte	.LFE63-.LFB63
+ 1430 0018 00000000 		.4byte	.LFB64
+ 1431 001c 08000000 		.4byte	.LFE64-.LFB64
+ 1432 0020 00000000 		.4byte	.LFB65
+ 1433 0024 26000000 		.4byte	.LFE65-.LFB65
+ 1434 0028 00000000 		.4byte	.LFB66
+ 1435 002c 18000000 		.4byte	.LFE66-.LFB66
+ 1436 0030 00000000 		.4byte	.LFB67
+ 1437 0034 A2000000 		.4byte	.LFE67-.LFB67
+ 1438 0038 00000000 		.4byte	.LFB68
+ 1439 003c 26000000 		.4byte	.LFE68-.LFB68
+ 1440 0040 00000000 		.4byte	0
+ 1441 0044 00000000 		.4byte	0
+ 1442              		.section	.debug_ranges,"",%progbits
+ 1443              	.Ldebug_ranges0:
+ 1444 0000 00000000 		.4byte	.LFB63
+ 1445 0004 08000000 		.4byte	.LFE63
+ 1446 0008 00000000 		.4byte	.LFB64
+ 1447 000c 08000000 		.4byte	.LFE64
+ 1448 0010 00000000 		.4byte	.LFB65
+ 1449 0014 26000000 		.4byte	.LFE65
+ 1450 0018 00000000 		.4byte	.LFB66
+ 1451 001c 18000000 		.4byte	.LFE66
+ 1452 0020 00000000 		.4byte	.LFB67
+ 1453 0024 A2000000 		.4byte	.LFE67
+ 1454 0028 00000000 		.4byte	.LFB68
+ 1455 002c 26000000 		.4byte	.LFE68
+ 1456 0030 00000000 		.4byte	0
+ 1457 0034 00000000 		.4byte	0
+ 1458              		.section	.debug_line,"",%progbits
+ 1459              	.Ldebug_line0:
+ 1460 0000 27020000 		.section	.debug_str,"MS",%progbits,1
+ 1460      02008101 
+ 1460      00000201 
+ 1460      FB0E0D00 
+ 1460      01010101 
+ 1461              	.LASF36:
+ 1462 0000 433A5C55 		.ascii	"C:\\Users\\roba420\\Documents\\PSoC Creator\\robott"
+ 1462      73657273 
+ 1462      5C726F62 
+ 1462      61343230 
+ 1462      5C446F63 
+ 1463 002e 695C5A75 		.ascii	"i\\ZumoBot_Paini.cydsn\000"
+ 1463      6D6F426F 
+ 1463      745F5061 
+ 1463      696E692E 
+ 1463      63796473 
+ 1464              	.LASF30:
+ 1465 0044 4D6F746F 		.ascii	"MotorDirLeft_Write\000"
+ 1465      72446972 
+ 1465      4C656674 
+ 1465      5F577269 
+ 1465      746500
+ 1466              	.LASF9:
+ 1467 0057 5F5F696E 		.ascii	"__int32_t\000"
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 29
+
+
+ 1467      7433325F 
+ 1467      7400
+ 1468              	.LASF27:
+ 1469 0061 6D6F746F 		.ascii	"motor_backward\000"
+ 1469      725F6261 
+ 1469      636B7761 
+ 1469      726400
+ 1470              	.LASF25:
+ 1471 0070 725F7370 		.ascii	"r_speed\000"
+ 1471      65656400 
+ 1472              	.LASF31:
+ 1473 0078 4D6F746F 		.ascii	"MotorDirRight_Write\000"
+ 1473      72446972 
+ 1473      52696768 
+ 1473      745F5772 
+ 1473      69746500 
+ 1474              	.LASF11:
+ 1475 008c 75696E74 		.ascii	"uint8\000"
+ 1475      3800
+ 1476              	.LASF10:
+ 1477 0092 696E7433 		.ascii	"int32_t\000"
+ 1477      325F7400 
+ 1478              	.LASF14:
+ 1479 009a 666C6F61 		.ascii	"float\000"
+ 1479      7400
+ 1480              	.LASF26:
+ 1481 00a0 6D6F746F 		.ascii	"motor_drive\000"
+ 1481      725F6472 
+ 1481      69766500 
+ 1482              	.LASF21:
+ 1483 00ac 64656C61 		.ascii	"delay\000"
+ 1483      7900
+ 1484              	.LASF1:
+ 1485 00b2 756E7369 		.ascii	"unsigned char\000"
+ 1485      676E6564 
+ 1485      20636861 
+ 1485      7200
+ 1486              	.LASF5:
+ 1487 00c0 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1487      20756E73 
+ 1487      69676E65 
+ 1487      6420696E 
+ 1487      7400
+ 1488              	.LASF13:
+ 1489 00d2 696E7433 		.ascii	"int32\000"
+ 1489      3200
+ 1490              	.LASF37:
+ 1491 00d8 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1491      52784275 
+ 1491      66666572 
+ 1491      00
+ 1492              	.LASF22:
+ 1493 00e5 6D6F746F 		.ascii	"motor_forward\000"
+ 1493      725F666F 
+ 1493      72776172 
+ 1493      6400
+ 1494              	.LASF15:
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 30
+
+
+ 1495 00f3 646F7562 		.ascii	"double\000"
+ 1495      6C6500
+ 1496              	.LASF19:
+ 1497 00fa 6D6F746F 		.ascii	"motor_stop\000"
+ 1497      725F7374 
+ 1497      6F7000
+ 1498              	.LASF35:
+ 1499 0105 5A756D6F 		.ascii	"ZumoLibrary\\Motor.c\000"
+ 1499      4C696272 
+ 1499      6172795C 
+ 1499      4D6F746F 
+ 1499      722E6300 
+ 1500              	.LASF12:
+ 1501 0119 75696E74 		.ascii	"uint32\000"
+ 1501      333200
+ 1502              	.LASF34:
+ 1503 0120 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1503      4320342E 
+ 1503      392E3320 
+ 1503      32303135 
+ 1503      30333033 
+ 1504 0153 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1504      20726576 
+ 1504      6973696F 
+ 1504      6E203232 
+ 1504      31323230 
+ 1505 0186 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1505      66756E63 
+ 1505      74696F6E 
+ 1505      2D736563 
+ 1505      74696F6E 
+ 1506              	.LASF8:
+ 1507 01ae 756E7369 		.ascii	"unsigned int\000"
+ 1507      676E6564 
+ 1507      20696E74 
+ 1507      00
+ 1508              	.LASF24:
+ 1509 01bb 6C5F7370 		.ascii	"l_speed\000"
+ 1509      65656400 
+ 1510              	.LASF7:
+ 1511 01c3 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1511      206C6F6E 
+ 1511      6720756E 
+ 1511      7369676E 
+ 1511      65642069 
+ 1512              	.LASF18:
+ 1513 01da 6D6F746F 		.ascii	"motor_start\000"
+ 1513      725F7374 
+ 1513      61727400 
+ 1514              	.LASF32:
+ 1515 01e6 50574D5F 		.ascii	"PWM_WriteCompare1\000"
+ 1515      57726974 
+ 1515      65436F6D 
+ 1515      70617265 
+ 1515      3100
+ 1516              	.LASF33:
+ 1517 01f8 50574D5F 		.ascii	"PWM_WriteCompare2\000"
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccsvOP3g.s 			page 31
+
+
+ 1517      57726974 
+ 1517      65436F6D 
+ 1517      70617265 
+ 1517      3200
+ 1518              	.LASF0:
+ 1519 020a 7369676E 		.ascii	"signed char\000"
+ 1519      65642063 
+ 1519      68617200 
+ 1520              	.LASF20:
+ 1521 0216 73706565 		.ascii	"speed\000"
+ 1521      6400
+ 1522              	.LASF17:
+ 1523 021c 73697A65 		.ascii	"sizetype\000"
+ 1523      74797065 
+ 1523      00
+ 1524              	.LASF6:
+ 1525 0225 6C6F6E67 		.ascii	"long long int\000"
+ 1525      206C6F6E 
+ 1525      6720696E 
+ 1525      7400
+ 1526              	.LASF16:
+ 1527 0233 63686172 		.ascii	"char\000"
+ 1527      00
+ 1528              	.LASF2:
+ 1529 0238 73686F72 		.ascii	"short int\000"
+ 1529      7420696E 
+ 1529      7400
+ 1530              	.LASF28:
+ 1531 0242 50574D5F 		.ascii	"PWM_Start\000"
+ 1531      53746172 
+ 1531      7400
+ 1532              	.LASF29:
+ 1533 024c 50574D5F 		.ascii	"PWM_Stop\000"
+ 1533      53746F70 
+ 1533      00
+ 1534              	.LASF4:
+ 1535 0255 6C6F6E67 		.ascii	"long int\000"
+ 1535      20696E74 
+ 1535      00
+ 1536              	.LASF23:
+ 1537 025e 6D6F746F 		.ascii	"motor_turn\000"
+ 1537      725F7475 
+ 1537      726E00
+ 1538              	.LASF3:
+ 1539 0269 73686F72 		.ascii	"short unsigned int\000"
+ 1539      7420756E 
+ 1539      7369676E 
+ 1539      65642069 
+ 1539      6E7400
+ 1540              	.LASF38:
+ 1541 027c 43794465 		.ascii	"CyDelay\000"
+ 1541      6C617900 
+ 1542              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

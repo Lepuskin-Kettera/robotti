@@ -1,0 +1,6 @@
+C:\Users\roba420\Documents\PSoC Creator\robotti\ZumoBot.cydsn\ZumoBot.cyprj|59873b01-f92c-4b9f-99fa-a1a5041fd8ff
+C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|68d0cb80-f51c-425e-917e-190c8efca6bd
+C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|c609c4ad-aca0-4e55-9770-ba9e77ceae2f
+C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|691c2d28-1b27-42d1-8fa1-d0da97f9ec05
+C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7a65316b-032a-4169-8022-6398eab72075
+C:\Users\roba420\Documents\PSoC Creator\robotti\ZumoBot_Paini.cydsn\ZumoBot_Paini.cyprj|9183733b-5b57-475c-a392-debe5f8c23be

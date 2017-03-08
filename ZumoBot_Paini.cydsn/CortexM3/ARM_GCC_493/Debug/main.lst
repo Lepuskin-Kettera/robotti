@@ -1,0 +1,2391 @@
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"main.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.main,"ax",%progbits
+  19              		.align	2
+  20              		.global	main
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	main, %function
+  24              	main:
+  25              	.LFB63:
+  26              		.file 1 "main.c"
+   1:main.c        **** 
+   2:main.c        **** #include <project.h>
+   3:main.c        **** #include <stdio.h>
+   4:main.c        **** #include "Motor.h"
+   5:main.c        **** #include "Ultra.h"
+   6:main.c        **** #include "Nunchuk.h"
+   7:main.c        **** #include "Reflectance.h"
+   8:main.c        **** #include "I2C_made.h"
+   9:main.c        **** #include "Gyro.h"
+  10:main.c        **** #include "Accel_magnet.h"
+  11:main.c        **** #include "IR.h"
+  12:main.c        **** #include "Ambient.h"
+  13:main.c        **** #include "Beep.h"
+  14:main.c        **** #include "math.h"
+  15:main.c        **** 
+  16:main.c        **** int rread(void);
+  17:main.c        **** 
+  18:main.c        **** int main()
+  19:main.c        **** {
+  27              		.loc 1 19 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 16
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 4, -8
+  34              		.cfi_offset 14, -4
+  35 0002 86B0     		sub	sp, sp, #24
+  36              		.cfi_def_cfa_offset 32
+  20:main.c        ****     struct sensors_ ref;
+  21:main.c        ****     struct sensors_ dig;
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 2
+
+
+  22:main.c        ****     CyGlobalIntEnable; 
+  37              		.loc 1 22 0
+  38              	@ 22 "main.c" 1
+  39 0004 62B6     		CPSIE   i
+  40              	@ 0 "" 2
+  23:main.c        ****     UART_1_Start();
+  41              		.loc 1 23 0
+  42              		.thumb
+  43 0006 FFF7FEFF 		bl	UART_1_Start
+  44              	.LVL0:
+  24:main.c        ****   
+  25:main.c        ****     printf("main start\n");
+  45              		.loc 1 25 0
+  46 000a 5048     		ldr	r0, .L11
+  47 000c FFF7FEFF 		bl	puts
+  48              	.LVL1:
+  26:main.c        ****     
+  27:main.c        ****     sensor_isr_StartEx(sensor_isr_handler);
+  49              		.loc 1 27 0
+  50 0010 4F48     		ldr	r0, .L11+4
+  51 0012 FFF7FEFF 		bl	sensor_isr_StartEx
+  52              	.LVL2:
+  28:main.c        ****     
+  29:main.c        ****     reflectance_start();
+  53              		.loc 1 29 0
+  54 0016 FFF7FEFF 		bl	reflectance_start
+  55              	.LVL3:
+  30:main.c        **** 
+  31:main.c        ****     IR_led_Write(1);
+  56              		.loc 1 31 0
+  57 001a 0120     		movs	r0, #1
+  58 001c FFF7FEFF 		bl	IR_led_Write
+  59              	.LVL4:
+  32:main.c        ****     printf("SAATANA\n");
+  60              		.loc 1 32 0
+  61 0020 4C48     		ldr	r0, .L11+8
+  62 0022 FFF7FEFF 		bl	puts
+  63              	.LVL5:
+  33:main.c        **** 
+  34:main.c        ****     printf("motor_start\n");
+  64              		.loc 1 34 0
+  65 0026 4C48     		ldr	r0, .L11+12
+  66 0028 FFF7FEFF 		bl	puts
+  67              	.LVL6:
+  35:main.c        ****     
+  36:main.c        ****     int findEdgeBool = 1;
+  37:main.c        ****     wait_going_down();
+  68              		.loc 1 37 0
+  69 002c FFF7FEFF 		bl	wait_going_down
+  70              	.LVL7:
+  38:main.c        ****     motor_start();
+  71              		.loc 1 38 0
+  72 0030 FFF7FEFF 		bl	motor_start
+  73              	.LVL8:
+  39:main.c        ****     int alku = 1;
+  74              		.loc 1 39 0
+  75 0034 0124     		movs	r4, #1
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 3
+
+
+  40:main.c        ****     while (alku == 1) {
+  76              		.loc 1 40 0
+  77 0036 1CE0     		b	.L2
+  78              	.LVL9:
+  79              	.L4:
+  41:main.c        ****         
+  42:main.c        ****         motor_forward(50,0);
+  80              		.loc 1 42 0
+  81 0038 3220     		movs	r0, #50
+  82 003a 0021     		movs	r1, #0
+  83 003c FFF7FEFF 		bl	motor_forward
+  84              	.LVL10:
+  43:main.c        ****         reflectance_read(&ref);
+  85              		.loc 1 43 0
+  86 0040 04A8     		add	r0, sp, #16
+  87 0042 FFF7FEFF 		bl	reflectance_read
+  88              	.LVL11:
+  44:main.c        ****         reflectance_digital(&dig);
+  89              		.loc 1 44 0
+  90 0046 02A8     		add	r0, sp, #8
+  91 0048 FFF7FEFF 		bl	reflectance_digital
+  92              	.LVL12:
+  45:main.c        ****     
+  46:main.c        ****     if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
+  93              		.loc 1 46 0
+  94 004c BDF80830 		ldrh	r3, [sp, #8]
+  95 0050 7BB9     		cbnz	r3, .L2
+  96              		.loc 1 46 0 is_stmt 0 discriminator 1
+  97 0052 BDF80A30 		ldrh	r3, [sp, #10]
+  98 0056 63B9     		cbnz	r3, .L2
+  99              		.loc 1 46 0 discriminator 2
+ 100 0058 BDF80C30 		ldrh	r3, [sp, #12]
+ 101 005c 4BB9     		cbnz	r3, .L2
+ 102              		.loc 1 46 0 discriminator 3
+ 103 005e BDF80E30 		ldrh	r3, [sp, #14]
+ 104 0062 33B9     		cbnz	r3, .L2
+  47:main.c        ****     
+  48:main.c        ****         motor_stop();
+ 105              		.loc 1 48 0 is_stmt 1
+ 106 0064 FFF7FEFF 		bl	motor_stop
+ 107              	.LVL13:
+  49:main.c        ****         wait_going_down();
+ 108              		.loc 1 49 0
+ 109 0068 FFF7FEFF 		bl	wait_going_down
+ 110              	.LVL14:
+  50:main.c        ****         motor_start();
+ 111              		.loc 1 50 0
+ 112 006c FFF7FEFF 		bl	motor_start
+ 113              	.LVL15:
+  51:main.c        ****         alku = 0;
+ 114              		.loc 1 51 0
+ 115 0070 0024     		movs	r4, #0
+ 116              	.LVL16:
+ 117              	.L2:
+  40:main.c        ****         
+ 118              		.loc 1 40 0
+ 119 0072 002C     		cmp	r4, #0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 4
+
+
+ 120 0074 E0D1     		bne	.L4
+  52:main.c        ****     }
+  53:main.c        ****     }
+  54:main.c        ****     motor_drive(255,100,700);
+ 121              		.loc 1 54 0
+ 122 0076 FF20     		movs	r0, #255
+ 123 0078 6421     		movs	r1, #100
+ 124 007a 4FF42F72 		mov	r2, #700
+ 125 007e FFF7FEFF 		bl	motor_drive
+ 126              	.LVL17:
+  55:main.c        ****     motor_drive(-255,255,250);
+ 127              		.loc 1 55 0
+ 128 0082 6FF0FE00 		mvn	r0, #254
+ 129 0086 FF21     		movs	r1, #255
+ 130 0088 FA22     		movs	r2, #250
+ 131 008a FFF7FEFF 		bl	motor_drive
+ 132              	.LVL18:
+  56:main.c        ****     
+  57:main.c        ****     for(;;)
+  58:main.c        ****     {
+  59:main.c        ****      
+  60:main.c        ****         reflectance_read(&ref);
+ 133              		.loc 1 60 0
+ 134 008e 04A8     		add	r0, sp, #16
+ 135 0090 FFF7FEFF 		bl	reflectance_read
+ 136              	.LVL19:
+  61:main.c        ****         reflectance_digital(&dig);
+ 137              		.loc 1 61 0
+ 138 0094 02A8     		add	r0, sp, #8
+ 139 0096 FFF7FEFF 		bl	reflectance_digital
+ 140              	.LVL20:
+  62:main.c        ****         printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
+ 141              		.loc 1 62 0
+ 142 009a BDF80810 		ldrh	r1, [sp, #8]
+ 143 009e BDF80A20 		ldrh	r2, [sp, #10]
+ 144 00a2 BDF80C30 		ldrh	r3, [sp, #12]
+ 145 00a6 BDF80E00 		ldrh	r0, [sp, #14]
+ 146 00aa 0090     		str	r0, [sp]
+ 147 00ac 2B48     		ldr	r0, .L11+16
+ 148 00ae FFF7FEFF 		bl	printf
+ 149              	.LVL21:
+  36:main.c        ****     wait_going_down();
+ 150              		.loc 1 36 0
+ 151 00b2 0124     		movs	r4, #1
+ 152              	.LVL22:
+  63:main.c        ****         
+  64:main.c        ****         while(findEdgeBool == 1) {
+ 153              		.loc 1 64 0
+ 154 00b4 36E0     		b	.L5
+ 155              	.LVL23:
+ 156              	.L8:
+  65:main.c        ****             
+  66:main.c        ****              reflectance_read(&ref);
+ 157              		.loc 1 66 0
+ 158 00b6 04A8     		add	r0, sp, #16
+ 159 00b8 FFF7FEFF 		bl	reflectance_read
+ 160              	.LVL24:
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 5
+
+
+  67:main.c        ****         reflectance_digital(&dig);
+ 161              		.loc 1 67 0
+ 162 00bc 02A8     		add	r0, sp, #8
+ 163 00be FFF7FEFF 		bl	reflectance_digital
+ 164              	.LVL25:
+  68:main.c        ****         printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
+ 165              		.loc 1 68 0
+ 166 00c2 BDF80810 		ldrh	r1, [sp, #8]
+ 167 00c6 BDF80A20 		ldrh	r2, [sp, #10]
+ 168 00ca BDF80C30 		ldrh	r3, [sp, #12]
+ 169 00ce BDF80E00 		ldrh	r0, [sp, #14]
+ 170 00d2 0090     		str	r0, [sp]
+ 171 00d4 2148     		ldr	r0, .L11+16
+ 172 00d6 FFF7FEFF 		bl	printf
+ 173              	.LVL26:
+  69:main.c        ****             
+  70:main.c        ****             
+  71:main.c        ****         if(dig.l3 == 1 && dig.l1 == 1 && dig.r1 == 1 && dig.r3 == 1) {    
+ 174              		.loc 1 71 0
+ 175 00da BDF80830 		ldrh	r3, [sp, #8]
+ 176 00de 012B     		cmp	r3, #1
+ 177 00e0 13D1     		bne	.L6
+ 178              		.loc 1 71 0 is_stmt 0 discriminator 1
+ 179 00e2 BDF80A30 		ldrh	r3, [sp, #10]
+ 180 00e6 012B     		cmp	r3, #1
+ 181 00e8 0FD1     		bne	.L6
+ 182              		.loc 1 71 0 discriminator 2
+ 183 00ea BDF80C30 		ldrh	r3, [sp, #12]
+ 184 00ee 012B     		cmp	r3, #1
+ 185 00f0 0BD1     		bne	.L6
+ 186              		.loc 1 71 0 discriminator 3
+ 187 00f2 BDF80E30 		ldrh	r3, [sp, #14]
+ 188 00f6 012B     		cmp	r3, #1
+ 189 00f8 07D1     		bne	.L6
+  72:main.c        ****         motor_forward(255,0);
+ 190              		.loc 1 72 0 is_stmt 1
+ 191 00fa FF20     		movs	r0, #255
+ 192 00fc 0021     		movs	r1, #0
+ 193 00fe FFF7FEFF 		bl	motor_forward
+ 194              	.LVL27:
+  73:main.c        ****         printf("motor forward\n");
+ 195              		.loc 1 73 0
+ 196 0102 1748     		ldr	r0, .L11+20
+ 197 0104 FFF7FEFF 		bl	puts
+ 198              	.LVL28:
+ 199 0108 0CE0     		b	.L5
+ 200              	.L6:
+  74:main.c        ****         } else {
+  75:main.c        ****             motor_backward(255,650);
+ 201              		.loc 1 75 0
+ 202 010a FF20     		movs	r0, #255
+ 203 010c 40F28A21 		movw	r1, #650
+ 204 0110 FFF7FEFF 		bl	motor_backward
+ 205              	.LVL29:
+  76:main.c        ****              printf("motor backward\n");
+ 206              		.loc 1 76 0
+ 207 0114 1348     		ldr	r0, .L11+24
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 6
+
+
+ 208 0116 FFF7FEFF 		bl	puts
+ 209              	.LVL30:
+  77:main.c        ****             findEdgeBool = 0;
+  78:main.c        ****             motor_backward(0,0);
+ 210              		.loc 1 78 0
+ 211 011a 0020     		movs	r0, #0
+ 212 011c 0146     		mov	r1, r0
+ 213 011e FFF7FEFF 		bl	motor_backward
+ 214              	.LVL31:
+  77:main.c        ****             findEdgeBool = 0;
+ 215              		.loc 1 77 0
+ 216 0122 0024     		movs	r4, #0
+ 217              	.LVL32:
+ 218              	.L5:
+  64:main.c        ****             
+ 219              		.loc 1 64 0
+ 220 0124 002C     		cmp	r4, #0
+ 221 0126 C6D1     		bne	.L8
+ 222              	.L9:
+  79:main.c        ****         }
+  80:main.c        ****     }
+  81:main.c        ****         
+  82:main.c        ****         for (;;) {
+  83:main.c        ****             motor_drive(-255,255,1000);
+ 223              		.loc 1 83 0 discriminator 1
+ 224 0128 6FF0FE00 		mvn	r0, #254
+ 225 012c FF21     		movs	r1, #255
+ 226 012e 4FF47A72 		mov	r2, #1000
+ 227 0132 FFF7FEFF 		bl	motor_drive
+ 228              	.LVL33:
+  84:main.c        ****             motor_drive(255,-255,1000);
+ 229              		.loc 1 84 0 discriminator 1
+ 230 0136 FF20     		movs	r0, #255
+ 231 0138 6FF0FE01 		mvn	r1, #254
+ 232 013c 4FF47A72 		mov	r2, #1000
+ 233 0140 FFF7FEFF 		bl	motor_drive
+ 234              	.LVL34:
+  85:main.c        ****             printf("defece\n");
+ 235              		.loc 1 85 0 discriminator 1
+ 236 0144 0848     		ldr	r0, .L11+28
+ 237 0146 FFF7FEFF 		bl	puts
+ 238              	.LVL35:
+  86:main.c        ****         }
+ 239              		.loc 1 86 0 discriminator 1
+ 240 014a EDE7     		b	.L9
+ 241              	.L12:
+ 242              		.align	2
+ 243              	.L11:
+ 244 014c 00000000 		.word	.LC0
+ 245 0150 00000000 		.word	sensor_isr_handler
+ 246 0154 0C000000 		.word	.LC1
+ 247 0158 14000000 		.word	.LC2
+ 248 015c 20000000 		.word	.LC3
+ 249 0160 40000000 		.word	.LC4
+ 250 0164 50000000 		.word	.LC5
+ 251 0168 60000000 		.word	.LC6
+ 252              		.cfi_endproc
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 7
+
+
+ 253              	.LFE63:
+ 254              		.size	main, .-main
+ 255              		.section	.text._write,"ax",%progbits
+ 256              		.align	2
+ 257              		.global	_write
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.type	_write, %function
+ 261              	_write:
+ 262              	.LFB64:
+  87:main.c        ****      
+  88:main.c        **** }   
+  89:main.c        **** }
+  90:main.c        **** 
+  91:main.c        **** 
+  92:main.c        **** 
+  93:main.c        **** 
+  94:main.c        **** 
+  95:main.c        **** 
+  96:main.c        **** #if 0
+  97:main.c        **** int rread(void)
+  98:main.c        **** {
+  99:main.c        ****     SC0_SetDriveMode(PIN_DM_STRONG);
+ 100:main.c        ****     SC0_Write(1);
+ 101:main.c        ****     CyDelayUs(10);
+ 102:main.c        ****     SC0_SetDriveMode(PIN_DM_DIG_HIZ);
+ 103:main.c        ****     Timer_1_Start();
+ 104:main.c        ****     uint16_t start = Timer_1_ReadCounter();
+ 105:main.c        ****     uint16_t end = 0;
+ 106:main.c        ****     while(!(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC)) {
+ 107:main.c        ****         if(SC0_Read() == 0 && end == 0) {
+ 108:main.c        ****             end = Timer_1_ReadCounter();
+ 109:main.c        ****         }
+ 110:main.c        ****     }
+ 111:main.c        ****     Timer_1_Stop();
+ 112:main.c        ****     
+ 113:main.c        ****     return (start - end);
+ 114:main.c        **** }
+ 115:main.c        **** #endif
+ 116:main.c        **** 
+ 117:main.c        **** /* Don't remove the functions below */
+ 118:main.c        **** int _write(int file, char *ptr, int len)
+ 119:main.c        **** {
+ 263              		.loc 1 119 0
+ 264              		.cfi_startproc
+ 265              		@ args = 0, pretend = 0, frame = 0
+ 266              		@ frame_needed = 0, uses_anonymous_args = 0
+ 267              	.LVL36:
+ 268 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 269              		.cfi_def_cfa_offset 24
+ 270              		.cfi_offset 3, -24
+ 271              		.cfi_offset 4, -20
+ 272              		.cfi_offset 5, -16
+ 273              		.cfi_offset 6, -12
+ 274              		.cfi_offset 7, -8
+ 275              		.cfi_offset 14, -4
+ 276 0002 0C46     		mov	r4, r1
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 8
+
+
+ 277 0004 1746     		mov	r7, r2
+ 278              	.LVL37:
+ 120:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+ 121:main.c        **** 	int n;
+ 122:main.c        **** 	for(n = 0; n < len; n++) {
+ 279              		.loc 1 122 0
+ 280 0006 0025     		movs	r5, #0
+ 281 0008 0BE0     		b	.L14
+ 282              	.LVL38:
+ 283              	.L16:
+ 123:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 284              		.loc 1 123 0
+ 285 000a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
+ 286 000c 0A2B     		cmp	r3, #10
+ 287 000e 02D1     		bne	.L15
+ 288              		.loc 1 123 0 is_stmt 0 discriminator 1
+ 289 0010 0D20     		movs	r0, #13
+ 290 0012 FFF7FEFF 		bl	UART_1_PutChar
+ 291              	.LVL39:
+ 292              	.L15:
+ 124:main.c        **** 		UART_1_PutChar(*ptr++);
+ 293              		.loc 1 124 0 is_stmt 1 discriminator 2
+ 294 0016 661C     		adds	r6, r4, #1
+ 295              	.LVL40:
+ 296 0018 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
+ 297 001a FFF7FEFF 		bl	UART_1_PutChar
+ 298              	.LVL41:
+ 122:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 299              		.loc 1 122 0 discriminator 2
+ 300 001e 0135     		adds	r5, r5, #1
+ 301              	.LVL42:
+ 302              		.loc 1 124 0 discriminator 2
+ 303 0020 3446     		mov	r4, r6
+ 304              	.LVL43:
+ 305              	.L14:
+ 122:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 306              		.loc 1 122 0 discriminator 1
+ 307 0022 BD42     		cmp	r5, r7
+ 308 0024 F1DB     		blt	.L16
+ 125:main.c        **** 	}
+ 126:main.c        **** 	return len;
+ 127:main.c        **** }
+ 309              		.loc 1 127 0
+ 310 0026 3846     		mov	r0, r7
+ 311 0028 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 312              		.cfi_endproc
+ 313              	.LFE64:
+ 314              		.size	_write, .-_write
+ 315 002a 00BF     		.section	.text._read,"ax",%progbits
+ 316              		.align	2
+ 317              		.global	_read
+ 318              		.thumb
+ 319              		.thumb_func
+ 320              		.type	_read, %function
+ 321              	_read:
+ 322              	.LFB65:
+ 128:main.c        **** 
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 9
+
+
+ 129:main.c        **** int _read (int file, char *ptr, int count)
+ 130:main.c        **** {
+ 323              		.loc 1 130 0
+ 324              		.cfi_startproc
+ 325              		@ args = 0, pretend = 0, frame = 0
+ 326              		@ frame_needed = 0, uses_anonymous_args = 0
+ 327              	.LVL44:
+ 328 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 329              		.cfi_def_cfa_offset 24
+ 330              		.cfi_offset 3, -24
+ 331              		.cfi_offset 4, -20
+ 332              		.cfi_offset 5, -16
+ 333              		.cfi_offset 6, -12
+ 334              		.cfi_offset 7, -8
+ 335              		.cfi_offset 14, -4
+ 336 0002 0F46     		mov	r7, r1
+ 337 0004 1446     		mov	r4, r2
+ 338              	.LVL45:
+ 131:main.c        ****     int chs = 0;
+ 339              		.loc 1 131 0
+ 340 0006 0026     		movs	r6, #0
+ 132:main.c        ****     char ch;
+ 133:main.c        ****  
+ 134:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+ 135:main.c        ****     while(count > 0) {
+ 341              		.loc 1 135 0
+ 342 0008 12E0     		b	.L20
+ 343              	.LVL46:
+ 344              	.L23:
+ 136:main.c        ****         ch = UART_1_GetChar();
+ 345              		.loc 1 136 0
+ 346 000a FFF7FEFF 		bl	UART_1_GetChar
+ 347              	.LVL47:
+ 137:main.c        ****         if(ch != 0) {
+ 348              		.loc 1 137 0
+ 349 000e 0546     		mov	r5, r0
+ 350 0010 70B1     		cbz	r0, .L20
+ 138:main.c        ****             UART_1_PutChar(ch);
+ 351              		.loc 1 138 0
+ 352 0012 FFF7FEFF 		bl	UART_1_PutChar
+ 353              	.LVL48:
+ 139:main.c        ****             chs++;
+ 354              		.loc 1 139 0
+ 355 0016 0136     		adds	r6, r6, #1
+ 356              	.LVL49:
+ 140:main.c        ****             if(ch == '\r') {
+ 357              		.loc 1 140 0
+ 358 0018 0D2D     		cmp	r5, #13
+ 359 001a 03D1     		bne	.L21
+ 360              	.LVL50:
+ 141:main.c        ****                 ch = '\n';
+ 142:main.c        ****                 UART_1_PutChar(ch);
+ 361              		.loc 1 142 0
+ 362 001c 0A20     		movs	r0, #10
+ 363 001e FFF7FEFF 		bl	UART_1_PutChar
+ 364              	.LVL51:
+ 141:main.c        ****                 ch = '\n';
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 10
+
+
+ 365              		.loc 1 141 0
+ 366 0022 0A25     		movs	r5, #10
+ 367              	.LVL52:
+ 368              	.L21:
+ 143:main.c        ****             }
+ 144:main.c        ****             *ptr++ = ch;
+ 369              		.loc 1 144 0
+ 370 0024 7B1C     		adds	r3, r7, #1
+ 371              	.LVL53:
+ 372 0026 3D70     		strb	r5, [r7]
+ 145:main.c        ****             count--;
+ 373              		.loc 1 145 0
+ 374 0028 013C     		subs	r4, r4, #1
+ 375              	.LVL54:
+ 146:main.c        ****             if(ch == '\n') break;
+ 376              		.loc 1 146 0
+ 377 002a 0A2D     		cmp	r5, #10
+ 378 002c 02D0     		beq	.L22
+ 144:main.c        ****             count--;
+ 379              		.loc 1 144 0
+ 380 002e 1F46     		mov	r7, r3
+ 381              	.LVL55:
+ 382              	.L20:
+ 135:main.c        ****         ch = UART_1_GetChar();
+ 383              		.loc 1 135 0
+ 384 0030 002C     		cmp	r4, #0
+ 385 0032 EADC     		bgt	.L23
+ 386              	.LVL56:
+ 387              	.L22:
+ 147:main.c        ****         }
+ 148:main.c        ****     }
+ 149:main.c        ****     return chs;
+ 150:main.c        **** }
+ 388              		.loc 1 150 0
+ 389 0034 3046     		mov	r0, r6
+ 390 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 391              		.cfi_endproc
+ 392              	.LFE65:
+ 393              		.size	_read, .-_read
+ 394              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 395              		.align	2
+ 396              	.LC0:
+ 397 0000 6D61696E 		.ascii	"main start\000"
+ 397      20737461 
+ 397      727400
+ 398 000b 00       		.space	1
+ 399              	.LC1:
+ 400 000c 53414154 		.ascii	"SAATANA\000"
+ 400      414E4100 
+ 401              	.LC2:
+ 402 0014 6D6F746F 		.ascii	"motor_start\000"
+ 402      725F7374 
+ 402      61727400 
+ 403              	.LC3:
+ 404 0020 6C332825 		.ascii	"l3(%d) L1(%d) R1(%d) R3(%d) \015\012\000"
+ 404      6429204C 
+ 404      31282564 
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 11
+
+
+ 404      29205231 
+ 404      28256429 
+ 405 003f 00       		.space	1
+ 406              	.LC4:
+ 407 0040 6D6F746F 		.ascii	"motor forward\000"
+ 407      7220666F 
+ 407      72776172 
+ 407      6400
+ 408 004e 0000     		.space	2
+ 409              	.LC5:
+ 410 0050 6D6F746F 		.ascii	"motor backward\000"
+ 410      72206261 
+ 410      636B7761 
+ 410      726400
+ 411 005f 00       		.space	1
+ 412              	.LC6:
+ 413 0060 64656665 		.ascii	"defece\000"
+ 413      636500
+ 414 0067 00       		.text
+ 415              	.Letext0:
+ 416              		.file 2 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+ 417              		.file 3 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\arm
+ 418              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 419              		.file 5 ".\\ZumoLibrary/Reflectance.h"
+ 420              		.file 6 "Generated_Source\\PSoC5/UART_1.h"
+ 421              		.file 7 "Generated_Source\\PSoC5/sensor_isr.h"
+ 422              		.file 8 "Generated_Source\\PSoC5/IR_led.h"
+ 423              		.file 9 ".\\ZumoLibrary/IR.h"
+ 424              		.file 10 ".\\ZumoLibrary/Motor.h"
+ 425              		.file 11 "Generated_Source\\PSoC5/core_cm3.h"
+ 426              		.file 12 "<built-in>"
+ 427              		.file 13 "c:\\program files\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.3\\ar
+ 428              		.section	.debug_info,"",%progbits
+ 429              	.Ldebug_info0:
+ 430 0000 20060000 		.4byte	0x620
+ 431 0004 0400     		.2byte	0x4
+ 432 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 433 000a 04       		.byte	0x4
+ 434 000b 01       		.uleb128 0x1
+ 435 000c 6B010000 		.4byte	.LASF41
+ 436 0010 01       		.byte	0x1
+ 437 0011 74020000 		.4byte	.LASF42
+ 438 0015 00000000 		.4byte	.LASF43
+ 439 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 440 001d 00000000 		.4byte	0
+ 441 0021 00000000 		.4byte	.Ldebug_line0
+ 442 0025 02       		.uleb128 0x2
+ 443 0026 01       		.byte	0x1
+ 444 0027 06       		.byte	0x6
+ 445 0028 B3020000 		.4byte	.LASF0
+ 446 002c 02       		.uleb128 0x2
+ 447 002d 01       		.byte	0x1
+ 448 002e 08       		.byte	0x8
+ 449 002f C9000000 		.4byte	.LASF1
+ 450 0033 02       		.uleb128 0x2
+ 451 0034 02       		.byte	0x2
+ 452 0035 05       		.byte	0x5
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 12
+
+
+ 453 0036 8D020000 		.4byte	.LASF2
+ 454 003a 03       		.uleb128 0x3
+ 455 003b 34010000 		.4byte	.LASF4
+ 456 003f 02       		.byte	0x2
+ 457 0040 2B       		.byte	0x2b
+ 458 0041 45000000 		.4byte	0x45
+ 459 0045 02       		.uleb128 0x2
+ 460 0046 02       		.byte	0x2
+ 461 0047 07       		.byte	0x7
+ 462 0048 51010000 		.4byte	.LASF3
+ 463 004c 03       		.uleb128 0x3
+ 464 004d 5E000000 		.4byte	.LASF5
+ 465 0051 02       		.byte	0x2
+ 466 0052 3F       		.byte	0x3f
+ 467 0053 57000000 		.4byte	0x57
+ 468 0057 02       		.uleb128 0x2
+ 469 0058 04       		.byte	0x4
+ 470 0059 05       		.byte	0x5
+ 471 005a A5020000 		.4byte	.LASF6
+ 472 005e 02       		.uleb128 0x2
+ 473 005f 04       		.byte	0x4
+ 474 0060 07       		.byte	0x7
+ 475 0061 E7000000 		.4byte	.LASF7
+ 476 0065 02       		.uleb128 0x2
+ 477 0066 08       		.byte	0x8
+ 478 0067 05       		.byte	0x5
+ 479 0068 66020000 		.4byte	.LASF8
+ 480 006c 02       		.uleb128 0x2
+ 481 006d 08       		.byte	0x8
+ 482 006e 07       		.byte	0x7
+ 483 006f 15020000 		.4byte	.LASF9
+ 484 0073 04       		.uleb128 0x4
+ 485 0074 04       		.byte	0x4
+ 486 0075 05       		.byte	0x5
+ 487 0076 696E7400 		.ascii	"int\000"
+ 488 007a 02       		.uleb128 0x2
+ 489 007b 04       		.byte	0x4
+ 490 007c 07       		.byte	0x7
+ 491 007d 08020000 		.4byte	.LASF10
+ 492 0081 03       		.uleb128 0x3
+ 493 0082 97020000 		.4byte	.LASF11
+ 494 0086 03       		.byte	0x3
+ 495 0087 21       		.byte	0x21
+ 496 0088 3A000000 		.4byte	0x3a
+ 497 008c 03       		.uleb128 0x3
+ 498 008d 9D000000 		.4byte	.LASF12
+ 499 0091 03       		.byte	0x3
+ 500 0092 2C       		.byte	0x2c
+ 501 0093 4C000000 		.4byte	0x4c
+ 502 0097 05       		.uleb128 0x5
+ 503 0098 BF020000 		.4byte	.LASF13
+ 504 009c 04       		.byte	0x4
+ 505 009d 9201     		.2byte	0x192
+ 506 009f 2C000000 		.4byte	0x2c
+ 507 00a3 05       		.uleb128 0x5
+ 508 00a4 64010000 		.4byte	.LASF14
+ 509 00a8 04       		.byte	0x4
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 13
+
+
+ 510 00a9 9401     		.2byte	0x194
+ 511 00ab 5E000000 		.4byte	0x5e
+ 512 00af 05       		.uleb128 0x5
+ 513 00b0 F9000000 		.4byte	.LASF15
+ 514 00b4 04       		.byte	0x4
+ 515 00b5 9701     		.2byte	0x197
+ 516 00b7 57000000 		.4byte	0x57
+ 517 00bb 02       		.uleb128 0x2
+ 518 00bc 04       		.byte	0x4
+ 519 00bd 04       		.byte	0x4
+ 520 00be AB000000 		.4byte	.LASF16
+ 521 00c2 02       		.uleb128 0x2
+ 522 00c3 08       		.byte	0x8
+ 523 00c4 04       		.byte	0x4
+ 524 00c5 3F010000 		.4byte	.LASF17
+ 525 00c9 02       		.uleb128 0x2
+ 526 00ca 01       		.byte	0x1
+ 527 00cb 08       		.byte	0x8
+ 528 00cc 7B020000 		.4byte	.LASF18
+ 529 00d0 05       		.uleb128 0x5
+ 530 00d1 38020000 		.4byte	.LASF19
+ 531 00d5 04       		.byte	0x4
+ 532 00d6 4E02     		.2byte	0x24e
+ 533 00d8 DC000000 		.4byte	0xdc
+ 534 00dc 06       		.uleb128 0x6
+ 535 00dd 04       		.byte	0x4
+ 536 00de E2000000 		.4byte	0xe2
+ 537 00e2 07       		.uleb128 0x7
+ 538 00e3 02       		.uleb128 0x2
+ 539 00e4 04       		.byte	0x4
+ 540 00e5 07       		.byte	0x7
+ 541 00e6 5D020000 		.4byte	.LASF20
+ 542 00ea 06       		.uleb128 0x6
+ 543 00eb 04       		.byte	0x4
+ 544 00ec C9000000 		.4byte	0xc9
+ 545 00f0 06       		.uleb128 0x6
+ 546 00f1 04       		.byte	0x4
+ 547 00f2 F6000000 		.4byte	0xf6
+ 548 00f6 08       		.uleb128 0x8
+ 549 00f7 C9000000 		.4byte	0xc9
+ 550 00fb 09       		.uleb128 0x9
+ 551 00fc 44000000 		.4byte	.LASF44
+ 552 0100 08       		.byte	0x8
+ 553 0101 05       		.byte	0x5
+ 554 0102 11       		.byte	0x11
+ 555 0103 34010000 		.4byte	0x134
+ 556 0107 0A       		.uleb128 0xa
+ 557 0108 6C3300   		.ascii	"l3\000"
+ 558 010b 05       		.byte	0x5
+ 559 010c 12       		.byte	0x12
+ 560 010d 81000000 		.4byte	0x81
+ 561 0111 00       		.byte	0
+ 562 0112 0A       		.uleb128 0xa
+ 563 0113 6C3100   		.ascii	"l1\000"
+ 564 0116 05       		.byte	0x5
+ 565 0117 14       		.byte	0x14
+ 566 0118 81000000 		.4byte	0x81
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 14
+
+
+ 567 011c 02       		.byte	0x2
+ 568 011d 0A       		.uleb128 0xa
+ 569 011e 723100   		.ascii	"r1\000"
+ 570 0121 05       		.byte	0x5
+ 571 0122 15       		.byte	0x15
+ 572 0123 81000000 		.4byte	0x81
+ 573 0127 04       		.byte	0x4
+ 574 0128 0A       		.uleb128 0xa
+ 575 0129 723300   		.ascii	"r3\000"
+ 576 012c 05       		.byte	0x5
+ 577 012d 17       		.byte	0x17
+ 578 012e 81000000 		.4byte	0x81
+ 579 0132 06       		.byte	0x6
+ 580 0133 00       		.byte	0
+ 581 0134 02       		.uleb128 0x2
+ 582 0135 08       		.byte	0x8
+ 583 0136 04       		.byte	0x4
+ 584 0137 4A020000 		.4byte	.LASF21
+ 585 013b 0B       		.uleb128 0xb
+ 586 013c 45020000 		.4byte	.LASF45
+ 587 0140 01       		.byte	0x1
+ 588 0141 12       		.byte	0x12
+ 589 0142 73000000 		.4byte	0x73
+ 590 0146 00000000 		.4byte	.LFB63
+ 591 014a 6C010000 		.4byte	.LFE63-.LFB63
+ 592 014e 01       		.uleb128 0x1
+ 593 014f 9C       		.byte	0x9c
+ 594 0150 01040000 		.4byte	0x401
+ 595 0154 0C       		.uleb128 0xc
+ 596 0155 72656600 		.ascii	"ref\000"
+ 597 0159 01       		.byte	0x1
+ 598 015a 14       		.byte	0x14
+ 599 015b FB000000 		.4byte	0xfb
+ 600 015f 02       		.uleb128 0x2
+ 601 0160 91       		.byte	0x91
+ 602 0161 70       		.sleb128 -16
+ 603 0162 0C       		.uleb128 0xc
+ 604 0163 64696700 		.ascii	"dig\000"
+ 605 0167 01       		.byte	0x1
+ 606 0168 15       		.byte	0x15
+ 607 0169 FB000000 		.4byte	0xfb
+ 608 016d 02       		.uleb128 0x2
+ 609 016e 91       		.byte	0x91
+ 610 016f 68       		.sleb128 -24
+ 611 0170 0D       		.uleb128 0xd
+ 612 0171 FF000000 		.4byte	.LASF22
+ 613 0175 01       		.byte	0x1
+ 614 0176 24       		.byte	0x24
+ 615 0177 73000000 		.4byte	0x73
+ 616 017b 00000000 		.4byte	.LLST0
+ 617 017f 0D       		.uleb128 0xd
+ 618 0180 A0020000 		.4byte	.LASF23
+ 619 0184 01       		.byte	0x1
+ 620 0185 27       		.byte	0x27
+ 621 0186 73000000 		.4byte	0x73
+ 622 018a 36000000 		.4byte	.LLST1
+ 623 018e 0E       		.uleb128 0xe
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 15
+
+
+ 624 018f 0A000000 		.4byte	.LVL0
+ 625 0193 12050000 		.4byte	0x512
+ 626 0197 0F       		.uleb128 0xf
+ 627 0198 10000000 		.4byte	.LVL1
+ 628 019c 19050000 		.4byte	0x519
+ 629 01a0 AE010000 		.4byte	0x1ae
+ 630 01a4 10       		.uleb128 0x10
+ 631 01a5 01       		.uleb128 0x1
+ 632 01a6 50       		.byte	0x50
+ 633 01a7 05       		.uleb128 0x5
+ 634 01a8 03       		.byte	0x3
+ 635 01a9 00000000 		.4byte	.LC0
+ 636 01ad 00       		.byte	0
+ 637 01ae 0E       		.uleb128 0xe
+ 638 01af 16000000 		.4byte	.LVL2
+ 639 01b3 32050000 		.4byte	0x532
+ 640 01b7 0E       		.uleb128 0xe
+ 641 01b8 1A000000 		.4byte	.LVL3
+ 642 01bc 43050000 		.4byte	0x543
+ 643 01c0 0F       		.uleb128 0xf
+ 644 01c1 20000000 		.4byte	.LVL4
+ 645 01c5 4A050000 		.4byte	0x54a
+ 646 01c9 D3010000 		.4byte	0x1d3
+ 647 01cd 10       		.uleb128 0x10
+ 648 01ce 01       		.uleb128 0x1
+ 649 01cf 50       		.byte	0x50
+ 650 01d0 01       		.uleb128 0x1
+ 651 01d1 31       		.byte	0x31
+ 652 01d2 00       		.byte	0
+ 653 01d3 0F       		.uleb128 0xf
+ 654 01d4 26000000 		.4byte	.LVL5
+ 655 01d8 19050000 		.4byte	0x519
+ 656 01dc EA010000 		.4byte	0x1ea
+ 657 01e0 10       		.uleb128 0x10
+ 658 01e1 01       		.uleb128 0x1
+ 659 01e2 50       		.byte	0x50
+ 660 01e3 05       		.uleb128 0x5
+ 661 01e4 03       		.byte	0x3
+ 662 01e5 0C000000 		.4byte	.LC1
+ 663 01e9 00       		.byte	0
+ 664 01ea 0F       		.uleb128 0xf
+ 665 01eb 2C000000 		.4byte	.LVL6
+ 666 01ef 19050000 		.4byte	0x519
+ 667 01f3 01020000 		.4byte	0x201
+ 668 01f7 10       		.uleb128 0x10
+ 669 01f8 01       		.uleb128 0x1
+ 670 01f9 50       		.byte	0x50
+ 671 01fa 05       		.uleb128 0x5
+ 672 01fb 03       		.byte	0x3
+ 673 01fc 14000000 		.4byte	.LC2
+ 674 0200 00       		.byte	0
+ 675 0201 0E       		.uleb128 0xe
+ 676 0202 30000000 		.4byte	.LVL7
+ 677 0206 5B050000 		.4byte	0x55b
+ 678 020a 0E       		.uleb128 0xe
+ 679 020b 34000000 		.4byte	.LVL8
+ 680 020f 68050000 		.4byte	0x568
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 16
+
+
+ 681 0213 0F       		.uleb128 0xf
+ 682 0214 40000000 		.4byte	.LVL10
+ 683 0218 75050000 		.4byte	0x575
+ 684 021c 2C020000 		.4byte	0x22c
+ 685 0220 10       		.uleb128 0x10
+ 686 0221 01       		.uleb128 0x1
+ 687 0222 51       		.byte	0x51
+ 688 0223 01       		.uleb128 0x1
+ 689 0224 30       		.byte	0x30
+ 690 0225 10       		.uleb128 0x10
+ 691 0226 01       		.uleb128 0x1
+ 692 0227 50       		.byte	0x50
+ 693 0228 02       		.uleb128 0x2
+ 694 0229 08       		.byte	0x8
+ 695 022a 32       		.byte	0x32
+ 696 022b 00       		.byte	0
+ 697 022c 0F       		.uleb128 0xf
+ 698 022d 46000000 		.4byte	.LVL11
+ 699 0231 8B050000 		.4byte	0x58b
+ 700 0235 40020000 		.4byte	0x240
+ 701 0239 10       		.uleb128 0x10
+ 702 023a 01       		.uleb128 0x1
+ 703 023b 50       		.byte	0x50
+ 704 023c 02       		.uleb128 0x2
+ 705 023d 91       		.byte	0x91
+ 706 023e 70       		.sleb128 -16
+ 707 023f 00       		.byte	0
+ 708 0240 0F       		.uleb128 0xf
+ 709 0241 4C000000 		.4byte	.LVL12
+ 710 0245 A2050000 		.4byte	0x5a2
+ 711 0249 54020000 		.4byte	0x254
+ 712 024d 10       		.uleb128 0x10
+ 713 024e 01       		.uleb128 0x1
+ 714 024f 50       		.byte	0x50
+ 715 0250 02       		.uleb128 0x2
+ 716 0251 91       		.byte	0x91
+ 717 0252 68       		.sleb128 -24
+ 718 0253 00       		.byte	0
+ 719 0254 0E       		.uleb128 0xe
+ 720 0255 68000000 		.4byte	.LVL13
+ 721 0259 B3050000 		.4byte	0x5b3
+ 722 025d 0E       		.uleb128 0xe
+ 723 025e 6C000000 		.4byte	.LVL14
+ 724 0262 5B050000 		.4byte	0x55b
+ 725 0266 0E       		.uleb128 0xe
+ 726 0267 70000000 		.4byte	.LVL15
+ 727 026b 68050000 		.4byte	0x568
+ 728 026f 0F       		.uleb128 0xf
+ 729 0270 82000000 		.4byte	.LVL17
+ 730 0274 C0050000 		.4byte	0x5c0
+ 731 0278 90020000 		.4byte	0x290
+ 732 027c 10       		.uleb128 0x10
+ 733 027d 01       		.uleb128 0x1
+ 734 027e 52       		.byte	0x52
+ 735 027f 03       		.uleb128 0x3
+ 736 0280 0A       		.byte	0xa
+ 737 0281 BC02     		.2byte	0x2bc
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 17
+
+
+ 738 0283 10       		.uleb128 0x10
+ 739 0284 01       		.uleb128 0x1
+ 740 0285 51       		.byte	0x51
+ 741 0286 02       		.uleb128 0x2
+ 742 0287 08       		.byte	0x8
+ 743 0288 64       		.byte	0x64
+ 744 0289 10       		.uleb128 0x10
+ 745 028a 01       		.uleb128 0x1
+ 746 028b 50       		.byte	0x50
+ 747 028c 02       		.uleb128 0x2
+ 748 028d 08       		.byte	0x8
+ 749 028e FF       		.byte	0xff
+ 750 028f 00       		.byte	0
+ 751 0290 0F       		.uleb128 0xf
+ 752 0291 8E000000 		.4byte	.LVL18
+ 753 0295 C0050000 		.4byte	0x5c0
+ 754 0299 B1020000 		.4byte	0x2b1
+ 755 029d 10       		.uleb128 0x10
+ 756 029e 01       		.uleb128 0x1
+ 757 029f 52       		.byte	0x52
+ 758 02a0 02       		.uleb128 0x2
+ 759 02a1 08       		.byte	0x8
+ 760 02a2 FA       		.byte	0xfa
+ 761 02a3 10       		.uleb128 0x10
+ 762 02a4 01       		.uleb128 0x1
+ 763 02a5 51       		.byte	0x51
+ 764 02a6 02       		.uleb128 0x2
+ 765 02a7 08       		.byte	0x8
+ 766 02a8 FF       		.byte	0xff
+ 767 02a9 10       		.uleb128 0x10
+ 768 02aa 01       		.uleb128 0x1
+ 769 02ab 50       		.byte	0x50
+ 770 02ac 03       		.uleb128 0x3
+ 771 02ad 0B       		.byte	0xb
+ 772 02ae 01FF     		.2byte	0xff01
+ 773 02b0 00       		.byte	0
+ 774 02b1 0F       		.uleb128 0xf
+ 775 02b2 94000000 		.4byte	.LVL19
+ 776 02b6 8B050000 		.4byte	0x58b
+ 777 02ba C5020000 		.4byte	0x2c5
+ 778 02be 10       		.uleb128 0x10
+ 779 02bf 01       		.uleb128 0x1
+ 780 02c0 50       		.byte	0x50
+ 781 02c1 02       		.uleb128 0x2
+ 782 02c2 91       		.byte	0x91
+ 783 02c3 70       		.sleb128 -16
+ 784 02c4 00       		.byte	0
+ 785 02c5 0F       		.uleb128 0xf
+ 786 02c6 9A000000 		.4byte	.LVL20
+ 787 02ca A2050000 		.4byte	0x5a2
+ 788 02ce D9020000 		.4byte	0x2d9
+ 789 02d2 10       		.uleb128 0x10
+ 790 02d3 01       		.uleb128 0x1
+ 791 02d4 50       		.byte	0x50
+ 792 02d5 02       		.uleb128 0x2
+ 793 02d6 91       		.byte	0x91
+ 794 02d7 68       		.sleb128 -24
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 18
+
+
+ 795 02d8 00       		.byte	0
+ 796 02d9 0F       		.uleb128 0xf
+ 797 02da B2000000 		.4byte	.LVL21
+ 798 02de DB050000 		.4byte	0x5db
+ 799 02e2 F0020000 		.4byte	0x2f0
+ 800 02e6 10       		.uleb128 0x10
+ 801 02e7 01       		.uleb128 0x1
+ 802 02e8 50       		.byte	0x50
+ 803 02e9 05       		.uleb128 0x5
+ 804 02ea 03       		.byte	0x3
+ 805 02eb 20000000 		.4byte	.LC3
+ 806 02ef 00       		.byte	0
+ 807 02f0 0F       		.uleb128 0xf
+ 808 02f1 BC000000 		.4byte	.LVL24
+ 809 02f5 8B050000 		.4byte	0x58b
+ 810 02f9 04030000 		.4byte	0x304
+ 811 02fd 10       		.uleb128 0x10
+ 812 02fe 01       		.uleb128 0x1
+ 813 02ff 50       		.byte	0x50
+ 814 0300 02       		.uleb128 0x2
+ 815 0301 91       		.byte	0x91
+ 816 0302 70       		.sleb128 -16
+ 817 0303 00       		.byte	0
+ 818 0304 0F       		.uleb128 0xf
+ 819 0305 C2000000 		.4byte	.LVL25
+ 820 0309 A2050000 		.4byte	0x5a2
+ 821 030d 18030000 		.4byte	0x318
+ 822 0311 10       		.uleb128 0x10
+ 823 0312 01       		.uleb128 0x1
+ 824 0313 50       		.byte	0x50
+ 825 0314 02       		.uleb128 0x2
+ 826 0315 91       		.byte	0x91
+ 827 0316 68       		.sleb128 -24
+ 828 0317 00       		.byte	0
+ 829 0318 0F       		.uleb128 0xf
+ 830 0319 DA000000 		.4byte	.LVL26
+ 831 031d DB050000 		.4byte	0x5db
+ 832 0321 2F030000 		.4byte	0x32f
+ 833 0325 10       		.uleb128 0x10
+ 834 0326 01       		.uleb128 0x1
+ 835 0327 50       		.byte	0x50
+ 836 0328 05       		.uleb128 0x5
+ 837 0329 03       		.byte	0x3
+ 838 032a 20000000 		.4byte	.LC3
+ 839 032e 00       		.byte	0
+ 840 032f 0F       		.uleb128 0xf
+ 841 0330 02010000 		.4byte	.LVL27
+ 842 0334 75050000 		.4byte	0x575
+ 843 0338 48030000 		.4byte	0x348
+ 844 033c 10       		.uleb128 0x10
+ 845 033d 01       		.uleb128 0x1
+ 846 033e 51       		.byte	0x51
+ 847 033f 01       		.uleb128 0x1
+ 848 0340 30       		.byte	0x30
+ 849 0341 10       		.uleb128 0x10
+ 850 0342 01       		.uleb128 0x1
+ 851 0343 50       		.byte	0x50
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 19
+
+
+ 852 0344 02       		.uleb128 0x2
+ 853 0345 09       		.byte	0x9
+ 854 0346 FF       		.byte	0xff
+ 855 0347 00       		.byte	0
+ 856 0348 0F       		.uleb128 0xf
+ 857 0349 08010000 		.4byte	.LVL28
+ 858 034d 19050000 		.4byte	0x519
+ 859 0351 5F030000 		.4byte	0x35f
+ 860 0355 10       		.uleb128 0x10
+ 861 0356 01       		.uleb128 0x1
+ 862 0357 50       		.byte	0x50
+ 863 0358 05       		.uleb128 0x5
+ 864 0359 03       		.byte	0x3
+ 865 035a 40000000 		.4byte	.LC4
+ 866 035e 00       		.byte	0
+ 867 035f 0F       		.uleb128 0xf
+ 868 0360 14010000 		.4byte	.LVL29
+ 869 0364 F1050000 		.4byte	0x5f1
+ 870 0368 7A030000 		.4byte	0x37a
+ 871 036c 10       		.uleb128 0x10
+ 872 036d 01       		.uleb128 0x1
+ 873 036e 51       		.byte	0x51
+ 874 036f 03       		.uleb128 0x3
+ 875 0370 0A       		.byte	0xa
+ 876 0371 8A02     		.2byte	0x28a
+ 877 0373 10       		.uleb128 0x10
+ 878 0374 01       		.uleb128 0x1
+ 879 0375 50       		.byte	0x50
+ 880 0376 02       		.uleb128 0x2
+ 881 0377 09       		.byte	0x9
+ 882 0378 FF       		.byte	0xff
+ 883 0379 00       		.byte	0
+ 884 037a 0F       		.uleb128 0xf
+ 885 037b 1A010000 		.4byte	.LVL30
+ 886 037f 19050000 		.4byte	0x519
+ 887 0383 91030000 		.4byte	0x391
+ 888 0387 10       		.uleb128 0x10
+ 889 0388 01       		.uleb128 0x1
+ 890 0389 50       		.byte	0x50
+ 891 038a 05       		.uleb128 0x5
+ 892 038b 03       		.byte	0x3
+ 893 038c 50000000 		.4byte	.LC5
+ 894 0390 00       		.byte	0
+ 895 0391 0F       		.uleb128 0xf
+ 896 0392 22010000 		.4byte	.LVL31
+ 897 0396 F1050000 		.4byte	0x5f1
+ 898 039a A9030000 		.4byte	0x3a9
+ 899 039e 10       		.uleb128 0x10
+ 900 039f 01       		.uleb128 0x1
+ 901 03a0 51       		.byte	0x51
+ 902 03a1 01       		.uleb128 0x1
+ 903 03a2 30       		.byte	0x30
+ 904 03a3 10       		.uleb128 0x10
+ 905 03a4 01       		.uleb128 0x1
+ 906 03a5 50       		.byte	0x50
+ 907 03a6 01       		.uleb128 0x1
+ 908 03a7 30       		.byte	0x30
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 20
+
+
+ 909 03a8 00       		.byte	0
+ 910 03a9 0F       		.uleb128 0xf
+ 911 03aa 36010000 		.4byte	.LVL33
+ 912 03ae C0050000 		.4byte	0x5c0
+ 913 03b2 CB030000 		.4byte	0x3cb
+ 914 03b6 10       		.uleb128 0x10
+ 915 03b7 01       		.uleb128 0x1
+ 916 03b8 52       		.byte	0x52
+ 917 03b9 03       		.uleb128 0x3
+ 918 03ba 0A       		.byte	0xa
+ 919 03bb E803     		.2byte	0x3e8
+ 920 03bd 10       		.uleb128 0x10
+ 921 03be 01       		.uleb128 0x1
+ 922 03bf 51       		.byte	0x51
+ 923 03c0 02       		.uleb128 0x2
+ 924 03c1 08       		.byte	0x8
+ 925 03c2 FF       		.byte	0xff
+ 926 03c3 10       		.uleb128 0x10
+ 927 03c4 01       		.uleb128 0x1
+ 928 03c5 50       		.byte	0x50
+ 929 03c6 03       		.uleb128 0x3
+ 930 03c7 0B       		.byte	0xb
+ 931 03c8 01FF     		.2byte	0xff01
+ 932 03ca 00       		.byte	0
+ 933 03cb 0F       		.uleb128 0xf
+ 934 03cc 44010000 		.4byte	.LVL34
+ 935 03d0 C0050000 		.4byte	0x5c0
+ 936 03d4 ED030000 		.4byte	0x3ed
+ 937 03d8 10       		.uleb128 0x10
+ 938 03d9 01       		.uleb128 0x1
+ 939 03da 52       		.byte	0x52
+ 940 03db 03       		.uleb128 0x3
+ 941 03dc 0A       		.byte	0xa
+ 942 03dd E803     		.2byte	0x3e8
+ 943 03df 10       		.uleb128 0x10
+ 944 03e0 01       		.uleb128 0x1
+ 945 03e1 51       		.byte	0x51
+ 946 03e2 03       		.uleb128 0x3
+ 947 03e3 0B       		.byte	0xb
+ 948 03e4 01FF     		.2byte	0xff01
+ 949 03e6 10       		.uleb128 0x10
+ 950 03e7 01       		.uleb128 0x1
+ 951 03e8 50       		.byte	0x50
+ 952 03e9 02       		.uleb128 0x2
+ 953 03ea 08       		.byte	0x8
+ 954 03eb FF       		.byte	0xff
+ 955 03ec 00       		.byte	0
+ 956 03ed 11       		.uleb128 0x11
+ 957 03ee 4A010000 		.4byte	.LVL35
+ 958 03f2 19050000 		.4byte	0x519
+ 959 03f6 10       		.uleb128 0x10
+ 960 03f7 01       		.uleb128 0x1
+ 961 03f8 50       		.byte	0x50
+ 962 03f9 05       		.uleb128 0x5
+ 963 03fa 03       		.byte	0x3
+ 964 03fb 60000000 		.4byte	.LC6
+ 965 03ff 00       		.byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 21
+
+
+ 966 0400 00       		.byte	0
+ 967 0401 12       		.uleb128 0x12
+ 968 0402 56020000 		.4byte	.LASF25
+ 969 0406 01       		.byte	0x1
+ 970 0407 76       		.byte	0x76
+ 971 0408 73000000 		.4byte	0x73
+ 972 040c 00000000 		.4byte	.LFB64
+ 973 0410 2A000000 		.4byte	.LFE64-.LFB64
+ 974 0414 01       		.uleb128 0x1
+ 975 0415 9C       		.byte	0x9c
+ 976 0416 71040000 		.4byte	0x471
+ 977 041a 13       		.uleb128 0x13
+ 978 041b B1000000 		.4byte	.LASF24
+ 979 041f 01       		.byte	0x1
+ 980 0420 76       		.byte	0x76
+ 981 0421 73000000 		.4byte	0x73
+ 982 0425 6C000000 		.4byte	.LLST2
+ 983 0429 14       		.uleb128 0x14
+ 984 042a 70747200 		.ascii	"ptr\000"
+ 985 042e 01       		.byte	0x1
+ 986 042f 76       		.byte	0x76
+ 987 0430 EA000000 		.4byte	0xea
+ 988 0434 8D000000 		.4byte	.LLST3
+ 989 0438 14       		.uleb128 0x14
+ 990 0439 6C656E00 		.ascii	"len\000"
+ 991 043d 01       		.byte	0x1
+ 992 043e 76       		.byte	0x76
+ 993 043f 73000000 		.4byte	0x73
+ 994 0443 C1000000 		.4byte	.LLST4
+ 995 0447 15       		.uleb128 0x15
+ 996 0448 6E00     		.ascii	"n\000"
+ 997 044a 01       		.byte	0x1
+ 998 044b 79       		.byte	0x79
+ 999 044c 73000000 		.4byte	0x73
+ 1000 0450 DF000000 		.4byte	.LLST5
+ 1001 0454 0F       		.uleb128 0xf
+ 1002 0455 16000000 		.4byte	.LVL39
+ 1003 0459 07060000 		.4byte	0x607
+ 1004 045d 67040000 		.4byte	0x467
+ 1005 0461 10       		.uleb128 0x10
+ 1006 0462 01       		.uleb128 0x1
+ 1007 0463 50       		.byte	0x50
+ 1008 0464 01       		.uleb128 0x1
+ 1009 0465 3D       		.byte	0x3d
+ 1010 0466 00       		.byte	0
+ 1011 0467 0E       		.uleb128 0xe
+ 1012 0468 1E000000 		.4byte	.LVL41
+ 1013 046c 07060000 		.4byte	0x607
+ 1014 0470 00       		.byte	0
+ 1015 0471 12       		.uleb128 0x12
+ 1016 0472 A5000000 		.4byte	.LASF26
+ 1017 0476 01       		.byte	0x1
+ 1018 0477 81       		.byte	0x81
+ 1019 0478 73000000 		.4byte	0x73
+ 1020 047c 00000000 		.4byte	.LFB65
+ 1021 0480 38000000 		.4byte	.LFE65-.LFB65
+ 1022 0484 01       		.uleb128 0x1
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 22
+
+
+ 1023 0485 9C       		.byte	0x9c
+ 1024 0486 01050000 		.4byte	0x501
+ 1025 048a 13       		.uleb128 0x13
+ 1026 048b B1000000 		.4byte	.LASF24
+ 1027 048f 01       		.byte	0x1
+ 1028 0490 81       		.byte	0x81
+ 1029 0491 73000000 		.4byte	0x73
+ 1030 0495 FE000000 		.4byte	.LLST6
+ 1031 0499 14       		.uleb128 0x14
+ 1032 049a 70747200 		.ascii	"ptr\000"
+ 1033 049e 01       		.byte	0x1
+ 1034 049f 81       		.byte	0x81
+ 1035 04a0 EA000000 		.4byte	0xea
+ 1036 04a4 1F010000 		.4byte	.LLST7
+ 1037 04a8 13       		.uleb128 0x13
+ 1038 04a9 87020000 		.4byte	.LASF27
+ 1039 04ad 01       		.byte	0x1
+ 1040 04ae 81       		.byte	0x81
+ 1041 04af 73000000 		.4byte	0x73
+ 1042 04b3 53010000 		.4byte	.LLST8
+ 1043 04b7 15       		.uleb128 0x15
+ 1044 04b8 63687300 		.ascii	"chs\000"
+ 1045 04bc 01       		.byte	0x1
+ 1046 04bd 83       		.byte	0x83
+ 1047 04be 73000000 		.4byte	0x73
+ 1048 04c2 71010000 		.4byte	.LLST9
+ 1049 04c6 15       		.uleb128 0x15
+ 1050 04c7 636800   		.ascii	"ch\000"
+ 1051 04ca 01       		.byte	0x1
+ 1052 04cb 84       		.byte	0x84
+ 1053 04cc C9000000 		.4byte	0xc9
+ 1054 04d0 90010000 		.4byte	.LLST10
+ 1055 04d4 0E       		.uleb128 0xe
+ 1056 04d5 0E000000 		.4byte	.LVL47
+ 1057 04d9 18060000 		.4byte	0x618
+ 1058 04dd 0F       		.uleb128 0xf
+ 1059 04de 16000000 		.4byte	.LVL48
+ 1060 04e2 07060000 		.4byte	0x607
+ 1061 04e6 F1040000 		.4byte	0x4f1
+ 1062 04ea 10       		.uleb128 0x10
+ 1063 04eb 01       		.uleb128 0x1
+ 1064 04ec 50       		.byte	0x50
+ 1065 04ed 02       		.uleb128 0x2
+ 1066 04ee 75       		.byte	0x75
+ 1067 04ef 00       		.sleb128 0
+ 1068 04f0 00       		.byte	0
+ 1069 04f1 11       		.uleb128 0x11
+ 1070 04f2 22000000 		.4byte	.LVL51
+ 1071 04f6 07060000 		.4byte	0x607
+ 1072 04fa 10       		.uleb128 0x10
+ 1073 04fb 01       		.uleb128 0x1
+ 1074 04fc 50       		.byte	0x50
+ 1075 04fd 01       		.uleb128 0x1
+ 1076 04fe 3A       		.byte	0x3a
+ 1077 04ff 00       		.byte	0
+ 1078 0500 00       		.byte	0
+ 1079 0501 16       		.uleb128 0x16
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 23
+
+
+ 1080 0502 0C010000 		.4byte	.LASF46
+ 1081 0506 0B       		.byte	0xb
+ 1082 0507 9606     		.2byte	0x696
+ 1083 0509 0D050000 		.4byte	0x50d
+ 1084 050d 17       		.uleb128 0x17
+ 1085 050e 8C000000 		.4byte	0x8c
+ 1086 0512 18       		.uleb128 0x18
+ 1087 0513 EF020000 		.4byte	.LASF28
+ 1088 0517 06       		.byte	0x6
+ 1089 0518 54       		.byte	0x54
+ 1090 0519 19       		.uleb128 0x19
+ 1091 051a D1020000 		.4byte	.LASF47
+ 1092 051e 0C       		.byte	0xc
+ 1093 051f 00       		.byte	0
+ 1094 0520 AE020000 		.4byte	.LASF48
+ 1095 0524 73000000 		.4byte	0x73
+ 1096 0528 32050000 		.4byte	0x532
+ 1097 052c 1A       		.uleb128 0x1a
+ 1098 052d F0000000 		.4byte	0xf0
+ 1099 0531 00       		.byte	0
+ 1100 0532 1B       		.uleb128 0x1b
+ 1101 0533 B6000000 		.4byte	.LASF30
+ 1102 0537 07       		.byte	0x7
+ 1103 0538 18       		.byte	0x18
+ 1104 0539 43050000 		.4byte	0x543
+ 1105 053d 1A       		.uleb128 0x1a
+ 1106 053e D0000000 		.4byte	0xd0
+ 1107 0542 00       		.byte	0
+ 1108 0543 18       		.uleb128 0x18
+ 1109 0544 8B000000 		.4byte	.LASF29
+ 1110 0548 05       		.byte	0x5
+ 1111 0549 1A       		.byte	0x1a
+ 1112 054a 1B       		.uleb128 0x1b
+ 1113 054b 27010000 		.4byte	.LASF31
+ 1114 054f 08       		.byte	0x8
+ 1115 0550 26       		.byte	0x26
+ 1116 0551 5B050000 		.4byte	0x55b
+ 1117 0555 1A       		.uleb128 0x1a
+ 1118 0556 97000000 		.4byte	0x97
+ 1119 055a 00       		.byte	0
+ 1120 055b 1C       		.uleb128 0x1c
+ 1121 055c D7000000 		.4byte	.LASF32
+ 1122 0560 09       		.byte	0x9
+ 1123 0561 0B       		.byte	0xb
+ 1124 0562 68050000 		.4byte	0x568
+ 1125 0566 1D       		.uleb128 0x1d
+ 1126 0567 00       		.byte	0
+ 1127 0568 1C       		.uleb128 0x1c
+ 1128 0569 2C020000 		.4byte	.LASF33
+ 1129 056d 0A       		.byte	0xa
+ 1130 056e 0B       		.byte	0xb
+ 1131 056f 75050000 		.4byte	0x575
+ 1132 0573 1D       		.uleb128 0x1d
+ 1133 0574 00       		.byte	0
+ 1134 0575 1B       		.uleb128 0x1b
+ 1135 0576 19010000 		.4byte	.LASF34
+ 1136 057a 0A       		.byte	0xa
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 24
+
+
+ 1137 057b 0F       		.byte	0xf
+ 1138 057c 8B050000 		.4byte	0x58b
+ 1139 0580 1A       		.uleb128 0x1a
+ 1140 0581 97000000 		.4byte	0x97
+ 1141 0585 1A       		.uleb128 0x1a
+ 1142 0586 A3000000 		.4byte	0xa3
+ 1143 058a 00       		.byte	0
+ 1144 058b 1B       		.uleb128 0x1b
+ 1145 058c 4D000000 		.4byte	.LASF35
+ 1146 0590 05       		.byte	0x5
+ 1147 0591 1B       		.byte	0x1b
+ 1148 0592 9C050000 		.4byte	0x59c
+ 1149 0596 1A       		.uleb128 0x1a
+ 1150 0597 9C050000 		.4byte	0x59c
+ 1151 059b 00       		.byte	0
+ 1152 059c 06       		.uleb128 0x6
+ 1153 059d 04       		.byte	0x4
+ 1154 059e FB000000 		.4byte	0xfb
+ 1155 05a2 1B       		.uleb128 0x1b
+ 1156 05a3 77000000 		.4byte	.LASF36
+ 1157 05a7 05       		.byte	0x5
+ 1158 05a8 1C       		.byte	0x1c
+ 1159 05a9 B3050000 		.4byte	0x5b3
+ 1160 05ad 1A       		.uleb128 0x1a
+ 1161 05ae 9C050000 		.4byte	0x59c
+ 1162 05b2 00       		.byte	0
+ 1163 05b3 1C       		.uleb128 0x1c
+ 1164 05b4 46010000 		.4byte	.LASF37
+ 1165 05b8 0A       		.byte	0xa
+ 1166 05b9 0C       		.byte	0xc
+ 1167 05ba C0050000 		.4byte	0x5c0
+ 1168 05be 1D       		.uleb128 0x1d
+ 1169 05bf 00       		.byte	0
+ 1170 05c0 1B       		.uleb128 0x1b
+ 1171 05c1 C5020000 		.4byte	.LASF38
+ 1172 05c5 0A       		.byte	0xa
+ 1173 05c6 18       		.byte	0x18
+ 1174 05c7 DB050000 		.4byte	0x5db
+ 1175 05cb 1A       		.uleb128 0x1a
+ 1176 05cc 73000000 		.4byte	0x73
+ 1177 05d0 1A       		.uleb128 0x1a
+ 1178 05d1 73000000 		.4byte	0x73
+ 1179 05d5 1A       		.uleb128 0x1a
+ 1180 05d6 AF000000 		.4byte	0xaf
+ 1181 05da 00       		.byte	0
+ 1182 05db 1E       		.uleb128 0x1e
+ 1183 05dc 80020000 		.4byte	.LASF49
+ 1184 05e0 0D       		.byte	0xd
+ 1185 05e1 B2       		.byte	0xb2
+ 1186 05e2 73000000 		.4byte	0x73
+ 1187 05e6 F1050000 		.4byte	0x5f1
+ 1188 05ea 1A       		.uleb128 0x1a
+ 1189 05eb F0000000 		.4byte	0xf0
+ 1190 05ef 1D       		.uleb128 0x1d
+ 1191 05f0 00       		.byte	0
+ 1192 05f1 1B       		.uleb128 0x1b
+ 1193 05f2 68000000 		.4byte	.LASF39
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 25
+
+
+ 1194 05f6 0A       		.byte	0xa
+ 1195 05f7 15       		.byte	0x15
+ 1196 05f8 07060000 		.4byte	0x607
+ 1197 05fc 1A       		.uleb128 0x1a
+ 1198 05fd 97000000 		.4byte	0x97
+ 1199 0601 1A       		.uleb128 0x1a
+ 1200 0602 A3000000 		.4byte	0xa3
+ 1201 0606 00       		.byte	0
+ 1202 0607 1B       		.uleb128 0x1b
+ 1203 0608 F9010000 		.4byte	.LASF40
+ 1204 060c 06       		.byte	0x6
+ 1205 060d 8A       		.byte	0x8a
+ 1206 060e 18060000 		.4byte	0x618
+ 1207 0612 1A       		.uleb128 0x1a
+ 1208 0613 97000000 		.4byte	0x97
+ 1209 0617 00       		.byte	0
+ 1210 0618 1F       		.uleb128 0x1f
+ 1211 0619 E0020000 		.4byte	.LASF50
+ 1212 061d 06       		.byte	0x6
+ 1213 061e 71       		.byte	0x71
+ 1214 061f 97000000 		.4byte	0x97
+ 1215 0623 00       		.byte	0
+ 1216              		.section	.debug_abbrev,"",%progbits
+ 1217              	.Ldebug_abbrev0:
+ 1218 0000 01       		.uleb128 0x1
+ 1219 0001 11       		.uleb128 0x11
+ 1220 0002 01       		.byte	0x1
+ 1221 0003 25       		.uleb128 0x25
+ 1222 0004 0E       		.uleb128 0xe
+ 1223 0005 13       		.uleb128 0x13
+ 1224 0006 0B       		.uleb128 0xb
+ 1225 0007 03       		.uleb128 0x3
+ 1226 0008 0E       		.uleb128 0xe
+ 1227 0009 1B       		.uleb128 0x1b
+ 1228 000a 0E       		.uleb128 0xe
+ 1229 000b 55       		.uleb128 0x55
+ 1230 000c 17       		.uleb128 0x17
+ 1231 000d 11       		.uleb128 0x11
+ 1232 000e 01       		.uleb128 0x1
+ 1233 000f 10       		.uleb128 0x10
+ 1234 0010 17       		.uleb128 0x17
+ 1235 0011 00       		.byte	0
+ 1236 0012 00       		.byte	0
+ 1237 0013 02       		.uleb128 0x2
+ 1238 0014 24       		.uleb128 0x24
+ 1239 0015 00       		.byte	0
+ 1240 0016 0B       		.uleb128 0xb
+ 1241 0017 0B       		.uleb128 0xb
+ 1242 0018 3E       		.uleb128 0x3e
+ 1243 0019 0B       		.uleb128 0xb
+ 1244 001a 03       		.uleb128 0x3
+ 1245 001b 0E       		.uleb128 0xe
+ 1246 001c 00       		.byte	0
+ 1247 001d 00       		.byte	0
+ 1248 001e 03       		.uleb128 0x3
+ 1249 001f 16       		.uleb128 0x16
+ 1250 0020 00       		.byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 26
+
+
+ 1251 0021 03       		.uleb128 0x3
+ 1252 0022 0E       		.uleb128 0xe
+ 1253 0023 3A       		.uleb128 0x3a
+ 1254 0024 0B       		.uleb128 0xb
+ 1255 0025 3B       		.uleb128 0x3b
+ 1256 0026 0B       		.uleb128 0xb
+ 1257 0027 49       		.uleb128 0x49
+ 1258 0028 13       		.uleb128 0x13
+ 1259 0029 00       		.byte	0
+ 1260 002a 00       		.byte	0
+ 1261 002b 04       		.uleb128 0x4
+ 1262 002c 24       		.uleb128 0x24
+ 1263 002d 00       		.byte	0
+ 1264 002e 0B       		.uleb128 0xb
+ 1265 002f 0B       		.uleb128 0xb
+ 1266 0030 3E       		.uleb128 0x3e
+ 1267 0031 0B       		.uleb128 0xb
+ 1268 0032 03       		.uleb128 0x3
+ 1269 0033 08       		.uleb128 0x8
+ 1270 0034 00       		.byte	0
+ 1271 0035 00       		.byte	0
+ 1272 0036 05       		.uleb128 0x5
+ 1273 0037 16       		.uleb128 0x16
+ 1274 0038 00       		.byte	0
+ 1275 0039 03       		.uleb128 0x3
+ 1276 003a 0E       		.uleb128 0xe
+ 1277 003b 3A       		.uleb128 0x3a
+ 1278 003c 0B       		.uleb128 0xb
+ 1279 003d 3B       		.uleb128 0x3b
+ 1280 003e 05       		.uleb128 0x5
+ 1281 003f 49       		.uleb128 0x49
+ 1282 0040 13       		.uleb128 0x13
+ 1283 0041 00       		.byte	0
+ 1284 0042 00       		.byte	0
+ 1285 0043 06       		.uleb128 0x6
+ 1286 0044 0F       		.uleb128 0xf
+ 1287 0045 00       		.byte	0
+ 1288 0046 0B       		.uleb128 0xb
+ 1289 0047 0B       		.uleb128 0xb
+ 1290 0048 49       		.uleb128 0x49
+ 1291 0049 13       		.uleb128 0x13
+ 1292 004a 00       		.byte	0
+ 1293 004b 00       		.byte	0
+ 1294 004c 07       		.uleb128 0x7
+ 1295 004d 15       		.uleb128 0x15
+ 1296 004e 00       		.byte	0
+ 1297 004f 27       		.uleb128 0x27
+ 1298 0050 19       		.uleb128 0x19
+ 1299 0051 00       		.byte	0
+ 1300 0052 00       		.byte	0
+ 1301 0053 08       		.uleb128 0x8
+ 1302 0054 26       		.uleb128 0x26
+ 1303 0055 00       		.byte	0
+ 1304 0056 49       		.uleb128 0x49
+ 1305 0057 13       		.uleb128 0x13
+ 1306 0058 00       		.byte	0
+ 1307 0059 00       		.byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 27
+
+
+ 1308 005a 09       		.uleb128 0x9
+ 1309 005b 13       		.uleb128 0x13
+ 1310 005c 01       		.byte	0x1
+ 1311 005d 03       		.uleb128 0x3
+ 1312 005e 0E       		.uleb128 0xe
+ 1313 005f 0B       		.uleb128 0xb
+ 1314 0060 0B       		.uleb128 0xb
+ 1315 0061 3A       		.uleb128 0x3a
+ 1316 0062 0B       		.uleb128 0xb
+ 1317 0063 3B       		.uleb128 0x3b
+ 1318 0064 0B       		.uleb128 0xb
+ 1319 0065 01       		.uleb128 0x1
+ 1320 0066 13       		.uleb128 0x13
+ 1321 0067 00       		.byte	0
+ 1322 0068 00       		.byte	0
+ 1323 0069 0A       		.uleb128 0xa
+ 1324 006a 0D       		.uleb128 0xd
+ 1325 006b 00       		.byte	0
+ 1326 006c 03       		.uleb128 0x3
+ 1327 006d 08       		.uleb128 0x8
+ 1328 006e 3A       		.uleb128 0x3a
+ 1329 006f 0B       		.uleb128 0xb
+ 1330 0070 3B       		.uleb128 0x3b
+ 1331 0071 0B       		.uleb128 0xb
+ 1332 0072 49       		.uleb128 0x49
+ 1333 0073 13       		.uleb128 0x13
+ 1334 0074 38       		.uleb128 0x38
+ 1335 0075 0B       		.uleb128 0xb
+ 1336 0076 00       		.byte	0
+ 1337 0077 00       		.byte	0
+ 1338 0078 0B       		.uleb128 0xb
+ 1339 0079 2E       		.uleb128 0x2e
+ 1340 007a 01       		.byte	0x1
+ 1341 007b 3F       		.uleb128 0x3f
+ 1342 007c 19       		.uleb128 0x19
+ 1343 007d 03       		.uleb128 0x3
+ 1344 007e 0E       		.uleb128 0xe
+ 1345 007f 3A       		.uleb128 0x3a
+ 1346 0080 0B       		.uleb128 0xb
+ 1347 0081 3B       		.uleb128 0x3b
+ 1348 0082 0B       		.uleb128 0xb
+ 1349 0083 49       		.uleb128 0x49
+ 1350 0084 13       		.uleb128 0x13
+ 1351 0085 11       		.uleb128 0x11
+ 1352 0086 01       		.uleb128 0x1
+ 1353 0087 12       		.uleb128 0x12
+ 1354 0088 06       		.uleb128 0x6
+ 1355 0089 40       		.uleb128 0x40
+ 1356 008a 18       		.uleb128 0x18
+ 1357 008b 9742     		.uleb128 0x2117
+ 1358 008d 19       		.uleb128 0x19
+ 1359 008e 01       		.uleb128 0x1
+ 1360 008f 13       		.uleb128 0x13
+ 1361 0090 00       		.byte	0
+ 1362 0091 00       		.byte	0
+ 1363 0092 0C       		.uleb128 0xc
+ 1364 0093 34       		.uleb128 0x34
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 28
+
+
+ 1365 0094 00       		.byte	0
+ 1366 0095 03       		.uleb128 0x3
+ 1367 0096 08       		.uleb128 0x8
+ 1368 0097 3A       		.uleb128 0x3a
+ 1369 0098 0B       		.uleb128 0xb
+ 1370 0099 3B       		.uleb128 0x3b
+ 1371 009a 0B       		.uleb128 0xb
+ 1372 009b 49       		.uleb128 0x49
+ 1373 009c 13       		.uleb128 0x13
+ 1374 009d 02       		.uleb128 0x2
+ 1375 009e 18       		.uleb128 0x18
+ 1376 009f 00       		.byte	0
+ 1377 00a0 00       		.byte	0
+ 1378 00a1 0D       		.uleb128 0xd
+ 1379 00a2 34       		.uleb128 0x34
+ 1380 00a3 00       		.byte	0
+ 1381 00a4 03       		.uleb128 0x3
+ 1382 00a5 0E       		.uleb128 0xe
+ 1383 00a6 3A       		.uleb128 0x3a
+ 1384 00a7 0B       		.uleb128 0xb
+ 1385 00a8 3B       		.uleb128 0x3b
+ 1386 00a9 0B       		.uleb128 0xb
+ 1387 00aa 49       		.uleb128 0x49
+ 1388 00ab 13       		.uleb128 0x13
+ 1389 00ac 02       		.uleb128 0x2
+ 1390 00ad 17       		.uleb128 0x17
+ 1391 00ae 00       		.byte	0
+ 1392 00af 00       		.byte	0
+ 1393 00b0 0E       		.uleb128 0xe
+ 1394 00b1 898201   		.uleb128 0x4109
+ 1395 00b4 00       		.byte	0
+ 1396 00b5 11       		.uleb128 0x11
+ 1397 00b6 01       		.uleb128 0x1
+ 1398 00b7 31       		.uleb128 0x31
+ 1399 00b8 13       		.uleb128 0x13
+ 1400 00b9 00       		.byte	0
+ 1401 00ba 00       		.byte	0
+ 1402 00bb 0F       		.uleb128 0xf
+ 1403 00bc 898201   		.uleb128 0x4109
+ 1404 00bf 01       		.byte	0x1
+ 1405 00c0 11       		.uleb128 0x11
+ 1406 00c1 01       		.uleb128 0x1
+ 1407 00c2 31       		.uleb128 0x31
+ 1408 00c3 13       		.uleb128 0x13
+ 1409 00c4 01       		.uleb128 0x1
+ 1410 00c5 13       		.uleb128 0x13
+ 1411 00c6 00       		.byte	0
+ 1412 00c7 00       		.byte	0
+ 1413 00c8 10       		.uleb128 0x10
+ 1414 00c9 8A8201   		.uleb128 0x410a
+ 1415 00cc 00       		.byte	0
+ 1416 00cd 02       		.uleb128 0x2
+ 1417 00ce 18       		.uleb128 0x18
+ 1418 00cf 9142     		.uleb128 0x2111
+ 1419 00d1 18       		.uleb128 0x18
+ 1420 00d2 00       		.byte	0
+ 1421 00d3 00       		.byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 29
+
+
+ 1422 00d4 11       		.uleb128 0x11
+ 1423 00d5 898201   		.uleb128 0x4109
+ 1424 00d8 01       		.byte	0x1
+ 1425 00d9 11       		.uleb128 0x11
+ 1426 00da 01       		.uleb128 0x1
+ 1427 00db 31       		.uleb128 0x31
+ 1428 00dc 13       		.uleb128 0x13
+ 1429 00dd 00       		.byte	0
+ 1430 00de 00       		.byte	0
+ 1431 00df 12       		.uleb128 0x12
+ 1432 00e0 2E       		.uleb128 0x2e
+ 1433 00e1 01       		.byte	0x1
+ 1434 00e2 3F       		.uleb128 0x3f
+ 1435 00e3 19       		.uleb128 0x19
+ 1436 00e4 03       		.uleb128 0x3
+ 1437 00e5 0E       		.uleb128 0xe
+ 1438 00e6 3A       		.uleb128 0x3a
+ 1439 00e7 0B       		.uleb128 0xb
+ 1440 00e8 3B       		.uleb128 0x3b
+ 1441 00e9 0B       		.uleb128 0xb
+ 1442 00ea 27       		.uleb128 0x27
+ 1443 00eb 19       		.uleb128 0x19
+ 1444 00ec 49       		.uleb128 0x49
+ 1445 00ed 13       		.uleb128 0x13
+ 1446 00ee 11       		.uleb128 0x11
+ 1447 00ef 01       		.uleb128 0x1
+ 1448 00f0 12       		.uleb128 0x12
+ 1449 00f1 06       		.uleb128 0x6
+ 1450 00f2 40       		.uleb128 0x40
+ 1451 00f3 18       		.uleb128 0x18
+ 1452 00f4 9742     		.uleb128 0x2117
+ 1453 00f6 19       		.uleb128 0x19
+ 1454 00f7 01       		.uleb128 0x1
+ 1455 00f8 13       		.uleb128 0x13
+ 1456 00f9 00       		.byte	0
+ 1457 00fa 00       		.byte	0
+ 1458 00fb 13       		.uleb128 0x13
+ 1459 00fc 05       		.uleb128 0x5
+ 1460 00fd 00       		.byte	0
+ 1461 00fe 03       		.uleb128 0x3
+ 1462 00ff 0E       		.uleb128 0xe
+ 1463 0100 3A       		.uleb128 0x3a
+ 1464 0101 0B       		.uleb128 0xb
+ 1465 0102 3B       		.uleb128 0x3b
+ 1466 0103 0B       		.uleb128 0xb
+ 1467 0104 49       		.uleb128 0x49
+ 1468 0105 13       		.uleb128 0x13
+ 1469 0106 02       		.uleb128 0x2
+ 1470 0107 17       		.uleb128 0x17
+ 1471 0108 00       		.byte	0
+ 1472 0109 00       		.byte	0
+ 1473 010a 14       		.uleb128 0x14
+ 1474 010b 05       		.uleb128 0x5
+ 1475 010c 00       		.byte	0
+ 1476 010d 03       		.uleb128 0x3
+ 1477 010e 08       		.uleb128 0x8
+ 1478 010f 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 30
+
+
+ 1479 0110 0B       		.uleb128 0xb
+ 1480 0111 3B       		.uleb128 0x3b
+ 1481 0112 0B       		.uleb128 0xb
+ 1482 0113 49       		.uleb128 0x49
+ 1483 0114 13       		.uleb128 0x13
+ 1484 0115 02       		.uleb128 0x2
+ 1485 0116 17       		.uleb128 0x17
+ 1486 0117 00       		.byte	0
+ 1487 0118 00       		.byte	0
+ 1488 0119 15       		.uleb128 0x15
+ 1489 011a 34       		.uleb128 0x34
+ 1490 011b 00       		.byte	0
+ 1491 011c 03       		.uleb128 0x3
+ 1492 011d 08       		.uleb128 0x8
+ 1493 011e 3A       		.uleb128 0x3a
+ 1494 011f 0B       		.uleb128 0xb
+ 1495 0120 3B       		.uleb128 0x3b
+ 1496 0121 0B       		.uleb128 0xb
+ 1497 0122 49       		.uleb128 0x49
+ 1498 0123 13       		.uleb128 0x13
+ 1499 0124 02       		.uleb128 0x2
+ 1500 0125 17       		.uleb128 0x17
+ 1501 0126 00       		.byte	0
+ 1502 0127 00       		.byte	0
+ 1503 0128 16       		.uleb128 0x16
+ 1504 0129 34       		.uleb128 0x34
+ 1505 012a 00       		.byte	0
+ 1506 012b 03       		.uleb128 0x3
+ 1507 012c 0E       		.uleb128 0xe
+ 1508 012d 3A       		.uleb128 0x3a
+ 1509 012e 0B       		.uleb128 0xb
+ 1510 012f 3B       		.uleb128 0x3b
+ 1511 0130 05       		.uleb128 0x5
+ 1512 0131 49       		.uleb128 0x49
+ 1513 0132 13       		.uleb128 0x13
+ 1514 0133 3F       		.uleb128 0x3f
+ 1515 0134 19       		.uleb128 0x19
+ 1516 0135 3C       		.uleb128 0x3c
+ 1517 0136 19       		.uleb128 0x19
+ 1518 0137 00       		.byte	0
+ 1519 0138 00       		.byte	0
+ 1520 0139 17       		.uleb128 0x17
+ 1521 013a 35       		.uleb128 0x35
+ 1522 013b 00       		.byte	0
+ 1523 013c 49       		.uleb128 0x49
+ 1524 013d 13       		.uleb128 0x13
+ 1525 013e 00       		.byte	0
+ 1526 013f 00       		.byte	0
+ 1527 0140 18       		.uleb128 0x18
+ 1528 0141 2E       		.uleb128 0x2e
+ 1529 0142 00       		.byte	0
+ 1530 0143 3F       		.uleb128 0x3f
+ 1531 0144 19       		.uleb128 0x19
+ 1532 0145 03       		.uleb128 0x3
+ 1533 0146 0E       		.uleb128 0xe
+ 1534 0147 3A       		.uleb128 0x3a
+ 1535 0148 0B       		.uleb128 0xb
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 31
+
+
+ 1536 0149 3B       		.uleb128 0x3b
+ 1537 014a 0B       		.uleb128 0xb
+ 1538 014b 27       		.uleb128 0x27
+ 1539 014c 19       		.uleb128 0x19
+ 1540 014d 3C       		.uleb128 0x3c
+ 1541 014e 19       		.uleb128 0x19
+ 1542 014f 00       		.byte	0
+ 1543 0150 00       		.byte	0
+ 1544 0151 19       		.uleb128 0x19
+ 1545 0152 2E       		.uleb128 0x2e
+ 1546 0153 01       		.byte	0x1
+ 1547 0154 3F       		.uleb128 0x3f
+ 1548 0155 19       		.uleb128 0x19
+ 1549 0156 03       		.uleb128 0x3
+ 1550 0157 0E       		.uleb128 0xe
+ 1551 0158 3A       		.uleb128 0x3a
+ 1552 0159 0B       		.uleb128 0xb
+ 1553 015a 3B       		.uleb128 0x3b
+ 1554 015b 0B       		.uleb128 0xb
+ 1555 015c 6E       		.uleb128 0x6e
+ 1556 015d 0E       		.uleb128 0xe
+ 1557 015e 27       		.uleb128 0x27
+ 1558 015f 19       		.uleb128 0x19
+ 1559 0160 49       		.uleb128 0x49
+ 1560 0161 13       		.uleb128 0x13
+ 1561 0162 3C       		.uleb128 0x3c
+ 1562 0163 19       		.uleb128 0x19
+ 1563 0164 01       		.uleb128 0x1
+ 1564 0165 13       		.uleb128 0x13
+ 1565 0166 00       		.byte	0
+ 1566 0167 00       		.byte	0
+ 1567 0168 1A       		.uleb128 0x1a
+ 1568 0169 05       		.uleb128 0x5
+ 1569 016a 00       		.byte	0
+ 1570 016b 49       		.uleb128 0x49
+ 1571 016c 13       		.uleb128 0x13
+ 1572 016d 00       		.byte	0
+ 1573 016e 00       		.byte	0
+ 1574 016f 1B       		.uleb128 0x1b
+ 1575 0170 2E       		.uleb128 0x2e
+ 1576 0171 01       		.byte	0x1
+ 1577 0172 3F       		.uleb128 0x3f
+ 1578 0173 19       		.uleb128 0x19
+ 1579 0174 03       		.uleb128 0x3
+ 1580 0175 0E       		.uleb128 0xe
+ 1581 0176 3A       		.uleb128 0x3a
+ 1582 0177 0B       		.uleb128 0xb
+ 1583 0178 3B       		.uleb128 0x3b
+ 1584 0179 0B       		.uleb128 0xb
+ 1585 017a 27       		.uleb128 0x27
+ 1586 017b 19       		.uleb128 0x19
+ 1587 017c 3C       		.uleb128 0x3c
+ 1588 017d 19       		.uleb128 0x19
+ 1589 017e 01       		.uleb128 0x1
+ 1590 017f 13       		.uleb128 0x13
+ 1591 0180 00       		.byte	0
+ 1592 0181 00       		.byte	0
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 32
+
+
+ 1593 0182 1C       		.uleb128 0x1c
+ 1594 0183 2E       		.uleb128 0x2e
+ 1595 0184 01       		.byte	0x1
+ 1596 0185 3F       		.uleb128 0x3f
+ 1597 0186 19       		.uleb128 0x19
+ 1598 0187 03       		.uleb128 0x3
+ 1599 0188 0E       		.uleb128 0xe
+ 1600 0189 3A       		.uleb128 0x3a
+ 1601 018a 0B       		.uleb128 0xb
+ 1602 018b 3B       		.uleb128 0x3b
+ 1603 018c 0B       		.uleb128 0xb
+ 1604 018d 3C       		.uleb128 0x3c
+ 1605 018e 19       		.uleb128 0x19
+ 1606 018f 01       		.uleb128 0x1
+ 1607 0190 13       		.uleb128 0x13
+ 1608 0191 00       		.byte	0
+ 1609 0192 00       		.byte	0
+ 1610 0193 1D       		.uleb128 0x1d
+ 1611 0194 18       		.uleb128 0x18
+ 1612 0195 00       		.byte	0
+ 1613 0196 00       		.byte	0
+ 1614 0197 00       		.byte	0
+ 1615 0198 1E       		.uleb128 0x1e
+ 1616 0199 2E       		.uleb128 0x2e
+ 1617 019a 01       		.byte	0x1
+ 1618 019b 3F       		.uleb128 0x3f
+ 1619 019c 19       		.uleb128 0x19
+ 1620 019d 03       		.uleb128 0x3
+ 1621 019e 0E       		.uleb128 0xe
+ 1622 019f 3A       		.uleb128 0x3a
+ 1623 01a0 0B       		.uleb128 0xb
+ 1624 01a1 3B       		.uleb128 0x3b
+ 1625 01a2 0B       		.uleb128 0xb
+ 1626 01a3 27       		.uleb128 0x27
+ 1627 01a4 19       		.uleb128 0x19
+ 1628 01a5 49       		.uleb128 0x49
+ 1629 01a6 13       		.uleb128 0x13
+ 1630 01a7 3C       		.uleb128 0x3c
+ 1631 01a8 19       		.uleb128 0x19
+ 1632 01a9 01       		.uleb128 0x1
+ 1633 01aa 13       		.uleb128 0x13
+ 1634 01ab 00       		.byte	0
+ 1635 01ac 00       		.byte	0
+ 1636 01ad 1F       		.uleb128 0x1f
+ 1637 01ae 2E       		.uleb128 0x2e
+ 1638 01af 00       		.byte	0
+ 1639 01b0 3F       		.uleb128 0x3f
+ 1640 01b1 19       		.uleb128 0x19
+ 1641 01b2 03       		.uleb128 0x3
+ 1642 01b3 0E       		.uleb128 0xe
+ 1643 01b4 3A       		.uleb128 0x3a
+ 1644 01b5 0B       		.uleb128 0xb
+ 1645 01b6 3B       		.uleb128 0x3b
+ 1646 01b7 0B       		.uleb128 0xb
+ 1647 01b8 27       		.uleb128 0x27
+ 1648 01b9 19       		.uleb128 0x19
+ 1649 01ba 49       		.uleb128 0x49
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 33
+
+
+ 1650 01bb 13       		.uleb128 0x13
+ 1651 01bc 3C       		.uleb128 0x3c
+ 1652 01bd 19       		.uleb128 0x19
+ 1653 01be 00       		.byte	0
+ 1654 01bf 00       		.byte	0
+ 1655 01c0 00       		.byte	0
+ 1656              		.section	.debug_loc,"",%progbits
+ 1657              	.Ldebug_loc0:
+ 1658              	.LLST0:
+ 1659 0000 2C000000 		.4byte	.LVL6
+ 1660 0004 B6000000 		.4byte	.LVL23
+ 1661 0008 0200     		.2byte	0x2
+ 1662 000a 31       		.byte	0x31
+ 1663 000b 9F       		.byte	0x9f
+ 1664 000c B6000000 		.4byte	.LVL23
+ 1665 0010 1A010000 		.4byte	.LVL30
+ 1666 0014 0100     		.2byte	0x1
+ 1667 0016 54       		.byte	0x54
+ 1668 0017 1A010000 		.4byte	.LVL30
+ 1669 001b 24010000 		.4byte	.LVL32
+ 1670 001f 0200     		.2byte	0x2
+ 1671 0021 30       		.byte	0x30
+ 1672 0022 9F       		.byte	0x9f
+ 1673 0023 24010000 		.4byte	.LVL32
+ 1674 0027 6C010000 		.4byte	.LFE63
+ 1675 002b 0100     		.2byte	0x1
+ 1676 002d 54       		.byte	0x54
+ 1677 002e 00000000 		.4byte	0
+ 1678 0032 00000000 		.4byte	0
+ 1679              	.LLST1:
+ 1680 0036 34000000 		.4byte	.LVL8
+ 1681 003a 38000000 		.4byte	.LVL9
+ 1682 003e 0200     		.2byte	0x2
+ 1683 0040 31       		.byte	0x31
+ 1684 0041 9F       		.byte	0x9f
+ 1685 0042 38000000 		.4byte	.LVL9
+ 1686 0046 70000000 		.4byte	.LVL15
+ 1687 004a 0100     		.2byte	0x1
+ 1688 004c 54       		.byte	0x54
+ 1689 004d 70000000 		.4byte	.LVL15
+ 1690 0051 72000000 		.4byte	.LVL16
+ 1691 0055 0200     		.2byte	0x2
+ 1692 0057 30       		.byte	0x30
+ 1693 0058 9F       		.byte	0x9f
+ 1694 0059 72000000 		.4byte	.LVL16
+ 1695 005d B4000000 		.4byte	.LVL22
+ 1696 0061 0100     		.2byte	0x1
+ 1697 0063 54       		.byte	0x54
+ 1698 0064 00000000 		.4byte	0
+ 1699 0068 00000000 		.4byte	0
+ 1700              	.LLST2:
+ 1701 006c 00000000 		.4byte	.LVL36
+ 1702 0070 0A000000 		.4byte	.LVL38
+ 1703 0074 0100     		.2byte	0x1
+ 1704 0076 50       		.byte	0x50
+ 1705 0077 0A000000 		.4byte	.LVL38
+ 1706 007b 2A000000 		.4byte	.LFE64
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 34
+
+
+ 1707 007f 0400     		.2byte	0x4
+ 1708 0081 F3       		.byte	0xf3
+ 1709 0082 01       		.uleb128 0x1
+ 1710 0083 50       		.byte	0x50
+ 1711 0084 9F       		.byte	0x9f
+ 1712 0085 00000000 		.4byte	0
+ 1713 0089 00000000 		.4byte	0
+ 1714              	.LLST3:
+ 1715 008d 00000000 		.4byte	.LVL36
+ 1716 0091 0A000000 		.4byte	.LVL38
+ 1717 0095 0100     		.2byte	0x1
+ 1718 0097 51       		.byte	0x51
+ 1719 0098 0A000000 		.4byte	.LVL38
+ 1720 009c 18000000 		.4byte	.LVL40
+ 1721 00a0 0100     		.2byte	0x1
+ 1722 00a2 54       		.byte	0x54
+ 1723 00a3 18000000 		.4byte	.LVL40
+ 1724 00a7 22000000 		.4byte	.LVL43
+ 1725 00ab 0100     		.2byte	0x1
+ 1726 00ad 56       		.byte	0x56
+ 1727 00ae 22000000 		.4byte	.LVL43
+ 1728 00b2 2A000000 		.4byte	.LFE64
+ 1729 00b6 0100     		.2byte	0x1
+ 1730 00b8 54       		.byte	0x54
+ 1731 00b9 00000000 		.4byte	0
+ 1732 00bd 00000000 		.4byte	0
+ 1733              	.LLST4:
+ 1734 00c1 00000000 		.4byte	.LVL36
+ 1735 00c5 0A000000 		.4byte	.LVL38
+ 1736 00c9 0100     		.2byte	0x1
+ 1737 00cb 52       		.byte	0x52
+ 1738 00cc 0A000000 		.4byte	.LVL38
+ 1739 00d0 2A000000 		.4byte	.LFE64
+ 1740 00d4 0100     		.2byte	0x1
+ 1741 00d6 57       		.byte	0x57
+ 1742 00d7 00000000 		.4byte	0
+ 1743 00db 00000000 		.4byte	0
+ 1744              	.LLST5:
+ 1745 00df 06000000 		.4byte	.LVL37
+ 1746 00e3 0A000000 		.4byte	.LVL38
+ 1747 00e7 0200     		.2byte	0x2
+ 1748 00e9 30       		.byte	0x30
+ 1749 00ea 9F       		.byte	0x9f
+ 1750 00eb 0A000000 		.4byte	.LVL38
+ 1751 00ef 2A000000 		.4byte	.LFE64
+ 1752 00f3 0100     		.2byte	0x1
+ 1753 00f5 55       		.byte	0x55
+ 1754 00f6 00000000 		.4byte	0
+ 1755 00fa 00000000 		.4byte	0
+ 1756              	.LLST6:
+ 1757 00fe 00000000 		.4byte	.LVL44
+ 1758 0102 0A000000 		.4byte	.LVL46
+ 1759 0106 0100     		.2byte	0x1
+ 1760 0108 50       		.byte	0x50
+ 1761 0109 0A000000 		.4byte	.LVL46
+ 1762 010d 38000000 		.4byte	.LFE65
+ 1763 0111 0400     		.2byte	0x4
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 35
+
+
+ 1764 0113 F3       		.byte	0xf3
+ 1765 0114 01       		.uleb128 0x1
+ 1766 0115 50       		.byte	0x50
+ 1767 0116 9F       		.byte	0x9f
+ 1768 0117 00000000 		.4byte	0
+ 1769 011b 00000000 		.4byte	0
+ 1770              	.LLST7:
+ 1771 011f 00000000 		.4byte	.LVL44
+ 1772 0123 0A000000 		.4byte	.LVL46
+ 1773 0127 0100     		.2byte	0x1
+ 1774 0129 51       		.byte	0x51
+ 1775 012a 0A000000 		.4byte	.LVL46
+ 1776 012e 26000000 		.4byte	.LVL53
+ 1777 0132 0100     		.2byte	0x1
+ 1778 0134 57       		.byte	0x57
+ 1779 0135 26000000 		.4byte	.LVL53
+ 1780 0139 30000000 		.4byte	.LVL55
+ 1781 013d 0100     		.2byte	0x1
+ 1782 013f 53       		.byte	0x53
+ 1783 0140 30000000 		.4byte	.LVL55
+ 1784 0144 34000000 		.4byte	.LVL56
+ 1785 0148 0100     		.2byte	0x1
+ 1786 014a 57       		.byte	0x57
+ 1787 014b 00000000 		.4byte	0
+ 1788 014f 00000000 		.4byte	0
+ 1789              	.LLST8:
+ 1790 0153 00000000 		.4byte	.LVL44
+ 1791 0157 0A000000 		.4byte	.LVL46
+ 1792 015b 0100     		.2byte	0x1
+ 1793 015d 52       		.byte	0x52
+ 1794 015e 0A000000 		.4byte	.LVL46
+ 1795 0162 38000000 		.4byte	.LFE65
+ 1796 0166 0100     		.2byte	0x1
+ 1797 0168 54       		.byte	0x54
+ 1798 0169 00000000 		.4byte	0
+ 1799 016d 00000000 		.4byte	0
+ 1800              	.LLST9:
+ 1801 0171 06000000 		.4byte	.LVL45
+ 1802 0175 0A000000 		.4byte	.LVL46
+ 1803 0179 0200     		.2byte	0x2
+ 1804 017b 30       		.byte	0x30
+ 1805 017c 9F       		.byte	0x9f
+ 1806 017d 0A000000 		.4byte	.LVL46
+ 1807 0181 38000000 		.4byte	.LFE65
+ 1808 0185 0100     		.2byte	0x1
+ 1809 0187 56       		.byte	0x56
+ 1810 0188 00000000 		.4byte	0
+ 1811 018c 00000000 		.4byte	0
+ 1812              	.LLST10:
+ 1813 0190 0E000000 		.4byte	.LVL47
+ 1814 0194 15000000 		.4byte	.LVL48-1
+ 1815 0198 0100     		.2byte	0x1
+ 1816 019a 50       		.byte	0x50
+ 1817 019b 1C000000 		.4byte	.LVL50
+ 1818 019f 24000000 		.4byte	.LVL52
+ 1819 01a3 0200     		.2byte	0x2
+ 1820 01a5 3A       		.byte	0x3a
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 36
+
+
+ 1821 01a6 9F       		.byte	0x9f
+ 1822 01a7 24000000 		.4byte	.LVL52
+ 1823 01ab 30000000 		.4byte	.LVL55
+ 1824 01af 0100     		.2byte	0x1
+ 1825 01b1 55       		.byte	0x55
+ 1826 01b2 00000000 		.4byte	0
+ 1827 01b6 00000000 		.4byte	0
+ 1828              		.section	.debug_aranges,"",%progbits
+ 1829 0000 2C000000 		.4byte	0x2c
+ 1830 0004 0200     		.2byte	0x2
+ 1831 0006 00000000 		.4byte	.Ldebug_info0
+ 1832 000a 04       		.byte	0x4
+ 1833 000b 00       		.byte	0
+ 1834 000c 0000     		.2byte	0
+ 1835 000e 0000     		.2byte	0
+ 1836 0010 00000000 		.4byte	.LFB63
+ 1837 0014 6C010000 		.4byte	.LFE63-.LFB63
+ 1838 0018 00000000 		.4byte	.LFB64
+ 1839 001c 2A000000 		.4byte	.LFE64-.LFB64
+ 1840 0020 00000000 		.4byte	.LFB65
+ 1841 0024 38000000 		.4byte	.LFE65-.LFB65
+ 1842 0028 00000000 		.4byte	0
+ 1843 002c 00000000 		.4byte	0
+ 1844              		.section	.debug_ranges,"",%progbits
+ 1845              	.Ldebug_ranges0:
+ 1846 0000 00000000 		.4byte	.LFB63
+ 1847 0004 6C010000 		.4byte	.LFE63
+ 1848 0008 00000000 		.4byte	.LFB64
+ 1849 000c 2A000000 		.4byte	.LFE64
+ 1850 0010 00000000 		.4byte	.LFB65
+ 1851 0014 38000000 		.4byte	.LFE65
+ 1852 0018 00000000 		.4byte	0
+ 1853 001c 00000000 		.4byte	0
+ 1854              		.section	.debug_line,"",%progbits
+ 1855              	.Ldebug_line0:
+ 1856 0000 7C020000 		.section	.debug_str,"MS",%progbits,1
+ 1856      0200AE01 
+ 1856      00000201 
+ 1856      FB0E0D00 
+ 1856      01010101 
+ 1857              	.LASF43:
+ 1858 0000 433A5C55 		.ascii	"C:\\Users\\roba420\\Documents\\PSoC Creator\\robott"
+ 1858      73657273 
+ 1858      5C726F62 
+ 1858      61343230 
+ 1858      5C446F63 
+ 1859 002e 695C5A75 		.ascii	"i\\ZumoBot_Paini.cydsn\000"
+ 1859      6D6F426F 
+ 1859      745F5061 
+ 1859      696E692E 
+ 1859      63796473 
+ 1860              	.LASF44:
+ 1861 0044 73656E73 		.ascii	"sensors_\000"
+ 1861      6F72735F 
+ 1861      00
+ 1862              	.LASF35:
+ 1863 004d 7265666C 		.ascii	"reflectance_read\000"
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 37
+
+
+ 1863      65637461 
+ 1863      6E63655F 
+ 1863      72656164 
+ 1863      00
+ 1864              	.LASF5:
+ 1865 005e 5F5F696E 		.ascii	"__int32_t\000"
+ 1865      7433325F 
+ 1865      7400
+ 1866              	.LASF39:
+ 1867 0068 6D6F746F 		.ascii	"motor_backward\000"
+ 1867      725F6261 
+ 1867      636B7761 
+ 1867      726400
+ 1868              	.LASF36:
+ 1869 0077 7265666C 		.ascii	"reflectance_digital\000"
+ 1869      65637461 
+ 1869      6E63655F 
+ 1869      64696769 
+ 1869      74616C00 
+ 1870              	.LASF29:
+ 1871 008b 7265666C 		.ascii	"reflectance_start\000"
+ 1871      65637461 
+ 1871      6E63655F 
+ 1871      73746172 
+ 1871      7400
+ 1872              	.LASF12:
+ 1873 009d 696E7433 		.ascii	"int32_t\000"
+ 1873      325F7400 
+ 1874              	.LASF26:
+ 1875 00a5 5F726561 		.ascii	"_read\000"
+ 1875      6400
+ 1876              	.LASF16:
+ 1877 00ab 666C6F61 		.ascii	"float\000"
+ 1877      7400
+ 1878              	.LASF24:
+ 1879 00b1 66696C65 		.ascii	"file\000"
+ 1879      00
+ 1880              	.LASF30:
+ 1881 00b6 73656E73 		.ascii	"sensor_isr_StartEx\000"
+ 1881      6F725F69 
+ 1881      73725F53 
+ 1881      74617274 
+ 1881      457800
+ 1882              	.LASF1:
+ 1883 00c9 756E7369 		.ascii	"unsigned char\000"
+ 1883      676E6564 
+ 1883      20636861 
+ 1883      7200
+ 1884              	.LASF32:
+ 1885 00d7 77616974 		.ascii	"wait_going_down\000"
+ 1885      5F676F69 
+ 1885      6E675F64 
+ 1885      6F776E00 
+ 1886              	.LASF7:
+ 1887 00e7 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1887      20756E73 
+ 1887      69676E65 
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 38
+
+
+ 1887      6420696E 
+ 1887      7400
+ 1888              	.LASF15:
+ 1889 00f9 696E7433 		.ascii	"int32\000"
+ 1889      3200
+ 1890              	.LASF22:
+ 1891 00ff 66696E64 		.ascii	"findEdgeBool\000"
+ 1891      45646765 
+ 1891      426F6F6C 
+ 1891      00
+ 1892              	.LASF46:
+ 1893 010c 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1893      52784275 
+ 1893      66666572 
+ 1893      00
+ 1894              	.LASF34:
+ 1895 0119 6D6F746F 		.ascii	"motor_forward\000"
+ 1895      725F666F 
+ 1895      72776172 
+ 1895      6400
+ 1896              	.LASF31:
+ 1897 0127 49525F6C 		.ascii	"IR_led_Write\000"
+ 1897      65645F57 
+ 1897      72697465 
+ 1897      00
+ 1898              	.LASF4:
+ 1899 0134 5F5F7569 		.ascii	"__uint16_t\000"
+ 1899      6E743136 
+ 1899      5F7400
+ 1900              	.LASF17:
+ 1901 013f 646F7562 		.ascii	"double\000"
+ 1901      6C6500
+ 1902              	.LASF37:
+ 1903 0146 6D6F746F 		.ascii	"motor_stop\000"
+ 1903      725F7374 
+ 1903      6F7000
+ 1904              	.LASF3:
+ 1905 0151 73686F72 		.ascii	"short unsigned int\000"
+ 1905      7420756E 
+ 1905      7369676E 
+ 1905      65642069 
+ 1905      6E7400
+ 1906              	.LASF14:
+ 1907 0164 75696E74 		.ascii	"uint32\000"
+ 1907      333200
+ 1908              	.LASF41:
+ 1909 016b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1909      4320342E 
+ 1909      392E3320 
+ 1909      32303135 
+ 1909      30333033 
+ 1910 019e 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1910      20726576 
+ 1910      6973696F 
+ 1910      6E203232 
+ 1910      31323230 
+ 1911 01d1 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 39
+
+
+ 1911      66756E63 
+ 1911      74696F6E 
+ 1911      2D736563 
+ 1911      74696F6E 
+ 1912              	.LASF40:
+ 1913 01f9 55415254 		.ascii	"UART_1_PutChar\000"
+ 1913      5F315F50 
+ 1913      75744368 
+ 1913      617200
+ 1914              	.LASF10:
+ 1915 0208 756E7369 		.ascii	"unsigned int\000"
+ 1915      676E6564 
+ 1915      20696E74 
+ 1915      00
+ 1916              	.LASF9:
+ 1917 0215 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1917      206C6F6E 
+ 1917      6720756E 
+ 1917      7369676E 
+ 1917      65642069 
+ 1918              	.LASF33:
+ 1919 022c 6D6F746F 		.ascii	"motor_start\000"
+ 1919      725F7374 
+ 1919      61727400 
+ 1920              	.LASF19:
+ 1921 0238 63796973 		.ascii	"cyisraddress\000"
+ 1921      72616464 
+ 1921      72657373 
+ 1921      00
+ 1922              	.LASF45:
+ 1923 0245 6D61696E 		.ascii	"main\000"
+ 1923      00
+ 1924              	.LASF21:
+ 1925 024a 6C6F6E67 		.ascii	"long double\000"
+ 1925      20646F75 
+ 1925      626C6500 
+ 1926              	.LASF25:
+ 1927 0256 5F777269 		.ascii	"_write\000"
+ 1927      746500
+ 1928              	.LASF20:
+ 1929 025d 73697A65 		.ascii	"sizetype\000"
+ 1929      74797065 
+ 1929      00
+ 1930              	.LASF8:
+ 1931 0266 6C6F6E67 		.ascii	"long long int\000"
+ 1931      206C6F6E 
+ 1931      6720696E 
+ 1931      7400
+ 1932              	.LASF42:
+ 1933 0274 6D61696E 		.ascii	"main.c\000"
+ 1933      2E6300
+ 1934              	.LASF18:
+ 1935 027b 63686172 		.ascii	"char\000"
+ 1935      00
+ 1936              	.LASF49:
+ 1937 0280 7072696E 		.ascii	"printf\000"
+ 1937      746600
+ARM GAS  C:\Users\roba420\AppData\Local\Temp\ccYjtIGd.s 			page 40
+
+
+ 1938              	.LASF27:
+ 1939 0287 636F756E 		.ascii	"count\000"
+ 1939      7400
+ 1940              	.LASF2:
+ 1941 028d 73686F72 		.ascii	"short int\000"
+ 1941      7420696E 
+ 1941      7400
+ 1942              	.LASF11:
+ 1943 0297 75696E74 		.ascii	"uint16_t\000"
+ 1943      31365F74 
+ 1943      00
+ 1944              	.LASF23:
+ 1945 02a0 616C6B75 		.ascii	"alku\000"
+ 1945      00
+ 1946              	.LASF6:
+ 1947 02a5 6C6F6E67 		.ascii	"long int\000"
+ 1947      20696E74 
+ 1947      00
+ 1948              	.LASF48:
+ 1949 02ae 70757473 		.ascii	"puts\000"
+ 1949      00
+ 1950              	.LASF0:
+ 1951 02b3 7369676E 		.ascii	"signed char\000"
+ 1951      65642063 
+ 1951      68617200 
+ 1952              	.LASF13:
+ 1953 02bf 75696E74 		.ascii	"uint8\000"
+ 1953      3800
+ 1954              	.LASF38:
+ 1955 02c5 6D6F746F 		.ascii	"motor_drive\000"
+ 1955      725F6472 
+ 1955      69766500 
+ 1956              	.LASF47:
+ 1957 02d1 5F5F6275 		.ascii	"__builtin_puts\000"
+ 1957      696C7469 
+ 1957      6E5F7075 
+ 1957      747300
+ 1958              	.LASF50:
+ 1959 02e0 55415254 		.ascii	"UART_1_GetChar\000"
+ 1959      5F315F47 
+ 1959      65744368 
+ 1959      617200
+ 1960              	.LASF28:
+ 1961 02ef 55415254 		.ascii	"UART_1_Start\000"
+ 1961      5F315F53 
+ 1961      74617274 
+ 1961      00
+ 1962              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
