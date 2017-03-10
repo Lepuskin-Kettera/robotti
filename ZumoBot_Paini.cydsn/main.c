@@ -29,31 +29,39 @@ int main()
     reflectance_start();
 
     IR_led_Write(1);
-    printf("SAATANA\n");
-
-    printf("motor_start\n");
     
     int findEdgeBool = 1;
-    wait_going_down();
+    int goBack = 0;
+    
     motor_start();
+    
     int alku = 1;
+    
+    // Loop drives to the edge of the arena and waits for the remote command
     while (alku == 1) {
         
-        motor_forward(50,0);
         reflectance_read(&ref);
         reflectance_digital(&dig);
+        
     
-    if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
+        if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
+        
+            printf("Waiting for command\n");
+            motor_turn(0, 0, 0);
+            wait_going_down();
+            alku = 0;
+        } else {
+            motor_forward(50,0);
+        }
+    }
     
-        motor_stop();
-        wait_going_down();
-        motor_start();
-        alku = 0;
-    }
-    }
+    // BATTLE BEGINS NOW!!
+    
+    // Preparations for the firts blow
     motor_drive(255,100,700);
     motor_drive(-255,255,250);
     
+    // Battle mode loop
     for(;;)
     {
      
@@ -61,28 +69,90 @@ int main()
         reflectance_digital(&dig);
         printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
         
+        
+        // Loop drives forward until robot finds the edge
         while(findEdgeBool == 1) {
             
-             reflectance_read(&ref);
-        reflectance_digital(&dig);
-        printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
+            reflectance_read(&ref);
+            reflectance_digital(&dig);
+            printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
             
             
-        if(dig.l3 == 1 && dig.l1 == 1 && dig.r1 == 1 && dig.r3 == 1) {    
-        motor_forward(255,0);
-        printf("motor forward\n");
-        } else {
-            motor_backward(255,650);
-             printf("motor backward\n");
+            // As long its white drive forward
+            if(dig.l3 == 1 && dig.l1 == 1 && dig.r1 == 1 && dig.r3 == 1) {    
+                motor_forward(255,0);
+                printf("motor forward\n");
+                
+            // But if you see black...    
+            } else {
+
+            // ... Enter this loop, which backs away from the line
+            while(goBack < 650) {
+                motor_backward(255,1);
+                printf("motor backward\n");
+                
+                // Fail safe. If you see black while going backwards, something is wrong. Now drive forward and get out of the loop
+                if(dig.l3 == 0 || dig.l1 == 0 || dig.r1 == 0 || dig.r3 == 0) {
+                    motor_forward(255,goBack);
+                    goBack = 650;
+                }
+                
+                goBack++;
+            }
+            
             findEdgeBool = 0;
             motor_backward(0,0);
         }
     }
         
+        
+        // Lets reset this counter if we need it later
+        goBack = 0;
+        
+        // If (and when) the first blow didn't work out as planed, enter this defencive battle loop
         for (;;) {
+            
+            findEdgeBool = 1;
+            
+            reflectance_read(&ref);
+            reflectance_digital(&dig);
+            printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
+            
+            
+            // Main idea is to spin fast at the middle of the arena and to wait for the command to attack
             motor_drive(-255,255,1000);
             motor_drive(255,-255,1000);
-            printf("defece\n");
+            
+            // Oh, there is the command! STRIKE!
+            if(IR_receiver_Read() == 1) {
+                while(findEdgeBool == 1) {
+            
+                    reflectance_read(&ref);
+                    reflectance_digital(&dig);
+                    printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
+                    
+                    // BASH FORWARD UNTIL YOU SEE BLACK!!!
+                    if(dig.l3 == 1 && dig.l1 == 1 && dig.r1 == 1 && dig.r3 == 1) {    
+                    motor_forward(255,0);
+                    printf("motor forward\n");
+                    
+                    // Oh crap, we are at the edge. Fortunately, we have a strategy for this one in mind
+                    } else {
+                        while(goBack < 650) {
+                            motor_backward(255,1);
+                            printf("motor backward\n");
+                
+                            // Fail safe. If you see black while going backwards, something is wrong. Now drive forward and get out of the loop
+                            if(dig.l3 == 0 || dig.l1 == 0 || dig.r1 == 0 || dig.r3 == 0) {
+                                motor_forward(255,goBack);
+                                goBack = 650;
+                            }
+                
+                            goBack++;
+                        }
+                    }
+                }
+            }
         }
      
 }   

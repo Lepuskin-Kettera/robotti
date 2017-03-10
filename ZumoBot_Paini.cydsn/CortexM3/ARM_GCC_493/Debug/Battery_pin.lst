@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
   29:Generated_Source\PSoC5/Battery_pin.c **** * \brief Writes the value to the physical port (data output register), masking
   30:Generated_Source\PSoC5/Battery_pin.c **** *  and shifting the bits appropriately. 
   31:Generated_Source\PSoC5/Battery_pin.c **** *
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 2
 
 
   32:Generated_Source\PSoC5/Battery_pin.c **** * The data output register controls the signal applied to the physical pin in 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
   52              		.size	Battery_pin_Write, .-Battery_pin_Write
   53              		.section	.text.Battery_pin_SetDriveMode,"ax",%progbits
   54              		.align	2
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 3
 
 
   55              		.global	Battery_pin_SetDriveMode
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
   77 0012 00BF     		.align	2
   78              	.L5:
   79 0014 17500040 		.word	1073762327
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 4
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 4
 
 
   80              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  110              		.align	2
  111              		.global	Battery_pin_ReadDataReg
  112              		.thumb
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 5
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 5
 
 
  113              		.thumb_func
@@ -298,51 +298,51 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  139              	.Ldebug_info0:
  140 0000 1D010000 		.4byte	0x11d
  141 0004 0400     		.2byte	0x4
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 6
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 6
 
 
  142 0006 00000000 		.4byte	.Ldebug_abbrev0
  143 000a 04       		.byte	0x4
  144 000b 01       		.uleb128 0x1
- 145 000c 9A000000 		.4byte	.LASF20
+ 145 000c 99000000 		.4byte	.LASF20
  146 0010 01       		.byte	0x1
- 147 0011 35010000 		.4byte	.LASF21
- 148 0015 00000000 		.4byte	.LASF22
+ 147 0011 34010000 		.4byte	.LASF21
+ 148 0015 11000000 		.4byte	.LASF22
  149 0019 00000000 		.4byte	.Ldebug_ranges0+0
  150 001d 00000000 		.4byte	0
  151 0021 00000000 		.4byte	.Ldebug_line0
  152 0025 02       		.uleb128 0x2
  153 0026 01       		.byte	0x1
  154 0027 06       		.byte	0x6
- 155 0028 CC010000 		.4byte	.LASF0
+ 155 0028 CB010000 		.4byte	.LASF0
  156 002c 02       		.uleb128 0x2
  157 002d 01       		.byte	0x1
  158 002e 08       		.byte	0x8
- 159 002f 5B000000 		.4byte	.LASF1
+ 159 002f 5A000000 		.4byte	.LASF1
  160 0033 02       		.uleb128 0x2
  161 0034 02       		.byte	0x2
  162 0035 05       		.byte	0x5
- 163 0036 B3010000 		.4byte	.LASF2
+ 163 0036 B2010000 		.4byte	.LASF2
  164 003a 02       		.uleb128 0x2
  165 003b 02       		.byte	0x2
  166 003c 07       		.byte	0x7
- 167 003d 80000000 		.4byte	.LASF3
+ 167 003d 7F000000 		.4byte	.LASF3
  168 0041 02       		.uleb128 0x2
  169 0042 04       		.byte	0x4
  170 0043 05       		.byte	0x5
- 171 0044 C3010000 		.4byte	.LASF4
+ 171 0044 C2010000 		.4byte	.LASF4
  172 0048 02       		.uleb128 0x2
  173 0049 04       		.byte	0x4
  174 004a 07       		.byte	0x7
- 175 004b 6E000000 		.4byte	.LASF5
+ 175 004b 6D000000 		.4byte	.LASF5
  176 004f 02       		.uleb128 0x2
  177 0050 08       		.byte	0x8
  178 0051 05       		.byte	0x5
- 179 0052 A0010000 		.4byte	.LASF6
+ 179 0052 9F010000 		.4byte	.LASF6
  180 0056 02       		.uleb128 0x2
  181 0057 08       		.byte	0x8
  182 0058 07       		.byte	0x7
- 183 0059 5A010000 		.4byte	.LASF7
+ 183 0059 59010000 		.4byte	.LASF7
  184 005d 03       		.uleb128 0x3
  185 005e 04       		.byte	0x4
  186 005f 05       		.byte	0x5
@@ -350,36 +350,36 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  188 0064 02       		.uleb128 0x2
  189 0065 04       		.byte	0x4
  190 0066 07       		.byte	0x7
- 191 0067 28010000 		.4byte	.LASF8
+ 191 0067 27010000 		.4byte	.LASF8
  192 006b 04       		.uleb128 0x4
- 193 006c BD010000 		.4byte	.LASF12
+ 193 006c BC010000 		.4byte	.LASF12
  194 0070 02       		.byte	0x2
  195 0071 9201     		.2byte	0x192
  196 0073 2C000000 		.4byte	0x2c
  197 0077 02       		.uleb128 0x2
  198 0078 04       		.byte	0x4
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 7
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 7
 
 
  199 0079 04       		.byte	0x4
- 200 007a 55000000 		.4byte	.LASF9
+ 200 007a 54000000 		.4byte	.LASF9
  201 007e 02       		.uleb128 0x2
  202 007f 08       		.byte	0x8
  203 0080 04       		.byte	0x4
- 204 0081 93000000 		.4byte	.LASF10
+ 204 0081 92000000 		.4byte	.LASF10
  205 0085 02       		.uleb128 0x2
  206 0086 01       		.byte	0x1
  207 0087 08       		.byte	0x8
- 208 0088 AE010000 		.4byte	.LASF11
+ 208 0088 AD010000 		.4byte	.LASF11
  209 008c 04       		.uleb128 0x4
- 210 008d 69000000 		.4byte	.LASF13
+ 210 008d 68000000 		.4byte	.LASF13
  211 0091 02       		.byte	0x2
  212 0092 3C02     		.2byte	0x23c
  213 0094 98000000 		.4byte	0x98
  214 0098 05       		.uleb128 0x5
  215 0099 6B000000 		.4byte	0x6b
  216 009d 06       		.uleb128 0x6
- 217 009e F0010000 		.4byte	.LASF14
+ 217 009e EF010000 		.4byte	.LASF14
  218 00a2 01       		.byte	0x1
  219 00a3 39       		.byte	0x39
  220 00a4 00000000 		.4byte	.LFB0
@@ -388,20 +388,20 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  223 00ad 9C       		.byte	0x9c
  224 00ae D1000000 		.4byte	0xd1
  225 00b2 07       		.uleb128 0x7
- 226 00b3 44000000 		.4byte	.LASF16
+ 226 00b3 00000000 		.4byte	.LASF16
  227 00b7 01       		.byte	0x1
  228 00b8 39       		.byte	0x39
  229 00b9 6B000000 		.4byte	0x6b
  230 00bd 00000000 		.4byte	.LLST0
  231 00c1 08       		.uleb128 0x8
- 232 00c2 4A000000 		.4byte	.LASF23
+ 232 00c2 06000000 		.4byte	.LASF23
  233 00c6 01       		.byte	0x1
  234 00c7 3B       		.byte	0x3b
  235 00c8 6B000000 		.4byte	0x6b
  236 00cc 21000000 		.4byte	.LLST1
  237 00d0 00       		.byte	0
  238 00d1 06       		.uleb128 0x6
- 239 00d2 71010000 		.4byte	.LASF15
+ 239 00d2 70010000 		.4byte	.LASF15
  240 00d6 01       		.byte	0x1
  241 00d7 5A       		.byte	0x5a
  242 00d8 00000000 		.4byte	.LFB1
@@ -410,15 +410,15 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  245 00e1 9C       		.byte	0x9c
  246 00e2 F6000000 		.4byte	0xf6
  247 00e6 07       		.uleb128 0x7
- 248 00e7 8A010000 		.4byte	.LASF17
+ 248 00e7 89010000 		.4byte	.LASF17
  249 00eb 01       		.byte	0x1
  250 00ec 5A       		.byte	0x5a
  251 00ed 6B000000 		.4byte	0x6b
  252 00f1 34000000 		.4byte	.LLST2
  253 00f5 00       		.byte	0
  254 00f6 09       		.uleb128 0x9
- 255 00f7 8F010000 		.4byte	.LASF18
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 8
+ 255 00f7 8E010000 		.4byte	.LASF18
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 8
 
 
  256 00fb 01       		.byte	0x1
@@ -429,7 +429,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  261 0109 01       		.uleb128 0x1
  262 010a 9C       		.byte	0x9c
  263 010b 09       		.uleb128 0x9
- 264 010c D8010000 		.4byte	.LASF19
+ 264 010c D7010000 		.4byte	.LASF19
  265 0110 01       		.byte	0x1
  266 0111 8D       		.byte	0x8d
  267 0112 6B000000 		.4byte	0x6b
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  310 0023 3E       		.uleb128 0x3e
  311 0024 0B       		.uleb128 0xb
  312 0025 03       		.uleb128 0x3
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 9
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 9
 
 
  313 0026 08       		.uleb128 0x8
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  367 005d 0B       		.uleb128 0xb
  368 005e 3B       		.uleb128 0x3b
  369 005f 0B       		.uleb128 0xb
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 10
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 10
 
 
  370 0060 49       		.uleb128 0x49
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  424 000b 0A000000 		.4byte	.LVL2
  425 000f 18000000 		.4byte	.LFE0
  426 0013 0400     		.2byte	0x4
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 11
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 11
 
 
  427 0015 F3       		.byte	0xf3
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  481 001c 0C000000 		.4byte	.LFE3
  482 0020 00000000 		.4byte	0
  483 0024 00000000 		.4byte	0
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 12
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 12
 
 
  484              		.section	.debug_line,"",%progbits
@@ -668,135 +668,135 @@ ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 1
  486      00000201 
  486      FB0E0D00 
  486      01010101 
- 487              	.LASF22:
- 488 0000 433A5C55 		.ascii	"C:\\Users\\roba420\\Documents\\PSoC Creator\\robott"
- 488      73657273 
- 488      5C726F62 
- 488      61343230 
- 488      5C446F63 
- 489 002e 695C5A75 		.ascii	"i\\ZumoBot_Paini.cydsn\000"
- 489      6D6F426F 
- 489      745F5061 
- 489      696E692E 
- 489      63796473 
- 490              	.LASF16:
- 491 0044 76616C75 		.ascii	"value\000"
- 491      6500
- 492              	.LASF23:
- 493 004a 73746174 		.ascii	"staticBits\000"
- 493      69634269 
- 493      747300
+ 487              	.LASF16:
+ 488 0000 76616C75 		.ascii	"value\000"
+ 488      6500
+ 489              	.LASF23:
+ 490 0006 73746174 		.ascii	"staticBits\000"
+ 490      69634269 
+ 490      747300
+ 491              	.LASF22:
+ 492 0011 433A5C55 		.ascii	"C:\\Users\\Mikael\\Documents\\PSoC Creator\\robotti"
+ 492      73657273 
+ 492      5C4D696B 
+ 492      61656C5C 
+ 492      446F6375 
+ 493 003f 5C5A756D 		.ascii	"\\ZumoBot_Paini.cydsn\000"
+ 493      6F426F74 
+ 493      5F506169 
+ 493      6E692E63 
+ 493      7964736E 
  494              	.LASF9:
- 495 0055 666C6F61 		.ascii	"float\000"
+ 495 0054 666C6F61 		.ascii	"float\000"
  495      7400
  496              	.LASF1:
- 497 005b 756E7369 		.ascii	"unsigned char\000"
+ 497 005a 756E7369 		.ascii	"unsigned char\000"
  497      676E6564 
  497      20636861 
  497      7200
  498              	.LASF13:
- 499 0069 72656738 		.ascii	"reg8\000"
+ 499 0068 72656738 		.ascii	"reg8\000"
  499      00
  500              	.LASF5:
- 501 006e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 501 006d 6C6F6E67 		.ascii	"long unsigned int\000"
  501      20756E73 
  501      69676E65 
  501      6420696E 
  501      7400
  502              	.LASF3:
- 503 0080 73686F72 		.ascii	"short unsigned int\000"
+ 503 007f 73686F72 		.ascii	"short unsigned int\000"
  503      7420756E 
  503      7369676E 
  503      65642069 
  503      6E7400
  504              	.LASF10:
- 505 0093 646F7562 		.ascii	"double\000"
+ 505 0092 646F7562 		.ascii	"double\000"
  505      6C6500
  506              	.LASF20:
- 507 009a 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 507 0099 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
  507      4320342E 
  507      392E3320 
  507      32303135 
  507      30333033 
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 13
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 13
 
 
- 508 00cd 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 508 00cc 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
  508      20726576 
  508      6973696F 
  508      6E203232 
  508      31323230 
- 509 0100 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 509 00ff 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  509      66756E63 
  509      74696F6E 
  509      2D736563 
  509      74696F6E 
  510              	.LASF8:
- 511 0128 756E7369 		.ascii	"unsigned int\000"
+ 511 0127 756E7369 		.ascii	"unsigned int\000"
  511      676E6564 
  511      20696E74 
  511      00
  512              	.LASF21:
- 513 0135 47656E65 		.ascii	"Generated_Source\\PSoC5\\Battery_pin.c\000"
+ 513 0134 47656E65 		.ascii	"Generated_Source\\PSoC5\\Battery_pin.c\000"
  513      72617465 
  513      645F536F 
  513      75726365 
  513      5C50536F 
  514              	.LASF7:
- 515 015a 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 515 0159 6C6F6E67 		.ascii	"long long unsigned int\000"
  515      206C6F6E 
  515      6720756E 
  515      7369676E 
  515      65642069 
  516              	.LASF15:
- 517 0171 42617474 		.ascii	"Battery_pin_SetDriveMode\000"
+ 517 0170 42617474 		.ascii	"Battery_pin_SetDriveMode\000"
  517      6572795F 
  517      70696E5F 
  517      53657444 
  517      72697665 
  518              	.LASF17:
- 519 018a 6D6F6465 		.ascii	"mode\000"
+ 519 0189 6D6F6465 		.ascii	"mode\000"
  519      00
  520              	.LASF18:
- 521 018f 42617474 		.ascii	"Battery_pin_Read\000"
+ 521 018e 42617474 		.ascii	"Battery_pin_Read\000"
  521      6572795F 
  521      70696E5F 
  521      52656164 
  521      00
  522              	.LASF6:
- 523 01a0 6C6F6E67 		.ascii	"long long int\000"
+ 523 019f 6C6F6E67 		.ascii	"long long int\000"
  523      206C6F6E 
  523      6720696E 
  523      7400
  524              	.LASF11:
- 525 01ae 63686172 		.ascii	"char\000"
+ 525 01ad 63686172 		.ascii	"char\000"
  525      00
  526              	.LASF2:
- 527 01b3 73686F72 		.ascii	"short int\000"
+ 527 01b2 73686F72 		.ascii	"short int\000"
  527      7420696E 
  527      7400
  528              	.LASF12:
- 529 01bd 75696E74 		.ascii	"uint8\000"
+ 529 01bc 75696E74 		.ascii	"uint8\000"
  529      3800
-ARM GAS  C:\Users\roba420\AppData\Local\Temp\cczLxBBg.s 			page 14
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccmzbl82.s 			page 14
 
 
  530              	.LASF4:
- 531 01c3 6C6F6E67 		.ascii	"long int\000"
+ 531 01c2 6C6F6E67 		.ascii	"long int\000"
  531      20696E74 
  531      00
  532              	.LASF0:
- 533 01cc 7369676E 		.ascii	"signed char\000"
+ 533 01cb 7369676E 		.ascii	"signed char\000"
  533      65642063 
  533      68617200 
  534              	.LASF19:
- 535 01d8 42617474 		.ascii	"Battery_pin_ReadDataReg\000"
+ 535 01d7 42617474 		.ascii	"Battery_pin_ReadDataReg\000"
  535      6572795F 
  535      70696E5F 
  535      52656164 
  535      44617461 
  536              	.LASF14:
- 537 01f0 42617474 		.ascii	"Battery_pin_Write\000"
+ 537 01ef 42617474 		.ascii	"Battery_pin_Write\000"
  537      6572795F 
  537      70696E5F 
  537      57726974 

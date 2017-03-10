@@ -6,7 +6,7 @@
 
 #Build Date:         Apr 29 2016 09:00:55
 
-#File Generated:     Mar 8 2017 09:52:45
+#File Generated:     Mar 10 2017 11:01:31
 
 #Purpose:            
 
@@ -14,7 +14,7 @@
 
 #***************************************************************************
 
-Executing : C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\bin/sjplacer.exe --proj-name ZumoBot_Paini --netlist-vh2 ZumoBot_Paini_p.vh2 --arch-file C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\dev/arch/p35_udb4x6.ark --rrg-file C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/route_arch-rrg.cydata --irq-file C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/irqconn.cydata --drq-file C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/dmaconn.cydata --dsi-conn-file C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/dsiconn.cydata --pins-file pins_68-QFN.xml --lib-file ZumoBot_Paini_p.lib --sdc-file ZumoBot_Paini.sdc --io-pcf ZumoBot_Paini.pci --outdir .
+Executing : C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\bin/sjplacer.exe --proj-name ZumoBot_Paini --netlist-vh2 ZumoBot_Paini_p.vh2 --arch-file C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\dev/arch/p35_udb4x6.ark --rrg-file C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/route_arch-rrg.cydata --irq-file C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/irqconn.cydata --drq-file C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/dmaconn.cydata --dsi-conn-file C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\dev/psoc5/psoc5lp/dsiconn.cydata --pins-file pins_68-QFN.xml --lib-file ZumoBot_Paini_p.lib --sdc-file ZumoBot_Paini.sdc --io-pcf ZumoBot_Paini.pci --outdir .
 
 		Softjin Techologies Placer, Version 1.1
 
@@ -23,7 +23,7 @@ Build Date : Apr 29 2016	08:58:44
 D2004: Option and Settings Summary
 =============================================================
 Netlist vh2 file          - ZumoBot_Paini_p.vh2
-Architecture file         - C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\dev/arch/p35_udb4x6.ark
+Architecture file         - C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\dev/arch/p35_udb4x6.ark
 Package                   - 
 Defparam file             - 
 SDC file                  - ZumoBot_Paini.sdc
@@ -34,7 +34,7 @@ IO Placement file         - ZumoBot_Paini.pci
 D2050: Starting reading inputs for placer
 =============================================================
 D2065: Reading netlist file : "ZumoBot_Paini_p.vh2"
-D2065: Reading arch file : "C:\Program Files\Cypress\PSoC Creator\4.0\PSoC Creator\dev/arch/p35_udb4x6.ark"
+D2065: Reading arch file : "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\dev/arch/p35_udb4x6.ark"
 D2051: Reading of inputs for placer completed successfully
 
 D2053: Starting placement of the design
@@ -98,7 +98,7 @@ Clock: timer_clock_5        | Frequency:  48.5 MHz | Target:   0.0 MHz
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.0 (sec)
+D2088: Phase 6, elapsed time : 0.1 (sec)
 
 Phase 7
 ######################################################################
@@ -122,7 +122,7 @@ Clock: timer_clock_5        | Frequency:  48.5 MHz | Target:   0.0 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 0.6 (sec)
+D2088: Phase 7, elapsed time : 1.1 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	20
@@ -176,5 +176,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 1.4 sec.
+I2076: Total run-time: 2.3 sec.
 
