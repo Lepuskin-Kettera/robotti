@@ -1,6 +1,7 @@
 
 #include <project.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "Motor.h"
 #include "Ultra.h"
 #include "Nunchuk.h"
@@ -17,6 +18,7 @@ int rread(void);
 
 int main()
 {
+    srand(time(NULL));
     struct sensors_ ref;
     struct sensors_ dig;
     CyGlobalIntEnable; 
@@ -35,21 +37,31 @@ int main()
     
     motor_start();
     
-    int alku = 1;
+    int prepare = 1;
     
     // Loop drives to the edge of the arena and waits for the remote command
-    while (alku == 1) {
+    while (prepare == 1) {
         
         reflectance_read(&ref);
         reflectance_digital(&dig);
         
-    
+//------Debug start-------------------------------------------------------------------------
+        
+        // DO NOT REMOVE THESE. DOESN'T WORK WITHOUT THEM! I DONT KNOW WHY!
+        
+        int loopCounter = 1;
+        printf("loop: %i \n", loopCounter);
+        loopCounter++;
+        printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
+//------Debug end---------------------------------------------------------------------------
+        
+
         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
         
             printf("Waiting for command\n");
             motor_turn(0, 0, 0);
             wait_going_down();
-            alku = 0;
+            prepare = 0;
         } else {
             motor_forward(50,0);
         }
@@ -85,16 +97,18 @@ int main()
                 
             // But if you see black...    
             } else {
-
+            
+                motor_backward(255,250);
+                
             // ... Enter this loop, which backs away from the line
-            while(goBack < 650) {
+            while(goBack < 400) {
                 motor_backward(255,1);
                 printf("motor backward\n");
                 
                 // Fail safe. If you see black while going backwards, something is wrong. Now drive forward and get out of the loop
                 if(dig.l3 == 0 || dig.l1 == 0 || dig.r1 == 0 || dig.r3 == 0) {
                     motor_forward(255,goBack);
-                    goBack = 650;
+                    goBack = 400;
                 }
                 
                 goBack++;
@@ -112,6 +126,8 @@ int main()
         // If (and when) the first blow didn't work out as planed, enter this defencive battle loop
         for (;;) {
             
+            
+            
             findEdgeBool = 1;
             
             reflectance_read(&ref);
@@ -120,16 +136,25 @@ int main()
             
             
             // Main idea is to spin fast at the middle of the arena and to wait for the command to attack
-            motor_drive(-255,255,1000);
-            motor_drive(255,-255,1000);
+            motor_drive(-255,255,5);
+            //motor_drive(255,-255,1000);
+            
+            int attackCommand;
+            attackCommand = rand() % 100;
+            printf("%i\n", attackCommand);
+            
+            if(attackCommand == 1){
+                printf("ATTACK COMMAND!\n");
+                attackCommand = 1;
+            }
             
             // Oh, there is the command! STRIKE!
-            if(IR_receiver_Read() == 1) {
+            if(attackCommand == 1) {
                 while(findEdgeBool == 1) {
             
                     reflectance_read(&ref);
                     reflectance_digital(&dig);
-                    printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
+                    //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
                     
                     // BASH FORWARD UNTIL YOU SEE BLACK!!!
                     if(dig.l3 == 1 && dig.l1 == 1 && dig.r1 == 1 && dig.r3 == 1) {    
@@ -138,6 +163,9 @@ int main()
                     
                     // Oh crap, we are at the edge. Fortunately, we have a strategy for this one in mind
                     } else {
+                        
+                        motor_backward(255,250);
+                        
                         while(goBack < 650) {
                             motor_backward(255,1);
                             printf("motor backward\n");
@@ -147,11 +175,13 @@ int main()
                                 motor_forward(255,goBack);
                                 goBack = 650;
                             }
-                
+                            
                             goBack++;
                         }
+                        findEdgeBool = 0;
                     }
                 }
+                attackCommand = 0;
             }
         }
      
