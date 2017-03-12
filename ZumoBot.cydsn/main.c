@@ -13,103 +13,83 @@
 #include "Beep.h"
 #include "math.h"
 
+
+#define MAGICNUM 0.012624 /*
+MAGICNUM is calculated with a following logic:
+MAXSPEED /(infraMax 23999 -infraMin 3770)
+*/
+
 int rread(void);
 
 int main()
 {
-   // printf("\n 1");
+
+    
+//----[STARTING ESSENTIAL COMPONENTS. DO NOT ALTER THESE]----------
     struct sensors_ ref;
     struct sensors_ dig;
     CyGlobalIntEnable; 
     UART_1_Start();
-    // printf("\n uart start");
-  
     sensor_isr_StartEx(sensor_isr_handler);
-    
     reflectance_start();
-
     motor_start();
-    
     IR_led_Write(1);
-    // printf("\n next ints");
+//-----------------------------------------------------------------
     
+    int whichmotor = 0; /*
+    Program uses this to find back to the track if the robot looses it.
+    motor number 1 is LEFT
+    motor number 2 is RIGHT
+    */
 
+    int kmk = 0; /*
+    Counter for start/stop funtion at the start and the finishline
+    */
     
-            // motor number 1 is LEFT
-            // motor number 2 i RIGHT
-            int whichmotor = 0;
-            //printf("\n motor222");
-            // stopping at lines
-            int kmk = 0;
-     //printf("\n next is for- loop \n");
+    
     for(;;)
     {
-        printf("loop start \n");
-            
-            reflectance_read(&ref);
-            //printf("%d %d %d %d \r\n", ref.l3, ref.l1, ref.r1, ref.r3);       //print out each period of reflectance sensors
-            reflectance_digital(&dig);      //print out 0 or 1 according to results of reflectance period
-            //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);        //print out 0 or 1 according to results of reflectance period
-  
-        // Magicnumber for Black/Right
+        
+//------[1. CALCULATE MOTORSPEEDS]------------------------------------------------------------------------------------------
+        
+        reflectance_read(&ref);
+        reflectance_digital(&dig);
+
         double infraR = ref.r1 - 3770;
         double infraL = ref.l1 - 3770;
+        double rightMotorRaw = MAGICNUM * infraL;
+        double leftMotorRaw = MAGICNUM * infraR;
         
-        // MAXSPEED /(infraMax 23999 -infraMin 3770)
-        double magicNum = 0.012624;
+        // Convert speeds to int
+        int leftMotor = (int) leftMotorRaw;
+        int rightMotor = (int) rightMotorRaw;
+            
+//------[2. STOPPING AT LINES]----------------------------------------------------------------------------------------------
 
-        // Calculate motorspeeds
-        double rightMotorRaw = magicNum * infraR;
-        double leftMotorRaw = magicNum * infraL;
-        
-            // Convert speeds to int
-            int leftMotorCheck = (int) leftMotorRaw;
-            int rightMotorCheck = (int) rightMotorRaw;
-            
-            // Final speed variables
-            int leftMotor;
-            int rightMotor;
-            
-            // criss cross
-            leftMotor=rightMotorCheck;
-            rightMotor=leftMotorCheck;
-            
-            
-            // MAKE THIS WORK! DRIVES SLOW TO THE FIRST LINE!
-            /*int boolstart = 0;
-        
-            while(boolstart == 0) {
-                motor_forward(50,50);
-                if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
-                    boolstart = 1;
-                }
-                
-            }*/
+        // Used for the start and the end of the race.
 
-        // STOPPING AT LINES   
         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
-            //printf("\n KMK ACTIVATED: INT KMK = %i \n", kmk);
-            
-            if(kmk == 0) {
+
+            if(kmk == 0) /* First black line = START */ {
                 motor_stop();
-                // Waits for remote
-                printf("\n Waiting for remote \n");
-                wait_going_down();
-                printf("\n Remote recived \n");
+                wait_going_down(); // Waits for the command from the remote control
                 motor_start();
-                printf("\n motor start \n");
-            } else if (kmk == 2) {
+            } else if (kmk == 2) /* Third black line = GOAL */ {
                 motor_stop();
-                printf("\n Motor stop \n");
             }
+            
+            // Do these at every line
             kmk++;
             CyDelay(100);
             motor_turn(leftMotor, rightMotor, 0);
-            printf("\n KMK OUT \n"); 
+            
         }
-           
-        // Hard turn
-        
+
+//------[3. HARD TURN]------------------------------------------------------------------------------------------------------      
+/*
+        If the robot drives away from the track,
+        this figures out that from which side the robot has driven out and then drives back.
+*/    
         if (rightMotor < 80 && leftMotor < 80) {
             if (whichmotor == 1) {
                 leftMotor = 255;
@@ -122,37 +102,37 @@ int main()
             whichmotor = 1; // left
         }
         
+//------[4. ASSISTIVE IF STATEMENTS]----------------------------------------------------------------------------------------      
         
-        //MOTORS WONT STOP... LIKE EVER.
+        // If motors get a same speed, go full speed. This makes the robot faster and makes the accelerations faster
         if (leftMotor == rightMotor) {
             leftMotor = 255;
             rightMotor = 255;
         }
         
-        // motor speed can not exceed 255
+        // Motor speed can't exceed 255. Ensures the stability of the motor
         if (leftMotor > 100) {
             leftMotor = 255;
-        }
-        
-        if (rightMotor <= 1) {
-            rightMotor = 1;
         }
         
         if (rightMotor > 100) {
             rightMotor = 255;
         }
         
+        
+        // Motor speed can't go lower than 1. Ensures the stability of the motor
+        if (rightMotor <= 1) {
+            rightMotor = 1;
+        }
+        
         if (leftMotor <= 1) {
             leftMotor = 1;
         }
         
-        // DRIVE
+//------[5. DRIVE]--------------------------------------------------------------------------------------------------------
+        
         motor_turn(leftMotor, rightMotor, 0);
-        printf("left: %i Right: %i\n", leftMotor, rightMotor);
 
-        //printf("\n\nLeft motor %d , Right motor %d", leftMotor, rightMotor);
-        //printf("\nl1: %d r1: %d\r\n", ref.l1, ref.r1);       //print out each period of reflectance sensors
-        //CyDelay(250);
     }
 }   
 
