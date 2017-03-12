@@ -39,41 +39,62 @@ int main()
     
     int prepare = 1;
     
-    // Loop drives to the edge of the arena and waits for the remote command
+    
+//--[1. START]----------------------------------------------------------------------------
+
+/*
+    Drive slowly to the edge of the ring
+    and wait for the command...
+*/
     while (prepare == 1) {
         
         reflectance_read(&ref);
         reflectance_digital(&dig);
         
-//------Debug start-------------------------------------------------------------------------
+//------[Debug start]-------------------------------------------------------------------------
         
         // DO NOT REMOVE THESE. DOESN'T WORK WITHOUT THEM! I DONT KNOW WHY!
-        
         int loopCounter = 1;
         printf("loop: %i \n", loopCounter);
         loopCounter++;
         printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
-//------Debug end---------------------------------------------------------------------------
         
-
+//------[Debug end]---------------------------------------------------------------------------
+ 
         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
-        
             printf("Waiting for command\n");
             motor_turn(0, 0, 0);
             wait_going_down();
+            
+            // BATTLE BEGINS NOW!!
             prepare = 0;
         } else {
             motor_forward(50,0);
         }
     }
     
-    // BATTLE BEGINS NOW!!
     
-    // Preparations for the firts blow
+    
+//------[2. PREPARATIONS FOR THE FIRST BLOW]--------------------------------------------------
+
+/*
+    A slight curve from right should be
+    enough to supprise the opponent from its side
+    Let's try that out!
+*/    
+    
     motor_drive(255,100,700);
     motor_drive(-255,255,250);
     
-    // Battle mode loop
+//------[3. FIRST BLOW LOOP]------------------------------------------------------------------
+    
+/*
+    Here we have to strike fast. We don't want to spend to much time battling.
+    Let's finish this off quick. Strike the opponent from the side!
+    If we miss, let's find a good spot from the middle of the arena
+    to get more time to think about our next move...
+*/
+    
     for(;;)
     {
      
@@ -123,10 +144,14 @@ int main()
         // Lets reset this counter if we need it later
         goBack = 0;
         
-        // If (and when) the first blow didn't work out as planed, enter this defencive battle loop
+//------[4. DEFENCIVE BATTLE LOOP]----------------------------------------------------------------------------
+/*
+        If (and when) the first blow didn't work out as planed...
+        Let's spin around fast at the middle of the arena and
+        try to push the opponent with quick strikes from inside out.
+        I sure hope this ends well...
+*/
         for (;;) {
-            
-            
             
             findEdgeBool = 1;
             
@@ -135,10 +160,16 @@ int main()
             printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
             
             
-            // Main idea is to spin fast at the middle of the arena and to wait for the command to attack
+            // SPIN SPIN SPIN!!!
             motor_drive(-255,255,5);
-            //motor_drive(255,-255,1000);
             
+//----------[5. CALCULATE ATTACK COMMAND]---------------------------------------------------------------------
+            
+/*
+            This is where we are calculating the attack command.
+            It will be a totally random and unpredictable, so they will not know its coming.
+            Neihter do we...
+*/
             int attackCommand;
             attackCommand = rand() % 100;
             printf("%i\n", attackCommand);
@@ -148,13 +179,17 @@ int main()
                 attackCommand = 1;
             }
             
-            // Oh, there is the command! STRIKE!
+//----------[6. ATTACK IN THE DEFENCIVE LOOP]------------------------------------------------------------------        
+            
+/*            
+            Oh, there is the command!
+            STRIKE!
+*/
             if(attackCommand == 1) {
                 while(findEdgeBool == 1) {
             
                     reflectance_read(&ref);
                     reflectance_digital(&dig);
-                    //printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
                     
                     // BASH FORWARD UNTIL YOU SEE BLACK!!!
                     if(dig.l3 == 1 && dig.l1 == 1 && dig.r1 == 1 && dig.r3 == 1) {    
