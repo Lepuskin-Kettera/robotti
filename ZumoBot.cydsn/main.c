@@ -100,15 +100,15 @@ int main()
         If the robot drives away from the track,
         this figures out that from which side the robot has driven out and then drives back.
 */    
-        if (rightMotor < 120 && leftMotor < 120) {
+        if (rightMotor < 100 && leftMotor < 100) {
             if (whichmotor == 1) {
                 leftMotor = 255;
             } else {
                 rightMotor = 255;
             }
-        } else if (leftMotor < 120) {
+        } else if (leftMotor < 100) {
             whichmotor = 2; // right
-        } else if (rightMotor < 120) {
+        } else if (rightMotor < 100) {
             whichmotor = 1; // left
         }
         
@@ -121,21 +121,21 @@ int main()
         }
         
         // Motor speed can't exceed 255. Ensures the stability of the motor
-        if (leftMotor > 120) {
+        if (leftMotor > 100) {
             leftMotor = 255;
         }
         
-        if (rightMotor > 120) {
+        if (rightMotor > 100) {
             rightMotor = 255;
         }
         
         
         // Motor speed can't go lower than 1. Ensures the stability of the motor
-        if (rightMotor <= 25) {
+        if (rightMotor <= 1) {
             rightMotor = 1;
         }
         
-        if (leftMotor <= 25) {
+        if (leftMotor <= 1) {
             leftMotor = 1;
         }
         
