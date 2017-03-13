@@ -1,4 +1,4 @@
---------------- Build Started: 03/13/2017 15:34:54 Project: ZumoBot, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
+--------------- Build Started: 03/13/2017 15:48:20 Project: ZumoBot, Configuration: ARM GCC 4.9-2015-q1-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I.\ZumoLibrary -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_493\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -Og -ffat-lto-objects -c main.c -o .\CortexM3\ARM_GCC_493\Debug\main.o
 arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a
@@ -8,4 +8,4 @@ cyelftool.exe -C "C:\Users\Mikael\Documents\PSoC Creator\robotti\ZumoBot.cydsn\C
 cyelftool.exe -S "C:\Users\Mikael\Documents\PSoC Creator\robotti\ZumoBot.cydsn\CortexM3\ARM_GCC_493\Debug\ZumoBot.elf"
 Flash used: 28972 of 262144 bytes (11,1 %).
 SRAM used: 6709 of 65536 bytes (10,2 %). Stack: 2048 bytes. Heap: 2048 bytes.
---------------- Build Succeeded: 03/13/2017 15:34:57 ---------------
+--------------- Build Succeeded: 03/13/2017 15:48:22 ---------------
