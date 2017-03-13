@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
   30              		.loc 1 25 0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 16
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 2
 
 
   33              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
   67              		.loc 1 45 0
   68 0020 4FF00009 		mov	r9, #0
   39:main.c        ****     Program uses this to find back to the track if the robot looses it.
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 3
 
 
   69              		.loc 1 39 0
@@ -129,24 +129,28 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
   46:main.c        ****     Counter for start/stop funtion at the start and the finishline
   47:main.c        ****     */
   48:main.c        ****     
-  49:main.c        ****     
-  50:main.c        ****     for(;;)
-  51:main.c        ****     {
-  52:main.c        ****         
-  53:main.c        **** //------[1. CALCULATE MOTORSPEEDS]-----------------------------------------------------------------
+  49:main.c        ****     //int batteryCheckCounter = 0;
+  50:main.c        ****     
+  51:main.c        ****     
+  52:main.c        ****     for(;;)
+  53:main.c        ****     {
   54:main.c        ****         
-  55:main.c        ****         reflectance_read(&ref);
-  74              		.loc 1 55 0
+  55:main.c        **** //------[1. CALCULATE MOTORSPEEDS]-----------------------------------------------------------------
+  56:main.c        ****         
+  57:main.c        ****         reflectance_read(&ref);
+  74              		.loc 1 57 0
   75 0026 04A8     		add	r0, sp, #16
   76 0028 FFF7FEFF 		bl	reflectance_read
   77              	.LVL6:
-  56:main.c        ****         reflectance_digital(&dig);
-  78              		.loc 1 56 0
+  58:main.c        ****         reflectance_digital(&dig);
+  78              		.loc 1 58 0
   79 002c 02A8     		add	r0, sp, #8
   80 002e FFF7FEFF 		bl	reflectance_digital
   81              	.LVL7:
-  57:main.c        ****         printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
-  82              		.loc 1 57 0
+  59:main.c        ****         
+  60:main.c        ****         // DO NOT REMOVE THESE! Won't work with out them!
+  61:main.c        ****         printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
+  82              		.loc 1 61 0
   83 0032 BDF80810 		ldrh	r1, [sp, #8]
   84 0036 BDF80A20 		ldrh	r2, [sp, #10]
   85 003a BDF80C30 		ldrh	r3, [sp, #12]
@@ -155,9 +159,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
   88 0044 3F48     		ldr	r0, .L22+12
   89 0046 FFF7FEFF 		bl	printf
   90              	.LVL8:
-  58:main.c        **** 
-  59:main.c        ****         double infraR = ref.r1 - 3770;
-  91              		.loc 1 59 0
+  62:main.c        **** 
+  63:main.c        ****         double infraR = ref.r1 - 3770;
+  91              		.loc 1 63 0
   92 004a BDF81400 		ldrh	r0, [sp, #20]
   93 004e A0F6BA60 		subw	r0, r0, #3770
   94 0052 FFF7FEFF 		bl	__aeabi_i2d
@@ -165,42 +169,42 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
   96 0056 0446     		mov	r4, r0
   97 0058 0D46     		mov	r5, r1
   98              	.LVL10:
-  60:main.c        ****         double infraL = ref.l1 - 3770;
-  99              		.loc 1 60 0
+  64:main.c        ****         double infraL = ref.l1 - 3770;
+  99              		.loc 1 64 0
  100 005a BDF81200 		ldrh	r0, [sp, #18]
  101 005e A0F6BA60 		subw	r0, r0, #3770
  102 0062 FFF7FEFF 		bl	__aeabi_i2d
  103              	.LVL11:
-  61:main.c        ****         double rightMotorRaw = MAGICNUM * infraL;
- 104              		.loc 1 61 0
+  65:main.c        ****         double rightMotorRaw = MAGICNUM * infraL;
+ 104              		.loc 1 65 0
  105 0066 34A3     		adr	r3, .L22
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 4
+
+
  106 0068 D3E90023 		ldrd	r2, [r3]
  107 006c FFF7FEFF 		bl	__aeabi_dmul
  108              	.LVL12:
  109 0070 0646     		mov	r6, r0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 4
-
-
  110 0072 0F46     		mov	r7, r1
  111              	.LVL13:
-  62:main.c        ****         double leftMotorRaw = MAGICNUM * infraR;
- 112              		.loc 1 62 0
+  66:main.c        ****         double leftMotorRaw = MAGICNUM * infraR;
+ 112              		.loc 1 66 0
  113 0074 2046     		mov	r0, r4
  114 0076 2946     		mov	r1, r5
  115 0078 2FA3     		adr	r3, .L22
  116 007a D3E90023 		ldrd	r2, [r3]
  117 007e FFF7FEFF 		bl	__aeabi_dmul
  118              	.LVL14:
-  63:main.c        ****         
-  64:main.c        ****         // Convert speeds to int
-  65:main.c        ****         int leftMotor = (int) leftMotorRaw;
- 119              		.loc 1 65 0
+  67:main.c        ****         
+  68:main.c        ****         // Convert speeds to int
+  69:main.c        ****         int leftMotor = (int) leftMotorRaw;
+ 119              		.loc 1 69 0
  120 0082 FFF7FEFF 		bl	__aeabi_d2iz
  121              	.LVL15:
  122 0086 0546     		mov	r5, r0
  123              	.LVL16:
-  66:main.c        ****         int rightMotor = (int) rightMotorRaw;
- 124              		.loc 1 66 0
+  70:main.c        ****         int rightMotor = (int) rightMotorRaw;
+ 124              		.loc 1 70 0
  125 0088 3046     		mov	r0, r6
  126              	.LVL17:
  127 008a 3946     		mov	r1, r7
@@ -208,237 +212,275 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  129              	.LVL18:
  130 0090 0446     		mov	r4, r0
  131              	.LVL19:
-  67:main.c        ****         
-  68:main.c        ****         
-  69:main.c        ****             
-  70:main.c        **** //------[2. STOPPING AT LINES]---------------------------------------------------------------------
-  71:main.c        **** 
-  72:main.c        ****         // Used for the start and the end of the race.
-  73:main.c        ****         
-  74:main.c        ****         
-  75:main.c        ****         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
- 132              		.loc 1 75 0
+  71:main.c        ****         
+  72:main.c        ****         
+  73:main.c        ****             
+  74:main.c        **** //------[2. STOPPING AT LINES]---------------------------------------------------------------------
+  75:main.c        **** 
+  76:main.c        ****         // Used for the start and the end of the race.
+  77:main.c        ****         
+  78:main.c        ****         
+  79:main.c        ****         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
+ 132              		.loc 1 79 0
  133 0092 BDF80830 		ldrh	r3, [sp, #8]
  134 0096 23BB     		cbnz	r3, .L2
- 135              		.loc 1 75 0 is_stmt 0 discriminator 1
+ 135              		.loc 1 79 0 is_stmt 0 discriminator 1
  136 0098 BDF80A30 		ldrh	r3, [sp, #10]
  137 009c 0BBB     		cbnz	r3, .L2
- 138              		.loc 1 75 0 discriminator 2
+ 138              		.loc 1 79 0 discriminator 2
  139 009e BDF80C30 		ldrh	r3, [sp, #12]
  140 00a2 F3B9     		cbnz	r3, .L2
- 141              		.loc 1 75 0 discriminator 3
+ 141              		.loc 1 79 0 discriminator 3
  142 00a4 BDF80E30 		ldrh	r3, [sp, #14]
  143 00a8 DBB9     		cbnz	r3, .L2
-  76:main.c        ****             
-  77:main.c        ****             
-  78:main.c        ****            
-  79:main.c        ****             if(kmk == 0) /* First black line = START */ {
- 144              		.loc 1 79 0 is_stmt 1
+  80:main.c        ****             
+  81:main.c        ****             if(kmk == 0) /* First black line = START */ {
+ 144              		.loc 1 81 0 is_stmt 1
  145 00aa B9F1000F 		cmp	r9, #0
  146 00ae 09D1     		bne	.L3
-  80:main.c        ****                 motor_stop();
- 147              		.loc 1 80 0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 5
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 5
 
 
+  82:main.c        ****                 motor_stop();
+ 147              		.loc 1 82 0
  148 00b0 FFF7FEFF 		bl	motor_stop
  149              	.LVL20:
-  81:main.c        ****                 printf("KMK ACTIVATED\n");
- 150              		.loc 1 81 0
+  83:main.c        ****                 printf("KMK ACTIVATED\n");
+ 150              		.loc 1 83 0
  151 00b4 2448     		ldr	r0, .L22+16
  152 00b6 FFF7FEFF 		bl	puts
  153              	.LVL21:
-  82:main.c        ****                 wait_going_down(); // Waits for the command from the remote control
- 154              		.loc 1 82 0
+  84:main.c        ****                 wait_going_down(); // Waits for the command from the remote control
+ 154              		.loc 1 84 0
  155 00ba FFF7FEFF 		bl	wait_going_down
  156              	.LVL22:
-  83:main.c        ****                 motor_start();
- 157              		.loc 1 83 0
+  85:main.c        ****                 motor_start();
+ 157              		.loc 1 85 0
  158 00be FFF7FEFF 		bl	motor_start
  159              	.LVL23:
  160 00c2 04E0     		b	.L4
  161              	.LVL24:
  162              	.L3:
-  84:main.c        ****             } else if (kmk == 2) /* Third black line = GOAL */ {
- 163              		.loc 1 84 0
+  86:main.c        ****             } else if (kmk == 2) /* Third black line = GOAL */ {
+ 163              		.loc 1 86 0
  164 00c4 B9F1020F 		cmp	r9, #2
  165 00c8 01D1     		bne	.L4
-  85:main.c        ****                 motor_stop();
- 166              		.loc 1 85 0
+  87:main.c        ****                 motor_stop();
+ 166              		.loc 1 87 0
  167 00ca FFF7FEFF 		bl	motor_stop
  168              	.LVL25:
  169              	.L4:
-  86:main.c        ****             }
-  87:main.c        ****             
-  88:main.c        ****             // Do these at every line
-  89:main.c        ****             kmk++;
- 170              		.loc 1 89 0
+  88:main.c        ****             }
+  89:main.c        ****             
+  90:main.c        ****             // Do these at every line
+  91:main.c        ****             kmk++;
+ 170              		.loc 1 91 0
  171 00ce 09F10109 		add	r9, r9, #1
  172              	.LVL26:
-  90:main.c        ****             CyDelay(100);
- 173              		.loc 1 90 0
+  92:main.c        ****             CyDelay(100);
+ 173              		.loc 1 92 0
  174 00d2 6420     		movs	r0, #100
  175 00d4 FFF7FEFF 		bl	CyDelay
  176              	.LVL27:
-  91:main.c        ****             motor_turn(leftMotor, rightMotor, 0);
- 177              		.loc 1 91 0
+  93:main.c        ****             motor_turn(leftMotor, rightMotor, 0);
+ 177              		.loc 1 93 0
  178 00d8 E8B2     		uxtb	r0, r5
  179 00da E1B2     		uxtb	r1, r4
  180 00dc 0022     		movs	r2, #0
  181 00de FFF7FEFF 		bl	motor_turn
  182              	.LVL28:
  183              	.L2:
-  92:main.c        ****             
-  93:main.c        ****         }
-  94:main.c        ****     
-  95:main.c        **** 
-  96:main.c        **** //------[3. HARD TURN]-----------------------------------------------------------------------------
-  97:main.c        **** /*
-  98:main.c        ****         If the robot drives away from the track,
-  99:main.c        ****         this figures out that from which side the robot has driven out and then drives back.
- 100:main.c        **** */    
- 101:main.c        ****         if (rightMotor < 80 && leftMotor < 80) {
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 6
+  94:main.c        ****             
+  95:main.c        ****         }
+  96:main.c        ****     
+  97:main.c        **** 
+  98:main.c        **** //------[3. HARD TURN]-----------------------------------------------------------------------------
+  99:main.c        **** /*
+ 100:main.c        ****         If the robot drives away from the track,
+ 101:main.c        ****         this figures out that from which side the robot has driven out and then drives back.
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 6
 
 
- 184              		.loc 1 101 0
+ 102:main.c        **** */    
+ 103:main.c        ****         if (rightMotor < 80 && leftMotor < 80) {
+ 184              		.loc 1 103 0
  185 00e2 4F2C     		cmp	r4, #79
  186 00e4 06DC     		bgt	.L5
- 187              		.loc 1 101 0 is_stmt 0 discriminator 1
+ 187              		.loc 1 103 0 is_stmt 0 discriminator 1
  188 00e6 4F2D     		cmp	r5, #79
  189 00e8 04DC     		bgt	.L5
- 102:main.c        ****             if (whichmotor == 1) {
- 190              		.loc 1 102 0 is_stmt 1
+ 104:main.c        ****             if (whichmotor == 1) {
+ 190              		.loc 1 104 0 is_stmt 1
  191 00ea B8F1010F 		cmp	r8, #1
  192 00ee 06D1     		bne	.L13
- 103:main.c        ****                 leftMotor = 255;
- 193              		.loc 1 103 0
+ 105:main.c        ****                 leftMotor = 255;
+ 193              		.loc 1 105 0
  194 00f0 FF25     		movs	r5, #255
  195              	.LVL29:
  196 00f2 0BE0     		b	.L6
  197              	.LVL30:
  198              	.L5:
- 104:main.c        ****             } else {
- 105:main.c        ****                 rightMotor = 255;
- 106:main.c        ****             }
- 107:main.c        ****         } else if (leftMotor < 80) {
- 199              		.loc 1 107 0
+ 106:main.c        ****             } else {
+ 107:main.c        ****                 rightMotor = 255;
+ 108:main.c        ****             }
+ 109:main.c        ****         } else if (leftMotor < 80) {
+ 199              		.loc 1 109 0
  200 00f4 4F2D     		cmp	r5, #79
  201 00f6 04DD     		ble	.L14
- 108:main.c        ****             whichmotor = 2; // right
- 109:main.c        ****         } else if (rightMotor < 80) {
- 202              		.loc 1 109 0
+ 110:main.c        ****             whichmotor = 2; // right
+ 111:main.c        ****         } else if (rightMotor < 80) {
+ 202              		.loc 1 111 0
  203 00f8 4F2C     		cmp	r4, #79
  204 00fa 05DD     		ble	.L15
  205 00fc 06E0     		b	.L6
  206              	.L13:
- 105:main.c        ****             }
- 207              		.loc 1 105 0
+ 107:main.c        ****             }
+ 207              		.loc 1 107 0
  208 00fe FF24     		movs	r4, #255
  209              	.LVL31:
  210 0100 04E0     		b	.L6
  211              	.LVL32:
  212              	.L14:
- 108:main.c        ****             whichmotor = 2; // right
- 213              		.loc 1 108 0
+ 110:main.c        ****             whichmotor = 2; // right
+ 213              		.loc 1 110 0
  214 0102 4FF00208 		mov	r8, #2
  215              	.LVL33:
  216 0106 01E0     		b	.L6
  217              	.LVL34:
  218              	.L15:
- 110:main.c        ****             whichmotor = 1; // left
- 219              		.loc 1 110 0
+ 112:main.c        ****             whichmotor = 1; // left
+ 219              		.loc 1 112 0
  220 0108 4FF00108 		mov	r8, #1
  221              	.LVL35:
  222              	.L6:
- 111:main.c        ****         }
- 112:main.c        ****         
- 113:main.c        **** //------[4. ASSISTIVE IF STATEMENTS]---------------------------------------------------------------
+ 113:main.c        ****         }
  114:main.c        ****         
- 115:main.c        ****         // If motors get a same speed, go full speed. This makes the robot faster and makes the acc
- 116:main.c        ****         if (leftMotor == rightMotor) {
- 223              		.loc 1 116 0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 7
+ 115:main.c        **** //------[4. ASSISTIVE IF STATEMENTS]---------------------------------------------------------------
+ 116:main.c        ****         
+ 117:main.c        ****         // If motors get a same speed, go full speed. This makes the robot faster and makes the acc
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 7
 
 
+ 118:main.c        ****         if (leftMotor == rightMotor) {
+ 223              		.loc 1 118 0
  224 010c A542     		cmp	r5, r4
  225 010e 01D1     		bne	.L7
- 117:main.c        ****             leftMotor = 255;
- 118:main.c        ****             rightMotor = 255;
- 226              		.loc 1 118 0
+ 119:main.c        ****             leftMotor = 255;
+ 120:main.c        ****             rightMotor = 255;
+ 226              		.loc 1 120 0
  227 0110 FF24     		movs	r4, #255
  228              	.LVL36:
- 117:main.c        ****             leftMotor = 255;
- 229              		.loc 1 117 0
+ 119:main.c        ****             leftMotor = 255;
+ 229              		.loc 1 119 0
  230 0112 2546     		mov	r5, r4
  231              	.LVL37:
  232              	.L7:
- 119:main.c        ****         }
- 120:main.c        ****         
- 121:main.c        ****         // Motor speed can't exceed 255. Ensures the stability of the motor
- 122:main.c        ****         if (leftMotor > 100) {
- 233              		.loc 1 122 0
+ 121:main.c        ****         }
+ 122:main.c        ****         
+ 123:main.c        ****         // Motor speed can't exceed 255. Ensures the stability of the motor
+ 124:main.c        ****         if (leftMotor > 100) {
+ 233              		.loc 1 124 0
  234 0114 642D     		cmp	r5, #100
  235 0116 00DD     		ble	.L8
- 123:main.c        ****             leftMotor = 255;
- 236              		.loc 1 123 0
+ 125:main.c        ****             leftMotor = 255;
+ 236              		.loc 1 125 0
  237 0118 FF25     		movs	r5, #255
  238              	.LVL38:
  239              	.L8:
- 124:main.c        ****         }
- 125:main.c        ****         
- 126:main.c        ****         if (rightMotor > 100) {
- 240              		.loc 1 126 0
+ 126:main.c        ****         }
+ 127:main.c        ****         
+ 128:main.c        ****         if (rightMotor > 100) {
+ 240              		.loc 1 128 0
  241 011a 642C     		cmp	r4, #100
  242 011c 00DD     		ble	.L9
- 127:main.c        ****             rightMotor = 255;
- 243              		.loc 1 127 0
+ 129:main.c        ****             rightMotor = 255;
+ 243              		.loc 1 129 0
  244 011e FF24     		movs	r4, #255
  245              	.LVL39:
  246              	.L9:
- 128:main.c        ****         }
- 129:main.c        ****         
- 130:main.c        ****         
- 131:main.c        ****         // Motor speed can't go lower than 1. Ensures the stability of the motor
- 132:main.c        ****         if (rightMotor <= 1) {
- 247              		.loc 1 132 0
+ 130:main.c        ****         }
+ 131:main.c        ****         
+ 132:main.c        ****         
+ 133:main.c        ****         // Motor speed can't go lower than 1. Ensures the stability of the motor
+ 134:main.c        ****         if (rightMotor <= 1) {
+ 247              		.loc 1 134 0
  248 0120 012C     		cmp	r4, #1
  249 0122 00DC     		bgt	.L10
- 133:main.c        ****             rightMotor = 1;
- 250              		.loc 1 133 0
+ 135:main.c        ****             rightMotor = 1;
+ 250              		.loc 1 135 0
  251 0124 0124     		movs	r4, #1
  252              	.LVL40:
  253              	.L10:
- 134:main.c        ****         }
- 135:main.c        ****         
- 136:main.c        ****         if (leftMotor <= 1) {
- 254              		.loc 1 136 0
+ 136:main.c        ****         }
+ 137:main.c        ****         
+ 138:main.c        ****         if (leftMotor <= 1) {
+ 254              		.loc 1 138 0
  255 0126 012D     		cmp	r5, #1
  256 0128 00DC     		bgt	.L11
- 137:main.c        ****             leftMotor = 1;
- 257              		.loc 1 137 0
+ 139:main.c        ****             leftMotor = 1;
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 8
+
+
+ 257              		.loc 1 139 0
  258 012a 0125     		movs	r5, #1
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 8
-
-
  259              	.LVL41:
  260              	.L11:
- 138:main.c        ****         }
- 139:main.c        ****         
- 140:main.c        **** //------[5. DRIVE]---------------------------------------------------------------------------------
+ 140:main.c        ****         }
  141:main.c        ****         
- 142:main.c        ****         motor_turn(leftMotor, rightMotor, 0);
- 261              		.loc 1 142 0
+ 142:main.c        **** //------[5. DRIVE]---------------------------------------------------------------------------------
+ 143:main.c        ****         
+ 144:main.c        ****         motor_turn(leftMotor, rightMotor, 0);
+ 261              		.loc 1 144 0
  262 012c E8B2     		uxtb	r0, r5
  263 012e E1B2     		uxtb	r1, r4
  264 0130 0022     		movs	r2, #0
  265 0132 FFF7FEFF 		bl	motor_turn
  266              	.LVL42:
  267              	.LBE2:
- 143:main.c        **** 
- 144:main.c        ****     }
- 268              		.loc 1 144 0
+ 145:main.c        ****         
+ 146:main.c        **** //------[6. BATTERY CHECK]-------------------------------------------------------------------------
+ 147:main.c        ****      
+ 148:main.c        ****         /*
+ 149:main.c        ****         if(batteryCheckCounter == 1000) {
+ 150:main.c        ****             
+ 151:main.c        ****             ADC_Battery_StartConvert();
+ 152:main.c        ****             if(ADC_Battery_IsEndConversion(ADC_Battery_WAIT_FOR_RESULT)) {
+ 153:main.c        ****             
+ 154:main.c        ****                 float adcResult = ADC_Battery_GetResult16();
+ 155:main.c        ****                 float valueAD = ((float)adcResult/4095);
+ 156:main.c        ****                 float voltage = valueAD * 7.5;
+ 157:main.c        ****                 
+ 158:main.c        ****                 printf("%f %.02f\r\n", adcResult, voltage);
+ 159:main.c        ****                 
+ 160:main.c        ****                 //Checks voltage. If too low, the programm shuts down
+ 161:main.c        ****                 if(voltage <= 4.0) {
+ 162:main.c        ****                 
+ 163:main.c        ****                     motor_stop();
+ 164:main.c        ****                     
+ 165:main.c        ****                     printf("******* LOW VOLTAGE ******\n");
+ 166:main.c        ****                     
+ 167:main.c        ****                     for(;;) {
+ 168:main.c        ****                     
+ 169:main.c        ****                         BatteryLed_Write(1);
+ 170:main.c        ****                         CyDelay(500);
+ 171:main.c        ****                         BatteryLed_Write(0);
+ 172:main.c        ****                         CyDelay(500);
+ 173:main.c        ****                         
+ 174:main.c        ****                     }
+ 175:main.c        ****                 }
+ 176:main.c        ****             }
+ 177:main.c        ****           batteryCheckCounter = 0;  
+ 178:main.c        ****         }
+ 179:main.c        **** 
+ 180:main.c        **** 
+ 181:main.c        ****     batteryCheckCounter++;
+ 182:main.c        **** */
+ 183:main.c        ****     }
+ 268              		.loc 1 183 0
  269 0136 76E7     		b	.L12
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 9
+
+
  270              	.L23:
  271              		.align	3
  272              	.L22:
@@ -458,47 +500,47 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  286              		.type	_write, %function
  287              	_write:
  288              	.LFB64:
- 145:main.c        **** }   
- 146:main.c        **** 
- 147:main.c        **** 
- 148:main.c        **** 
- 149:main.c        **** 
- 150:main.c        **** 
- 151:main.c        **** 
- 152:main.c        **** #if 0
- 153:main.c        **** int rread(void)
- 154:main.c        **** {
- 155:main.c        ****     SC0_SetDriveMode(PIN_DM_STRONG);
- 156:main.c        ****     SC0_Write(1);
- 157:main.c        ****     CyDelayUs(10);
- 158:main.c        ****     SC0_SetDriveMode(PIN_DM_DIG_HIZ);
- 159:main.c        ****     Timer_1_Start();
- 160:main.c        ****     uint16_t start = Timer_1_ReadCounter();
- 161:main.c        ****     uint16_t end = 0;
- 162:main.c        ****     while(!(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC)) {
- 163:main.c        ****         if(SC0_Read() == 0 && end == 0) {
- 164:main.c        ****             end = Timer_1_ReadCounter();
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 9
-
-
- 165:main.c        ****         }
- 166:main.c        ****     }
- 167:main.c        ****     Timer_1_Stop();
- 168:main.c        ****     
- 169:main.c        ****     return (start - end);
- 170:main.c        **** }
- 171:main.c        **** #endif
- 172:main.c        **** 
- 173:main.c        **** /* Don't remove the functions below */
- 174:main.c        **** int _write(int file, char *ptr, int len)
- 175:main.c        **** {
- 289              		.loc 1 175 0
+ 184:main.c        **** }   
+ 185:main.c        **** 
+ 186:main.c        **** 
+ 187:main.c        **** 
+ 188:main.c        **** 
+ 189:main.c        **** 
+ 190:main.c        **** 
+ 191:main.c        **** #if 0
+ 192:main.c        **** int rread(void)
+ 193:main.c        **** {
+ 194:main.c        ****     SC0_SetDriveMode(PIN_DM_STRONG);
+ 195:main.c        ****     SC0_Write(1);
+ 196:main.c        ****     CyDelayUs(10);
+ 197:main.c        ****     SC0_SetDriveMode(PIN_DM_DIG_HIZ);
+ 198:main.c        ****     Timer_1_Start();
+ 199:main.c        ****     uint16_t start = Timer_1_ReadCounter();
+ 200:main.c        ****     uint16_t end = 0;
+ 201:main.c        ****     while(!(Timer_1_ReadStatusRegister() & Timer_1_STATUS_TC)) {
+ 202:main.c        ****         if(SC0_Read() == 0 && end == 0) {
+ 203:main.c        ****             end = Timer_1_ReadCounter();
+ 204:main.c        ****         }
+ 205:main.c        ****     }
+ 206:main.c        ****     Timer_1_Stop();
+ 207:main.c        ****     
+ 208:main.c        ****     return (start - end);
+ 209:main.c        **** }
+ 210:main.c        **** #endif
+ 211:main.c        **** 
+ 212:main.c        **** /* Don't remove the functions below */
+ 213:main.c        **** int _write(int file, char *ptr, int len)
+ 214:main.c        **** {
+ 289              		.loc 1 214 0
  290              		.cfi_startproc
  291              		@ args = 0, pretend = 0, frame = 0
  292              		@ frame_needed = 0, uses_anonymous_args = 0
  293              	.LVL43:
  294 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
  295              		.cfi_def_cfa_offset 24
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 10
+
+
  296              		.cfi_offset 3, -24
  297              		.cfi_offset 4, -20
  298              		.cfi_offset 5, -16
@@ -508,50 +550,47 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  302 0002 0C46     		mov	r4, r1
  303 0004 1746     		mov	r7, r2
  304              	.LVL44:
- 176:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
- 177:main.c        **** 	int n;
- 178:main.c        **** 	for(n = 0; n < len; n++) {
- 305              		.loc 1 178 0
+ 215:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+ 216:main.c        **** 	int n;
+ 217:main.c        **** 	for(n = 0; n < len; n++) {
+ 305              		.loc 1 217 0
  306 0006 0025     		movs	r5, #0
  307 0008 0BE0     		b	.L25
  308              	.LVL45:
  309              	.L27:
- 179:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
- 310              		.loc 1 179 0
+ 218:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 310              		.loc 1 218 0
  311 000a 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
  312 000c 0A2B     		cmp	r3, #10
  313 000e 02D1     		bne	.L26
- 314              		.loc 1 179 0 is_stmt 0 discriminator 1
+ 314              		.loc 1 218 0 is_stmt 0 discriminator 1
  315 0010 0D20     		movs	r0, #13
  316 0012 FFF7FEFF 		bl	UART_1_PutChar
  317              	.LVL46:
  318              	.L26:
- 180:main.c        **** 		UART_1_PutChar(*ptr++);
- 319              		.loc 1 180 0 is_stmt 1 discriminator 2
+ 219:main.c        **** 		UART_1_PutChar(*ptr++);
+ 319              		.loc 1 219 0 is_stmt 1 discriminator 2
  320 0016 661C     		adds	r6, r4, #1
  321              	.LVL47:
  322 0018 2078     		ldrb	r0, [r4]	@ zero_extendqisi2
  323 001a FFF7FEFF 		bl	UART_1_PutChar
  324              	.LVL48:
- 178:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
- 325              		.loc 1 178 0 discriminator 2
+ 217:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 325              		.loc 1 217 0 discriminator 2
  326 001e 0135     		adds	r5, r5, #1
  327              	.LVL49:
- 328              		.loc 1 180 0 discriminator 2
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 10
-
-
+ 328              		.loc 1 219 0 discriminator 2
  329 0020 3446     		mov	r4, r6
  330              	.LVL50:
  331              	.L25:
- 178:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
- 332              		.loc 1 178 0 discriminator 1
+ 217:main.c        ****         if(*ptr == '\n') UART_1_PutChar('\r');
+ 332              		.loc 1 217 0 discriminator 1
  333 0022 BD42     		cmp	r5, r7
  334 0024 F1DB     		blt	.L27
- 181:main.c        **** 	}
- 182:main.c        **** 	return len;
- 183:main.c        **** }
- 335              		.loc 1 183 0
+ 220:main.c        **** 	}
+ 221:main.c        **** 	return len;
+ 222:main.c        **** }
+ 335              		.loc 1 222 0
  336 0026 3846     		mov	r0, r7
  337 0028 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  338              		.cfi_endproc
@@ -559,16 +598,19 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  340              		.size	_write, .-_write
  341 002a 00BF     		.section	.text._read,"ax",%progbits
  342              		.align	2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 11
+
+
  343              		.global	_read
  344              		.thumb
  345              		.thumb_func
  346              		.type	_read, %function
  347              	_read:
  348              	.LFB65:
- 184:main.c        **** 
- 185:main.c        **** int _read (int file, char *ptr, int count)
- 186:main.c        **** {
- 349              		.loc 1 186 0
+ 223:main.c        **** 
+ 224:main.c        **** int _read (int file, char *ptr, int count)
+ 225:main.c        **** {
+ 349              		.loc 1 225 0
  350              		.cfi_startproc
  351              		@ args = 0, pretend = 0, frame = 0
  352              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -584,85 +626,82 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  362 0002 0F46     		mov	r7, r1
  363 0004 1446     		mov	r4, r2
  364              	.LVL52:
- 187:main.c        ****     int chs = 0;
- 365              		.loc 1 187 0
+ 226:main.c        ****     int chs = 0;
+ 365              		.loc 1 226 0
  366 0006 0026     		movs	r6, #0
- 188:main.c        ****     char ch;
- 189:main.c        ****  
- 190:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
- 191:main.c        ****     while(count > 0) {
- 367              		.loc 1 191 0
+ 227:main.c        ****     char ch;
+ 228:main.c        ****  
+ 229:main.c        ****     (void)file; /* Parameter is not used, suppress unused argument warning */
+ 230:main.c        ****     while(count > 0) {
+ 367              		.loc 1 230 0
  368 0008 12E0     		b	.L31
  369              	.LVL53:
  370              	.L34:
- 192:main.c        ****         ch = UART_1_GetChar();
- 371              		.loc 1 192 0
+ 231:main.c        ****         ch = UART_1_GetChar();
+ 371              		.loc 1 231 0
  372 000a FFF7FEFF 		bl	UART_1_GetChar
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 11
-
-
  373              	.LVL54:
- 193:main.c        ****         if(ch != 0) {
- 374              		.loc 1 193 0
+ 232:main.c        ****         if(ch != 0) {
+ 374              		.loc 1 232 0
  375 000e 0546     		mov	r5, r0
  376 0010 70B1     		cbz	r0, .L31
- 194:main.c        ****             UART_1_PutChar(ch);
- 377              		.loc 1 194 0
+ 233:main.c        ****             UART_1_PutChar(ch);
+ 377              		.loc 1 233 0
  378 0012 FFF7FEFF 		bl	UART_1_PutChar
  379              	.LVL55:
- 195:main.c        ****             chs++;
- 380              		.loc 1 195 0
+ 234:main.c        ****             chs++;
+ 380              		.loc 1 234 0
  381 0016 0136     		adds	r6, r6, #1
  382              	.LVL56:
- 196:main.c        ****             if(ch == '\r') {
- 383              		.loc 1 196 0
+ 235:main.c        ****             if(ch == '\r') {
+ 383              		.loc 1 235 0
  384 0018 0D2D     		cmp	r5, #13
  385 001a 03D1     		bne	.L32
  386              	.LVL57:
- 197:main.c        ****                 ch = '\n';
- 198:main.c        ****                 UART_1_PutChar(ch);
- 387              		.loc 1 198 0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 12
+
+
+ 236:main.c        ****                 ch = '\n';
+ 237:main.c        ****                 UART_1_PutChar(ch);
+ 387              		.loc 1 237 0
  388 001c 0A20     		movs	r0, #10
  389 001e FFF7FEFF 		bl	UART_1_PutChar
  390              	.LVL58:
- 197:main.c        ****                 ch = '\n';
- 391              		.loc 1 197 0
+ 236:main.c        ****                 ch = '\n';
+ 391              		.loc 1 236 0
  392 0022 0A25     		movs	r5, #10
  393              	.LVL59:
  394              	.L32:
- 199:main.c        ****             }
- 200:main.c        ****             *ptr++ = ch;
- 395              		.loc 1 200 0
+ 238:main.c        ****             }
+ 239:main.c        ****             *ptr++ = ch;
+ 395              		.loc 1 239 0
  396 0024 7B1C     		adds	r3, r7, #1
  397              	.LVL60:
  398 0026 3D70     		strb	r5, [r7]
- 201:main.c        ****             count--;
- 399              		.loc 1 201 0
+ 240:main.c        ****             count--;
+ 399              		.loc 1 240 0
  400 0028 013C     		subs	r4, r4, #1
  401              	.LVL61:
- 202:main.c        ****             if(ch == '\n') break;
- 402              		.loc 1 202 0
+ 241:main.c        ****             if(ch == '\n') break;
+ 402              		.loc 1 241 0
  403 002a 0A2D     		cmp	r5, #10
  404 002c 02D0     		beq	.L33
- 200:main.c        ****             count--;
- 405              		.loc 1 200 0
+ 239:main.c        ****             count--;
+ 405              		.loc 1 239 0
  406 002e 1F46     		mov	r7, r3
  407              	.LVL62:
  408              	.L31:
- 191:main.c        ****         ch = UART_1_GetChar();
- 409              		.loc 1 191 0
+ 230:main.c        ****         ch = UART_1_GetChar();
+ 409              		.loc 1 230 0
  410 0030 002C     		cmp	r4, #0
  411 0032 EADC     		bgt	.L34
  412              	.LVL63:
  413              	.L33:
- 203:main.c        ****         }
- 204:main.c        ****     }
- 205:main.c        ****     return chs;
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 12
-
-
- 206:main.c        **** }
- 414              		.loc 1 206 0
+ 242:main.c        ****         }
+ 243:main.c        ****     }
+ 244:main.c        ****     return chs;
+ 245:main.c        **** }
+ 414              		.loc 1 245 0
  415 0034 3046     		mov	r0, r6
  416 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  417              		.cfi_endproc
@@ -679,6 +718,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  424 001f 00       		.space	1
  425              	.LC1:
  426 0020 4B4D4B20 		.ascii	"KMK ACTIVATED\000"
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 13
+
+
  426      41435449 
  426      56415445 
  426      4400
@@ -718,9 +760,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  460 002c 02       		.uleb128 0x2
  461 002d 01       		.byte	0x1
  462 002e 08       		.byte	0x8
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 13
-
-
  463 002f 3B010000 		.4byte	.LASF1
  464 0033 02       		.uleb128 0x2
  465 0034 02       		.byte	0x2
@@ -739,6 +778,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  478 004d CC020000 		.4byte	.LASF5
  479 0051 02       		.byte	0x2
  480 0052 3F       		.byte	0x3f
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 14
+
+
  481 0053 57000000 		.4byte	0x57
  482 0057 02       		.uleb128 0x2
  483 0058 04       		.byte	0x4
@@ -778,9 +820,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  517 0098 7A000000 		.4byte	.LASF13
  518 009c 04       		.byte	0x4
  519 009d 9201     		.2byte	0x192
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 14
-
-
  520 009f 2C000000 		.4byte	0x2c
  521 00a3 05       		.uleb128 0x5
  522 00a4 77020000 		.4byte	.LASF14
@@ -799,6 +838,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  535 00be 01       		.byte	0x1
  536 00bf 08       		.byte	0x8
  537 00c0 DC010000 		.4byte	.LASF17
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 15
+
+
  538 00c4 05       		.uleb128 0x5
  539 00c5 60010000 		.4byte	.LASF18
  540 00c9 04       		.byte	0x4
@@ -838,9 +880,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  574 010b 14       		.byte	0x14
  575 010c 81000000 		.4byte	0x81
  576 0110 02       		.byte	0x2
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 15
-
-
  577 0111 0A       		.uleb128 0xa
  578 0112 723100   		.ascii	"r1\000"
  579 0115 05       		.byte	0x5
@@ -859,6 +898,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  592 012a 04       		.byte	0x4
  593 012b 49010000 		.4byte	.LASF20
  594 012f 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 16
+
+
  595 0130 4A000000 		.4byte	.LASF48
  596 0134 01       		.byte	0x1
  597 0135 18       		.byte	0x18
@@ -898,27 +940,27 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  631 017e 2A000000 		.4byte	.LLST1
  632 0182 0F       		.uleb128 0xf
  633 0183 26000000 		.4byte	.LBB2
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 16
-
-
  634 0187 10010000 		.4byte	.LBE2-.LBB2
  635 018b B5020000 		.4byte	0x2b5
  636 018f 0D       		.uleb128 0xd
  637 0190 43000000 		.4byte	.LASF22
  638 0194 01       		.byte	0x1
- 639 0195 3B       		.byte	0x3b
+ 639 0195 3F       		.byte	0x3f
  640 0196 B6000000 		.4byte	0xb6
  641 019a 49000000 		.4byte	.LLST2
  642 019e 0D       		.uleb128 0xd
  643 019f 3C000000 		.4byte	.LASF23
  644 01a3 01       		.byte	0x1
- 645 01a4 3C       		.byte	0x3c
+ 645 01a4 40       		.byte	0x40
  646 01a5 B6000000 		.4byte	0xb6
  647 01a9 61000000 		.4byte	.LLST3
  648 01ad 10       		.uleb128 0x10
  649 01ae 13010000 		.4byte	.LASF24
  650 01b2 01       		.byte	0x1
- 651 01b3 3D       		.byte	0x3d
+ 651 01b3 41       		.byte	0x41
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 17
+
+
  652 01b4 B6000000 		.4byte	0xb6
  653 01b8 06       		.uleb128 0x6
  654 01b9 56       		.byte	0x56
@@ -930,19 +972,19 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  660 01bf 0D       		.uleb128 0xd
  661 01c0 BC010000 		.4byte	.LASF25
  662 01c4 01       		.byte	0x1
- 663 01c5 3E       		.byte	0x3e
+ 663 01c5 42       		.byte	0x42
  664 01c6 B6000000 		.4byte	0xb6
  665 01ca 79000000 		.4byte	.LLST4
  666 01ce 0D       		.uleb128 0xd
  667 01cf 31010000 		.4byte	.LASF26
  668 01d3 01       		.byte	0x1
- 669 01d4 41       		.byte	0x41
+ 669 01d4 45       		.byte	0x45
  670 01d5 73000000 		.4byte	0x73
  671 01d9 91000000 		.4byte	.LLST5
  672 01dd 0D       		.uleb128 0xd
  673 01de 6F000000 		.4byte	.LASF27
  674 01e2 01       		.byte	0x1
- 675 01e3 42       		.byte	0x42
+ 675 01e3 46       		.byte	0x46
  676 01e4 73000000 		.4byte	0x73
  677 01e8 BA000000 		.4byte	.LLST6
  678 01ec 11       		.uleb128 0x11
@@ -958,9 +1000,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  688 01ff 00       		.byte	0
  689 0200 11       		.uleb128 0x11
  690 0201 32000000 		.4byte	.LVL7
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 17
-
-
  691 0205 11040000 		.4byte	0x411
  692 0209 14020000 		.4byte	0x214
  693 020d 12       		.uleb128 0x12
@@ -979,6 +1018,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  706 0223 50       		.byte	0x50
  707 0224 05       		.uleb128 0x5
  708 0225 03       		.byte	0x3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 18
+
+
  709 0226 00000000 		.4byte	.LC0
  710 022a 00       		.byte	0
  711 022b 13       		.uleb128 0x13
@@ -1018,9 +1060,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  745 027a 11       		.uleb128 0x11
  746 027b E2000000 		.4byte	.LVL28
  747 027f 89040000 		.4byte	0x489
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 18
-
-
  748 0283 99020000 		.4byte	0x299
  749 0287 12       		.uleb128 0x12
  750 0288 01       		.uleb128 0x1
@@ -1039,6 +1078,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  763 0295 02       		.uleb128 0x2
  764 0296 75       		.byte	0x75
  765 0297 00       		.sleb128 0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 19
+
+
  766 0298 00       		.byte	0
  767 0299 14       		.uleb128 0x14
  768 029a 36010000 		.4byte	.LVL42
@@ -1078,9 +1120,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  802 02da 20000000 		.4byte	.LVL4
  803 02de C3040000 		.4byte	0x4c3
  804 02e2 12       		.uleb128 0x12
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 19
-
-
  805 02e3 01       		.uleb128 0x1
  806 02e4 50       		.byte	0x50
  807 02e5 01       		.uleb128 0x1
@@ -1090,7 +1129,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  811 02e9 15       		.uleb128 0x15
  812 02ea 4F000000 		.4byte	.LASF29
  813 02ee 01       		.byte	0x1
- 814 02ef AE       		.byte	0xae
+ 814 02ef D5       		.byte	0xd5
  815 02f0 73000000 		.4byte	0x73
  816 02f4 00000000 		.4byte	.LFB64
  817 02f8 2A000000 		.4byte	.LFE64-.LFB64
@@ -1099,26 +1138,29 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  820 02fe 59030000 		.4byte	0x359
  821 0302 16       		.uleb128 0x16
  822 0303 61000000 		.4byte	.LASF28
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 20
+
+
  823 0307 01       		.byte	0x1
- 824 0308 AE       		.byte	0xae
+ 824 0308 D5       		.byte	0xd5
  825 0309 73000000 		.4byte	0x73
  826 030d 04010000 		.4byte	.LLST7
  827 0311 17       		.uleb128 0x17
  828 0312 70747200 		.ascii	"ptr\000"
  829 0316 01       		.byte	0x1
- 830 0317 AE       		.byte	0xae
+ 830 0317 D5       		.byte	0xd5
  831 0318 DE000000 		.4byte	0xde
  832 031c 25010000 		.4byte	.LLST8
  833 0320 17       		.uleb128 0x17
  834 0321 6C656E00 		.ascii	"len\000"
  835 0325 01       		.byte	0x1
- 836 0326 AE       		.byte	0xae
+ 836 0326 D5       		.byte	0xd5
  837 0327 73000000 		.4byte	0x73
  838 032b 59010000 		.4byte	.LLST9
  839 032f 0E       		.uleb128 0xe
  840 0330 6E00     		.ascii	"n\000"
  841 0332 01       		.byte	0x1
- 842 0333 B1       		.byte	0xb1
+ 842 0333 D8       		.byte	0xd8
  843 0334 73000000 		.4byte	0x73
  844 0338 77010000 		.4byte	.LLST10
  845 033c 11       		.uleb128 0x11
@@ -1138,10 +1180,7 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  859 0359 15       		.uleb128 0x15
  860 035a 78010000 		.4byte	.LASF30
  861 035e 01       		.byte	0x1
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 20
-
-
- 862 035f B9       		.byte	0xb9
+ 862 035f E0       		.byte	0xe0
  863 0360 73000000 		.4byte	0x73
  864 0364 00000000 		.4byte	.LFB65
  865 0368 38000000 		.4byte	.LFE65-.LFB65
@@ -1151,31 +1190,34 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  869 0372 16       		.uleb128 0x16
  870 0373 61000000 		.4byte	.LASF28
  871 0377 01       		.byte	0x1
- 872 0378 B9       		.byte	0xb9
+ 872 0378 E0       		.byte	0xe0
  873 0379 73000000 		.4byte	0x73
  874 037d 96010000 		.4byte	.LLST11
  875 0381 17       		.uleb128 0x17
  876 0382 70747200 		.ascii	"ptr\000"
  877 0386 01       		.byte	0x1
- 878 0387 B9       		.byte	0xb9
+ 878 0387 E0       		.byte	0xe0
  879 0388 DE000000 		.4byte	0xde
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 21
+
+
  880 038c B7010000 		.4byte	.LLST12
  881 0390 16       		.uleb128 0x16
  882 0391 C6020000 		.4byte	.LASF31
  883 0395 01       		.byte	0x1
- 884 0396 B9       		.byte	0xb9
+ 884 0396 E0       		.byte	0xe0
  885 0397 73000000 		.4byte	0x73
  886 039b EB010000 		.4byte	.LLST13
  887 039f 0E       		.uleb128 0xe
  888 03a0 63687300 		.ascii	"chs\000"
  889 03a4 01       		.byte	0x1
- 890 03a5 BB       		.byte	0xbb
+ 890 03a5 E2       		.byte	0xe2
  891 03a6 73000000 		.4byte	0x73
  892 03aa 09020000 		.4byte	.LLST14
  893 03ae 0E       		.uleb128 0xe
  894 03af 636800   		.ascii	"ch\000"
  895 03b2 01       		.byte	0x1
- 896 03b3 BC       		.byte	0xbc
+ 896 03b3 E3       		.byte	0xe3
  897 03b4 BD000000 		.4byte	0xbd
  898 03b8 28020000 		.4byte	.LLST15
  899 03bc 13       		.uleb128 0x13
@@ -1198,9 +1240,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  916 03e2 12       		.uleb128 0x12
  917 03e3 01       		.uleb128 0x1
  918 03e4 50       		.byte	0x50
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 21
-
-
  919 03e5 01       		.uleb128 0x1
  920 03e6 3A       		.byte	0x3a
  921 03e7 00       		.byte	0
@@ -1219,6 +1258,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  934 0401 0B040000 		.4byte	0x40b
  935 0405 1B       		.uleb128 0x1b
  936 0406 0B040000 		.4byte	0x40b
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 22
+
+
  937 040a 00       		.byte	0
  938 040b 06       		.uleb128 0x6
  939 040c 04       		.byte	0x4
@@ -1258,9 +1300,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  973 0458 1B       		.uleb128 0x1b
  974 0459 E4000000 		.4byte	0xe4
  975 045d 00       		.byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 22
-
-
  976 045e 1E       		.uleb128 0x1e
  977 045f B6020000 		.4byte	.LASF35
  978 0463 07       		.byte	0x7
@@ -1279,6 +1318,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  991 0479 FB020000 		.4byte	.LASF37
  992 047d 08       		.byte	0x8
  993 047e 76       		.byte	0x76
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 23
+
+
  994 047f 89040000 		.4byte	0x489
  995 0483 1B       		.uleb128 0x1b
  996 0484 A3000000 		.4byte	0xa3
@@ -1318,9 +1360,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1030 04ca D4040000 		.4byte	0x4d4
  1031 04ce 1B       		.uleb128 0x1b
  1032 04cf 97000000 		.4byte	0x97
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 23
-
-
  1033 04d3 00       		.byte	0
  1034 04d4 1A       		.uleb128 0x1a
  1035 04d5 9F000000 		.4byte	.LASF43
@@ -1339,6 +1378,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1048              		.section	.debug_abbrev,"",%progbits
  1049              	.Ldebug_abbrev0:
  1050 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 24
+
+
  1051 0001 11       		.uleb128 0x11
  1052 0002 01       		.byte	0x1
  1053 0003 25       		.uleb128 0x25
@@ -1378,9 +1420,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1087 0025 3B       		.uleb128 0x3b
  1088 0026 0B       		.uleb128 0xb
  1089 0027 49       		.uleb128 0x49
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 24
-
-
  1090 0028 13       		.uleb128 0x13
  1091 0029 00       		.byte	0
  1092 002a 00       		.byte	0
@@ -1399,6 +1438,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1105 0037 16       		.uleb128 0x16
  1106 0038 00       		.byte	0
  1107 0039 03       		.uleb128 0x3
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 25
+
+
  1108 003a 0E       		.uleb128 0xe
  1109 003b 3A       		.uleb128 0x3a
  1110 003c 0B       		.uleb128 0xb
@@ -1438,9 +1480,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1144 005e 0E       		.uleb128 0xe
  1145 005f 0B       		.uleb128 0xb
  1146 0060 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 25
-
-
  1147 0061 3A       		.uleb128 0x3a
  1148 0062 0B       		.uleb128 0xb
  1149 0063 3B       		.uleb128 0x3b
@@ -1459,6 +1498,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1162 0070 3B       		.uleb128 0x3b
  1163 0071 0B       		.uleb128 0xb
  1164 0072 49       		.uleb128 0x49
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 26
+
+
  1165 0073 13       		.uleb128 0x13
  1166 0074 38       		.uleb128 0x38
  1167 0075 0B       		.uleb128 0xb
@@ -1498,9 +1540,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1201 0098 0B       		.uleb128 0xb
  1202 0099 3B       		.uleb128 0x3b
  1203 009a 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 26
-
-
  1204 009b 49       		.uleb128 0x49
  1205 009c 13       		.uleb128 0x13
  1206 009d 02       		.uleb128 0x2
@@ -1519,6 +1558,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1219 00aa 49       		.uleb128 0x49
  1220 00ab 13       		.uleb128 0x13
  1221 00ac 02       		.uleb128 0x2
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 27
+
+
  1222 00ad 17       		.uleb128 0x17
  1223 00ae 00       		.byte	0
  1224 00af 00       		.byte	0
@@ -1558,9 +1600,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1258 00d1 3B       		.uleb128 0x3b
  1259 00d2 0B       		.uleb128 0xb
  1260 00d3 49       		.uleb128 0x49
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 27
-
-
  1261 00d4 13       		.uleb128 0x13
  1262 00d5 02       		.uleb128 0x2
  1263 00d6 18       		.uleb128 0x18
@@ -1579,6 +1618,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1276 00e5 00       		.byte	0
  1277 00e6 12       		.uleb128 0x12
  1278 00e7 8A8201   		.uleb128 0x410a
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 28
+
+
  1279 00ea 00       		.byte	0
  1280 00eb 02       		.uleb128 0x2
  1281 00ec 18       		.uleb128 0x18
@@ -1618,9 +1660,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1315 0113 27       		.uleb128 0x27
  1316 0114 19       		.uleb128 0x19
  1317 0115 49       		.uleb128 0x49
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 28
-
-
  1318 0116 13       		.uleb128 0x13
  1319 0117 11       		.uleb128 0x11
  1320 0118 01       		.uleb128 0x1
@@ -1639,6 +1678,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1333 0126 00       		.byte	0
  1334 0127 03       		.uleb128 0x3
  1335 0128 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 29
+
+
  1336 0129 3A       		.uleb128 0x3a
  1337 012a 0B       		.uleb128 0xb
  1338 012b 3B       		.uleb128 0x3b
@@ -1678,9 +1720,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1372 014d 3F       		.uleb128 0x3f
  1373 014e 19       		.uleb128 0x19
  1374 014f 3C       		.uleb128 0x3c
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 29
-
-
  1375 0150 19       		.uleb128 0x19
  1376 0151 00       		.byte	0
  1377 0152 00       		.byte	0
@@ -1699,6 +1738,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1390 015f 03       		.uleb128 0x3
  1391 0160 0E       		.uleb128 0xe
  1392 0161 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 30
+
+
  1393 0162 0B       		.uleb128 0xb
  1394 0163 3B       		.uleb128 0x3b
  1395 0164 0B       		.uleb128 0xb
@@ -1738,9 +1780,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1429 0186 13       		.uleb128 0x13
  1430 0187 00       		.byte	0
  1431 0188 00       		.byte	0
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 30
-
-
  1432 0189 1D       		.uleb128 0x1d
  1433 018a 18       		.uleb128 0x18
  1434 018b 00       		.byte	0
@@ -1759,6 +1798,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1447 0198 0B       		.uleb128 0xb
  1448 0199 3C       		.uleb128 0x3c
  1449 019a 19       		.uleb128 0x19
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 31
+
+
  1450 019b 01       		.uleb128 0x1
  1451 019c 13       		.uleb128 0x13
  1452 019d 00       		.byte	0
@@ -1798,9 +1840,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1486 01bf 3B       		.uleb128 0x3b
  1487 01c0 0B       		.uleb128 0xb
  1488 01c1 27       		.uleb128 0x27
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 31
-
-
  1489 01c2 19       		.uleb128 0x19
  1490 01c3 3C       		.uleb128 0x3c
  1491 01c4 19       		.uleb128 0x19
@@ -1819,6 +1858,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1504 01d1 0B       		.uleb128 0xb
  1505 01d2 27       		.uleb128 0x27
  1506 01d3 19       		.uleb128 0x19
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 32
+
+
  1507 01d4 49       		.uleb128 0x49
  1508 01d5 13       		.uleb128 0x13
  1509 01d6 3C       		.uleb128 0x3c
@@ -1858,9 +1900,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1543 0045 00000000 		.4byte	0
  1544              	.LLST2:
  1545 0049 5A000000 		.4byte	.LVL10
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 32
-
-
  1546 004d 92000000 		.4byte	.LVL19
  1547 0051 0600     		.2byte	0x6
  1548 0053 54       		.byte	0x54
@@ -1879,6 +1918,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1561 006c 93       		.byte	0x93
  1562 006d 04       		.uleb128 0x4
  1563 006e 51       		.byte	0x51
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 33
+
+
  1564 006f 93       		.byte	0x93
  1565 0070 04       		.uleb128 0x4
  1566 0071 00000000 		.4byte	0
@@ -1918,9 +1960,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1600 00c5 B3000000 		.4byte	.LVL20-1
  1601 00c9 C4000000 		.4byte	.LVL24
  1602 00cd 0100     		.2byte	0x1
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 33
-
-
  1603 00cf 54       		.byte	0x54
  1604 00d0 C4000000 		.4byte	.LVL24
  1605 00d4 CD000000 		.4byte	.LVL25-1
@@ -1939,6 +1978,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1618 00f9 0100     		.2byte	0x1
  1619 00fb 54       		.byte	0x54
  1620 00fc 00000000 		.4byte	0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 34
+
+
  1621 0100 00000000 		.4byte	0
  1622              	.LLST7:
  1623 0104 00000000 		.4byte	.LVL43
@@ -1978,9 +2020,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1657 015d 0A000000 		.4byte	.LVL45
  1658 0161 0100     		.2byte	0x1
  1659 0163 52       		.byte	0x52
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 34
-
-
  1660 0164 0A000000 		.4byte	.LVL45
  1661 0168 2A000000 		.4byte	.LFE64
  1662 016c 0100     		.2byte	0x1
@@ -1999,6 +2038,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1675 018d 55       		.byte	0x55
  1676 018e 00000000 		.4byte	0
  1677 0192 00000000 		.4byte	0
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 35
+
+
  1678              	.LLST11:
  1679 0196 00000000 		.4byte	.LVL51
  1680 019a 0A000000 		.4byte	.LVL53
@@ -2038,9 +2080,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1714 01f3 0100     		.2byte	0x1
  1715 01f5 52       		.byte	0x52
  1716 01f6 0A000000 		.4byte	.LVL53
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 35
-
-
  1717 01fa 38000000 		.4byte	.LFE65
  1718 01fe 0100     		.2byte	0x1
  1719 0200 54       		.byte	0x54
@@ -2059,6 +2098,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1732 0220 00000000 		.4byte	0
  1733 0224 00000000 		.4byte	0
  1734              	.LLST15:
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 36
+
+
  1735 0228 0E000000 		.4byte	.LVL54
  1736 022c 15000000 		.4byte	.LVL55-1
  1737 0230 0100     		.2byte	0x1
@@ -2098,14 +2140,11 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1771 000c 2A000000 		.4byte	.LFE64
  1772 0010 00000000 		.4byte	.LFB65
  1773 0014 38000000 		.4byte	.LFE65
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 36
-
-
  1774 0018 00000000 		.4byte	0
  1775 001c 00000000 		.4byte	0
  1776              		.section	.debug_line,"",%progbits
  1777              	.Ldebug_line0:
- 1778 0000 7E020000 		.section	.debug_str,"MS",%progbits,1
+ 1778 0000 80020000 		.section	.debug_str,"MS",%progbits,1
  1778      0200C501 
  1778      00000201 
  1778      FB0E0D00 
@@ -2119,6 +2158,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1782 000f 55415254 		.ascii	"UART_1_GetChar\000"
  1782      5F315F47 
  1782      65744368 
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 37
+
+
  1782      617200
  1783              	.LASF34:
  1784 001e 6D6F746F 		.ascii	"motor_stop\000"
@@ -2158,9 +2200,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1803              	.LASF27:
  1804 006f 72696768 		.ascii	"rightMotor\000"
  1804      744D6F74 
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 37
-
-
  1804      6F7200
  1805              	.LASF13:
  1806 007a 75696E74 		.ascii	"uint8\000"
@@ -2179,6 +2218,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1811              	.LASF43:
  1812 009f 55415254 		.ascii	"UART_1_PutChar\000"
  1812      5F315F50 
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 38
+
+
  1812      75744368 
  1812      617200
  1813              	.LASF15:
@@ -2218,9 +2260,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1827 012a 7072696E 		.ascii	"printf\000"
  1827      746600
  1828              	.LASF26:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 38
-
-
  1829 0131 6C656674 		.ascii	"leftMotor\000"
  1829      4D6F746F 
  1829      7200
@@ -2239,6 +2278,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1835      726E00
  1836              	.LASF18:
  1837 0160 63796973 		.ascii	"cyisraddress\000"
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 39
+
+
  1837      72616464 
  1837      72657373 
  1837      00
@@ -2278,9 +2320,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1853      00
  1854              	.LASF3:
  1855 01c9 73686F72 		.ascii	"short unsigned int\000"
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 39
-
-
  1855      7420756E 
  1855      7369676E 
  1855      65642069 
@@ -2299,6 +2338,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1860      6973696F 
  1860      6E203232 
  1860      31323230 
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 40
+
+
  1861 0247 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
  1861      66756E63 
  1861      74696F6E 
@@ -2338,9 +2380,6 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1877 02c6 636F756E 		.ascii	"count\000"
  1877      7400
  1878              	.LASF5:
-ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 40
-
-
  1879 02cc 5F5F696E 		.ascii	"__int32_t\000"
  1879      7433325F 
  1879      7400
@@ -2359,6 +2398,9 @@ ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccUivJvc.s 			page 1
  1885      66666572 
  1885      00
  1886              	.LASF37:
+ARM GAS  C:\Users\Mikael\AppData\Local\Temp\ccoHiVNa.s 			page 41
+
+
  1887 02fb 43794465 		.ascii	"CyDelay\000"
  1887      6C617900 
  1888              	.LASF42:

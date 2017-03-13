@@ -46,6 +46,8 @@ int main()
     Counter for start/stop funtion at the start and the finishline
     */
     
+    //int batteryCheckCounter = 0;
+    
     
     for(;;)
     {
@@ -140,7 +142,44 @@ int main()
 //------[5. DRIVE]--------------------------------------------------------------------------------------------------------
         
         motor_turn(leftMotor, rightMotor, 0);
+        
+//------[6. BATTERY CHECK]------------------------------------------------------------------------------------------------
+     
+        /*
+        if(batteryCheckCounter == 1000) {
+            
+            ADC_Battery_StartConvert();
+            if(ADC_Battery_IsEndConversion(ADC_Battery_WAIT_FOR_RESULT)) {
+            
+                float adcResult = ADC_Battery_GetResult16();
+                float valueAD = ((float)adcResult/4095);
+                float voltage = valueAD * 7.5;
+                
+                printf("%f %.02f\r\n", adcResult, voltage);
+                
+                //Checks voltage. If too low, the programm shuts down
+                if(voltage <= 4.0) {
+                
+                    motor_stop();
+                    
+                    printf("******* LOW VOLTAGE ******\n");
+                    
+                    for(;;) {
+                    
+                        BatteryLed_Write(1);
+                        CyDelay(500);
+                        BatteryLed_Write(0);
+                        CyDelay(500);
+                        
+                    }
+                }
+            }
+          batteryCheckCounter = 0;  
+        }
 
+
+    batteryCheckCounter++;
+*/
     }
 }   
 

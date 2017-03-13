@@ -2415,53 +2415,53 @@ END GROUP
  .debug_abbrev  0x00002f45      0x1ed .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CyFlash.o)
  .debug_abbrev  0x00003132      0x1c1 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CySpc.o)
 
-.debug_line     0x00000000     0x44af
+.debug_line     0x00000000     0x44b1
  *(.debug_line)
- .debug_line    0x00000000      0x282 .\CortexM3\ARM_GCC_493\Debug\main.o
- .debug_line    0x00000282      0x16d .\CortexM3\ARM_GCC_493\Debug\Accel.o
- .debug_line    0x000003ef       0xe3 .\CortexM3\ARM_GCC_493\Debug\Ambient.o
- .debug_line    0x000004d2      0x163 .\CortexM3\ARM_GCC_493\Debug\Gyro.o
- .debug_line    0x00000635      0x1b5 .\CortexM3\ARM_GCC_493\Debug\I2C_made.o
- .debug_line    0x000007ea      0x25d .\CortexM3\ARM_GCC_493\Debug\IR.o
- .debug_line    0x00000a47      0x179 .\CortexM3\ARM_GCC_493\Debug\Magnet.o
- .debug_line    0x00000bc0      0x1fa .\CortexM3\ARM_GCC_493\Debug\Motor.o
- .debug_line    0x00000dba      0x1c1 .\CortexM3\ARM_GCC_493\Debug\Nunchuk.o
- .debug_line    0x00000f7b      0x263 .\CortexM3\ARM_GCC_493\Debug\Reflectance.o
- .debug_line    0x000011de      0x206 .\CortexM3\ARM_GCC_493\Debug\Ultra.o
- .debug_line    0x000013e4      0x181 .\CortexM3\ARM_GCC_493\Debug\Beep.o
- .debug_line    0x00001565       0x51 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
- .debug_line    0x000015b6      0x243 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
- .debug_line    0x000017f9      0x20d .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(cyfitter_cfg.o)
- .debug_line    0x00001a06      0x1a7 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(PWM.o)
- .debug_line    0x00001bad       0xd9 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(I2C.o)
- .debug_line    0x00001c86      0x114 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(I2C_INT.o)
- .debug_line    0x00001d9a       0xbb .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(I2C_PM.o)
- .debug_line    0x00001e55      0x1fd .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(I2C_MASTER.o)
- .debug_line    0x00002052      0x816 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CyLib.o)
- .debug_line    0x00002868      0x364 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(cyPm.o)
- .debug_line    0x00002bcc       0x99 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(MotorDirLeft.o)
- .debug_line    0x00002c65       0x9a .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(MotorDirRight.o)
- .debug_line    0x00002cff       0x93 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(IR_led.o)
- .debug_line    0x00002d92      0x137 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(sensor_isr.o)
- .debug_line    0x00002ec9      0x2c0 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(UART_1.o)
- .debug_line    0x00003189       0x98 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(IR_receiver.o)
- .debug_line    0x00003221       0x91 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Trig.o)
- .debug_line    0x000032b2      0x159 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer.o)
- .debug_line    0x0000340b       0x91 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Echo.o)
- .debug_line    0x0000349c      0x136 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(ultra_isr.o)
- .debug_line    0x000035d2      0x17e .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(UART_1_IntClock.o)
- .debug_line    0x00003750      0x13f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Buzzer_PWM.o)
- .debug_line    0x0000388f       0x8f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(L3.o)
- .debug_line    0x0000391e      0x156 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer_L3.o)
- .debug_line    0x00003a74      0x156 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer_R3.o)
- .debug_line    0x00003bca      0x156 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer_R1.o)
- .debug_line    0x00003d20       0x8f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(R1.o)
- .debug_line    0x00003daf       0x8f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(R3.o)
- .debug_line    0x00003e3e      0x156 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer_L1.o)
- .debug_line    0x00003f94       0x8f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(L1.o)
- .debug_line    0x00004023       0x66 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CyBootAsmGnu.o)
- .debug_line    0x00004089      0x1ea .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CyFlash.o)
- .debug_line    0x00004273      0x23c .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CySpc.o)
+ .debug_line    0x00000000      0x284 .\CortexM3\ARM_GCC_493\Debug\main.o
+ .debug_line    0x00000284      0x16d .\CortexM3\ARM_GCC_493\Debug\Accel.o
+ .debug_line    0x000003f1       0xe3 .\CortexM3\ARM_GCC_493\Debug\Ambient.o
+ .debug_line    0x000004d4      0x163 .\CortexM3\ARM_GCC_493\Debug\Gyro.o
+ .debug_line    0x00000637      0x1b5 .\CortexM3\ARM_GCC_493\Debug\I2C_made.o
+ .debug_line    0x000007ec      0x25d .\CortexM3\ARM_GCC_493\Debug\IR.o
+ .debug_line    0x00000a49      0x179 .\CortexM3\ARM_GCC_493\Debug\Magnet.o
+ .debug_line    0x00000bc2      0x1fa .\CortexM3\ARM_GCC_493\Debug\Motor.o
+ .debug_line    0x00000dbc      0x1c1 .\CortexM3\ARM_GCC_493\Debug\Nunchuk.o
+ .debug_line    0x00000f7d      0x263 .\CortexM3\ARM_GCC_493\Debug\Reflectance.o
+ .debug_line    0x000011e0      0x206 .\CortexM3\ARM_GCC_493\Debug\Ultra.o
+ .debug_line    0x000013e6      0x181 .\CortexM3\ARM_GCC_493\Debug\Beep.o
+ .debug_line    0x00001567       0x51 .\CortexM3\ARM_GCC_493\Debug\cymetadata.o
+ .debug_line    0x000015b8      0x243 .\CortexM3\ARM_GCC_493\Debug\Cm3Start.o
+ .debug_line    0x000017fb      0x20d .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(cyfitter_cfg.o)
+ .debug_line    0x00001a08      0x1a7 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(PWM.o)
+ .debug_line    0x00001baf       0xd9 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(I2C.o)
+ .debug_line    0x00001c88      0x114 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(I2C_INT.o)
+ .debug_line    0x00001d9c       0xbb .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(I2C_PM.o)
+ .debug_line    0x00001e57      0x1fd .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(I2C_MASTER.o)
+ .debug_line    0x00002054      0x816 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CyLib.o)
+ .debug_line    0x0000286a      0x364 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(cyPm.o)
+ .debug_line    0x00002bce       0x99 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(MotorDirLeft.o)
+ .debug_line    0x00002c67       0x9a .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(MotorDirRight.o)
+ .debug_line    0x00002d01       0x93 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(IR_led.o)
+ .debug_line    0x00002d94      0x137 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(sensor_isr.o)
+ .debug_line    0x00002ecb      0x2c0 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(UART_1.o)
+ .debug_line    0x0000318b       0x98 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(IR_receiver.o)
+ .debug_line    0x00003223       0x91 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Trig.o)
+ .debug_line    0x000032b4      0x159 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer.o)
+ .debug_line    0x0000340d       0x91 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Echo.o)
+ .debug_line    0x0000349e      0x136 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(ultra_isr.o)
+ .debug_line    0x000035d4      0x17e .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(UART_1_IntClock.o)
+ .debug_line    0x00003752      0x13f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Buzzer_PWM.o)
+ .debug_line    0x00003891       0x8f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(L3.o)
+ .debug_line    0x00003920      0x156 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer_L3.o)
+ .debug_line    0x00003a76      0x156 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer_R3.o)
+ .debug_line    0x00003bcc      0x156 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer_R1.o)
+ .debug_line    0x00003d22       0x8f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(R1.o)
+ .debug_line    0x00003db1       0x8f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(R3.o)
+ .debug_line    0x00003e40      0x156 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(Timer_L1.o)
+ .debug_line    0x00003f96       0x8f .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(L1.o)
+ .debug_line    0x00004025       0x66 .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CyBootAsmGnu.o)
+ .debug_line    0x0000408b      0x1ea .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CyFlash.o)
+ .debug_line    0x00004275      0x23c .\CortexM3\ARM_GCC_493\Debug\ZumoBot.a(CySpc.o)
 
 .debug_frame    0x00000000     0x3898
  *(.debug_frame)
