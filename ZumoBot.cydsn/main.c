@@ -54,6 +54,9 @@ int main()
         
         reflectance_read(&ref);
         reflectance_digital(&dig);
+        
+        // DO NOT REMOVE THESE! Won't work with out them!
+        printf("l3(%d) L1(%d) R1(%d) R3(%d) \r\n", dig.l3, dig.l1, dig.r1, dig.r3);
 
         double infraR = ref.r1 - 3770;
         double infraL = ref.l1 - 3770;
@@ -63,15 +66,19 @@ int main()
         // Convert speeds to int
         int leftMotor = (int) leftMotorRaw;
         int rightMotor = (int) rightMotorRaw;
+        
+        
             
 //------[2. STOPPING AT LINES]----------------------------------------------------------------------------------------------
 
         // Used for the start and the end of the race.
-
+        
+        
         if (dig.l3 == 0 && dig.l1 == 0 && dig.r1 == 0 && dig.r3 == 0) {
-
+            
             if(kmk == 0) /* First black line = START */ {
                 motor_stop();
+                printf("KMK ACTIVATED\n");
                 wait_going_down(); // Waits for the command from the remote control
                 motor_start();
             } else if (kmk == 2) /* Third black line = GOAL */ {
@@ -84,6 +91,7 @@ int main()
             motor_turn(leftMotor, rightMotor, 0);
             
         }
+    
 
 //------[3. HARD TURN]------------------------------------------------------------------------------------------------------      
 /*
